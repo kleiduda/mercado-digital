@@ -41,6 +41,7 @@ namespace Views
             {
                 dgvItens.Visible = true;
                 PesquisaProduto();
+                //
             }
         }
     }
