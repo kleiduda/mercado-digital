@@ -40,10 +40,6 @@
             this.btnNotification = new System.Windows.Forms.PictureBox();
             this.btnUser = new System.Windows.Forms.PictureBox();
             this.btnConfig = new System.Windows.Forms.PictureBox();
-            this.btnRelatorios = new System.Windows.Forms.Button();
-            this.btnCadastros = new System.Windows.Forms.Button();
-            this.btnVendas = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.imageLogo = new System.Windows.Forms.PictureBox();
             this.pProduct = new System.Windows.Forms.Panel();
             this.dgvItens = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -70,6 +66,7 @@
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.pCupom = new System.Windows.Forms.Panel();
+            this.dgvCupom = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pTotal = new System.Windows.Forms.Panel();
@@ -79,7 +76,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.dgvCupom = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUser)).BeginInit();
@@ -90,24 +93,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.pCupom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCupom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pTotal.SuspendLayout();
             this.pHeaderCupom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCupom)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pHeader
             // 
             this.pHeader.BackColor = System.Drawing.Color.White;
             this.pHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pHeader.Controls.Add(this.menuStrip2);
             this.pHeader.Controls.Add(this.btnNotification);
             this.pHeader.Controls.Add(this.btnUser);
             this.pHeader.Controls.Add(this.btnConfig);
-            this.pHeader.Controls.Add(this.btnRelatorios);
-            this.pHeader.Controls.Add(this.btnCadastros);
-            this.pHeader.Controls.Add(this.btnVendas);
-            this.pHeader.Controls.Add(this.btnDashboard);
             this.pHeader.Controls.Add(this.imageLogo);
+            this.pHeader.Controls.Add(this.menuStrip1);
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Name = "pHeader";
@@ -143,54 +146,6 @@
             this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnConfig.TabIndex = 5;
             this.btnConfig.TabStop = false;
-            // 
-            // btnRelatorios
-            // 
-            this.btnRelatorios.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnRelatorios.FlatAppearance.BorderSize = 0;
-            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Location = new System.Drawing.Point(313, 0);
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(71, 42);
-            this.btnRelatorios.TabIndex = 4;
-            this.btnRelatorios.Text = "Relatorios";
-            this.btnRelatorios.UseVisualStyleBackColor = true;
-            // 
-            // btnCadastros
-            // 
-            this.btnCadastros.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCadastros.FlatAppearance.BorderSize = 0;
-            this.btnCadastros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastros.Location = new System.Drawing.Point(242, 0);
-            this.btnCadastros.Name = "btnCadastros";
-            this.btnCadastros.Size = new System.Drawing.Size(71, 42);
-            this.btnCadastros.TabIndex = 3;
-            this.btnCadastros.Text = "Cadastros";
-            this.btnCadastros.UseVisualStyleBackColor = true;
-            // 
-            // btnVendas
-            // 
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Location = new System.Drawing.Point(190, 0);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Size = new System.Drawing.Size(52, 42);
-            this.btnVendas.TabIndex = 2;
-            this.btnVendas.Text = "Vendas";
-            this.btnVendas.UseVisualStyleBackColor = true;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Location = new System.Drawing.Point(114, 0);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(76, 42);
-            this.btnDashboard.TabIndex = 1;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
             // 
             // imageLogo
             // 
@@ -564,6 +519,67 @@
             this.pCupom.Size = new System.Drawing.Size(498, 513);
             this.pCupom.TabIndex = 139;
             // 
+            // dgvCupom
+            // 
+            this.dgvCupom.AllowUserToAddRows = false;
+            this.dgvCupom.AllowUserToDeleteRows = false;
+            this.dgvCupom.AllowUserToOrderColumns = true;
+            this.dgvCupom.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCupom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCupom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCupom.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCupom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCupom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCupom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvCupom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCupom.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvCupom.DoubleBuffered = true;
+            this.dgvCupom.EnableHeadersVisualStyles = false;
+            this.dgvCupom.GridColor = System.Drawing.Color.White;
+            this.dgvCupom.HeaderBgColor = System.Drawing.Color.White;
+            this.dgvCupom.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvCupom.Location = new System.Drawing.Point(7, 39);
+            this.dgvCupom.MultiSelect = false;
+            this.dgvCupom.Name = "dgvCupom";
+            this.dgvCupom.ReadOnly = true;
+            this.dgvCupom.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCupom.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvCupom.RowHeadersVisible = false;
+            this.dgvCupom.RowHeadersWidth = 62;
+            this.dgvCupom.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dgvCupom.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCupom.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvCupom.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
+            this.dgvCupom.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCupom.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCupom.RowTemplate.Height = 40;
+            this.dgvCupom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCupom.Size = new System.Drawing.Size(488, 415);
+            this.dgvCupom.TabIndex = 148;
+            this.dgvCupom.Visible = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -664,66 +680,73 @@
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
-            // dgvCupom
+            // menuStrip1
             // 
-            this.dgvCupom.AllowUserToAddRows = false;
-            this.dgvCupom.AllowUserToDeleteRows = false;
-            this.dgvCupom.AllowUserToOrderColumns = true;
-            this.dgvCupom.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCupom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvCupom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCupom.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCupom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCupom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCupom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvCupom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCupom.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvCupom.DoubleBuffered = true;
-            this.dgvCupom.EnableHeadersVisualStyles = false;
-            this.dgvCupom.GridColor = System.Drawing.Color.White;
-            this.dgvCupom.HeaderBgColor = System.Drawing.Color.White;
-            this.dgvCupom.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvCupom.Location = new System.Drawing.Point(7, 39);
-            this.dgvCupom.MultiSelect = false;
-            this.dgvCupom.Name = "dgvCupom";
-            this.dgvCupom.ReadOnly = true;
-            this.dgvCupom.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCupom.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvCupom.RowHeadersVisible = false;
-            this.dgvCupom.RowHeadersWidth = 62;
-            this.dgvCupom.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dgvCupom.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCupom.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvCupom.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
-            this.dgvCupom.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCupom.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvCupom.RowTemplate.Height = 40;
-            this.dgvCupom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCupom.Size = new System.Drawing.Size(488, 415);
-            this.dgvCupom.TabIndex = 148;
-            this.dgvCupom.Visible = false;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrosToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(137, 12);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(84, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(230, 12);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(199, 24);
+            this.menuStrip2.TabIndex = 9;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
+            this.toolStripMenuItem1.Text = "Cadastros";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripMenuItem2.Image = global::Views.Properties.Resources.Asset_1sino;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Produtos";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripMenuItem3.Image = global::Views.Properties.Resources.Asset_1user;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Clientes";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.BackColor = System.Drawing.Color.White;
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripMenuItem4.Image = global::Views.Properties.Resources.Asset_1user;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "Vendedores";
+            // 
+            // cadastrosToolStripMenuItem
+            // 
+            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.cadastrosToolStripMenuItem.Text = "Dashboard";
             // 
             // FormPDV
             // 
@@ -735,11 +758,13 @@
             this.Controls.Add(this.pProduct);
             this.Controls.Add(this.pHeader);
             this.Controls.Add(this.bunifuSeparator1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPDV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormPDV_Load);
             this.pHeader.ResumeLayout(false);
+            this.pHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
@@ -752,12 +777,16 @@
             this.panel1.PerformLayout();
             this.pCupom.ResumeLayout(false);
             this.pCupom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCupom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pTotal.ResumeLayout(false);
             this.pTotal.PerformLayout();
             this.pHeaderCupom.ResumeLayout(false);
             this.pHeaderCupom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCupom)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -767,10 +796,6 @@
         private System.Windows.Forms.Panel pHeader;
         private System.Windows.Forms.PictureBox imageLogo;
         private System.Windows.Forms.PictureBox btnConfig;
-        private System.Windows.Forms.Button btnRelatorios;
-        private System.Windows.Forms.Button btnCadastros;
-        private System.Windows.Forms.Button btnVendas;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.PictureBox btnNotification;
         private System.Windows.Forms.PictureBox btnUser;
         private System.Windows.Forms.Panel pProduct;
@@ -808,6 +833,13 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvItens;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCupom;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
     }
 }
 
