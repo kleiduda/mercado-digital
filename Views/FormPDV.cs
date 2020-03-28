@@ -26,12 +26,10 @@ namespace Views
         {
             txtPesquisaProduto.Focus();
             ListarProdutos();
-            
         }
         private void ListarProdutos()
         {
             dgvItens.DataSource = BusinesProduto.ListarProdutos();
-
         }
         private void PesquisaProduto()
         {
@@ -67,7 +65,12 @@ namespace Views
                 PesquisaProduto();
             }
         }
-
+        //metodo de calculo subtotal
+        private void CalculoSubtotal()
+        {
+            decimal subTotal = Convert.ToDecimal(txtQuantidade.Text) * Convert.ToDecimal(txtValorUnitario.Text);
+            txtSubTotal.Text = Convert.ToString(subTotal);
+        }
         private void dgvItens_Click(object sender, EventArgs e)
         {
             PreencherProduto();
@@ -78,8 +81,12 @@ namespace Views
             txtValorUnitario.Text = lblValor.Text;
 
             //calculando o subtotal
-            decimal subTotal =  Convert.ToDecimal(txtQuantidade.Text) * Convert.ToDecimal(txtValorUnitario.Text);
-            txtSubTotal.Text = Convert.ToString(subTotal);
+            CalculoSubtotal();
+        }
+
+        private void txtQuantidade_Leave(object sender, EventArgs e)
+        {
+            CalculoSubtotal();
         }
     }
 }

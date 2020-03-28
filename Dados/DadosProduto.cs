@@ -83,7 +83,7 @@ namespace Dados
             try
             {
                 Comando.Connection = Con.OpenConection();
-                Comando.CommandText = "ListarProduto";
+                Comando.CommandText = "ListarProdutos";
                 Comando.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
