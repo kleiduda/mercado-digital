@@ -10,7 +10,7 @@ namespace Busines
 {
    public class BusinesProduto
     {
-        public string InsertRegister(string codigo, string ean, string descricao, decimal preco, decimal precoPromocional, int idCategoria, string image)
+        public static string InsertRegister(string codigo, string ean, string descricao, decimal preco, decimal precoPromocional, int idCategoria, string image, string embalagem, int estoque)
         {
             DadosProduto obj = new DadosProduto();
             obj.Codigo = codigo;
@@ -20,8 +20,28 @@ namespace Busines
             obj.PrecoPromocional = precoPromocional;
             obj.IdCategoria = idCategoria;
             obj.Imagem = image;
+            obj.Embalagem = embalagem;
+            obj.Estoque = estoque;
 
             return obj.InsertRegister(obj);
+        }
+        //editando o produto
+        public static string Editar(int idProduto, string codigo, string ean, string descricao, decimal preco, decimal precoPromocional, int idcategoria, string imagem, string embalagem, int estoque)
+        {
+            DadosProduto obj = new DadosProduto();
+            obj.IdProduto = idProduto;
+            obj.Codigo = codigo;
+            obj.EAN = ean;
+            obj.Descricao = descricao;
+            obj.Preco = preco;
+            obj.PrecoPromocional = precoPromocional;
+            obj.IdCategoria = idcategoria;
+            obj.Imagem = imagem;
+            obj.Embalagem = embalagem;
+            obj.Estoque = estoque;
+
+            return obj.Editar(obj);
+
         }
         //listando os produtos
         public static DataTable ListarProdutos()
@@ -34,6 +54,15 @@ namespace Busines
             DadosProduto obj = new DadosProduto();
             obj.TxtPesquisa = searchText;
             return obj.PesquisaProduto(obj);
+        }
+        //verificando se o produto ja esta cadastrado
+        public static bool ValidaProduto(string codigo)
+        {
+            DadosProduto obj = new DadosProduto();
+            obj.Codigo = codigo;
+
+            return obj.Validate(obj);
+
         }
     }
 }

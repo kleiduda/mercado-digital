@@ -51,6 +51,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormImportProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportProduto.Designer.cs">
+      <DependentUpon>FormImportProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastroProduto.Designer.cs">
+      <DependentUpon>FormCadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +77,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCadastroProduto.resx">
+      <DependentUpon>FormCadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportProduto.resx">
+      <DependentUpon>FormImportProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPDV.resx">
       <DependentUpon>FormPDV.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Asset 2loja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 1import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload-arquivo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

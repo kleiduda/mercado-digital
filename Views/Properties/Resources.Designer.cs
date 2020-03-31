@@ -93,6 +93,16 @@ namespace Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Asset_1import {
+            get {
+                object obj = ResourceManager.GetObject("Asset 1import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Asset_1sino {
             get {
                 object obj = ResourceManager.GetObject("Asset 1sino", resourceCulture);
@@ -126,6 +136,16 @@ namespace Views.Properties {
         internal static System.Drawing.Bitmap PDV2 {
             get {
                 object obj = ResourceManager.GetObject("PDV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_arquivo {
+            get {
+                object obj = ResourceManager.GetObject("upload-arquivo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
