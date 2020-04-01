@@ -13,6 +13,7 @@ namespace Dados
         public string serverConection { get; set; }
 
         static private string ServerConexao = @"Server=DESKTOP-O47R53V\SQLEXPRESS; DataBase=dbMercado; Integrated Security=true";
+        //static private string ServerConexao = @"Server=DESKTOP-5VS441O\SQLEXPRESS; DataBase=dbMercado; Integrated Security=true";
         //static private string ServerConexao = @"Data Source=170.81.41.175,1433;Network Library=DBMSSOCN;Initial Catalog=dbStudio;User ID=root;Password=Alliance@2020; ";
         private SqlConnection Conexao = new SqlConnection(ServerConexao);
 

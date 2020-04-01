@@ -95,6 +95,17 @@ namespace Views
             txtEmbalagem.TabIndex = 7;
             btnSalvar.TabIndex = 8;
         }
+        //limpar campos
+        private void Limpar()
+        {
+            txtCodigo.Clear();
+            txtDescricao.Clear();
+            txtEAN.Clear();
+            txtEmbalagem.Clear();
+            txtPreco.Clear();
+            txtPrecoPromocional.Clear();
+            txtEstoque.Clear();
+        }
         //cadastro do produto
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -160,6 +171,8 @@ namespace Views
                     }
 
                     IsNew = true;
+                    Limpar();
+                    txtCodigo.Focus();
 
                 }
             }
