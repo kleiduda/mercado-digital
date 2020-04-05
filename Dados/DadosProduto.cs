@@ -9,7 +9,7 @@ using Microsoft.SqlServer.Server;
 
 namespace Dados
 {
-    public class DadosProduto
+    public class DadosProduto : Connection
     {
         public int IdProduto { get; set; }
         public string Codigo { get; set; }
@@ -24,13 +24,13 @@ namespace Dados
         public string TxtPesquisa { get; set; }
         //estoque
         public int Estoque { get; set; }
-        
+
         public DadosProduto()
         {
 
         }
 
-        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal preco, decimal precoPromocional, 
+        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal preco, decimal precoPromocional,
             int idCategoria, string imagem, string embalagem, DateTime dataEntrada, string txtPesquisa, int estoque)
         {
             IdProduto = idProduto;
@@ -46,9 +46,9 @@ namespace Dados
             TxtPesquisa = txtPesquisa;
             //estoque
             Estoque = estoque;
-           
+
         }
-        protected Connection Con = new Connection();
+
         protected SqlCommand Comando = new SqlCommand();
         protected SqlDataReader dr;
 
@@ -56,50 +56,52 @@ namespace Dados
         public string InsertRegister(DadosProduto Produto)
         {
             string rpta = "";
-            try
+            using (var connection = GetConnection())
             {
-                Comando.Connection = Con.OpenConection();
-                Comando.CommandText = "CadastroProduto";
-                Comando.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    connection.Open();
+                    Comando.CommandText = "CadastroProduto";
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter parIdProduto = new SqlParameter();
-                parIdProduto.ParameterName = "@id_produto";
-                parIdProduto.SqlDbType = SqlDbType.Int;
-                parIdProduto.Value = Produto.IdProduto;
-                parIdProduto.Direction = ParameterDirection.Output;
-                Comando.Parameters.Add(parIdProduto);
+                    SqlParameter parIdProduto = new SqlParameter();
+                    parIdProduto.ParameterName = "@id_produto";
+                    parIdProduto.SqlDbType = SqlDbType.Int;
+                    parIdProduto.Value = Produto.IdProduto;
+                    parIdProduto.Direction = ParameterDirection.Output;
+                    Comando.Parameters.Add(parIdProduto);
 
-                Comando.Parameters.AddWithValue("@codigo", Produto.Codigo);
-                Comando.Parameters.AddWithValue("@ean", Produto.EAN);
-                Comando.Parameters.AddWithValue("@descricao", Produto.Descricao);
-                Comando.Parameters.AddWithValue("@preco", Produto.Preco);
-                Comando.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
-                Comando.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
-                Comando.Parameters.AddWithValue("@imagem", Produto.Imagem);
-                Comando.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
-                Comando.Parameters.AddWithValue("@estoque", Produto.Estoque);
-                
-                rpta = Comando.ExecuteNonQuery() == 2 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
+                    Comando.Parameters.AddWithValue("@codigo", Produto.Codigo);
+                    Comando.Parameters.AddWithValue("@ean", Produto.EAN);
+                    Comando.Parameters.AddWithValue("@descricao", Produto.Descricao);
+                    Comando.Parameters.AddWithValue("@preco", Produto.Preco);
+                    Comando.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
+                    Comando.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
+                    Comando.Parameters.AddWithValue("@imagem", Produto.Imagem);
+                    Comando.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
+                    Comando.Parameters.AddWithValue("@estoque", Produto.Estoque);
+
+                    rpta = Comando.ExecuteNonQuery() == 2 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
+
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message;
+
+                }
+            }
                
-            }
-            catch (Exception ex)
-            {
-                rpta = ex.Message;
-
-            }
-            finally
-            {
-                Con.ClosedConection();
-            }
+           
             return rpta;
         }
         //Editar o Produto
         public string Editar(DadosProduto Produto)
         {
             string rpta = "";
+            var connection = GetConnection();
             try
             {
-                Comando.Connection = Con.OpenConection();
+                connection.Open();
                 Comando.CommandText = "UpdateProduto";
                 Comando.CommandType = CommandType.StoredProcedure;
 
@@ -124,7 +126,7 @@ namespace Dados
             }
             finally
             {
-                Con.ClosedConection();
+                connection.Close();
             }
             return rpta;
         }
@@ -132,70 +134,88 @@ namespace Dados
         public DataTable ListarProdutos()
         {
             DataTable DtResult = new DataTable("produto");
-            try
-            {
-                Comando.Connection = Con.OpenConection();
-                Comando.CommandText = "ListarProdutos";
-                Comando.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
-                SqlDat.Fill(DtResult);
-
-            }
-            catch (Exception ex)
+            using (var connection = GetConnection())
             {
-                DtResult = null;
+                try
+                {
+                    connection.Open();
+                    Comando.CommandText = "ListarProdutos";
+                    Comando.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
+                    SqlDat.Fill(DtResult);
+
+                }
+                catch (Exception ex)
+                {
+                    DtResult = null;
+                }
+                return DtResult;
             }
-            return DtResult;
+
         }
         //pesquisando
         public DataTable PesquisaProduto(DadosProduto Produto)
         {
             DataTable DtResultado = new DataTable("product");
-            try
+            using (var connection = GetConnection())
             {
-                Comando.Connection = Con.OpenConection();
-                Comando.CommandText = "PesquisaProduto";
-                Comando.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    connection.Open();
+                    Comando.CommandText = "PesquisaProduto";
+                    Comando.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter parPesquisaProduto = new SqlParameter();
-                parPesquisaProduto.ParameterName = "@search_text";
-                parPesquisaProduto.SqlDbType = SqlDbType.VarChar;
-                parPesquisaProduto.Size = 50;
-                parPesquisaProduto.Value = Produto.TxtPesquisa;
-                Comando.Parameters.Add(parPesquisaProduto);
+                    SqlParameter parPesquisaProduto = new SqlParameter();
+                    parPesquisaProduto.ParameterName = "@search_text";
+                    parPesquisaProduto.SqlDbType = SqlDbType.VarChar;
+                    parPesquisaProduto.Size = 50;
+                    parPesquisaProduto.Value = Produto.TxtPesquisa;
+                    Comando.Parameters.Add(parPesquisaProduto);
 
-                SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
-                SqlDat.Fill(DtResultado);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
+                    SqlDat.Fill(DtResultado);
 
-                Comando.Parameters.Clear();
+                    Comando.Parameters.Clear();
+                }
+                catch (Exception ex)
+                {
+                    DtResultado = null;
+                }
+                return DtResultado;
             }
-            catch (Exception ex)
-            {
-                DtResultado = null;
-            }
-            return DtResultado;
+
         }
         //verificando se o produto ja esta cadastrado
         public bool Validate(DadosProduto Produto)
         {
-            Comando.Connection = Con.OpenConection();
-            Comando.CommandText = "SELECT codigo FROM tb_produto WHERE codigo = @codigo";
-            Comando.CommandType = CommandType.Text;
-
-            SqlParameter ParCode = new SqlParameter();
-            ParCode.ParameterName = "@codigo";
-            ParCode.Value = Produto.Codigo;
-            ParCode.SqlDbType = SqlDbType.VarChar;
-            ParCode.Size = 50;
-            Comando.Parameters.Add(ParCode);
-
-            var result = Comando.ExecuteScalar();
-            if (result != null)
+            using (var connection = GetConnection())
             {
-                return true;
+                try
+                {
+                    connection.Open();
+                    Comando.CommandText = "SELECT codigo FROM tb_produto WHERE codigo = @codigo";
+                    Comando.CommandType = CommandType.Text;
+
+                    SqlParameter ParCode = new SqlParameter();
+                    ParCode.ParameterName = "@codigo";
+                    ParCode.Value = Produto.Codigo;
+                    ParCode.SqlDbType = SqlDbType.VarChar;
+                    ParCode.Size = 50;
+                    Comando.Parameters.Add(ParCode);
+                    var result = Comando.ExecuteScalar();
+                    if (result != null)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+                return false;
             }
-            return false;
         }
     }
 }

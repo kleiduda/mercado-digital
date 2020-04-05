@@ -8,7 +8,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Supporte.Cache;
 using Busines;
+
 
 namespace Views
 {
@@ -24,7 +26,12 @@ namespace Views
 
         private void Formdashboard_Load(object sender, EventArgs e)
         {
-            
+            LoadData();
+        }
+        private void LoadData()
+        {
+            lblLogin.Text = "Olá, " + UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
+            lblCargo.Text = UserLoginCache.Cargo;
         }
         private void OpenFormPanel(object form)
         {
@@ -49,10 +56,20 @@ namespace Views
             frm.Show();
         }
 
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        private void frenteDeCaixaPDVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPDV frm = new FormPDV();
             frm.Show();
         }
+
+        private void nomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente encerrar a seção?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        
     }
 }
