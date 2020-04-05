@@ -69,6 +69,12 @@
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormImportProduto.resx">
       <DependentUpon>FormImportProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPDV.resx">
       <DependentUpon>FormPDV.cs</DependentUpon>
@@ -117,6 +126,10 @@
       <Project>{e446178d-ad81-4d96-bb24-4f47f6a9a09b}</Project>
       <Name>Busines</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Supporte\Supporte.csproj">
+      <Project>{d45b9dbb-391b-4333-ab69-3e0d8b086d60}</Project>
+      <Name>Supporte</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PDV2.jpg" />
@@ -144,6 +157,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\upload-arquivo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 1logo_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forbidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 3storePDV.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

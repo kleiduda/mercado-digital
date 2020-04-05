@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Dados
 {
-    public class DadosConfig
+    public class DadosConfig : Connection
     {
         public string PatchImage { get; set; }
 
@@ -19,27 +19,50 @@ namespace Dados
             PatchImage = patchImage;
         }
 
-        protected Connection Con = new Connection();
+        // protected Connection Con = new Connection();
         protected SqlCommand Comando = new SqlCommand();
         protected SqlDataReader LerLinhas;
 
         public DataTable Config()
         {
-            DataTable dtResult = new DataTable("path");
-            try
+            using (var connection = GetConnection())
             {
-                Comando.Connection = Con.OpenConection();
-                Comando.CommandText = "SELECT * FROM tb_configuracoes";
-                Comando.CommandType = CommandType.Text;
+                DataTable dtResult = new DataTable("path");
+                try
+                {
+                    connection.Open();
+                    Comando.CommandText = "SELECT * FROM tb_configuracoes";
+                    Comando.CommandType = CommandType.Text;
 
-                SqlDataAdapter sqlData = new SqlDataAdapter(Comando);
-                sqlData.Fill(dtResult);
+                    SqlDataAdapter sqlData = new SqlDataAdapter(Comando);
+                    sqlData.Fill(dtResult);
+                }
+                catch (Exception ex)
+                {
+                    dtResult = null;
+                }
+                return dtResult;
             }
-            catch (Exception ex)
-            {
-                dtResult = null;
-            }
-            return dtResult;
+
         }
+        //public DataTable Config()
+        //{
+        //    var connection = GetConnection();
+        //    DataTable dtResult = new DataTable("path");
+        //    try
+        //    {
+
+        //        Comando.CommandText = "SELECT * FROM tb_configuracoes";
+        //        Comando.CommandType = CommandType.Text;
+
+        //        SqlDataAdapter sqlData = new SqlDataAdapter(Comando);
+        //        sqlData.Fill(dtResult);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        dtResult = null;
+        //    }
+        //    return dtResult;
+        //}
     }
 }

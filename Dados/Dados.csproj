@@ -44,7 +44,14 @@
     <Compile Include="Connection.cs" />
     <Compile Include="DadosConfig.cs" />
     <Compile Include="DadosProduto.cs" />
+    <Compile Include="DadosUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Supporte\Supporte.csproj">
+      <Project>{d45b9dbb-391b-4333-ab69-3e0d8b086d60}</Project>
+      <Name>Supporte</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,12 +43,17 @@
   <ItemGroup>
     <Compile Include="BusinesConfig.cs" />
     <Compile Include="BusinesProduto.cs" />
+    <Compile Include="BusinesUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dados\Dados.csproj">
       <Project>{68e10e0d-4e1b-4fa4-86f6-486408032575}</Project>
       <Name>Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Supporte\Supporte.csproj">
+      <Project>{d45b9dbb-391b-4333-ab69-3e0d8b086d60}</Project>
+      <Name>Supporte</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

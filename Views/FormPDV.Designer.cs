@@ -36,22 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pHeader = new System.Windows.Forms.Panel();
-            this.menuStrip4 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNotification = new System.Windows.Forms.PictureBox();
-            this.btnUser = new System.Windows.Forms.PictureBox();
-            this.btnConfig = new System.Windows.Forms.PictureBox();
-            this.imageLogo = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pProduct = new System.Windows.Forms.Panel();
             this.dgvItens = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.btnSave = new System.Windows.Forms.Button();
@@ -87,15 +71,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.pHeader.SuspendLayout();
-            this.menuStrip4.SuspendLayout();
-            this.menuStrip3.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.pProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,167 +81,6 @@
             this.pTotal.SuspendLayout();
             this.pHeaderCupom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pHeader
-            // 
-            this.pHeader.BackColor = System.Drawing.Color.White;
-            this.pHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pHeader.Controls.Add(this.menuStrip4);
-            this.pHeader.Controls.Add(this.menuStrip3);
-            this.pHeader.Controls.Add(this.menuStrip2);
-            this.pHeader.Controls.Add(this.btnNotification);
-            this.pHeader.Controls.Add(this.btnUser);
-            this.pHeader.Controls.Add(this.btnConfig);
-            this.pHeader.Controls.Add(this.imageLogo);
-            this.pHeader.Controls.Add(this.menuStrip1);
-            this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pHeader.Location = new System.Drawing.Point(0, 0);
-            this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1000, 44);
-            this.pHeader.TabIndex = 0;
-            // 
-            // menuStrip4
-            // 
-            this.menuStrip4.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6});
-            this.menuStrip4.Location = new System.Drawing.Point(390, 12);
-            this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(79, 24);
-            this.menuStrip4.TabIndex = 11;
-            this.menuStrip4.Text = "menuStrip4";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(71, 20);
-            this.toolStripMenuItem6.Text = "Relatorios";
-            // 
-            // menuStrip3
-            // 
-            this.menuStrip3.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5});
-            this.menuStrip3.Location = new System.Drawing.Point(318, 12);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(64, 24);
-            this.menuStrip3.TabIndex = 10;
-            this.menuStrip3.Text = "menuStrip3";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(56, 20);
-            this.toolStripMenuItem5.Text = "Vendas";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip2.Location = new System.Drawing.Point(230, 12);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(79, 24);
-            this.menuStrip2.TabIndex = 9;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
-            this.toolStripMenuItem1.Text = "Cadastros";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem2.Image = global::Views.Properties.Resources.Asset_1sino;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(142, 22);
-            this.toolStripMenuItem2.Text = "Produtos";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem3.Image = global::Views.Properties.Resources.Asset_1user;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(142, 22);
-            this.toolStripMenuItem3.Text = "Clientes";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.BackColor = System.Drawing.Color.White;
-            this.toolStripMenuItem4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripMenuItem4.Image = global::Views.Properties.Resources.Asset_1user;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(142, 22);
-            this.toolStripMenuItem4.Text = "Vendedores";
-            // 
-            // btnNotification
-            // 
-            this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
-            this.btnNotification.Location = new System.Drawing.Point(945, 12);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(20, 20);
-            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnNotification.TabIndex = 7;
-            this.btnNotification.TabStop = false;
-            // 
-            // btnUser
-            // 
-            this.btnUser.Image = global::Views.Properties.Resources.Asset_1user;
-            this.btnUser.Location = new System.Drawing.Point(971, 12);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(20, 20);
-            this.btnUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnUser.TabIndex = 6;
-            this.btnUser.TabStop = false;
-            // 
-            // btnConfig
-            // 
-            this.btnConfig.Image = global::Views.Properties.Resources.Asset_11;
-            this.btnConfig.Location = new System.Drawing.Point(919, 12);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(20, 20);
-            this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnConfig.TabIndex = 5;
-            this.btnConfig.TabStop = false;
-            // 
-            // imageLogo
-            // 
-            this.imageLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.imageLogo.Image = global::Views.Properties.Resources.Asset_1;
-            this.imageLogo.Location = new System.Drawing.Point(0, 0);
-            this.imageLogo.Name = "imageLogo";
-            this.imageLogo.Size = new System.Drawing.Size(114, 42);
-            this.imageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imageLogo.TabIndex = 0;
-            this.imageLogo.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(137, 12);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(84, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // cadastrosToolStripMenuItem
-            // 
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.cadastrosToolStripMenuItem.Text = "Dashboard";
             // 
             // pProduct
             // 
@@ -291,9 +105,10 @@
             this.pProduct.Controls.Add(this.lblCodeBar);
             this.pProduct.Controls.Add(this.panel1);
             this.pProduct.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pProduct.Location = new System.Drawing.Point(0, 44);
+            this.pProduct.Location = new System.Drawing.Point(0, 0);
+            this.pProduct.Margin = new System.Windows.Forms.Padding(4);
             this.pProduct.Name = "pProduct";
-            this.pProduct.Size = new System.Drawing.Size(496, 513);
+            this.pProduct.Size = new System.Drawing.Size(661, 686);
             this.pProduct.TabIndex = 1;
             // 
             // dgvItens
@@ -330,7 +145,8 @@
             this.dgvItens.GridColor = System.Drawing.Color.White;
             this.dgvItens.HeaderBgColor = System.Drawing.Color.White;
             this.dgvItens.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvItens.Location = new System.Drawing.Point(13, 131);
+            this.dgvItens.Location = new System.Drawing.Point(17, 161);
+            this.dgvItens.Margin = new System.Windows.Forms.Padding(4);
             this.dgvItens.MultiSelect = false;
             this.dgvItens.Name = "dgvItens";
             this.dgvItens.ReadOnly = true;
@@ -353,7 +169,7 @@
             this.dgvItens.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvItens.RowTemplate.Height = 40;
             this.dgvItens.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItens.Size = new System.Drawing.Size(469, 166);
+            this.dgvItens.Size = new System.Drawing.Size(625, 204);
             this.dgvItens.TabIndex = 147;
             this.dgvItens.Visible = false;
             this.dgvItens.Click += new System.EventHandler(this.dgvItens_Click);
@@ -365,9 +181,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(255, 479);
+            this.btnSave.Location = new System.Drawing.Point(340, 590);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(230, 24);
+            this.btnSave.Size = new System.Drawing.Size(307, 30);
             this.btnSave.TabIndex = 137;
             this.btnSave.Text = "FECHAR VENDA";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -379,9 +196,10 @@
             this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarVenda.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarVenda.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarVenda.Location = new System.Drawing.Point(12, 479);
+            this.btnCancelarVenda.Location = new System.Drawing.Point(16, 590);
+            this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarVenda.Name = "btnCancelarVenda";
-            this.btnCancelarVenda.Size = new System.Drawing.Size(230, 24);
+            this.btnCancelarVenda.Size = new System.Drawing.Size(307, 30);
             this.btnCancelarVenda.TabIndex = 136;
             this.btnCancelarVenda.Text = "CANCELAR VENDA";
             this.btnCancelarVenda.UseVisualStyleBackColor = false;
@@ -393,9 +211,10 @@
             this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInserir.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInserir.ForeColor = System.Drawing.Color.White;
-            this.btnInserir.Location = new System.Drawing.Point(366, 417);
+            this.btnInserir.Location = new System.Drawing.Point(488, 513);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(4);
             this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(119, 24);
+            this.btnInserir.Size = new System.Drawing.Size(159, 30);
             this.btnInserir.TabIndex = 135;
             this.btnInserir.Text = "INSERIR";
             this.btnInserir.UseVisualStyleBackColor = false;
@@ -404,9 +223,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(383, 311);
+            this.label4.Location = new System.Drawing.Point(511, 408);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 11);
+            this.label4.Size = new System.Drawing.Size(57, 14);
             this.label4.TabIndex = 134;
             this.label4.Text = "Sub Total";
             // 
@@ -414,9 +234,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(261, 311);
+            this.label3.Location = new System.Drawing.Point(348, 408);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 11);
+            this.label3.Size = new System.Drawing.Size(80, 14);
             this.label3.TabIndex = 133;
             this.label3.Text = "Valor Unitario";
             // 
@@ -424,9 +245,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(136, 311);
+            this.label2.Location = new System.Drawing.Point(181, 408);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 11);
+            this.label2.Size = new System.Drawing.Size(59, 14);
             this.label2.TabIndex = 132;
             this.label2.Text = "Desconto";
             // 
@@ -434,9 +256,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(13, 311);
+            this.label1.Location = new System.Drawing.Point(17, 408);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 11);
+            this.label1.Size = new System.Drawing.Size(69, 14);
             this.label1.TabIndex = 131;
             this.label1.Text = "Quantidade";
             // 
@@ -446,10 +269,11 @@
             this.txtSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSubTotal.Font = new System.Drawing.Font("Arial", 10F);
             this.txtSubTotal.ForeColor = System.Drawing.Color.Black;
-            this.txtSubTotal.Location = new System.Drawing.Point(385, 323);
+            this.txtSubTotal.Location = new System.Drawing.Point(513, 423);
+            this.txtSubTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubTotal.MaxLength = 150;
             this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(100, 23);
+            this.txtSubTotal.Size = new System.Drawing.Size(133, 27);
             this.txtSubTotal.TabIndex = 130;
             // 
             // txtValorUnitario
@@ -458,10 +282,11 @@
             this.txtValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtValorUnitario.Font = new System.Drawing.Font("Arial", 10F);
             this.txtValorUnitario.ForeColor = System.Drawing.Color.Black;
-            this.txtValorUnitario.Location = new System.Drawing.Point(261, 323);
+            this.txtValorUnitario.Location = new System.Drawing.Point(348, 423);
+            this.txtValorUnitario.Margin = new System.Windows.Forms.Padding(4);
             this.txtValorUnitario.MaxLength = 150;
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(100, 23);
+            this.txtValorUnitario.Size = new System.Drawing.Size(133, 27);
             this.txtValorUnitario.TabIndex = 129;
             // 
             // txtDesconto
@@ -470,10 +295,11 @@
             this.txtDesconto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDesconto.Font = new System.Drawing.Font("Arial", 10F);
             this.txtDesconto.ForeColor = System.Drawing.Color.Black;
-            this.txtDesconto.Location = new System.Drawing.Point(138, 323);
+            this.txtDesconto.Location = new System.Drawing.Point(184, 423);
+            this.txtDesconto.Margin = new System.Windows.Forms.Padding(4);
             this.txtDesconto.MaxLength = 150;
             this.txtDesconto.Name = "txtDesconto";
-            this.txtDesconto.Size = new System.Drawing.Size(100, 23);
+            this.txtDesconto.Size = new System.Drawing.Size(133, 27);
             this.txtDesconto.TabIndex = 128;
             // 
             // txtQuantidade
@@ -482,10 +308,11 @@
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantidade.Font = new System.Drawing.Font("Arial", 10F);
             this.txtQuantidade.ForeColor = System.Drawing.Color.Black;
-            this.txtQuantidade.Location = new System.Drawing.Point(13, 322);
+            this.txtQuantidade.Location = new System.Drawing.Point(17, 421);
+            this.txtQuantidade.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantidade.MaxLength = 150;
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(100, 23);
+            this.txtQuantidade.Size = new System.Drawing.Size(133, 27);
             this.txtQuantidade.TabIndex = 127;
             this.txtQuantidade.Leave += new System.EventHandler(this.txtQuantidade_Leave);
             // 
@@ -494,9 +321,10 @@
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblValor.Location = new System.Drawing.Point(184, 256);
+            this.lblValor.Location = new System.Drawing.Point(245, 315);
+            this.lblValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(80, 38);
+            this.lblValor.Size = new System.Drawing.Size(100, 48);
             this.lblValor.TabIndex = 126;
             this.lblValor.Text = "0,00\r\n";
             // 
@@ -505,18 +333,20 @@
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblDescricao.Location = new System.Drawing.Point(183, 150);
+            this.lblDescricao.Location = new System.Drawing.Point(244, 185);
+            this.lblDescricao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(276, 54);
+            this.lblDescricao.Size = new System.Drawing.Size(345, 66);
             this.lblDescricao.TabIndex = 125;
             this.lblDescricao.Text = "50.01.056 - BALEIRO PET\r\n150ML. TP.PRATA\r\n";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Views.Properties.Resources.Asset_1default;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 148);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 182);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 149);
+            this.pictureBox1.Size = new System.Drawing.Size(221, 183);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 124;
             this.pictureBox1.TabStop = false;
@@ -527,19 +357,21 @@
             this.txtPesquisaProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPesquisaProduto.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisaProduto.ForeColor = System.Drawing.Color.Black;
-            this.txtPesquisaProduto.Location = new System.Drawing.Point(13, 100);
+            this.txtPesquisaProduto.Location = new System.Drawing.Point(17, 123);
+            this.txtPesquisaProduto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPesquisaProduto.MaxLength = 150;
             this.txtPesquisaProduto.Name = "txtPesquisaProduto";
-            this.txtPesquisaProduto.Size = new System.Drawing.Size(469, 29);
+            this.txtPesquisaProduto.Size = new System.Drawing.Size(625, 35);
             this.txtPesquisaProduto.TabIndex = 123;
             this.txtPesquisaProduto.TextChanged += new System.EventHandler(this.txtPesquisaProduto_TextChanged);
             // 
             // chkLeitor
             // 
             this.chkLeitor.AutoSize = true;
-            this.chkLeitor.Location = new System.Drawing.Point(407, 71);
+            this.chkLeitor.Location = new System.Drawing.Point(543, 87);
+            this.chkLeitor.Margin = new System.Windows.Forms.Padding(4);
             this.chkLeitor.Name = "chkLeitor";
-            this.chkLeitor.Size = new System.Drawing.Size(75, 17);
+            this.chkLeitor.Size = new System.Drawing.Size(97, 21);
             this.chkLeitor.TabIndex = 2;
             this.chkLeitor.Text = "Desabilitar";
             this.chkLeitor.UseVisualStyleBackColor = true;
@@ -548,9 +380,10 @@
             // 
             this.lblCodeBar.AutoSize = true;
             this.lblCodeBar.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.lblCodeBar.Location = new System.Drawing.Point(267, 73);
+            this.lblCodeBar.Location = new System.Drawing.Point(356, 90);
+            this.lblCodeBar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodeBar.Name = "lblCodeBar";
-            this.lblCodeBar.Size = new System.Drawing.Size(129, 11);
+            this.lblCodeBar.Size = new System.Drawing.Size(155, 14);
             this.lblCodeBar.TabIndex = 1;
             this.lblCodeBar.Text = "Leitor de Codigo de barras";
             // 
@@ -562,8 +395,9 @@
             this.panel1.Controls.Add(this.lblVendedor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(496, 33);
+            this.panel1.Size = new System.Drawing.Size(661, 41);
             this.panel1.TabIndex = 0;
             // 
             // btnFechar
@@ -573,9 +407,10 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Arial Black", 10.25F, System.Drawing.FontStyle.Bold);
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(360, 0);
+            this.btnFechar.Location = new System.Drawing.Point(480, 0);
+            this.btnFechar.Margin = new System.Windows.Forms.Padding(4);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(136, 33);
+            this.btnFechar.Size = new System.Drawing.Size(181, 41);
             this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "FECHAR CAIXA";
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -585,9 +420,10 @@
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(130, 10);
+            this.lblData.Location = new System.Drawing.Point(173, 12);
+            this.lblData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(72, 16);
+            this.lblData.Size = new System.Drawing.Size(91, 19);
             this.lblData.TabIndex = 1;
             this.lblData.Text = "20/03/2010";
             // 
@@ -596,9 +432,10 @@
             this.lblVendedor.AutoSize = true;
             this.lblVendedor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVendedor.ForeColor = System.Drawing.Color.White;
-            this.lblVendedor.Location = new System.Drawing.Point(12, 9);
+            this.lblVendedor.Location = new System.Drawing.Point(16, 11);
+            this.lblVendedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVendedor.Name = "lblVendedor";
-            this.lblVendedor.Size = new System.Drawing.Size(100, 16);
+            this.lblVendedor.Size = new System.Drawing.Size(123, 19);
             this.lblVendedor.TabIndex = 0;
             this.lblVendedor.Text = "Kleiton Freitas";
             // 
@@ -609,9 +446,10 @@
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTotal.Font = new System.Drawing.Font("Arial Black", 30.25F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblTotal.Location = new System.Drawing.Point(378, 0);
+            this.lblTotal.Location = new System.Drawing.Point(515, 0);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(120, 58);
+            this.lblTotal.Size = new System.Drawing.Size(149, 72);
             this.lblTotal.TabIndex = 138;
             this.lblTotal.Text = "0,00\r\n";
             // 
@@ -624,9 +462,10 @@
             this.pCupom.Controls.Add(this.pTotal);
             this.pCupom.Controls.Add(this.pHeaderCupom);
             this.pCupom.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pCupom.Location = new System.Drawing.Point(502, 44);
+            this.pCupom.Location = new System.Drawing.Point(669, 0);
+            this.pCupom.Margin = new System.Windows.Forms.Padding(4);
             this.pCupom.Name = "pCupom";
-            this.pCupom.Size = new System.Drawing.Size(498, 513);
+            this.pCupom.Size = new System.Drawing.Size(664, 686);
             this.pCupom.TabIndex = 139;
             // 
             // dgvCupom
@@ -663,7 +502,8 @@
             this.dgvCupom.GridColor = System.Drawing.Color.White;
             this.dgvCupom.HeaderBgColor = System.Drawing.Color.White;
             this.dgvCupom.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvCupom.Location = new System.Drawing.Point(7, 39);
+            this.dgvCupom.Location = new System.Drawing.Point(9, 48);
+            this.dgvCupom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCupom.MultiSelect = false;
             this.dgvCupom.Name = "dgvCupom";
             this.dgvCupom.ReadOnly = true;
@@ -686,7 +526,7 @@
             this.dgvCupom.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvCupom.RowTemplate.Height = 40;
             this.dgvCupom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCupom.Size = new System.Drawing.Size(488, 415);
+            this.dgvCupom.Size = new System.Drawing.Size(651, 511);
             this.dgvCupom.TabIndex = 148;
             this.dgvCupom.Visible = false;
             // 
@@ -695,18 +535,20 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Black", 24.25F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label9.Location = new System.Drawing.Point(144, 61);
+            this.label9.Location = new System.Drawing.Point(192, 75);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(225, 46);
+            this.label9.Size = new System.Drawing.Size(278, 58);
             this.label9.TabIndex = 138;
             this.label9.Text = "Caixa Livre";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Views.Properties.Resources.Asset_2loja;
-            this.pictureBox2.Location = new System.Drawing.Point(103, 130);
+            this.pictureBox2.Location = new System.Drawing.Point(137, 160);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(292, 256);
+            this.pictureBox2.Size = new System.Drawing.Size(389, 315);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -716,9 +558,10 @@
             this.pTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.pTotal.Controls.Add(this.lblTotal);
             this.pTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pTotal.Location = new System.Drawing.Point(0, 460);
+            this.pTotal.Location = new System.Drawing.Point(0, 621);
+            this.pTotal.Margin = new System.Windows.Forms.Padding(4);
             this.pTotal.Name = "pTotal";
-            this.pTotal.Size = new System.Drawing.Size(498, 53);
+            this.pTotal.Size = new System.Drawing.Size(664, 65);
             this.pTotal.TabIndex = 1;
             // 
             // pHeaderCupom
@@ -730,8 +573,9 @@
             this.pHeaderCupom.Controls.Add(this.label5);
             this.pHeaderCupom.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeaderCupom.Location = new System.Drawing.Point(0, 0);
+            this.pHeaderCupom.Margin = new System.Windows.Forms.Padding(4);
             this.pHeaderCupom.Name = "pHeaderCupom";
-            this.pHeaderCupom.Size = new System.Drawing.Size(498, 33);
+            this.pHeaderCupom.Size = new System.Drawing.Size(664, 41);
             this.pHeaderCupom.TabIndex = 0;
             // 
             // label8
@@ -739,9 +583,10 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(395, 13);
+            this.label8.Location = new System.Drawing.Point(527, 16);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 11);
+            this.label8.Size = new System.Drawing.Size(54, 14);
             this.label8.TabIndex = 142;
             this.label8.Text = "SubTotal";
             // 
@@ -750,9 +595,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(320, 14);
+            this.label7.Location = new System.Drawing.Point(427, 17);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 11);
+            this.label7.Size = new System.Drawing.Size(59, 14);
             this.label7.TabIndex = 141;
             this.label7.Text = "Preco un.";
             // 
@@ -761,9 +607,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(260, 5);
+            this.label6.Location = new System.Drawing.Point(347, 6);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 11);
+            this.label6.Size = new System.Drawing.Size(36, 14);
             this.label6.TabIndex = 140;
             this.label6.Text = "Qtde.";
             // 
@@ -772,9 +619,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(7, 13);
+            this.label5.Location = new System.Drawing.Point(9, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 11);
+            this.label5.Size = new System.Drawing.Size(103, 14);
             this.label5.TabIndex = 139;
             this.label5.Text = "Nome do Produto";
             // 
@@ -783,42 +631,28 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(493, 43);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(657, 53);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 519);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(13, 639);
             this.bunifuSeparator1.TabIndex = 138;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // FormPDV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 557);
+            this.ClientSize = new System.Drawing.Size(1333, 686);
             this.Controls.Add(this.pCupom);
             this.Controls.Add(this.pProduct);
-            this.Controls.Add(this.pHeader);
             this.Controls.Add(this.bunifuSeparator1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPDV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormPDV_Load);
-            this.pHeader.ResumeLayout(false);
-            this.pHeader.PerformLayout();
-            this.menuStrip4.ResumeLayout(false);
-            this.menuStrip4.PerformLayout();
-            this.menuStrip3.ResumeLayout(false);
-            this.menuStrip3.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.pProduct.ResumeLayout(false);
             this.pProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
@@ -838,12 +672,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pHeader;
-        private System.Windows.Forms.PictureBox imageLogo;
-        private System.Windows.Forms.PictureBox btnConfig;
-        private System.Windows.Forms.PictureBox btnNotification;
-        private System.Windows.Forms.PictureBox btnUser;
         private System.Windows.Forms.Panel pProduct;
         public System.Windows.Forms.TextBox txtPesquisaProduto;
         private System.Windows.Forms.CheckBox chkLeitor;
@@ -879,17 +707,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvItens;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCupom;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.MenuStrip menuStrip3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
     }
 }
 
