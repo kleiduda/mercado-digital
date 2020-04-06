@@ -51,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCadastroVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastroVendedor.Designer.cs">
+      <DependentUpon>FormCadastroVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValorInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValorInicial.Designer.cs">
+      <DependentUpon>FormValorInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormImportProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCadastroVendedor.resx">
+      <DependentUpon>FormCadastroVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValorInicial.resx">
+      <DependentUpon>FormValorInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCadastroProduto.resx">
       <DependentUpon>FormCadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Asset 3storePDV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sucesso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

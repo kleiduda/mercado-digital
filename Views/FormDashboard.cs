@@ -69,7 +69,17 @@ namespace Views
                 this.Close();
             }
         }
-
         
+        private void label1_Click(object sender, EventArgs e)
+        {
+            FormValorInicial frm = new FormValorInicial();
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            FormCadastroVendedor frm = new FormCadastroVendedor();
+            frm.ShowDialog();
+        }
     }
 }

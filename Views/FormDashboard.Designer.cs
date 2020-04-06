@@ -49,7 +49,7 @@
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.container = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.painelAbrirCaixa = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogin = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.container.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.painelAbrirCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,7 +171,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(307, 14);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(95, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(245, 28);
             this.menuStrip2.TabIndex = 9;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -192,7 +192,7 @@
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripMenuItem2.Image = global::Views.Properties.Resources.Asset_1sino;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(176, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(228, 30);
             this.toolStripMenuItem2.Text = "Produtos";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -203,7 +203,7 @@
             this.toolStripMenuItem3.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripMenuItem3.Image = global::Views.Properties.Resources.Asset_1user;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(176, 26);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(228, 30);
             this.toolStripMenuItem3.Text = "Clientes";
             // 
             // toolStripMenuItem4
@@ -213,8 +213,9 @@
             this.toolStripMenuItem4.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripMenuItem4.Image = global::Views.Properties.Resources.Asset_1user;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(176, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(228, 30);
             this.toolStripMenuItem4.Text = "Vendedores";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // btnNotification
             // 
@@ -273,7 +274,7 @@
             // container
             // 
             this.container.Controls.Add(this.lblCargo);
-            this.container.Controls.Add(this.panel1);
+            this.container.Controls.Add(this.painelAbrirCaixa);
             this.container.Controls.Add(this.lblLogin);
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(0, 54);
@@ -295,15 +296,15 @@
             this.lblCargo.TabIndex = 142;
             this.lblCargo.Text = "Vendedor";
             // 
-            // panel1
+            // painelAbrirCaixa
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(20, 221);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 152);
-            this.panel1.TabIndex = 141;
+            this.painelAbrirCaixa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.painelAbrirCaixa.Controls.Add(this.label1);
+            this.painelAbrirCaixa.Controls.Add(this.pictureBox1);
+            this.painelAbrirCaixa.Location = new System.Drawing.Point(20, 221);
+            this.painelAbrirCaixa.Name = "painelAbrirCaixa";
+            this.painelAbrirCaixa.Size = new System.Drawing.Size(284, 152);
+            this.painelAbrirCaixa.TabIndex = 141;
             // 
             // label1
             // 
@@ -317,6 +318,7 @@
             this.label1.Size = new System.Drawing.Size(114, 24);
             this.label1.TabIndex = 142;
             this.label1.Text = "Abrir Caixa";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -372,8 +374,8 @@
             this.menuStrip1.PerformLayout();
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.painelAbrirCaixa.ResumeLayout(false);
+            this.painelAbrirCaixa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -401,7 +403,7 @@
         private System.Windows.Forms.MenuStrip menuStrip5;
         private System.Windows.Forms.ToolStripMenuItem btnUser;
         private System.Windows.Forms.ToolStripMenuItem nomeToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel painelAbrirCaixa;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

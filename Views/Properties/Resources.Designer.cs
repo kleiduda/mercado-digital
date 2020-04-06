@@ -223,6 +223,16 @@ namespace Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sucesso {
+            get {
+                object obj = ResourceManager.GetObject("sucesso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap upload_arquivo {
             get {
                 object obj = ResourceManager.GetObject("upload-arquivo", resourceCulture);

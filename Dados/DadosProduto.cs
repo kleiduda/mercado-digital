@@ -61,6 +61,7 @@ namespace Dados
                 try
                 {
                     connection.Open();
+                    Comando.Connection = connection;
                     Comando.CommandText = "CadastroProduto";
                     Comando.CommandType = CommandType.StoredProcedure;
 
@@ -102,6 +103,7 @@ namespace Dados
             try
             {
                 connection.Open();
+                Comando.Connection = connection;
                 Comando.CommandText = "UpdateProduto";
                 Comando.CommandType = CommandType.StoredProcedure;
 
@@ -140,6 +142,7 @@ namespace Dados
                 try
                 {
                     connection.Open();
+                    Comando.Connection = connection;
                     Comando.CommandText = "ListarProdutos";
                     Comando.CommandType = CommandType.StoredProcedure;
 
@@ -164,6 +167,7 @@ namespace Dados
                 try
                 {
                     connection.Open();
+                    Comando.Connection = connection;
                     Comando.CommandText = "PesquisaProduto";
                     Comando.CommandType = CommandType.StoredProcedure;
 
@@ -195,6 +199,7 @@ namespace Dados
                 try
                 {
                     connection.Open();
+                    Comando.Connection = connection;
                     Comando.CommandText = "SELECT codigo FROM tb_produto WHERE codigo = @codigo";
                     Comando.CommandType = CommandType.Text;
 
