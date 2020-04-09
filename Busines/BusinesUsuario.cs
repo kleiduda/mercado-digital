@@ -60,6 +60,17 @@ namespace Busines
             obj.Senha = senha;
             return obj.Edit(obj);
         }
-        
+        //listandoo usuarios
+        public static DataTable ListarUsuarios()
+        {
+            return new DadosUsuario().ListarUsuarios();
+        }
+        //public static List<DadosUsuario> ListDados()
+        //{
+        //    List<DadosUsuario> lista = new List<DadosUsuario>();
+        //    DadosUsuario obj = new DadosUsuario();
+        //    lista.Add(obj.IdVendedor);
+        //    return obj.ListVendedorWithLista();
+        //}
     }
 }

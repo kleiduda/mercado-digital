@@ -51,28 +51,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCadastroVendedor.cs">
+    <Compile Include="Setting\SettingGeral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastroVendedor.Designer.cs">
+    <Compile Include="Setting\SettingGeral.Designer.cs">
+      <DependentUpon>SettingGeral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\FormCadastroVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\FormCadastroVendedor.Designer.cs">
       <DependentUpon>FormCadastroVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormValorInicial.cs">
+    <Compile Include="Produtos\FormAddCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormValorInicial.Designer.cs">
+    <Compile Include="Produtos\FormAddCategoria.Designer.cs">
+      <DependentUpon>FormAddCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDV\FormValorInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDV\FormValorInicial.Designer.cs">
       <DependentUpon>FormValorInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormImportProduto.cs">
+    <Compile Include="Produtos\FormImportProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormImportProduto.Designer.cs">
+    <Compile Include="Produtos\FormImportProduto.Designer.cs">
       <DependentUpon>FormImportProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCadastroProduto.cs">
+    <Compile Include="Produtos\FormCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastroProduto.Designer.cs">
+    <Compile Include="Produtos\FormCadastroProduto.Designer.cs">
       <DependentUpon>FormCadastroProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDashboard.cs">
@@ -87,33 +105,42 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPDV.cs">
+    <Compile Include="PDV\FormPDV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPDV.Designer.cs">
+    <Compile Include="PDV\FormPDV.Designer.cs">
       <DependentUpon>FormPDV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCadastroVendedor.resx">
+    <EmbeddedResource Include="Setting\SettingGeral.resx">
+      <DependentUpon>SettingGeral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\FormCadastroVendedor.resx">
       <DependentUpon>FormCadastroVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormValorInicial.resx">
+    <EmbeddedResource Include="Produtos\FormAddCategoria.resx">
+      <DependentUpon>FormAddCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDV\FormValorInicial.resx">
       <DependentUpon>FormValorInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCadastroProduto.resx">
+    <EmbeddedResource Include="Produtos\FormCadastroProduto.resx">
       <DependentUpon>FormCadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormImportProduto.resx">
+    <EmbeddedResource Include="Produtos\FormImportProduto.resx">
       <DependentUpon>FormImportProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPDV.resx">
+    <EmbeddedResource Include="PDV\FormPDV.resx">
       <DependentUpon>FormPDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -202,6 +229,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sucesso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

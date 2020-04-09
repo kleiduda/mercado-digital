@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Supporte.Cache;
 
+
 namespace Dados
 {
     public class DadosUsuario : Connection
@@ -37,6 +38,66 @@ namespace Dados
         protected SqlCommand command = new SqlCommand();
         protected SqlDataReader dr;
         //pegando as funcoes de usuario
+        //listando os usuarios
+        public DataTable ListarUsuarios()
+        {
+            DataTable dt = new DataTable("vendedores");
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "Select * from tb_vendedor";
+                    command.CommandType = CommandType.Text;
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                    
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+                
+            }
+        }
+        public List<DadosUsuario> ListVendedorWithLista()
+        {
+            List<DadosUsuario> lista = new List<DadosUsuario>();
+
+            using (var connection = GetConnection())
+            {
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select * from tb_vendedor";
+                    command.CommandType = CommandType.Text;
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            DadosUsuario obj = new DadosUsuario();
+                            obj.IdVendedor = reader.GetInt32(0);
+                            obj.Login = reader.GetString(1);
+                            obj.Nome = reader.GetString(2);
+                            obj.SobreNome = reader.GetString(3);
+                            obj.Email = reader.GetString(4);
+                            obj.Telefone = reader.GetString(5);
+                            obj.Cargo = reader.GetInt32(6);
+                            lista.Add(obj);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = null;
+                }
+                return lista;
+            }
+
+        }
         public DataTable ListFuncao()
         {
             DataTable dtResult = new DataTable();

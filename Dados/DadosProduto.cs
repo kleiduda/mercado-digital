@@ -18,18 +18,29 @@ namespace Dados
         public decimal Preco { get; set; }
         public decimal PrecoPromocional { get; set; }
         public int IdCategoria { get; set; }
+        public string NomeCategoria { get; set; }
         public string Imagem { get; set; }
         public string Embalagem { get; set; }
         public DateTime DataEntrada { get; set; }
         public string TxtPesquisa { get; set; }
         //estoque
         public int Estoque { get; set; }
+        //categoria
 
         public DadosProduto()
         {
 
         }
 
+        public DadosProduto(int idCategoria, string nomeCategoria)
+        {
+            IdCategoria = idCategoria;
+            NomeCategoria = nomeCategoria;
+        }
+        public DadosProduto(string nomeCategoria)
+        {
+            NomeCategoria = nomeCategoria;
+        }
         public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal preco, decimal precoPromocional,
             int idCategoria, string imagem, string embalagem, DateTime dataEntrada, string txtPesquisa, int estoque)
         {
@@ -49,7 +60,7 @@ namespace Dados
 
         }
 
-        protected SqlCommand Comando = new SqlCommand();
+        protected SqlCommand command = new SqlCommand();
         protected SqlDataReader dr;
 
         //inserir regsitro
@@ -61,28 +72,28 @@ namespace Dados
                 try
                 {
                     connection.Open();
-                    Comando.Connection = connection;
-                    Comando.CommandText = "CadastroProduto";
-                    Comando.CommandType = CommandType.StoredProcedure;
+                    command.Connection = connection;
+                    command.CommandText = "CadastroProduto";
+                    command.CommandType = CommandType.StoredProcedure;
 
                     SqlParameter parIdProduto = new SqlParameter();
                     parIdProduto.ParameterName = "@id_produto";
                     parIdProduto.SqlDbType = SqlDbType.Int;
                     parIdProduto.Value = Produto.IdProduto;
                     parIdProduto.Direction = ParameterDirection.Output;
-                    Comando.Parameters.Add(parIdProduto);
+                    command.Parameters.Add(parIdProduto);
 
-                    Comando.Parameters.AddWithValue("@codigo", Produto.Codigo);
-                    Comando.Parameters.AddWithValue("@ean", Produto.EAN);
-                    Comando.Parameters.AddWithValue("@descricao", Produto.Descricao);
-                    Comando.Parameters.AddWithValue("@preco", Produto.Preco);
-                    Comando.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
-                    Comando.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
-                    Comando.Parameters.AddWithValue("@imagem", Produto.Imagem);
-                    Comando.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
-                    Comando.Parameters.AddWithValue("@estoque", Produto.Estoque);
+                    command.Parameters.AddWithValue("@codigo", Produto.Codigo);
+                    command.Parameters.AddWithValue("@ean", Produto.EAN);
+                    command.Parameters.AddWithValue("@descricao", Produto.Descricao);
+                    command.Parameters.AddWithValue("@preco", Produto.Preco);
+                    command.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
+                    command.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
+                    command.Parameters.AddWithValue("@imagem", Produto.Imagem);
+                    command.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
+                    command.Parameters.AddWithValue("@estoque", Produto.Estoque);
 
-                    rpta = Comando.ExecuteNonQuery() == 2 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
+                    rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
 
                 }
                 catch (Exception ex)
@@ -91,8 +102,8 @@ namespace Dados
 
                 }
             }
-               
-           
+
+
             return rpta;
         }
         //Editar o Produto
@@ -103,24 +114,24 @@ namespace Dados
             try
             {
                 connection.Open();
-                Comando.Connection = connection;
-                Comando.CommandText = "UpdateProduto";
-                Comando.CommandType = CommandType.StoredProcedure;
+                command.Connection = connection;
+                command.CommandText = "UpdateProduto";
+                command.CommandType = CommandType.StoredProcedure;
 
-                Comando.Parameters.AddWithValue("@id_produto", Produto.IdProduto);
-                Comando.Parameters.AddWithValue("@codigo", Produto.Codigo);
-                Comando.Parameters.AddWithValue("@ean", Produto.EAN);
-                Comando.Parameters.AddWithValue("@descricao", Produto.Descricao);
-                Comando.Parameters.AddWithValue("@preco", Produto.Preco);
-                Comando.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
-                Comando.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
-                Comando.Parameters.AddWithValue("@image", Produto.Imagem);
-                Comando.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
-                Comando.Parameters.AddWithValue("@estoque", Produto.Estoque);
+                command.Parameters.AddWithValue("@id_produto", Produto.IdProduto);
+                command.Parameters.AddWithValue("@codigo", Produto.Codigo);
+                command.Parameters.AddWithValue("@ean", Produto.EAN);
+                command.Parameters.AddWithValue("@descricao", Produto.Descricao);
+                command.Parameters.AddWithValue("@preco", Produto.Preco);
+                command.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
+                command.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
+                command.Parameters.AddWithValue("@image", Produto.Imagem);
+                command.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
+                command.Parameters.AddWithValue("@estoque", Produto.Estoque);
 
-                rpta = Comando.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar o produto";
+                rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar o produto";
 
-                Comando.Parameters.Clear();
+                command.Parameters.Clear();
             }
             catch (Exception ex)
             {
@@ -142,11 +153,11 @@ namespace Dados
                 try
                 {
                     connection.Open();
-                    Comando.Connection = connection;
-                    Comando.CommandText = "ListarProdutos";
-                    Comando.CommandType = CommandType.StoredProcedure;
+                    command.Connection = connection;
+                    command.CommandText = "ListarProdutos";
+                    command.CommandType = CommandType.StoredProcedure;
 
-                    SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(DtResult);
 
                 }
@@ -167,21 +178,21 @@ namespace Dados
                 try
                 {
                     connection.Open();
-                    Comando.Connection = connection;
-                    Comando.CommandText = "PesquisaProduto";
-                    Comando.CommandType = CommandType.StoredProcedure;
+                    command.Connection = connection;
+                    command.CommandText = "PesquisaProduto";
+                    command.CommandType = CommandType.StoredProcedure;
 
                     SqlParameter parPesquisaProduto = new SqlParameter();
                     parPesquisaProduto.ParameterName = "@search_text";
                     parPesquisaProduto.SqlDbType = SqlDbType.VarChar;
                     parPesquisaProduto.Size = 50;
                     parPesquisaProduto.Value = Produto.TxtPesquisa;
-                    Comando.Parameters.Add(parPesquisaProduto);
+                    command.Parameters.Add(parPesquisaProduto);
 
-                    SqlDataAdapter SqlDat = new SqlDataAdapter(Comando);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(DtResultado);
 
-                    Comando.Parameters.Clear();
+                    command.Parameters.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -199,17 +210,17 @@ namespace Dados
                 try
                 {
                     connection.Open();
-                    Comando.Connection = connection;
-                    Comando.CommandText = "SELECT codigo FROM tb_produto WHERE codigo = @codigo";
-                    Comando.CommandType = CommandType.Text;
+                    command.Connection = connection;
+                    command.CommandText = "SELECT codigo FROM tb_produto WHERE codigo = @codigo";
+                    command.CommandType = CommandType.Text;
 
                     SqlParameter ParCode = new SqlParameter();
                     ParCode.ParameterName = "@codigo";
                     ParCode.Value = Produto.Codigo;
                     ParCode.SqlDbType = SqlDbType.VarChar;
                     ParCode.Size = 50;
-                    Comando.Parameters.Add(ParCode);
-                    var result = Comando.ExecuteScalar();
+                    command.Parameters.Add(ParCode);
+                    var result = command.ExecuteScalar();
                     if (result != null)
                     {
                         return true;
@@ -217,7 +228,77 @@ namespace Dados
                 }
                 catch (Exception ex)
                 {
-                    
+
+                }
+                return false;
+            }
+        }
+        //CATEGORIAS
+        //listar categorias
+        public DataTable ListarCategorias()
+        {
+            DataTable dt = new DataTable();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM tb_categoria ORDER BY id_categoria DESC";
+                    command.CommandType = CommandType.Text;
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
+        //cadastro de categoria
+        public string CadastroCategoria(DadosProduto Categoria)
+        {
+            string rpta = "";
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "INSERT into tb_categoria (nome_categoria) values (@nome_categoria)";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@nome_categoria", Categoria.NomeCategoria);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar categoria";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message;
+                }
+                return rpta;
+            }
+        }
+        //verificar se ja existe um cadsatro de categoria no banco
+        public bool ValidarCategoria(DadosProduto Categoria)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM tb_categoria where nome_categoria=@nome_categoria";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@nome_categoria", Categoria.NomeCategoria);
+                    var result = command.ExecuteScalar();
+                    if (result !=null)
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
                 }
                 return false;
             }
