@@ -55,6 +55,7 @@ namespace Views
             dgvProdutos.Columns["embalagem"].Visible = false;
             dgvProdutos.Columns["nome_categoria"].Visible = false;
             dgvProdutos.Columns["estoque"].Visible = false;
+            dgvProdutos.Columns["image"].Visible = false;
             dgvProdutos.Columns["codigo"].HeaderText = "SKU";
             dgvProdutos.Columns["descricao"].HeaderText = "Descrição";
             dgvProdutos.Columns["preco"].HeaderText = "Preço";
@@ -73,6 +74,20 @@ namespace Views
         //preenchendo os campos com datagrid row
         public void Preencher()
         {
+            DataTable dtPath = new DataTable();
+            dtPath = BusinesConfig.PathImage();
+            image = dgvProdutos.CurrentRow.Cells["image"].Value.ToString();
+            if (string.IsNullOrEmpty(image))
+            {
+                image = "default.jpg";
+            }
+            if (!System.IO.File.Exists(dtPath.Rows[0]["image_path"].ToString() + image))
+            {
+                image = "default.jpg";
+            }
+            string url = dtPath.Rows[0]["image_path"].ToString() + image;
+            imageProduto.Load(url);
+            imageProduto.Load();
             txtCodigo.Text              = dgvProdutos.CurrentRow.Cells["codigo"].Value.ToString();
             txtEAN.Text                 = dgvProdutos.CurrentRow.Cells["ean"].Value.ToString();
             txtDescricao.Text           = dgvProdutos.CurrentRow.Cells["descricao"].Value.ToString();
