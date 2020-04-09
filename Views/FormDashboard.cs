@@ -53,13 +53,13 @@ namespace Views
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             FormCadastroProduto frm = new FormCadastroProduto();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void frenteDeCaixaPDVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormPDV frm = new FormPDV();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void nomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,6 +80,12 @@ namespace Views
         {
             FormCadastroVendedor frm = new FormCadastroVendedor();
             frm.ShowDialog();
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            OpenFormPanel(new Setting.FormSettings());
+            painelAbrirCaixa.Visible = false;
         }
     }
 }

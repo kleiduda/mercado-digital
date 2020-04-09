@@ -64,5 +64,25 @@ namespace Busines
             return obj.Validate(obj);
 
         }
+        //CATEGORIAS
+        //listando as categorias
+        public static DataTable ListarCategorias()
+        {
+            return new DadosProduto().ListarCategorias();
+        }
+        //cadastro da categoria
+        public static string CadastroCategoria(string nomeCategoria)
+        {
+            DadosProduto obj = new DadosProduto();
+            obj.NomeCategoria = nomeCategoria;
+            return obj.CadastroCategoria(obj);
+        }
+        //valida categoria
+        public static bool ValidaCategoria(string nomeCategoria)
+        {
+            DadosProduto obj = new DadosProduto();
+            obj.NomeCategoria = nomeCategoria;
+            return obj.ValidarCategoria(obj);
+        }
     }
 }

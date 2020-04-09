@@ -20,21 +20,22 @@ namespace Dados
         }
 
         // protected Connection Con = new Connection();
-        protected SqlCommand Comando = new SqlCommand();
+        protected SqlCommand command = new SqlCommand();
         protected SqlDataReader LerLinhas;
-
-        public DataTable Config()
+        //pegando valor da Path image
+        public DataTable PathImage()
         {
             using (var connection = GetConnection())
             {
                 DataTable dtResult = new DataTable("path");
+                connection.Open();
                 try
                 {
-                    connection.Open();
-                    Comando.CommandText = "SELECT * FROM tb_configuracoes";
-                    Comando.CommandType = CommandType.Text;
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM tb_configuracoes";
+                    command.CommandType = CommandType.Text;
 
-                    SqlDataAdapter sqlData = new SqlDataAdapter(Comando);
+                    SqlDataAdapter sqlData = new SqlDataAdapter(command);
                     sqlData.Fill(dtResult);
                 }
                 catch (Exception ex)
@@ -45,24 +46,29 @@ namespace Dados
             }
 
         }
-        //public DataTable Config()
-        //{
-        //    var connection = GetConnection();
-        //    DataTable dtResult = new DataTable("path");
-        //    try
-        //    {
+        //cadastrando a pathimage
+        public string CadastroPathImage(DadosConfig Path)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "ImagePath";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@image_path", Path.PatchImage);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar a path";
 
-        //        Comando.CommandText = "SELECT * FROM tb_configuracoes";
-        //        Comando.CommandType = CommandType.Text;
-
-        //        SqlDataAdapter sqlData = new SqlDataAdapter(Comando);
-        //        sqlData.Fill(dtResult);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        dtResult = null;
-        //    }
-        //    return dtResult;
-        //}
+                    command.Parameters.Clear();
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message;
+                }
+                return rpta;
+            }
+        }
     }
 }

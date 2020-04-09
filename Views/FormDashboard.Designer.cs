@@ -49,10 +49,11 @@
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.container = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
-            this.painelAbrirCaixa = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.panelWelcome = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.painelAbrirCaixa = new System.Windows.Forms.Panel();
             this.pHeader.SuspendLayout();
             this.menuStrip5.SuspendLayout();
             this.menuStrip4.SuspendLayout();
@@ -63,8 +64,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.container.SuspendLayout();
-            this.painelAbrirCaixa.SuspendLayout();
+            this.panelWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.painelAbrirCaixa.SuspendLayout();
             this.SuspendLayout();
             // 
             // pHeader
@@ -171,7 +173,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(307, 14);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(245, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(95, 28);
             this.menuStrip2.TabIndex = 9;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -238,6 +240,7 @@
             this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnConfig.TabIndex = 5;
             this.btnConfig.TabStop = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // imageLogo
             // 
@@ -273,9 +276,8 @@
             // 
             // container
             // 
-            this.container.Controls.Add(this.lblCargo);
+            this.container.Controls.Add(this.panelWelcome);
             this.container.Controls.Add(this.painelAbrirCaixa);
-            this.container.Controls.Add(this.lblLogin);
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(0, 54);
             this.container.Margin = new System.Windows.Forms.Padding(4);
@@ -289,22 +291,45 @@
             this.lblCargo.BackColor = System.Drawing.Color.Transparent;
             this.lblCargo.Font = new System.Drawing.Font("Bahnschrift Light", 14F);
             this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblCargo.Location = new System.Drawing.Point(18, 94);
+            this.lblCargo.Location = new System.Drawing.Point(37, 53);
             this.lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(114, 29);
             this.lblCargo.TabIndex = 142;
             this.lblCargo.Text = "Vendedor";
             // 
-            // painelAbrirCaixa
+            // lblLogin
             // 
-            this.painelAbrirCaixa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.painelAbrirCaixa.Controls.Add(this.label1);
-            this.painelAbrirCaixa.Controls.Add(this.pictureBox1);
-            this.painelAbrirCaixa.Location = new System.Drawing.Point(20, 221);
-            this.painelAbrirCaixa.Name = "painelAbrirCaixa";
-            this.painelAbrirCaixa.Size = new System.Drawing.Size(284, 152);
-            this.painelAbrirCaixa.TabIndex = 141;
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblLogin.Location = new System.Drawing.Point(32, 13);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(69, 38);
+            this.lblLogin.TabIndex = 140;
+            this.lblLogin.Text = "Olá";
+            // 
+            // panelWelcome
+            // 
+            this.panelWelcome.Controls.Add(this.lblLogin);
+            this.panelWelcome.Controls.Add(this.lblCargo);
+            this.panelWelcome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelWelcome.Location = new System.Drawing.Point(0, 0);
+            this.panelWelcome.Name = "panelWelcome";
+            this.panelWelcome.Size = new System.Drawing.Size(1333, 100);
+            this.panelWelcome.TabIndex = 143;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Views.Properties.Resources.Asset_3storePDV;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(89, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -320,28 +345,15 @@
             this.label1.Text = "Abrir Caixa";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pictureBox1
+            // painelAbrirCaixa
             // 
-            this.pictureBox1.Image = global::Views.Properties.Resources.Asset_3storePDV;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 33);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogin.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblLogin.Location = new System.Drawing.Point(13, 54);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(69, 38);
-            this.lblLogin.TabIndex = 140;
-            this.lblLogin.Text = "Olá";
+            this.painelAbrirCaixa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.painelAbrirCaixa.Controls.Add(this.label1);
+            this.painelAbrirCaixa.Controls.Add(this.pictureBox1);
+            this.painelAbrirCaixa.Location = new System.Drawing.Point(20, 221);
+            this.painelAbrirCaixa.Name = "painelAbrirCaixa";
+            this.painelAbrirCaixa.Size = new System.Drawing.Size(284, 152);
+            this.painelAbrirCaixa.TabIndex = 141;
             // 
             // Formdashboard
             // 
@@ -373,10 +385,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.container.ResumeLayout(false);
-            this.container.PerformLayout();
+            this.panelWelcome.ResumeLayout(false);
+            this.panelWelcome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.painelAbrirCaixa.ResumeLayout(false);
             this.painelAbrirCaixa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -403,11 +416,12 @@
         private System.Windows.Forms.MenuStrip menuStrip5;
         private System.Windows.Forms.ToolStripMenuItem btnUser;
         private System.Windows.Forms.ToolStripMenuItem nomeToolStripMenuItem;
-        private System.Windows.Forms.Panel painelAbrirCaixa;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.Panel panelWelcome;
+        private System.Windows.Forms.Panel painelAbrirCaixa;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
