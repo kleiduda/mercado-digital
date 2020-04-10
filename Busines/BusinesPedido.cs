@@ -28,12 +28,13 @@ namespace Busines
             return obj.DetalhePedido(obj);
         }
         //inserindo item no pedido
-        public static string InserirItemPedido(int idPedido, int idProduto, int quantidade)
+        public static string InserirItemPedido(int idPedido, int idProduto, int quantidade, int estoqueQuantidade)
         {
             DadosPedido obj = new DadosPedido();
             obj.IdPedido = idPedido;
             obj.IdProduto = idProduto;
             obj.Quantidade = quantidade;
+            obj.EstoqueQuantidade = estoqueQuantidade;
             return obj.InsertItemPedido(obj);
         }
     }

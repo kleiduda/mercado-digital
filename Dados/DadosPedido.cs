@@ -18,13 +18,15 @@ namespace Dados
         //pedido item
         public int IdProduto { get; set; }
         public int Quantidade { get; set; }
+        public int EstoqueQuantidade { get; set; }
+        public string Resultado { get; set; }
         public decimal Preco { get; set; }
         //construtores
         public DadosPedido()
         {
 
         }
-        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, decimal preco)
+        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, string resultado, decimal preco)
         {
             IdPedido = idPedido;
             IdCliente = idPedido;
@@ -32,6 +34,8 @@ namespace Dados
             IdStatus = idStatus;
             IdProduto = idProduto;
             Quantidade = quantidade;
+            EstoqueQuantidade = estoqueQuantidade;
+            Resultado = resultado;
             Preco = preco;
         }
         //metodos
@@ -131,13 +135,20 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "Inc_Upd_Pedido_item";
+                    command.CommandText = "pIncluirItemPedido";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_pedido", Item.IdPedido);
                     command.Parameters.AddWithValue("@id_produto", Item.IdProduto);
                     command.Parameters.AddWithValue("@quantidade", Item.Quantidade);
+                    command.Parameters.AddWithValue("@estoque_quantidade", Item.EstoqueQuantidade);
+                    SqlParameter parResultado = new SqlParameter();
+                    parResultado.ParameterName = "@resultado";
+                    parResultado.Value = Item.Resultado;
+                    parResultado.SqlDbType = SqlDbType.VarChar;
+                    parResultado.Size = 200;
+                    parResultado.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(parResultado);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir item no pedido";
-                    command.Parameters.Clear();
                 }
                 catch (Exception ex)
                 {
