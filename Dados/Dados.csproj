@@ -45,6 +45,7 @@
     <Compile Include="Connection.cs" />
     <Compile Include="DadosCaixa.cs" />
     <Compile Include="DadosConfig.cs" />
+    <Compile Include="DadosPedido.cs" />
     <Compile Include="DadosProduto.cs" />
     <Compile Include="DadosUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
