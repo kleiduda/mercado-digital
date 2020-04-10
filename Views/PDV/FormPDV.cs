@@ -17,6 +17,7 @@ namespace Views
     {
         const decimal Desconto = 0;
         const int Qtd = 1;
+        private bool IsNew = true;
 
         public FormPDV()
         {
@@ -27,6 +28,7 @@ namespace Views
         {
             DadosVendedor();
             ListarProdutos();
+            lblData.Text = DateTime.Now.ToString();
         }
 
         private void ListarProdutos()
@@ -82,9 +84,44 @@ namespace Views
             lblVendedor.Text = UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
         }
         //abrindo uma nova compra
-        public void AbrirCompra()
+        public void IncluirItem()
         {
-
+            string rpta = "";
+            try
+            {
+                if (string.IsNullOrEmpty(txtIdProduto.Text))
+                {
+                    MessageBox.Show("Nenhum Produto Definido");
+                }
+                else
+                {
+                    if (this.IsNew)
+                    {
+                        rpta = BusinesPedido.InserirItemPedido(
+                        Convert.ToInt32(lblIdPedido.Text),
+                        Convert.ToInt32(txtIdProduto.Text),
+                        Convert.ToInt32(txtQuantidade.Text),
+                        Convert.ToInt32(txtQuantidade.Text)
+                        );
+                    }
+                }
+                if (rpta.Equals("OK"))
+                {
+                    if (this.IsNew)
+                    {
+                        
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show(rpta);
+                }
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message + ex.StackTrace;
+            }
         }
         //llistar pedidos do vendedor atual
         public void ListarVendas()
@@ -96,32 +133,32 @@ namespace Views
         private void dgvItens_Click(object sender, EventArgs e)
         {
             string rpta = "";
-            PreencherProduto();
+            try
+            {
+                PreencherProduto();
+                txtQuantidade.Text = Convert.ToString(Qtd);
+                txtDesconto.Text = Convert.ToString(Desconto);
+                txtValorUnitario.Text = lblValor.Text;
+                //calculando o subtotal
+                CalculoSubtotal();
+                IncluirItem();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(rpta = ex.Message); 
+            }
+            
             txtPesquisaProduto.Clear();
-            txtQuantidade.Focus();
-            txtIdProduto.Text = dgvItens.CurrentRow.Cells["id_produto"].Value.ToString();
-            txtQuantidade.Text = Convert.ToString(Qtd);
-            txtDesconto.Text = Convert.ToString(Desconto);
-            txtValorUnitario.Text = lblValor.Text;
-            rpta = BusinesPedido.InserirItemPedido(int.Parse(lblIdPedido.Text), int.Parse(txtIdProduto.Text), int.Parse(txtQuantidade.Text));
             txtPesquisaProduto.Focus();
-            //calculando o subtotal
-            CalculoSubtotal();
         }
 
         private void txtQuantidade_Leave(object sender, EventArgs e)
         {
             CalculoSubtotal();
         }
-
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-        private void btnInserir_Click(object sender, EventArgs e)
-        {
-
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
