@@ -18,7 +18,7 @@ namespace Views
         const decimal Desconto = 0;
         int Qtd = 1;
         private bool IsNew = true;
-
+        
         public FormPDV()
         {
             InitializeComponent();
@@ -242,7 +242,8 @@ namespace Views
                     else
                     {
                         rpta = BusinesPedido.CadastroNovaCompra(1, Convert.ToInt32(lblIdVendedor.Text), 1);
-                        lblCompraAberta.Visible = true;
+                        txtPesquisaProduto.Enabled = true;
+                        lblCompraAberta.Text = "Compra em andamento...";
                         ListarVendas();
                     }
                     txtPesquisaProduto.Focus();
@@ -256,5 +257,16 @@ namespace Views
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void btnDinheiro_Click(object sender, EventArgs e)
+        {
+            Pagamento.FormDinheiro frm = new Pagamento.FormDinheiro(lblTotal.Text);
+            this.Enabled = false;
+            frm.ShowDialog();
+            this.Enabled = true;
+            
+        }
+        //METODOS DE PAGAMENTOS
+
     }
 }
