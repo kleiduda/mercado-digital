@@ -158,6 +158,29 @@ namespace Dados
             }
             
         }
+        //listar itens do pedido
+        public DataTable ListarItensPedido(DadosPedido Item)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable("listitem");
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "ListarItens";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_pedido",Item.IdPedido );
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
 
     }
 }

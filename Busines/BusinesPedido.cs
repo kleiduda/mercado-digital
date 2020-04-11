@@ -37,5 +37,13 @@ namespace Busines
             obj.EstoqueQuantidade = estoqueQuantidade;
             return obj.InsertItemPedido(obj);
         }
+        //listar itens do pedido
+        public static DataTable ListarItemPedido(int idPedido)
+        {
+            DadosPedido obj = new DadosPedido();
+            obj.IdPedido = idPedido;
+            return obj.ListarItensPedido(obj);
+        }
     }
+
 }
