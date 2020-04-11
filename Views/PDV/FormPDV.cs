@@ -70,6 +70,7 @@ namespace Views
                 FormatandoColunas();
                 PesquisaProduto();
             }
+            
         }
         //metodo de calculo subtotal
         private void CalculoSubtotal()
@@ -123,6 +124,34 @@ namespace Views
                 rpta = ex.Message + ex.StackTrace;
             }
         }
+        //listar os itens no cupom
+        public void ListarItensCupom()
+        {
+            dgvCupom.DataSource = BusinesPedido.ListarItemPedido(int.Parse(lblIdPedido.Text));
+            dgvCupom.Columns["id_pedido"].Visible = false;
+            dgvCupom.Columns["id_produto"].Visible = false;
+            dgvCupom.Columns["descricao"].DisplayIndex = 1;
+            dgvCupom.Columns["descricao"].HeaderText = "Nome do Produto";
+            dgvCupom.Columns["descricao"].Width = 300;
+            dgvCupom.Columns["codigo"].DisplayIndex = 2;
+            dgvCupom.Columns["codigo"].HeaderText = "Código";
+            dgvCupom.Columns["quantidade"].DisplayIndex = 3;
+            dgvCupom.Columns["quantidade"].HeaderText = "Qtde.";
+            dgvCupom.Columns["preco"].DisplayIndex = 4;
+            dgvCupom.Columns["preco"].HeaderText = "Preço un.";
+            DataGridViewCellStyle style = dgvCupom.ColumnHeadersDefaultCellStyle;
+            style.BackColor = Color.WhiteSmoke;
+            style.ForeColor = Color.Black;
+            style.Font = new Font("Open Sans", 7, FontStyle.Bold);
+            style.SelectionBackColor = Color.WhiteSmoke;
+
+            dgvCupom.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCupom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvCupom.ColumnHeadersHeight = 40;
+            dgvCupom.ColumnHeadersVisible = true;
+
+
+        }
         //llistar pedidos do vendedor atual
         public void ListarVendas()
         {
@@ -130,6 +159,7 @@ namespace Views
             dtPedido = BusinesPedido.DetalhePedido(int.Parse(lblIdVendedor.Text));
             lblIdPedido.Text = dtPedido.Rows[0]["id_pedido"].ToString();
         }
+        
         private void dgvItens_Click(object sender, EventArgs e)
         {
             string rpta = "";
@@ -147,7 +177,7 @@ namespace Views
             {
                 MessageBox.Show(rpta = ex.Message); 
             }
-            
+            ListarItensCupom();
             txtPesquisaProduto.Clear();
             txtPesquisaProduto.Focus();
         }
@@ -160,6 +190,7 @@ namespace Views
         {
             this.Hide();
         }
+        //tecla de atalho para abrir uma nova compra
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
