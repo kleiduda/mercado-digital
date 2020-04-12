@@ -266,6 +266,16 @@ namespace Views
             this.Enabled = true;
             
         }
+
+        private void btnDebito_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            Pagamento.FormDebito frm = new Pagamento.FormDebito(lblTotal.Text);
+            frm.ShowDialog();
+            this.Enabled = true;
+        }
+
+
         //METODOS DE PAGAMENTOS
 
     }
