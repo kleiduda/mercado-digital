@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pagamento\FormDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamento\FormDebito.Designer.cs">
+      <DependentUpon>FormDebito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamento\FormDinheiro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pagamento\FormDebito.resx">
+      <DependentUpon>FormDebito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\FormDinheiro.resx">
       <DependentUpon>FormDinheiro.cs</DependentUpon>
     </EmbeddedResource>

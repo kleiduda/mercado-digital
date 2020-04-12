@@ -68,7 +68,7 @@
             this.pTotal = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDebito = new System.Windows.Forms.Button();
             this.btnDinheiro = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -583,7 +583,7 @@
             this.pTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.pTotal.Controls.Add(this.button3);
             this.pTotal.Controls.Add(this.button4);
-            this.pTotal.Controls.Add(this.button2);
+            this.pTotal.Controls.Add(this.btnDebito);
             this.pTotal.Controls.Add(this.btnDinheiro);
             this.pTotal.Controls.Add(this.label16);
             this.pTotal.Controls.Add(this.label15);
@@ -630,20 +630,21 @@
             this.button4.Text = "Fiado";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnDebito
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(385, 119);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(340, 57);
-            this.button2.TabIndex = 154;
-            this.button2.Text = "Débito";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDebito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
+            this.btnDebito.FlatAppearance.BorderSize = 0;
+            this.btnDebito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebito.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebito.ForeColor = System.Drawing.Color.White;
+            this.btnDebito.Location = new System.Drawing.Point(385, 119);
+            this.btnDebito.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDebito.Name = "btnDebito";
+            this.btnDebito.Size = new System.Drawing.Size(340, 57);
+            this.btnDebito.TabIndex = 154;
+            this.btnDebito.Text = "Débito";
+            this.btnDebito.UseVisualStyleBackColor = false;
+            this.btnDebito.Click += new System.EventHandler(this.btnDebito_Click);
             // 
             // btnDinheiro
             // 
@@ -877,7 +878,7 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvItens;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDebito;
         private System.Windows.Forms.Button btnDinheiro;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
