@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pagamento\Fiado\FormCadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamento\Fiado\FormCadastroCliente.Designer.cs">
+      <DependentUpon>FormCadastroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamento\FormDebito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,12 @@
     </Compile>
     <Compile Include="Pagamento\FormDinheiro.Designer.cs">
       <DependentUpon>FormDinheiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamento\Fiado\FormFiado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamento\Fiado\FormFiado.Designer.cs">
+      <DependentUpon>FormFiado.cs</DependentUpon>
     </Compile>
     <Compile Include="Setting\SettingGeral.cs">
       <SubType>Form</SubType>
@@ -125,11 +137,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pagamento\Fiado\FormCadastroCliente.resx">
+      <DependentUpon>FormCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\FormDebito.resx">
       <DependentUpon>FormDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\FormDinheiro.resx">
       <DependentUpon>FormDinheiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamento\Fiado\FormFiado.resx">
+      <DependentUpon>FormFiado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\SettingGeral.resx">
       <DependentUpon>SettingGeral.cs</DependentUpon>

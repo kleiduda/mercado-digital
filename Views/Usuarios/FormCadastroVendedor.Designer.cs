@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastroVendedor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastroVendedor));
             this.pProduct = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSuc = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -55,22 +57,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
+            this.fotoVendedor = new System.Windows.Forms.PictureBox();
             this.pCupom = new System.Windows.Forms.Panel();
             this.dgvUsers = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lblSuc = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
-            this.fotoVendedor = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pProduct.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoVendedor)).BeginInit();
             this.pCupom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panelContainer.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoVendedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,6 +210,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(571, 161);
             this.panel1.TabIndex = 144;
+            // 
+            // lblSuc
+            // 
+            this.lblSuc.AutoSize = true;
+            this.lblSuc.BackColor = System.Drawing.Color.Transparent;
+            this.lblSuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblSuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(175)))), ((int)(((byte)(115)))));
+            this.lblSuc.Image = global::Views.Properties.Resources.sucesso;
+            this.lblSuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSuc.Location = new System.Drawing.Point(16, 10);
+            this.lblSuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSuc.Name = "lblSuc";
+            this.lblSuc.Size = new System.Drawing.Size(234, 20);
+            this.lblSuc.TabIndex = 143;
+            this.lblSuc.Text = "         erro ao fazer o login";
+            this.lblSuc.Visible = false;
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Image = global::Views.Properties.Resources.report_min;
+            this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblError.Location = new System.Drawing.Point(19, 10);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(234, 20);
+            this.lblError.TabIndex = 142;
+            this.lblError.Text = "         erro ao fazer o login";
+            this.lblError.Visible = false;
             // 
             // btnSalvar
             // 
@@ -357,6 +389,17 @@
             this.lblDescricao.TabIndex = 125;
             this.lblDescricao.Text = "Foto do Vendedor";
             // 
+            // fotoVendedor
+            // 
+            this.fotoVendedor.Image = ((System.Drawing.Image)(resources.GetObject("fotoVendedor.Image")));
+            this.fotoVendedor.Location = new System.Drawing.Point(17, 54);
+            this.fotoVendedor.Margin = new System.Windows.Forms.Padding(4);
+            this.fotoVendedor.Name = "fotoVendedor";
+            this.fotoVendedor.Size = new System.Drawing.Size(221, 169);
+            this.fotoVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fotoVendedor.TabIndex = 124;
+            this.fotoVendedor.TabStop = false;
+            // 
             // pCupom
             // 
             this.pCupom.BackColor = System.Drawing.Color.White;
@@ -455,54 +498,6 @@
             this.panelHeader.Size = new System.Drawing.Size(1160, 25);
             this.panelHeader.TabIndex = 142;
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 30;
-            this.bunifuElipse1.TargetControl = this.panelContainer;
-            // 
-            // lblSuc
-            // 
-            this.lblSuc.AutoSize = true;
-            this.lblSuc.BackColor = System.Drawing.Color.Transparent;
-            this.lblSuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblSuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(175)))), ((int)(((byte)(115)))));
-            this.lblSuc.Image = global::Views.Properties.Resources.sucesso;
-            this.lblSuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSuc.Location = new System.Drawing.Point(19, 10);
-            this.lblSuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSuc.Name = "lblSuc";
-            this.lblSuc.Size = new System.Drawing.Size(234, 20);
-            this.lblSuc.TabIndex = 143;
-            this.lblSuc.Text = "         erro ao fazer o login";
-            this.lblSuc.Visible = false;
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.BackColor = System.Drawing.Color.Transparent;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Image = global::Views.Properties.Resources.report_min;
-            this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblError.Location = new System.Drawing.Point(19, 10);
-            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(234, 20);
-            this.lblError.TabIndex = 142;
-            this.lblError.Text = "         erro ao fazer o login";
-            this.lblError.Visible = false;
-            // 
-            // fotoVendedor
-            // 
-            this.fotoVendedor.Image = ((System.Drawing.Image)(resources.GetObject("fotoVendedor.Image")));
-            this.fotoVendedor.Location = new System.Drawing.Point(17, 54);
-            this.fotoVendedor.Margin = new System.Windows.Forms.Padding(4);
-            this.fotoVendedor.Name = "fotoVendedor";
-            this.fotoVendedor.Size = new System.Drawing.Size(221, 169);
-            this.fotoVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fotoVendedor.TabIndex = 124;
-            this.fotoVendedor.TabStop = false;
-            // 
             // btnClose
             // 
             this.btnClose.Image = global::Views.Properties.Resources.delete;
@@ -513,6 +508,11 @@
             this.btnClose.TabIndex = 143;
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 30;
+            this.bunifuElipse1.TargetControl = this.panelContainer;
             // 
             // FormCadastroVendedor
             // 
@@ -531,11 +531,11 @@
             this.pProduct.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoVendedor)).EndInit();
             this.pCupom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.panelContainer.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fotoVendedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
 

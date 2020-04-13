@@ -275,6 +275,15 @@ namespace Views
             this.Enabled = true;
         }
 
+        private void btnFiado_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            Pagamento.FormFiado frm = new Pagamento.FormFiado(lblTotal.Text);
+            frm.ShowDialog();
+            this.Enabled = true;
+        }
+
+
 
         //METODOS DE PAGAMENTOS
 
