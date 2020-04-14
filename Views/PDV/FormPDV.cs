@@ -278,7 +278,7 @@ namespace Views
         private void btnFiado_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            Pagamento.FormFiado frm = new Pagamento.FormFiado(lblTotal.Text);
+            Pagamento.FormFiado frm = new Pagamento.FormFiado(lblTotal.Text, lblIdPedido.Text);
             frm.ShowDialog();
             this.Enabled = true;
         }

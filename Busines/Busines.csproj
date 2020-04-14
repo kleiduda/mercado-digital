@@ -47,6 +47,7 @@
     <Compile Include="BusinesPedido.cs" />
     <Compile Include="BusinesProduto.cs" />
     <Compile Include="BusinesUsuario.cs" />
+    <Compile Include="Pagamento\BusinesFiado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
