@@ -8,24 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Busines;
+using Busines.Pagamento;
+using Supporte.Cache;
+
 
 namespace Views.Pagamento
 {
     public partial class FormFiado : Form
     {
+        private bool IsNew = true;
         public FormFiado()
         {
             InitializeComponent();
         }
-        public FormFiado(string value)
+        public FormFiado(string value, string value2)
         {
             InitializeComponent();
             lblTotal.Text = value;
+            txtIdPedido.Text = value2;
         }
 
         private void FormFiado_Load(object sender, EventArgs e)
         {
-            
+
         }
         //mensagens
         private void msgError(string msg)
@@ -65,12 +70,13 @@ namespace Views.Pagamento
             lbl.Visible = true;
             lblSaldoAnterior.Visible = true;
             lblSaldoAtual.Visible = true;
+            linha.Visible = true;
         }
-        private void btnConfirma_Click(object sender, EventArgs e)
+        //verificar dados fiado
+        public void ValidarFiado()
         {
-
+            BusinesFiado.VerificarValorFiado(Convert.ToInt32(lblMatricula.Text));
         }
-
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
@@ -81,34 +87,52 @@ namespace Views.Pagamento
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            string rpta = "";
-            DataTable dt = new DataTable();
-            dt = BusinesCliente.MostrarDadosCliente(txtCpf.Text);
+            BusinesCliente obj = new BusinesCliente();
+            var validaCliente = obj.MostrarDadosClientes(txtCpf.Text);
+            if (validaCliente == true)
+            {
+                lblSuc.Visible = true;
+                lblError.Visible = false;
+                msgSuccess(CacheCliente.Nome.ToString());
+            }
+            else
+            {
+                lblSuc.Visible = false;
+                lblError.Visible = true;
+                msgError("Cliente não tem uma conta no sistema, deseja criar uma nova?");
+            }
+        }
+        private void btnConfirma_Click(object sender, EventArgs e)
+        {
             try
             {
-                if (string.IsNullOrEmpty(txtCpf.Text))
+                string rpta = "";
+                if (string.IsNullOrEmpty(txtCpf.Text) && IsNew == true)
                 {
-                    msgError("Campo CPF vazio!");
+                    lblError.Visible = true;
+                    msgError("Nenhum cliente selecionado");
                 }
                 else
                 {
-                    lblNome.Text = dt.Rows[0]["nome"].ToString() + " " + dt.Rows[0]["sobre_nome"].ToString();
-                    lblCPF.Text = dt.Rows[0]["cpf"].ToString();
-                    lblFone.Text = dt.Rows[0]["fone"].ToString();
-                    lblCEP.Text = dt.Rows[0]["cep"].ToString();
-                    lblBairro.Text = dt.Rows[0]["bairro"].ToString();
-                    lblCidade.Text = dt.Rows[0]["cidade"].ToString();
-                    lblEstado.Text = dt.Rows[0]["uf"].ToString();
-                    lblEmail.Text = dt.Rows[0]["email"].ToString();
-                    lblSaldoAnterior.Text = lblTotal.Text;
-                    MostrarDados();
+                    if (BusinesCliente.ValidaCadastro(txtCpf.Text) && IsNew == true)
+                    {
+                        rpta = BusinesFiado.CadastrarContaFiado(Convert.ToInt32(lblMatricula.Text), Convert.ToInt32(txtIdPedido.Text), Convert.ToDecimal(lblSaldoAtual.Text));
+                    }
+                }
+                if (rpta.Equals("OK"))
+                {
+                    msgSuccess("Fechou");
+                }
+                else
+                {
+                    msgError(rpta);
                 }
             }
             catch (Exception ex)
             {
 
-                throw;
             }
+
         }
     }
 }

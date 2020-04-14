@@ -36,10 +36,10 @@
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.lblSaldoAtual = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linha = new Bunifu.Framework.UI.BunifuSeparator();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblSaldoAnterior = new System.Windows.Forms.Label();
-            this.linha = new Bunifu.Framework.UI.BunifuSeparator();
             this.lblEmail = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblFone = new System.Windows.Forms.Label();
@@ -61,6 +61,7 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblSuc = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.txtIdPedido = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,7 +147,7 @@
             this.lblSaldoAtual.BackColor = System.Drawing.Color.Transparent;
             this.lblSaldoAtual.Font = new System.Drawing.Font("Arial Black", 25F, System.Drawing.FontStyle.Bold);
             this.lblSaldoAtual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblSaldoAtual.Location = new System.Drawing.Point(335, 231);
+            this.lblSaldoAtual.Location = new System.Drawing.Point(277, 424);
             this.lblSaldoAtual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldoAtual.Name = "lblSaldoAtual";
             this.lblSaldoAtual.Size = new System.Drawing.Size(123, 59);
@@ -157,11 +158,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.linha);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lblSaldoAnterior);
             this.panel1.Controls.Add(this.lblSaldoAtual);
-            this.panel1.Controls.Add(this.linha);
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.lblFone);
@@ -184,16 +185,29 @@
             this.panel1.Size = new System.Drawing.Size(519, 579);
             this.panel1.TabIndex = 158;
             // 
+            // linha
+            // 
+            this.linha.BackColor = System.Drawing.Color.Transparent;
+            this.linha.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.linha.LineThickness = 1;
+            this.linha.Location = new System.Drawing.Point(16, 388);
+            this.linha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.linha.Name = "linha";
+            this.linha.Size = new System.Drawing.Size(484, 10);
+            this.linha.TabIndex = 180;
+            this.linha.Transparency = 255;
+            this.linha.Vertical = false;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label16.Location = new System.Drawing.Point(343, 212);
+            this.label16.Location = new System.Drawing.Point(285, 405);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(135, 29);
+            this.label16.Size = new System.Drawing.Size(193, 29);
             this.label16.TabIndex = 179;
-            this.label16.Text = "Saldo Atual";
+            this.label16.Text = "Saldo Atualizado";
             this.label16.Visible = false;
             // 
             // label9
@@ -201,7 +215,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label9.Location = new System.Drawing.Point(342, 123);
+            this.label9.Location = new System.Drawing.Point(32, 412);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 20);
             this.label9.TabIndex = 177;
@@ -214,27 +228,13 @@
             this.lblSaldoAnterior.BackColor = System.Drawing.Color.Transparent;
             this.lblSaldoAnterior.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold);
             this.lblSaldoAnterior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblSaldoAnterior.Location = new System.Drawing.Point(342, 135);
+            this.lblSaldoAnterior.Location = new System.Drawing.Point(32, 424);
             this.lblSaldoAnterior.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldoAnterior.Name = "lblSaldoAnterior";
             this.lblSaldoAnterior.Size = new System.Drawing.Size(100, 48);
             this.lblSaldoAnterior.TabIndex = 178;
             this.lblSaldoAnterior.Text = "0,00";
             this.lblSaldoAnterior.Visible = false;
-            // 
-            // linha
-            // 
-            this.linha.BackColor = System.Drawing.Color.Transparent;
-            this.linha.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.linha.LineThickness = 1;
-            this.linha.Location = new System.Drawing.Point(300, 91);
-            this.linha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.linha.Name = "linha";
-            this.linha.Size = new System.Drawing.Size(10, 231);
-            this.linha.TabIndex = 176;
-            this.linha.Transparency = 255;
-            this.linha.Vertical = true;
-            this.linha.Visible = false;
             // 
             // lblEmail
             // 
@@ -487,7 +487,7 @@
             this.lblSuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(175)))), ((int)(((byte)(115)))));
             this.lblSuc.Image = global::Views.Properties.Resources.sucesso;
             this.lblSuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSuc.Location = new System.Drawing.Point(305, 451);
+            this.lblSuc.Location = new System.Drawing.Point(51, 451);
             this.lblSuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSuc.Name = "lblSuc";
             this.lblSuc.Size = new System.Drawing.Size(234, 20);
@@ -511,12 +511,27 @@
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;
             // 
+            // txtIdPedido
+            // 
+            this.txtIdPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtIdPedido.BackColor = System.Drawing.Color.White;
+            this.txtIdPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdPedido.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdPedido.ForeColor = System.Drawing.Color.Black;
+            this.txtIdPedido.Location = new System.Drawing.Point(33, 100);
+            this.txtIdPedido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdPedido.MaxLength = 150;
+            this.txtIdPedido.Name = "txtIdPedido";
+            this.txtIdPedido.Size = new System.Drawing.Size(57, 27);
+            this.txtIdPedido.TabIndex = 163;
+            // 
             // FormFiado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(997, 655);
+            this.Controls.Add(this.txtIdPedido);
             this.Controls.Add(this.lblSuc);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnConsultar);
@@ -556,7 +571,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblSaldoAnterior;
-        private Bunifu.Framework.UI.BunifuSeparator linha;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblFone;
@@ -577,5 +591,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label lblSuc;
         private System.Windows.Forms.Label lblError;
+        private Bunifu.Framework.UI.BunifuSeparator linha;
+        public System.Windows.Forms.TextBox txtIdPedido;
     }
 }

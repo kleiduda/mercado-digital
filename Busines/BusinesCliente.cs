@@ -27,11 +27,22 @@ namespace Busines
             return obj.InsertCadastroCliente(obj);
         }
         //dados do cliente
+        DadosCliente obj = new DadosCliente();
         public static DataTable MostrarDadosCliente(string cpf)
         {
             DadosCliente obj = new DadosCliente();
             obj.CPF = cpf;
             return obj.MostrarDadosCliente(obj);
+        }
+        public bool MostrarDadosClientes(string cpf)
+        {
+            return obj.DadosContaCliente(cpf);
+        }
+        public static bool ValidaCadastro(string cpf)
+        {
+            DadosCliente obj = new DadosCliente();
+            obj.CPF = cpf;
+            return obj.ValidarCadastro(obj);
         }
     }
 }

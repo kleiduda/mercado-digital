@@ -49,6 +49,7 @@
     <Compile Include="DadosPedido.cs" />
     <Compile Include="DadosProduto.cs" />
     <Compile Include="DadosUsuario.cs" />
+    <Compile Include="Pagamento\DadosFiado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,8 +58,6 @@
       <Name>Supporte</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pagamento\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
