@@ -28,11 +28,11 @@ namespace Busines
         }
         //dados do cliente
         DadosCliente obj = new DadosCliente();
-        public static DataTable MostrarDadosCliente(string cpf)
+        public static bool ConsultaCadastroCliente(string cpf)
         {
             DadosCliente obj = new DadosCliente();
             obj.CPF = cpf;
-            return obj.MostrarDadosCliente(obj);
+            return obj.ConsultaCadastroCliente(obj);
         }
         public bool MostrarDadosClientes(string cpf)
         {

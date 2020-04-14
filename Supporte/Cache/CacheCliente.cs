@@ -20,7 +20,7 @@ namespace Supporte.Cache
         public static string Cidade { get; set; }
         public static string UF { get; set; }
         public static string Observacao { get; set; }
-        public static string SaldoDevedor { get; set; }
+        public static decimal SaldoDevedor { get; set; }
 
 
     }

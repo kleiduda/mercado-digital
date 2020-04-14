@@ -87,20 +87,50 @@ namespace Views.Pagamento
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            BusinesCliente obj = new BusinesCliente();
-            var validaCliente = obj.MostrarDadosClientes(txtCpf.Text);
-            if (validaCliente == true)
+            try
             {
-                lblSuc.Visible = true;
-                lblError.Visible = false;
-                msgSuccess(CacheCliente.Nome.ToString());
+                if (BusinesCliente.ConsultaCadastroCliente(txtCpf.Text))
+                {
+                    BusinesCliente obj = new BusinesCliente();
+                    var validaCliente = obj.MostrarDadosClientes(txtCpf.Text);
+                    if (validaCliente == true)
+                    {
+                        MostrarDados();
+                        lblMatricula.Text = CacheCliente.IdCliente.ToString();
+                        lblBairro.Text = CacheCliente.Bairro.ToString();
+                        lblCEP.Text = CacheCliente.CEP.ToString();
+                        lblCidade.Text = CacheCliente.Cidade.ToString();
+                        lblCPF.Text = CacheCliente.CPF.ToString();
+                        lblEmail.Text = CacheCliente.Email.ToString();
+                        lblEstado.Text = CacheCliente.UF.ToString();
+                        lblFone.Text = CacheCliente.Fone.ToString();
+                        lblNome.Text = CacheCliente.Nome.ToString() + " " + CacheCliente.SobreNome.ToString();
+                        decimal saldoDevedor = Convert.ToDecimal(CacheCliente.SaldoDevedor.ToString());
+                        decimal calculoSaldoAtualizado = saldoDevedor + Convert.ToDecimal(lblTotal.Text);
+                        lblSaldoAnterior.Text = saldoDevedor.ToString();
+                        lblSaldoAtual.Text = calculoSaldoAtualizado.ToString();
+                        
+                    }
+                    else
+                    {
+                        lblSuc.Visible = false;
+                        lblError.Visible = true;
+                        msgError("Cliente não tem uma conta no sistema,\n deseja criar uma nova?");
+                    }
+                }
+                else
+                {
+                    lblError.Visible = true;
+                    lblSuc.Visible = false;
+                    msgError("Cpf não encontrado!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblSuc.Visible = false;
-                lblError.Visible = true;
-                msgError("Cliente não tem uma conta no sistema, deseja criar uma nova?");
+                MessageBox.Show(ex.Message, ex.StackTrace);
             }
+            
+            
         }
         private void btnConfirma_Click(object sender, EventArgs e)
         {

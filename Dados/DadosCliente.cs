@@ -84,7 +84,7 @@ namespace Dados
 
         }
         //recuperar o cliente pelo CPF ou Nome
-        public DataTable MostrarDadosCliente(DadosCliente Dados)
+        public bool ConsultaCadastroCliente(DadosCliente Dados)
         {
             DataTable dt = new DataTable();
             using (var connection = GetConnection())
@@ -93,18 +93,21 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "DadosCliente";
-                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "select * from tb_cliente where cpf=@cpf";
+                    command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@cpf", Dados.CPF);
-                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
-                    SqlDat.Fill(dt);
+                    reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        return true;
+                    }
 
                 }
                 catch (Exception ex)
                 {
                     dt = null;
                 }
-                return dt;
+                return false;
             }
 
         }
@@ -125,8 +128,19 @@ namespace Dados
                     {
                         while (dr.Read())
                         {
-                            //CacheCliente.IdCliente = dr.GetInt32(10);
-                            CacheCliente.Nome = dr.GetString(1);
+                            CacheCliente.IdCliente = dr.GetInt32(10);
+                            CacheCliente.Nome = dr.GetString(0);
+                            CacheCliente.SobreNome = dr.GetString(1);
+                            CacheCliente.CPF = dr.GetString(2);
+                            CacheCliente.Email = dr.GetString(3);
+                            CacheCliente.CEP = dr.GetString(4);
+                            CacheCliente.Endereco = dr.GetString(5);
+                            CacheCliente.Bairro = dr.GetString(6);
+                            CacheCliente.UF = dr.GetString(7);
+                            CacheCliente.Fone = dr.GetString(8);
+                            CacheCliente.Cidade = dr.GetString(9);
+                            CacheCliente.SaldoDevedor = dr.GetDecimal(12);
+
                         }
                         return true;
                     }
