@@ -231,29 +231,40 @@ namespace Views
         //tecla de atalho para abrir uma nova compra
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            switch (keyData)
+            try
             {
-                case Keys.Control | Keys.L:
-                    string rpta = "";
-                    if (lblIdPedido.Text != "idpedido")
-                    {
-                        MessageBox.Show("Já existe uma compra em andamento.");
-                    }
-                    else
-                    {
-                        rpta = BusinesPedido.CadastroNovaCompra(1, Convert.ToInt32(lblIdVendedor.Text), 1);
-                        txtPesquisaProduto.Enabled = true;
-                        lblCompraAberta.Text = "Compra em andamento...";
-                        ListarVendas();
-                    }
-                    txtPesquisaProduto.Focus();
-                    break;
-                case Keys.F1:
-                    txtQuantidade.Enabled = true;
-                    txtValorUnitario.Clear();
-                    txtSubTotal.Clear();
-                    break;
+                switch (keyData)
+                {
+                    case Keys.F5:
+                        string rpta = "";
+                        if (lblIdPedido.Text != "idpedido")
+                        {
+                            MessageBox.Show("Já existe uma compra em andamento.");
+                        }
+                        else
+                        {
+                            rpta = BusinesPedido.CadastroNovaCompra(1, Convert.ToInt32(lblIdVendedor.Text), 1);
+                            txtPesquisaProduto.Enabled = true;
+                            dgvCupom.DataSource = null;
+                            lblTotal.Text = "0,00";
+                            lblSubTotalCupom.Text = "0,00";
+                            lblCompraAberta.Text = "Compra em andamento...";
+                            ListarVendas();
+                        }
+                        txtPesquisaProduto.Focus();
+                        break;
+                    case Keys.F1:
+                        txtQuantidade.Enabled = true;
+                        txtValorUnitario.Clear();
+                        txtSubTotal.Clear();
+                        break;
 
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -281,6 +292,10 @@ namespace Views
             Pagamento.FormFiado frm = new Pagamento.FormFiado(lblTotal.Text, lblIdPedido.Text);
             frm.ShowDialog();
             this.Enabled = true;
+            string rpta = BusinesPedido.FecharCompra(2, Convert.ToInt32(lblIdPedido.Text));
+            lblIdPedido.Text = "idpedido";
+            txtPesquisaProduto.Enabled = false;
+            lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
         }
 
 

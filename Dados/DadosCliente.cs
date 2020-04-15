@@ -111,6 +111,29 @@ namespace Dados
             }
 
         }
+        public DataTable ListarClientes(DadosCliente Lista)
+        {
+            DataTable dt = new DataTable();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM tb_cliente WHERE cpf=@cpf";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@cpf", Lista.CPF);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                    
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
         //pegando os dados dos usuarios
         public bool DadosContaCliente(string cpf)
         {
@@ -139,8 +162,7 @@ namespace Dados
                             CacheCliente.UF = dr.GetString(7);
                             CacheCliente.Fone = dr.GetString(8);
                             CacheCliente.Cidade = dr.GetString(9);
-                            CacheCliente.SaldoDevedor = dr.GetDecimal(12);
-
+                            CacheCliente.SaldoDevedor += dr.GetDecimal(12);
                         }
                         return true;
                     }
