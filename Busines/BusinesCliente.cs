@@ -34,6 +34,13 @@ namespace Busines
             obj.CPF = cpf;
             return obj.ConsultaCadastroCliente(obj);
         }
+        //listando os dados cadastrais do cliente que qianda nao tem conta fiado
+        public static DataTable ListarCadastro(string cpf)
+        {
+            DadosCliente obj = new DadosCliente();
+            obj.CPF = cpf;
+            return obj.ListarClientes(obj);
+        }
         public bool MostrarDadosClientes(string cpf)
         {
             return obj.DadosContaCliente(cpf);

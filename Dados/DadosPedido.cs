@@ -181,6 +181,29 @@ namespace Dados
                 return dt;
             }
         }
+        //fechar compra
+        public string FecharCompra(DadosPedido Update)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE tb_pedido SET id_status=@id_status WHERE id_pedido=@id_pedido";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_status", Update.IdStatus);
+                    command.Parameters.AddWithValue("@id_pedido", Update.IdPedido);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar status";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message + ex.StackTrace;
+                }
+                return rpta;
+            }
+        }
 
     }
 }

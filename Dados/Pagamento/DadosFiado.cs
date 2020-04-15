@@ -13,15 +13,18 @@ namespace Dados.Pagamento
         public int IdPedido { get; set; }
         public int IdCliente { get; set; }
         public decimal SaldoDevedor { get; set; }
+        public string Resultado { get; set; }
+
         public DadosFiado()
         {
 
         }
-        public DadosFiado(int idPedido, int idCliente, decimal saldoDevedor)
+        public DadosFiado(int idPedido, int idCliente, decimal saldoDevedor, string resultado)
         {
             IdPedido = idPedido;
             IdCliente = idCliente;
-            saldoDevedor = saldoDevedor;
+            SaldoDevedor = saldoDevedor;
+            Resultado = resultado;
         }
         protected SqlCommand command = new SqlCommand();
         protected SqlDataReader reader;
@@ -35,10 +38,17 @@ namespace Dados.Pagamento
                 {
                     command.Connection = connection;
                     command.CommandText = "Criar_Atualizar_Conta_Fiado";
-                    command.CommandType = CommandType.Text;
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_cliente", Dados.IdCliente);
                     command.Parameters.AddWithValue("@id_pedido", Dados.IdPedido);
                     command.Parameters.AddWithValue("@saldo_devedor", Dados.SaldoDevedor);
+                    SqlParameter parResult = new SqlParameter();
+                    parResult.ParameterName = "@resultado";
+                    parResult.Value = Dados.Resultado;
+                    parResult.SqlDbType = SqlDbType.VarChar;
+                    parResult.Size = 255;
+                    parResult.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(parResult);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar conta fiado";
                 }
                 catch (Exception ex)

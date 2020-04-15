@@ -89,6 +89,9 @@ namespace Views.Pagamento
         {
             try
             {
+                DataTable dtCliente = new DataTable();
+                dtCliente = BusinesCliente.ListarCadastro(txtCpf.Text);
+                string rpta = "";
                 if (BusinesCliente.ConsultaCadastroCliente(txtCpf.Text))
                 {
                     BusinesCliente obj = new BusinesCliente();
@@ -106,23 +109,43 @@ namespace Views.Pagamento
                         lblFone.Text = CacheCliente.Fone.ToString();
                         lblNome.Text = CacheCliente.Nome.ToString() + " " + CacheCliente.SobreNome.ToString();
                         decimal saldoDevedor = Convert.ToDecimal(CacheCliente.SaldoDevedor.ToString());
+
                         decimal calculoSaldoAtualizado = saldoDevedor + Convert.ToDecimal(lblTotal.Text);
                         lblSaldoAnterior.Text = saldoDevedor.ToString();
                         lblSaldoAtual.Text = calculoSaldoAtualizado.ToString();
-                        
                     }
                     else
                     {
+                        lblSaldoAtual.Visible = true;
+                        lblSaldoAnterior.Visible = true;
+                        lblSaldoAnterior.Text = "0";
+                        lblSaldoAtual.Text = lblTotal.Text;
                         lblSuc.Visible = false;
                         lblError.Visible = true;
-                        msgError("Cliente não tem uma conta no sistema,\n deseja criar uma nova?");
+                        if (MessageBox.Show("Criar uma nova conta para o cliente?", "Cliente não tem uma conta...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            
+                           rpta = BusinesFiado.CadastrarContaFiado(Convert.ToInt32(dtCliente.Rows[0]["id_cliente"].ToString()), Convert.ToInt32(txtIdPedido.Text), Convert.ToDecimal(lblSaldoAtual.Text));
+                        }
+                        if (rpta.Equals("OK"))
+                        {
+                            lblError.Visible = false;
+                            lblSuc.Visible = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            lblError.Visible = true;
+                            lblSuc.Visible = false;
+                            MessageBox.Show(rpta);
+                        }
                     }
                 }
                 else
                 {
                     lblError.Visible = true;
                     lblSuc.Visible = false;
-                    msgError("Cpf não encontrado!");
+                    msgError("Cpf não encontrado! Faça um novo Cadastro");
                 }
             }
             catch (Exception ex)
@@ -146,12 +169,12 @@ namespace Views.Pagamento
                 {
                     if (BusinesCliente.ValidaCadastro(txtCpf.Text) && IsNew == true)
                     {
-                        rpta = BusinesFiado.CadastrarContaFiado(Convert.ToInt32(lblMatricula.Text), Convert.ToInt32(txtIdPedido.Text), Convert.ToDecimal(lblSaldoAtual.Text));
+                        rpta = BusinesFiado.CadastrarContaFiado(Convert.ToInt32(lblMatricula.Text), Convert.ToInt32(txtIdPedido.Text), Convert.ToDecimal(lblTotal.Text));
                     }
                 }
                 if (rpta.Equals("OK"))
                 {
-                    msgSuccess("Fechou");
+                    this.Close();
                 }
                 else
                 {

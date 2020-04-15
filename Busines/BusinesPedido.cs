@@ -44,6 +44,14 @@ namespace Busines
             obj.IdPedido = idPedido;
             return obj.ListarItensPedido(obj);
         }
+        //fechar compra
+        public static string FecharCompra(int idStatus, int idPedido)
+        {
+            DadosPedido obj = new DadosPedido();
+            obj.IdStatus = idStatus;
+            obj.IdPedido = idPedido;
+            return obj.FecharCompra(obj);
+        }
     }
 
 }

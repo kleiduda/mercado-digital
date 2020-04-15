@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\CacheCadastroCliente.cs" />
     <Compile Include="Cache\CacheCliente.cs" />
     <Compile Include="Cache\CachePedido.cs" />
     <Compile Include="Cache\CaixaCache.cs" />

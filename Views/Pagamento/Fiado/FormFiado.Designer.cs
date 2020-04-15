@@ -197,6 +197,7 @@
             this.linha.TabIndex = 180;
             this.linha.Transparency = 255;
             this.linha.Vertical = false;
+            this.linha.Visible = false;
             // 
             // label16
             // 
