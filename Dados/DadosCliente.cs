@@ -199,6 +199,29 @@ namespace Dados
                 return false;
             }
         }
+        //cadastro apenas do CPF para nota fiscal
+        public string CadastroCpf(DadosCliente CPF)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "insert into tb_cliente (nome, sobre_nome, cpf, fone, email, cep, endereco, bairro, cidade, uf, observacao) values ('', '', @cpf, '', '', '', '', '', '', '', '')";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@cpf", CPF.CPF);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar CPF";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message;
+                }
+                return rpta;
+            }
+
+        }
     }
 
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dados;
 using System.Data;
+using Supporte.Enums;
 
 
 namespace Busines
@@ -45,11 +46,13 @@ namespace Busines
             return obj.ListarItensPedido(obj);
         }
         //fechar compra
-        public static string FecharCompra(int idStatus, int idPedido)
+        public static string FecharCompra(int idPedido, TiposPagamento pagamento, int idStatus, int idCliente )
         {
             DadosPedido obj = new DadosPedido();
-            obj.IdStatus = idStatus;
             obj.IdPedido = idPedido;
+            obj.Pagamento = pagamento;
+            obj.IdStatus = idStatus;
+            obj.IdCliente = idCliente;
             return obj.FecharCompra(obj);
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Supporte.Enums;
 
 namespace Dados
 {
@@ -21,12 +22,15 @@ namespace Dados
         public int EstoqueQuantidade { get; set; }
         public string Resultado { get; set; }
         public decimal Preco { get; set; }
+        public TiposPagamento Pagamento { get; set; }
+
+
         //construtores
         public DadosPedido()
         {
 
         }
-        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, string resultado, decimal preco)
+        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, string resultado, decimal preco, TiposPagamento pagamento)
         {
             IdPedido = idPedido;
             IdCliente = idPedido;
@@ -37,6 +41,7 @@ namespace Dados
             EstoqueQuantidade = estoqueQuantidade;
             Resultado = resultado;
             Preco = preco;
+            Pagamento = pagamento;
         }
         //metodos
         protected SqlCommand command = new SqlCommand();
@@ -191,11 +196,14 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "UPDATE tb_pedido SET id_status=@id_status WHERE id_pedido=@id_pedido";
-                    command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("@id_status", Update.IdStatus);
+                    command.CommandText = "FecharCompra";
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_pedido", Update.IdPedido);
-                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar status";
+                    command.Parameters.AddWithValue("@id_pagamento", Update.Pagamento);
+                    command.Parameters.AddWithValue("@id_status", Update.IdStatus);
+                    command.Parameters.AddWithValue("@id_cliente", Update.IdCliente);
+                    
+                    rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar compra";
                 }
                 catch (Exception ex)
                 {

@@ -12,6 +12,13 @@ namespace Views.Pagamento
 {
     public partial class FormDinheiro : Form
     {
+        private string _recebido = null;
+        private string _troco = null;
+        private string _validaFecharCompra = null;
+        public string Recebido { get { return _recebido; } }
+        public string Troco { get { return _troco; } }
+        public string ValidaFecharCompra { get { return _validaFecharCompra; } }
+
         public FormDinheiro()
         {
             InitializeComponent();
@@ -65,14 +72,45 @@ namespace Views.Pagamento
                 ValorRecebido = 0;
                 lblTroco.Text = "0,00";
             }
-            
-            
         }
-
+        //pegando valores para devolver para form PDV
+        public void ValoresPDV()
+        {
+            this._recebido = txtRecebido.Text;
+            this._troco = lblTroco.Text;
+        }
         private void txtRecebido_TextChanged(object sender, EventArgs e)
         {
             Moeda(ref txtRecebido);
             CalculoTroco();
+            btnConfirma.Enabled = true;
+        }
+
+        private void btnConfirma_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRecebido.Text))
+            {
+                MessageBox.Show("Qual valor recebido?");
+            }
+            else
+            {
+                this._validaFecharCompra = "2";
+                ValoresPDV();
+                this.Close();
+            }
+                
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this._validaFecharCompra = "1";
+            this.Close();
+        }
+
+        private void FormFiado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this._recebido = txtRecebido.Text;
+            //this._troco = lblTroco.Text;
+            this._validaFecharCompra = this._validaFecharCompra;
         }
     }
 }
