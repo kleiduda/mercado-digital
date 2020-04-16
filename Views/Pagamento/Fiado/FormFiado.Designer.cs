@@ -59,23 +59,33 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.txtIdPedido = new System.Windows.Forms.TextBox();
             this.lblSuc = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
-            this.txtIdPedido = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConfirma
             // 
+            this.btnConfirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnConfirma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.btnConfirma.FlatAppearance.BorderSize = 0;
             this.btnConfirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirma.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirma.ForeColor = System.Drawing.Color.White;
-            this.btnConfirma.Location = new System.Drawing.Point(34, 560);
+            this.btnConfirma.Location = new System.Drawing.Point(27, 545);
             this.btnConfirma.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirma.Name = "btnConfirma";
-            this.btnConfirma.Size = new System.Drawing.Size(417, 57);
+            this.btnConfirma.Size = new System.Drawing.Size(401, 57);
             this.btnConfirma.TabIndex = 157;
             this.btnConfirma.Text = "CONFIRMA";
             this.btnConfirma.UseVisualStyleBackColor = false;
@@ -83,10 +93,11 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label3.Location = new System.Drawing.Point(35, 283);
+            this.label3.Location = new System.Drawing.Point(27, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 20);
             this.label3.TabIndex = 154;
@@ -94,10 +105,11 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label2.Location = new System.Drawing.Point(26, 144);
+            this.label2.Location = new System.Drawing.Point(26, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 39);
             this.label2.TabIndex = 152;
@@ -105,11 +117,12 @@
             // 
             // lblTotal
             // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Arial Black", 30.25F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblTotal.Location = new System.Drawing.Point(22, 181);
+            this.lblTotal.Location = new System.Drawing.Point(18, 167);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(149, 72);
@@ -118,10 +131,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label1.Location = new System.Drawing.Point(32, 38);
+            this.label1.Location = new System.Drawing.Point(13, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(424, 29);
             this.label1.TabIndex = 151;
@@ -134,11 +148,11 @@
             this.txtCpf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCpf.Font = new System.Drawing.Font("Arial", 30F);
             this.txtCpf.ForeColor = System.Drawing.Color.Black;
-            this.txtCpf.Location = new System.Drawing.Point(41, 310);
+            this.txtCpf.Location = new System.Drawing.Point(27, 296);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpf.MaxLength = 150;
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(418, 65);
+            this.txtCpf.Size = new System.Drawing.Size(401, 65);
             this.txtCpf.TabIndex = 150;
             // 
             // lblSaldoAtual
@@ -180,9 +194,10 @@
             this.panel1.Controls.Add(this.lblMatricula);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblNome);
-            this.panel1.Location = new System.Drawing.Point(466, 38);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(499, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(519, 579);
+            this.panel1.Size = new System.Drawing.Size(513, 628);
             this.panel1.TabIndex = 158;
             // 
             // linha
@@ -451,12 +466,13 @@
             // 
             // btnCadastro
             // 
+            this.btnCadastro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnCadastro.BackColor = System.Drawing.Color.White;
             this.btnCadastro.FlatAppearance.BorderSize = 0;
             this.btnCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastro.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
             this.btnCadastro.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastro.Location = new System.Drawing.Point(245, 383);
+            this.btnCadastro.Location = new System.Drawing.Point(214, 369);
             this.btnCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(214, 31);
@@ -467,18 +483,33 @@
             // 
             // btnConsultar
             // 
+            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnConsultar.BackColor = System.Drawing.Color.White;
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold);
             this.btnConsultar.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultar.Location = new System.Drawing.Point(41, 383);
+            this.btnConsultar.Location = new System.Drawing.Point(27, 369);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(113, 31);
+            this.btnConsultar.Size = new System.Drawing.Size(119, 31);
             this.btnConsultar.TabIndex = 160;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // txtIdPedido
+            // 
+            this.txtIdPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtIdPedido.BackColor = System.Drawing.Color.White;
+            this.txtIdPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdPedido.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdPedido.ForeColor = System.Drawing.Color.Black;
+            this.txtIdPedido.Location = new System.Drawing.Point(33, 86);
+            this.txtIdPedido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdPedido.MaxLength = 150;
+            this.txtIdPedido.Name = "txtIdPedido";
+            this.txtIdPedido.Size = new System.Drawing.Size(57, 27);
+            this.txtIdPedido.TabIndex = 163;
             // 
             // lblSuc
             // 
@@ -488,7 +519,7 @@
             this.lblSuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(175)))), ((int)(((byte)(115)))));
             this.lblSuc.Image = global::Views.Properties.Resources.sucesso;
             this.lblSuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSuc.Location = new System.Drawing.Point(51, 451);
+            this.lblSuc.Location = new System.Drawing.Point(43, 437);
             this.lblSuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSuc.Name = "lblSuc";
             this.lblSuc.Size = new System.Drawing.Size(234, 20);
@@ -498,13 +529,14 @@
             // 
             // lblError
             // 
+            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lblError.AutoSize = true;
             this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Image = global::Views.Properties.Resources.report_min;
             this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblError.Location = new System.Drawing.Point(51, 451);
+            this.lblError.Location = new System.Drawing.Point(46, 438);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(234, 20);
@@ -512,49 +544,97 @@
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;
             // 
-            // txtIdPedido
+            // panel2
             // 
-            this.txtIdPedido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtIdPedido.BackColor = System.Drawing.Color.White;
-            this.txtIdPedido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdPedido.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtIdPedido.ForeColor = System.Drawing.Color.Black;
-            this.txtIdPedido.Location = new System.Drawing.Point(33, 100);
-            this.txtIdPedido.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIdPedido.MaxLength = 150;
-            this.txtIdPedido.Name = "txtIdPedido";
-            this.txtIdPedido.Size = new System.Drawing.Size(57, 27);
-            this.txtIdPedido.TabIndex = 163;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1012, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(31, 702);
+            this.panel2.TabIndex = 164;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnConfirma);
+            this.panel3.Controls.Add(this.txtCpf);
+            this.panel3.Controls.Add(this.lblError);
+            this.panel3.Controls.Add(this.txtIdPedido);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lblSuc);
+            this.panel3.Controls.Add(this.lblTotal);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.btnConsultar);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.btnCadastro);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(34, 35);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(465, 628);
+            this.panel3.TabIndex = 165;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnClose);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1012, 35);
+            this.panel4.TabIndex = 166;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 35);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(34, 667);
+            this.panel5.TabIndex = 167;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(34, 663);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(978, 39);
+            this.panel6.TabIndex = 168;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.Image = global::Views.Properties.Resources.delete;
+            this.btnClose.Location = new System.Drawing.Point(985, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(27, 35);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 143;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FormFiado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(997, 655);
-            this.Controls.Add(this.txtIdPedido);
-            this.Controls.Add(this.lblSuc);
-            this.Controls.Add(this.lblError);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.btnCadastro);
+            this.ClientSize = new System.Drawing.Size(1043, 702);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnConfirma);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCpf);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormFiado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFiado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFiado_FormClosing);
             this.Load += new System.EventHandler(this.FormFiado_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -594,5 +674,11 @@
         private System.Windows.Forms.Label lblError;
         private Bunifu.Framework.UI.BunifuSeparator linha;
         public System.Windows.Forms.TextBox txtIdPedido;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox btnClose;
     }
 }

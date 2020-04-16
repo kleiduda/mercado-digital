@@ -51,5 +51,12 @@ namespace Busines
             obj.CPF = cpf;
             return obj.ValidarCadastro(obj);
         }
+        //cadastro cpf
+        public static string CadastroCpf(string cpf)
+        {
+            DadosCliente obj = new DadosCliente();
+            obj.CPF = cpf;
+            return obj.CadastroCpf(obj);
+        }
     }
 }

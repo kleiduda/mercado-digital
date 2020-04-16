@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Busines;
 using Supporte.Cache;
+using Supporte.Enums;
+using Views.PDV;
+using Views.Pagamento;
+
 
 namespace Views
 {
@@ -23,14 +27,42 @@ namespace Views
         {
             InitializeComponent();
         }
-
+        
         private void FormPDV_Load(object sender, EventArgs e)
         {
             DadosVendedor();
             ListarProdutos();
             lblData.Text = DateTime.Now.ToString();
+            ImagemCupom();
         }
-
+        public void ImagemCupom()
+        {
+            if (lblCompraAberta.Text == "Caixa Livre...")
+            {
+                imageStore.Visible = true;
+                lblCaixaLivreCupom.Visible = true;
+            }
+            else
+            {
+                imageStore.Visible = false;
+                lblCaixaLivreCupom.Visible = false;
+            }
+        }
+        //habilitar e desabilitar pagamentos
+        public void EnableBtn()
+        {
+            btnFiado.Enabled = true;
+            btnDinheiro.Enabled = true;
+            btnCredito.Enabled = true;
+            btnDebito.Enabled = true;
+        }
+        public void DisableBtn()
+        {
+            btnFiado.Enabled = false;
+            btnDinheiro.Enabled = false;
+            btnCredito.Enabled = false;
+            btnDebito.Enabled = false;
+        }
         private void ListarProdutos()
         {
             dgvItens.DataSource = BusinesProduto.ListarProdutos();
@@ -249,6 +281,9 @@ namespace Views
                             lblTotal.Text = "0,00";
                             lblSubTotalCupom.Text = "0,00";
                             lblCompraAberta.Text = "Compra em andamento...";
+                            btnCpfNaNota.Enabled = true;
+                            EnableBtn();
+                            ImagemCupom();
                             ListarVendas();
                         }
                         txtPesquisaProduto.Focus();
@@ -271,11 +306,36 @@ namespace Views
 
         private void btnDinheiro_Click(object sender, EventArgs e)
         {
-            Pagamento.FormDinheiro frm = new Pagamento.FormDinheiro(lblTotal.Text);
             this.Enabled = false;
-            frm.ShowDialog();
+            FormDinheiro _frm = new FormDinheiro(lblTotal.Text);
+            _frm.ShowDialog();
             this.Enabled = true;
-            
+            lblrecebido.Text = _frm.Recebido;
+            lblTroco.Text = _frm.Troco;
+            this.txtValida.Text = _frm.ValidaFecharCompra;
+            if (txtValida.Text == "2")
+            {
+                try
+                {
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, 2, 1);
+                    lblIdPedido.Text = "idpedido";
+                    txtPesquisaProduto.Enabled = false;
+                    lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
+                    DisableBtn();
+                    if (rpta.Equals("OK"))
+                    {
+                        lblPagamento.Text = TiposPagamento.Dinheiro.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(rpta);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
         }
 
         private void btnDebito_Click(object sender, EventArgs e)
@@ -285,22 +345,43 @@ namespace Views
             frm.ShowDialog();
             this.Enabled = true;
         }
-
         private void btnFiado_Click(object sender, EventArgs e)
         {
+            FormFiado _frm = new FormFiado(lblTotal.Text, lblIdPedido.Text);
+            _frm.ShowDialog();
+            this.txtValida.Text = _frm.Valor;
+            if (txtValida.Text == "2")
+            {
+                try
+                {
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, 2, Convert.ToInt32(CacheCliente.IdCliente.ToString()));
+                    lblIdPedido.Text = "idpedido";
+                    txtPesquisaProduto.Enabled = false;
+                    lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
+                    DisableBtn();
+                    if (rpta.Equals("OK"))
+                    {
+                        lblPagamento.Text = TiposPagamento.Fiado.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(rpta);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
+        private void btnCpfNaNota_Click(object sender, EventArgs e)
+        {
             this.Enabled = false;
-            Pagamento.FormFiado frm = new Pagamento.FormFiado(lblTotal.Text, lblIdPedido.Text);
+            FormCpfNota frm = new FormCpfNota();
             frm.ShowDialog();
             this.Enabled = true;
-            string rpta = BusinesPedido.FecharCompra(2, Convert.ToInt32(lblIdPedido.Text));
-            lblIdPedido.Text = "idpedido";
-            txtPesquisaProduto.Enabled = false;
-            lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
         }
 
-
-
-        //METODOS DE PAGAMENTOS
 
     }
 }

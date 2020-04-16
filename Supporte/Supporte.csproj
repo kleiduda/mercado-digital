@@ -47,6 +47,7 @@
     <Compile Include="Cache\CaixaCache.cs" />
     <Compile Include="Cache\FuncaoCache.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
+    <Compile Include="Enums\TiposPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

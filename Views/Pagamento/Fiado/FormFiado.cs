@@ -17,10 +17,16 @@ namespace Views.Pagamento
     public partial class FormFiado : Form
     {
         private bool IsNew = true;
+        private string _valor = null;
+        public string Valor
+        {
+            get { return _valor; }
+        }
         public FormFiado()
         {
             InitializeComponent();
         }
+       
         public FormFiado(string value, string value2)
         {
             InitializeComponent();
@@ -30,7 +36,7 @@ namespace Views.Pagamento
 
         private void FormFiado_Load(object sender, EventArgs e)
         {
-
+           
         }
         //mensagens
         private void msgError(string msg)
@@ -124,8 +130,10 @@ namespace Views.Pagamento
                         lblError.Visible = true;
                         if (MessageBox.Show("Criar uma nova conta para o cliente?", "Cliente não tem uma conta...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            
-                           rpta = BusinesFiado.CadastrarContaFiado(Convert.ToInt32(dtCliente.Rows[0]["id_cliente"].ToString()), Convert.ToInt32(txtIdPedido.Text), Convert.ToDecimal(lblSaldoAtual.Text));
+                           rpta = BusinesFiado.CadastrarContaFiado(
+                               Convert.ToInt32(dtCliente.Rows[0]["id_cliente"].ToString()),
+                               Convert.ToInt32(txtIdPedido.Text), 
+                               Convert.ToDecimal(lblSaldoAtual.Text));
                         }
                         if (rpta.Equals("OK"))
                         {
@@ -160,6 +168,7 @@ namespace Views.Pagamento
             try
             {
                 string rpta = "";
+               
                 if (string.IsNullOrEmpty(txtCpf.Text) && IsNew == true)
                 {
                     lblError.Visible = true;
@@ -174,6 +183,7 @@ namespace Views.Pagamento
                 }
                 if (rpta.Equals("OK"))
                 {
+                    this._valor = "2";
                     this.Close();
                 }
                 else
@@ -183,9 +193,18 @@ namespace Views.Pagamento
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this._valor = "1";
+            this.Close();
+        }
 
+        private void FormFiado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this._valor = this._valor;
         }
     }
 }
