@@ -320,11 +320,19 @@ namespace Views
             lblTroco.Text = _frm.Troco;
             this.txtValida.Text = _frm.ValidaFecharCompra;
             string idCliente = null;
+            if (!string.IsNullOrEmpty(CpfNaNota))
+            {
+                idCliente = CacheCliente.IdCliente.ToString();
+            }
+            else
+            {
+                idCliente = "1";
+            }
             if (txtValida.Text == "2")
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, 2, 1);
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, 2, Convert.ToInt32(idCliente));
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
@@ -343,6 +351,7 @@ namespace Views
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
             }
+            CpfNaNota = string.Empty;
         }
 
         private void btnDebito_Click(object sender, EventArgs e)
@@ -384,11 +393,10 @@ namespace Views
         private void btnCpfNaNota_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            FormCpfNota frm = new FormCpfNota();
+            FormCpfNota frm = new FormCpfNota(Convert.ToInt32(lblIdPedido.Text));
             frm.ShowDialog();
             this.Enabled = true;
-            this.CpfNaNota = frm.CPF;
-            MessageBox.Show(CpfNaNota);
+            CpfNaNota = frm.CPF;
         }
 
 
