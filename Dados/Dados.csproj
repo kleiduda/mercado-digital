@@ -50,6 +50,7 @@
     <Compile Include="DadosProduto.cs" />
     <Compile Include="DadosUsuario.cs" />
     <Compile Include="Enums\TiposPagamento.cs" />
+    <Compile Include="NotaFiscal\DadosNotaFiscal.cs" />
     <Compile Include="Pagamento\DadosFiado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

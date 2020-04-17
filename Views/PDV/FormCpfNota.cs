@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Busines;
+using Busines.Validacoes;
+using Busines.NotaFiscal;
 
 namespace Views.PDV
 {
@@ -8,9 +9,15 @@ namespace Views.PDV
     {
         private string _cpf = null;
         public string CPF { get { return _cpf; } }
+        public int IdPedido;
         public FormCpfNota()
         {
             InitializeComponent();
+        }
+        public FormCpfNota(int value)
+        {
+            InitializeComponent();
+            IdPedido = value;
         }
 
         private void FormCpfNota_Load(object sender, EventArgs e)
@@ -28,27 +35,54 @@ namespace Views.PDV
             lblSuc.Text = "      " + msg;
             lblSuc.Visible = true;
         }
+        //validando o CPF
+        public bool Valida(string cpf)
+        {
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempCpf;
+            string digito;
+            int soma;
+            int resto;
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+            if (cpf.Length != 11)
+                return false;
+            tempCpf = cpf.Substring(0, 9);
+            soma = 0;
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCpf = tempCpf + digito;
+            soma = 0;
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+            resto = soma % 11;
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cpf.EndsWith(digito);
+        }
 
         private void btnConfirma_Click(object sender, EventArgs e)
         {
             try
             {
                 string rpta = "";
-                if (string.IsNullOrEmpty(txtCpf.Text))
+                if (!Validacoes.ValidaCPF(txtCpf.Text))
                 {
-                    msgError("Preencha um cpf válido!");
-                }
-                else if (BusinesCliente.ValidaCadastro(txtCpf.Text))
-                {
-                    MessageBox.Show("Ja tem no banco entao vou usar esse mesmo");
-                    this._cpf = txtCpf.Text;
-                    this.Close();
+                    msgError("CPF INVÁLIDO!");
                 }
                 else
                 {
-                    MessageBox.Show("Nao tem, entao vou cadastrar");
-                    rpta = BusinesCliente.CadastroCpf(txtCpf.Text);
-                    this._cpf = txtCpf.Text;
+                    rpta = BusinesNotaFiscal.CadastroCpfNota(txtCpf.Text, IdPedido);
                     this.Close();
                 }
             }
@@ -56,7 +90,7 @@ namespace Views.PDV
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            
+
         }
     }
 }
