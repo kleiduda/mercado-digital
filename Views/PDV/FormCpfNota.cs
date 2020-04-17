@@ -1,18 +1,13 @@
-﻿using Busines;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Busines;
 
 namespace Views.PDV
 {
     public partial class FormCpfNota : Form
     {
+        private string _cpf = null;
+        public string CPF { get { return _cpf; } }
         public FormCpfNota()
         {
             InitializeComponent();
@@ -36,32 +31,32 @@ namespace Views.PDV
 
         private void btnConfirma_Click(object sender, EventArgs e)
         {
-            string rpta = "";
             try
             {
+                string rpta = "";
                 if (string.IsNullOrEmpty(txtCpf.Text))
                 {
-                    lblError.Visible = true;
-                    lblSuc.Visible = false;
-                    msgError("CAMPO CPF VAZIO!");
+                    msgError("Preencha um cpf válido!");
                 }
-                else
+                else if (BusinesCliente.ValidaCadastro(txtCpf.Text))
                 {
-                    rpta = BusinesCliente.CadastroCpf(txtCpf.Text);
-                }
-                if (rpta.Equals("OK"))
-                {
+                    MessageBox.Show("Ja tem no banco entao vou usar esse mesmo");
+                    this._cpf = txtCpf.Text;
                     this.Close();
                 }
                 else
                 {
-                    msgError("Erro ao cadsatrar");
+                    MessageBox.Show("Nao tem, entao vou cadastrar");
+                    rpta = BusinesCliente.CadastroCpf(txtCpf.Text);
+                    this._cpf = txtCpf.Text;
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
-                msgError(ex.Message + ex.StackTrace);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
+            
         }
     }
 }

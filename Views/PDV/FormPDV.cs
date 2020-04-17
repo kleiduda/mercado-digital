@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Busines;
 using Supporte.Cache;
 using Supporte.Enums;
 using Views.PDV;
 using Views.Pagamento;
-
 
 namespace Views
 {
@@ -22,6 +15,7 @@ namespace Views
         const decimal Desconto = 0;
         int Qtd = 1;
         private bool IsNew = true;
+        private string CpfNaNota = null;
         
         public FormPDV()
         {
@@ -55,6 +49,8 @@ namespace Views
             btnDinheiro.Enabled = true;
             btnCredito.Enabled = true;
             btnDebito.Enabled = true;
+            btnCpfNaNota.Enabled = true;
+            dgvCupom.Enabled = true;
         }
         public void DisableBtn()
         {
@@ -62,6 +58,15 @@ namespace Views
             btnDinheiro.Enabled = false;
             btnCredito.Enabled = false;
             btnDebito.Enabled = false;
+            btnCpfNaNota.Enabled = false;
+            dgvCupom.Enabled = false;
+        }
+        //bloco pagamento. recebido, troco
+        public void LimparBlocoPagamento()
+        {
+            lblrecebido.Text = string.Empty;
+            lblTroco.Text = string.Empty;
+            lblPagamento.Text = string.Empty;
         }
         private void ListarProdutos()
         {
@@ -282,6 +287,7 @@ namespace Views
                             lblSubTotalCupom.Text = "0,00";
                             lblCompraAberta.Text = "Compra em andamento...";
                             btnCpfNaNota.Enabled = true;
+                            LimparBlocoPagamento();
                             EnableBtn();
                             ImagemCupom();
                             ListarVendas();
@@ -313,6 +319,7 @@ namespace Views
             lblrecebido.Text = _frm.Recebido;
             lblTroco.Text = _frm.Troco;
             this.txtValida.Text = _frm.ValidaFecharCompra;
+            string idCliente = null;
             if (txtValida.Text == "2")
             {
                 try
@@ -380,6 +387,8 @@ namespace Views
             FormCpfNota frm = new FormCpfNota();
             frm.ShowDialog();
             this.Enabled = true;
+            this.CpfNaNota = frm.CPF;
+            MessageBox.Show(CpfNaNota);
         }
 
 
