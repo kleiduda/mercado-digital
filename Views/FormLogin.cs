@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Busines;
+using Supporte.Cache;
+using Supporte.Enums;
 
 namespace Views
 {
@@ -74,10 +76,20 @@ namespace Views
                 var validateUser = obj.LoginUser(txtUser.Text, txtPassword.Text);
                 if (validateUser == true)
                 {
-                    Formdashboard mainMenu = new Formdashboard(); 
-                    mainMenu.Show();
-                    mainMenu.FormClosed += Logout;
-                    this.Hide();
+                    if (UserLoginCache.Cargo == 1)
+                    {
+                        Formdashboard mainMenu = new Formdashboard();
+                        mainMenu.Show();
+                        mainMenu.FormClosed += Logout;
+                        this.Hide();
+                    }
+                    if (UserLoginCache.Cargo == 2)
+                    {
+                        FormDashBoardAtendente mainMenu = new FormDashBoardAtendente();
+                        mainMenu.Show();
+                        mainMenu.FormClosed += Logout;
+                        this.Hide();
+                    }
                 }
                 else
                 {
