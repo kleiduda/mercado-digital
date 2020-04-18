@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Atendente\FormDashBoardAtendente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Atendente\FormDashBoardAtendente.Designer.cs">
+      <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamento\Fiado\FormCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Atendente\FormDashBoardAtendente.resx">
+      <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\Fiado\FormCadastroCliente.resx">
       <DependentUpon>FormCadastroCliente.cs</DependentUpon>
     </EmbeddedResource>

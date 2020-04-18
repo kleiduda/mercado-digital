@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Supporte.Cache;
+using Supporte.Enums;
 
 
 namespace Dados
@@ -184,15 +185,14 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "INSERT INTO tb_vendedor (login, nome, sobre_nome, email, telefone, id_funcao, senha)" +
-                        "VALUES (@login, @nome, @sobre_nome, @email, @telefone, @id_funcao, @senha)";
-                    command.CommandType = CommandType.Text;
+                    command.CommandText = "CadastroUsuario";
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@login", Usuario.Login);
                     command.Parameters.AddWithValue("@nome", Usuario.Nome);
                     command.Parameters.AddWithValue("@sobre_nome", Usuario.SobreNome);
                     command.Parameters.AddWithValue("@email", Usuario.Email);
                     command.Parameters.AddWithValue("@telefone", Usuario.Telefone);
-                    command.Parameters.AddWithValue("@id_funcao", Usuario.Cargo);
+                    command.Parameters.AddWithValue("@id_cargo", Usuario.Cargo);
                     command.Parameters.AddWithValue("@senha", Usuario.Senha);
 
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir cadastro de usuario";
@@ -261,7 +261,7 @@ namespace Dados
                             UserLoginCache.Nome = dr.GetString(2);
                             UserLoginCache.SobreNome = dr.GetString(3);
                             UserLoginCache.Email = dr.GetString(4);
-                            UserLoginCache.Cargo = dr.GetString(5);
+                            UserLoginCache.Cargo = dr.GetInt32(6);
                         }
                         return true;
                     }
@@ -273,5 +273,6 @@ namespace Dados
                 }
             }
         }
+        
     }
 }

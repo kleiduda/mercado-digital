@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dados;
+using Supporte.Enums;
 using Supporte.Cache;
 
 namespace Busines
@@ -65,6 +66,7 @@ namespace Busines
         {
             return new DadosUsuario().ListarUsuarios();
         }
+        
         //public static List<DadosUsuario> ListDados()
         //{
         //    List<DadosUsuario> lista = new List<DadosUsuario>();

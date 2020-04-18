@@ -14,22 +14,23 @@ using Busines;
 
 namespace Views
 {
-    public partial class Formdashboard : Form
+    public partial class FormDashBoardAtendente : Form
     {
         const decimal Desconto = 0;
         const int Qtd = 1;
 
-        public Formdashboard()
+        public FormDashBoardAtendente()
         {
             InitializeComponent();
         }
 
-        private void Formdashboard_Load(object sender, EventArgs e)
+        private void FormDashBoardAtendente_Load(object sender, EventArgs e)
         {
             LoadData();
         }
         private void LoadData()
         {
+            lblUsuarioHeader.Text = UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
             lblLogin.Text = "Olá, " + UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
             lblCargo.Text = UserLoginCache.Cargo.ToString();
         }
