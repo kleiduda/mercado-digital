@@ -48,6 +48,7 @@
     <Compile Include="Cache\FuncaoCache.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
     <Compile Include="Enums\NivelUsuario.cs" />
+    <Compile Include="Enums\PeriodoDia.cs" />
     <Compile Include="Enums\TiposPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

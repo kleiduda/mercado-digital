@@ -73,6 +73,16 @@ namespace Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Artboard_1web_moms_care {
+            get {
+                object obj = ResourceManager.GetObject("Artboard 1web-moms-care", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Asset_1 {
             get {
                 object obj = ResourceManager.GetObject("Asset 1", resourceCulture);
@@ -136,6 +146,16 @@ namespace Views.Properties {
         internal static System.Drawing.Bitmap Asset_1user {
             get {
                 object obj = ResourceManager.GetObject("Asset 1user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Asset_1vendedor1 {
+            get {
+                object obj = ResourceManager.GetObject("Asset 1vendedor1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

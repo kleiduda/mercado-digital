@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Supporte.Cache;
-using Busines;
-
+using System.Globalization;
 
 namespace Views
 {
@@ -18,6 +9,7 @@ namespace Views
     {
         const decimal Desconto = 0;
         const int Qtd = 1;
+        string PeriodoDia = null;
 
         public FormDashBoardAtendente()
         {
@@ -30,9 +22,12 @@ namespace Views
         }
         private void LoadData()
         {
-            lblUsuarioHeader.Text = UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
-            lblLogin.Text = "Olá, " + UserLoginCache.Nome + " " + UserLoginCache.SobreNome;
+            lblLogin.Text = UserLoginCache.Nome.ToLower() + " " + UserLoginCache.SobreNome.ToLower();
             lblCargo.Text = UserLoginCache.Cargo.ToString();
+            timer1.Enabled = true;
+            bunifuTransition1.Show(pData, false, BunifuAnimatorNS.Animation.Transparent);
+           
+            StyleCalendario();
         }
         private void OpenFormPanel(object form)
         {
@@ -45,48 +40,39 @@ namespace Views
             this.container.Tag = frm;
             frm.Show();
         }
-
-        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            //OpenFormPanel(new Formdashboard());
+            
+            DateTime dtPeriodo = DateTime.Now;
+            lblHoras.Text = dtPeriodo.ToLongTimeString();
+            lblDia.Text = dtPeriodo.Day.ToString();
+            lblDiaLong.Text = dtPeriodo.ToString("dddd", new CultureInfo("pt-BR")).ToUpper();
+            //saudacao dependendo do horario
+            int hora = DateTime.Now.Hour;
+            var saudacoes = new string[]{"Boa Madrugada", "Bom dia", "Boa Tarde", "Boa Noite" };
+            animaLabel.Show(lblBomDia, false, BunifuAnimatorNS.Animation.Transparent);
+            lblBomDia.Text = saudacoes[hora / 6] + ", ";
+            lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString(); 
         }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        //calendario
+        public void StyleCalendario()
         {
-            FormCadastroProduto frm = new FormCadastroProduto();
-            frm.ShowDialog();
+            //this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(242,242,242);
+            //this.monthCalendar1.ForeColor = System.Drawing.Color.FromArgb(((System.Byte)(192)), ((System.Byte)(0)), ((System.Byte)(192)));
+            //this.monthCalendar1.TitleBackColor = System.Drawing.Color.Purple;
         }
-
-        private void frenteDeCaixaPDVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPDV frm = new FormPDV();
-            frm.ShowDialog();
-        }
-
-        private void nomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseja realmente encerrar a seção?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-        
         private void label1_Click(object sender, EventArgs e)
         {
             FormValorInicial frm = new FormValorInicial();
             frm.ShowDialog();
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            FormCadastroVendedor frm = new FormCadastroVendedor();
-            frm.ShowDialog();
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            OpenFormPanel(new Setting.FormSettings());
-            painelAbrirCaixa.Visible = false;
+            if (MessageBox.Show("Deseja realmente encerrar a seção?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
