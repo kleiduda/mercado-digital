@@ -53,7 +53,7 @@ namespace Views
         {
             dgvUsers.Columns["id_vendedor"].Visible = false;
             dgvUsers.Columns["login"].Visible = false;
-            dgvUsers.Columns["id_funcao"].Visible = false;
+            dgvUsers.Columns["id_cargo"].Visible = false;
             dgvUsers.Columns["senha"].Visible = false;
             dgvUsers.Columns["sobre_nome"].Visible = false;
             dgvUsers.Columns["telefone"].Visible = false;
@@ -324,6 +324,6 @@ namespace Views
             this.Hide();
         }
 
-       
+        
     }
 }

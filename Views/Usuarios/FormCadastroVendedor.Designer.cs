@@ -399,6 +399,7 @@
             this.fotoVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fotoVendedor.TabIndex = 124;
             this.fotoVendedor.TabStop = false;
+            this.fotoVendedor.Click += new System.EventHandler(this.fotoVendedor_Click);
             // 
             // pCupom
             // 
