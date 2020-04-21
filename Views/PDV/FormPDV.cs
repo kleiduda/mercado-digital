@@ -272,7 +272,7 @@ namespace Views
             {
                 switch (keyData)
                 {
-                    case Keys.F5:
+                    case Keys.Control | Keys.L:
                         string rpta = "";
                         if (lblIdPedido.Text != "idpedido")
                         {

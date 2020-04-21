@@ -12,48 +12,55 @@ namespace Dados
     public class DadosCaixa : Connection
     {
         public decimal ValorInicial { get; set; }
+        public decimal ValorSangria { get; set; }
         public int IdVendedor { get; set; }
         //
         public decimal ValorAbertura { get; set; }
         public decimal ValorFechamento { get; set; }
+        public int Novo { get; set; }
 
         public DadosCaixa() { }
 
-        public DadosCaixa(decimal valorInicial, int idVendedor, decimal valorAbertura, decimal valorFechamento)
+        public DadosCaixa(decimal valorInicial, decimal valorSangria, int idVendedor, decimal valorAbertura, decimal valorFechamento, int novo)
         {
             ValorInicial = valorInicial;
+            ValorSangria = valorSangria;
             IdVendedor = idVendedor;
             ValorAbertura = valorAbertura;
             ValorFechamento = valorFechamento;
+            Novo = novo;
         }
 
-
+        protected SqlCommand command = new SqlCommand();
         //protected SqlCommand Comando = new SqlCommand();
         protected SqlDataReader dr;
-        public bool ValoresCaixa()
+        public DataTable ValoresCaixa(DadosCaixa Caixa)
         {
             using (var connection = GetConnection())
             {
                 connection.Open();
+                DataTable dt = new DataTable();
                 using (var command = new SqlCommand())
                 {
-                    command.Connection = connection;
-                    command.CommandText = "SELECT * FROM tb_caixa";
-                    command.CommandType = CommandType.Text;
-
-                    dr = command.ExecuteReader();
-                    if (dr.HasRows)
+                    try
                     {
-                        while (dr.Read())
+                        command.Connection = connection;
+                        command.CommandText = "SELECT * FROM tb_caixa WHERE id_vendedor=@id_vendedor";
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@id_vendedor",Caixa.IdVendedor);
+                        SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                        SqlDat.Fill(dt);
+                        if (dt.Rows.Count > 0)
                         {
-                            CaixaCache.ValorInicial = dr.GetDecimal(1);
+                            CaixaCache.IdVendedor = int.Parse(dt.Rows[0]["id_vendedor"].ToString());
+                            CaixaCache.ValorInicial = decimal.Parse(dt.Rows[0]["valor_inicial"].ToString());
                         }
-                        return true;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return false;
+                        dt = null;
                     }
+                    return dt;
                 }
             }
         }
@@ -71,7 +78,9 @@ namespace Dados
                         command.CommandText = "ValorInicialCaixa";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@valor_inicial", Caixa.ValorInicial);
+                        command.Parameters.AddWithValue("@valor_sangria", Caixa.ValorSangria);
                         command.Parameters.AddWithValue("@id_vendedor", Caixa.IdVendedor);
+                        command.Parameters.AddWithValue("@new", Caixa.Novo);
 
                         rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir valores";
                     }
@@ -85,6 +94,74 @@ namespace Dados
                     connection.Close();
                 }
                 return rpta;
+            }
+        }
+        //LogCaixa
+        public string InsertLogCaixa(DadosCaixa Log)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "LogCaixa";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_vendedor", Log.IdVendedor);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar Log";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message + ex.StackTrace;
+                }
+                return rpta;
+            }
+
+        }
+        //RelatorioCaixaAtendente
+        public DataTable ValorInicialSangria(DadosCaixa Atendente)
+        {
+            DataTable dt = new DataTable();
+            using (var connection = GetConnection())
+            {
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "RelatorioCaixa";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_vendedor", Atendente.IdVendedor);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }catch(Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
+        //valores total de vendas do atendente por dia
+        public DataTable ValoresVendaTotal(DadosCaixa Total)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "TotalVendas";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_vendedor", Total.IdVendedor);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
             }
         }
     }

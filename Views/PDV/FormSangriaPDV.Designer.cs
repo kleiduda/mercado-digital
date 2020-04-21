@@ -1,6 +1,6 @@
 ﻿namespace Views
 {
-    partial class FormValorInicial
+    partial class FormSangriaPDV
     {
         /// <summary>
         /// Required designer variable.
@@ -56,21 +56,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(278, 54);
+            this.label1.Location = new System.Drawing.Point(232, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 45);
+            this.label1.Size = new System.Drawing.Size(301, 45);
             this.label1.TabIndex = 142;
-            this.label1.Text = "Valor Inicial";
+            this.label1.Text = "Realizar Sangria?";
             // 
             // lblValorInicial
             // 
             this.lblValorInicial.AutoSize = true;
             this.lblValorInicial.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValorInicial.Location = new System.Drawing.Point(150, 116);
+            this.lblValorInicial.Location = new System.Drawing.Point(17, 111);
             this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(448, 54);
+            this.lblValorInicial.Size = new System.Drawing.Size(708, 54);
             this.lblValorInicial.TabIndex = 143;
-            this.lblValorInicial.Text = "Seu caixa está sendo iniciado com R$0,00 reais.\r\nAltere se for necessário.";
+            this.lblValorInicial.Text = "Seu caixa está sendo finalizado com valor total em dinheiro de R$0,00 reais.\r\nDes" +
+    "eja realizar uma retirada?";
             this.lblValorInicial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtValor
@@ -117,7 +118,7 @@
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;
             // 
-            // FormValorInicial
+            // FormSangriaPDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +131,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnValidar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormValorInicial";
+            this.Name = "FormSangriaPDV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormValorInicial_Load);

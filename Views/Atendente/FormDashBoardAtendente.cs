@@ -2,6 +2,11 @@
 using System.Windows.Forms;
 using Supporte.Cache;
 using System.Globalization;
+using System.Data;
+using Busines;
+using System.Runtime.InteropServices;
+using System.Linq;
+using System.Collections;
 
 namespace Views
 {
@@ -9,16 +14,16 @@ namespace Views
     {
         const decimal Desconto = 0;
         const int Qtd = 1;
-        string PeriodoDia = null;
-
         public FormDashBoardAtendente()
         {
             InitializeComponent();
         }
-
+        
         private void FormDashBoardAtendente_Load(object sender, EventArgs e)
         {
             LoadData();
+            DadosSobreVendas();
+            ValorInicialSangria();
         }
         private void LoadData()
         {
@@ -40,9 +45,50 @@ namespace Views
             this.container.Tag = frm;
             frm.Show();
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        //valores de venda total
+        public void DadosSobreVendas()
         {
             
+            DataTable dt = new DataTable();
+            dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
+            decimal valorTotal = 0;
+            if (!string.IsNullOrEmpty(dt.Rows[0]["TotalDeVendas"].ToString()))
+            {
+                var total = dt.AsEnumerable().Where(x=>x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+
+                lblTotalVendas.Text = total.ToString("N2");
+                lblVendaDinheiro.Text = dinheiro.ToString("N2");
+                lblVendaDebito.Text = debito.ToString("N2");
+                lblVendaFiado.Text = fiado.ToString("N2");
+                lblVendasCredito.Text = credito.ToString("N2");
+            }
+        }
+        //override para abrir o caixa
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            try
+            {
+                switch (keyData)
+                {
+                    case Keys.Control | Keys.O:
+                        FormValorInicial frm = new FormValorInicial();
+                        frm.ShowDialog();
+                        DadosSobreVendas();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             DateTime dtPeriodo = DateTime.Now;
             lblHoras.Text = dtPeriodo.ToLongTimeString();
             lblDia.Text = dtPeriodo.Day.ToString();
@@ -54,25 +100,65 @@ namespace Views
             lblBomDia.Text = saudacoes[hora / 6] + ", ";
             lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString(); 
         }
+        public void ValorInicialSangria()
+        {
+            DataTable dt = new DataTable();
+            dt = BusinesCaixa.ValorIncialSangria(UserLoginCache.IdUser);
+            if (dt.Rows.Count > 0)
+            {
+                lbl_ValorInicial.Text = dt.Rows[0]["valor_inicial"].ToString();
+            }
+        }
         //calendario
         public void StyleCalendario()
         {
-            //this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(242,242,242);
-            //this.monthCalendar1.ForeColor = System.Drawing.Color.FromArgb(((System.Byte)(192)), ((System.Byte)(0)), ((System.Byte)(192)));
-            //this.monthCalendar1.TitleBackColor = System.Drawing.Color.Purple;
+            //HEADER
+            this.calendario.ShowHeader = true;
+            this.calendario.Header.BackColor1 = System.Drawing.Color.WhiteSmoke;
+            this.calendario.Header.TextColor = System.Drawing.Color.Black;
+            //MES
+            //FOOTER
+            this.calendario.ShowFooter = false;
+            //
         }
         private void label1_Click(object sender, EventArgs e)
         {
             FormValorInicial frm = new FormValorInicial();
             frm.ShowDialog();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmente encerrar a seção?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.Close();
             }
+        }
+
+        private void calendario_DayClick(object sender, Pabo.Calendar.DayClickEventArgs e)
+        {
+            DateTime datetime;
+            datetime = DateTime.Parse(e.Date);
+            DataTable dt = new DataTable();
+            dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
+            decimal valorTotal = 0;
+            if (!string.IsNullOrEmpty(dt.Rows[0]["TotalDeVendas"].ToString()))
+            {
+                var total = dt.AsEnumerable().Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+
+                lblTotalVendas.Text = total.ToString("N2");
+                lblVendaDinheiro.Text = dinheiro.ToString("N2");
+                lblVendaDebito.Text = debito.ToString("N2");
+                lblVendaFiado.Text = fiado.ToString("N2");
+                lblVendasCredito.Text = credito.ToString("N2");
+            }
+        }
+
+        private void calendario_DaySelected(object sender, Pabo.Calendar.DaySelectedEventArgs e)
+        {
         }
     }
 }

@@ -12,10 +12,10 @@ using Supporte.Cache;
 
 namespace Views
 {
-    public partial class FormValorInicial : Form
+    public partial class FormSangriaPDV : Form
     {
         private bool IsNew;
-        public FormValorInicial()
+        public FormSangriaPDV()
         {
             InitializeComponent();
         }
@@ -56,16 +56,13 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.InsertValoresCaixa(Convert.ToDecimal(txtValor.Text),0, UserLoginCache.IdUser, 1);
+                    rpta = BusinesCaixa.InsertValoresCaixa(Convert.ToDecimal(txtValor.Text),0,UserLoginCache.IdUser, 1);
                 }
                 if (rpta == "OK")
                 {
-
-                    rpta = BusinesCaixa.InsertLogCaixa(UserLoginCache.IdUser);
                     FormPDV frm = new FormPDV();
                     frm.ShowDialog();
                     this.Close();
-
                 }
                 
             }

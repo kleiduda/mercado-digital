@@ -8,7 +8,9 @@ namespace Supporte.Cache
 {
     public static class CaixaCache
     {
+        public static int IdVendedor { get; set; }
         public static decimal ValorInicial { get; set; }
+        
     }
 
 }
