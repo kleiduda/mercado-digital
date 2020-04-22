@@ -109,6 +109,7 @@ namespace Dados
                     command.CommandText = "LogCaixa";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_vendedor", Log.IdVendedor);
+                    command.Parameters.AddWithValue("@valor_fechamento", Log.ValorFechamento);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar Log";
                 }
                 catch (Exception ex)
@@ -162,6 +163,28 @@ namespace Dados
                     dt = null;
                 }
                 return dt;
+            }
+        }
+        //fechar caixa
+        public string FecharCaixa(DadosCaixa Fechar)
+        {
+            using (var connectio = GetConnection())
+            {
+                connectio.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connectio;
+                    command.CommandText = "FecharCaixa";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@valor_fechamento", Fechar.ValorFechamento);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar LOG CAIXA";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message + ex.StackTrace;
+                }
+                return rpta;
             }
         }
     }

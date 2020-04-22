@@ -60,20 +60,17 @@ namespace Views
                 }
                 if (rpta == "OK")
                 {
-
-                    rpta = BusinesCaixa.InsertLogCaixa(UserLoginCache.IdUser);
+                    decimal valorFechamento = 0;
+                    rpta = BusinesCaixa.InsertLogCaixa(UserLoginCache.IdUser, valorFechamento);
                     FormPDV frm = new FormPDV();
                     frm.ShowDialog();
                     this.Close();
-
                 }
-                
             }
             catch (Exception ex)
             {
                 rpta = ex.Message;
             }
-
         }
     }
 }
