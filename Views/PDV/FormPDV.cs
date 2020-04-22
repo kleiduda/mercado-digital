@@ -263,7 +263,9 @@ namespace Views
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            FormSangriaPDV frm = new FormSangriaPDV();
+            frm.ShowDialog();
+            this.Close();
         }
         //tecla de atalho para abrir uma nova compra
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

@@ -36,11 +36,19 @@ namespace Busines
             return obj.ValoresVendaTotal(obj);
         }
         //inserir log caixa
-        public static string InsertLogCaixa(int idVendedor)
+        public static string InsertLogCaixa(int idVendedor, decimal valorFechamento)
         {
             DadosCaixa obj = new DadosCaixa();
             obj.IdVendedor = idVendedor;
+            obj.ValorFechamento = valorFechamento;
             return obj.InsertLogCaixa(obj);
+        }
+        //fechar caixa
+        public static string FecharCaixa(decimal valorFechamento)
+        {
+            DadosCaixa obj = new DadosCaixa();
+            obj.ValorFechamento = valorFechamento;
+            return obj.FecharCaixa(obj);
         }
     }
 }

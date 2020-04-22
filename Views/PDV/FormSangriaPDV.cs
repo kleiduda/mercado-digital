@@ -21,33 +21,33 @@ namespace Views
         }
         private void FormValorInicial_Load(object sender, EventArgs e)
         {
-            ValorInicial();
+            DadosValoresVendas();
         }
         private void msgError(string msg)
         {
             lblError.Text = "      " + msg;
             lblError.Visible = true;
         }
-        private void ValorInicial()
+        private void DadosValoresVendas()
         {
             DataTable dt = new DataTable();
-            dt = BusinesCaixa.ValorInicial(UserLoginCache.IdUser);
-            if (dt.Rows.Count > 0)
-            {
-                lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
-                txtValor.Text = CaixaCache.ValorInicial.ToString();
-            }
-            //BusinesCaixa obj = new BusinesCaixa();
-            //var validaValor = obj.ValorInicial();
-            //if (validaValor == true)
-            //{
-            //    lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
-            //    txtValor.Text = Convert.ToString(CaixaCache.ValorInicial);
-            //}
+            dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
+            var vendasDoDia = dt.AsEnumerable().Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            lblTotalEmCaixa.Text = vendasDoDia.ToString("N2");
+            lblVendaCredito.Text = credito.ToString();
+            lblVendaDebito.Text = debito.ToString();
+            lblVendaDinheiro.Text = dinheiro.ToString();
+            lblVendaFiado.Text = fiado.ToString();
+           
         }
         private void btnValidar_Click(object sender, EventArgs e)
         {
             string rpta = "";
+            
             try
             {
                 if (string.IsNullOrEmpty(txtValor.Text))
@@ -56,12 +56,10 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.InsertValoresCaixa(Convert.ToDecimal(txtValor.Text),0,UserLoginCache.IdUser, 1);
+                    rpta = BusinesCaixa.FecharCaixa(Convert.ToDecimal(lblTotalEmCaixa.Text));
                 }
                 if (rpta == "OK")
                 {
-                    FormPDV frm = new FormPDV();
-                    frm.ShowDialog();
                     this.Close();
                 }
                 

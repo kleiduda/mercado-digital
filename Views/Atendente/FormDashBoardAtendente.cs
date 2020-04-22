@@ -52,9 +52,10 @@ namespace Views
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             decimal valorTotal = 0;
-            if (!string.IsNullOrEmpty(dt.Rows[0]["TotalDeVendas"].ToString()))
+
+            if (dt!=null)
             {
-                var total = dt.AsEnumerable().Where(x=>x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
+                var total = dt.AsEnumerable().Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
@@ -141,7 +142,7 @@ namespace Views
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             decimal valorTotal = 0;
-            if (!string.IsNullOrEmpty(dt.Rows[0]["TotalDeVendas"].ToString()))
+            if (dt!=null)
             {
                 var total = dt.AsEnumerable().Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
