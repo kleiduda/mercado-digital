@@ -10,7 +10,9 @@ namespace Supporte.Cache
     {
         public static int IdVendedor { get; set; }
         public static decimal ValorInicial { get; set; }
-        
+        public static int Condicao { get; set; }
+
+
     }
 
 }

@@ -34,8 +34,22 @@ namespace Views
             dt = BusinesCaixa.ValorInicial(UserLoginCache.IdUser);
             if (dt.Rows.Count > 0)
             {
-                lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
-                txtValor.Text = CaixaCache.ValorInicial.ToString();
+                if (CaixaCache.Condicao == 1)
+                {
+                    if (MessageBox.Show("Caixa Anterior ainda esta aberto, continuar?", "CAIXA ANTERIOR NÃO FOI FECHADO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        FormPDV frm = new FormPDV();
+                        frm.ShowDialog();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
+                    txtValor.Text = CaixaCache.ValorInicial.ToString();
+
+                }
+                
             }
             //BusinesCaixa obj = new BusinesCaixa();
             //var validaValor = obj.ValorInicial();
@@ -56,12 +70,10 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.InsertValoresCaixa(Convert.ToDecimal(txtValor.Text),0, UserLoginCache.IdUser, 1);
+                    rpta = BusinesCaixa.AberturaCaixa(Convert.ToDecimal(txtValor.Text),UserLoginCache.IdUser);
                 }
                 if (rpta == "OK")
                 {
-                    decimal valorFechamento = 0;
-                    rpta = BusinesCaixa.InsertLogCaixa(UserLoginCache.IdUser, valorFechamento);
                     FormPDV frm = new FormPDV();
                     frm.ShowDialog();
                     this.Close();

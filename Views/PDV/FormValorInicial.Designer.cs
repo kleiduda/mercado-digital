@@ -55,20 +55,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(278, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 45);
+            this.label1.Size = new System.Drawing.Size(197, 38);
             this.label1.TabIndex = 142;
             this.label1.Text = "Valor Inicial";
             // 
             // lblValorInicial
             // 
             this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorInicial.Location = new System.Drawing.Point(150, 116);
             this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(448, 54);
+            this.lblValorInicial.Size = new System.Drawing.Size(432, 50);
             this.lblValorInicial.TabIndex = 143;
             this.lblValorInicial.Text = "Seu caixa está sendo iniciado com R$0,00 reais.\r\nAltere se for necessário.";
             this.lblValorInicial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,13 +77,13 @@
             // 
             this.txtValor.BackColor = System.Drawing.Color.White;
             this.txtValor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValor.Font = new System.Drawing.Font("Open Sans Light", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValor.ForeColor = System.Drawing.Color.Gray;
             this.txtValor.Location = new System.Drawing.Point(118, 218);
             this.txtValor.Margin = new System.Windows.Forms.Padding(4);
             this.txtValor.MaxLength = 150;
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(527, 45);
+            this.txtValor.Size = new System.Drawing.Size(527, 38);
             this.txtValor.TabIndex = 145;
             this.txtValor.Text = "0,00";
             // 
@@ -105,14 +105,14 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.BackColor = System.Drawing.Color.Transparent;
-            this.lblError.Font = new System.Drawing.Font("Open Sans SemiBold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Image = global::Views.Properties.Resources.report_min;
             this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblError.Location = new System.Drawing.Point(116, 302);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(204, 23);
+            this.lblError.Size = new System.Drawing.Size(234, 20);
             this.lblError.TabIndex = 146;
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;

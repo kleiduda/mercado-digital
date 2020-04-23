@@ -18,7 +18,7 @@ namespace Views
         {
             InitializeComponent();
         }
-        
+
         private void FormDashBoardAtendente_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -31,7 +31,7 @@ namespace Views
             lblCargo.Text = UserLoginCache.Cargo.ToString();
             timer1.Enabled = true;
             bunifuTransition1.Show(pData, false, BunifuAnimatorNS.Animation.Transparent);
-           
+
             StyleCalendario();
         }
         private void OpenFormPanel(object form)
@@ -48,12 +48,12 @@ namespace Views
         //valores de venda total
         public void DadosSobreVendas()
         {
-            
+
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             decimal valorTotal = 0;
 
-            if (dt!=null)
+            if (dt != null)
             {
                 var total = dt.AsEnumerable().Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
@@ -84,7 +84,7 @@ namespace Views
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -96,10 +96,10 @@ namespace Views
             lblDiaLong.Text = dtPeriodo.ToString("dddd", new CultureInfo("pt-BR")).ToUpper();
             //saudacao dependendo do horario
             int hora = DateTime.Now.Hour;
-            var saudacoes = new string[]{"Boa Madrugada", "Bom dia", "Boa Tarde", "Boa Noite" };
+            var saudacoes = new string[] { "Boa Madrugada", "Bom dia", "Boa Tarde", "Boa Noite" };
             animaLabel.Show(lblBomDia, false, BunifuAnimatorNS.Animation.Transparent);
             lblBomDia.Text = saudacoes[hora / 6] + ", ";
-            lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString(); 
+            lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString();
         }
         public void ValorInicialSangria()
         {
@@ -142,7 +142,7 @@ namespace Views
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             decimal valorTotal = 0;
-            if (dt!=null)
+            if (dt != null)
             {
                 var total = dt.AsEnumerable().Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
