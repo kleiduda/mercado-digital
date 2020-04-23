@@ -6,15 +6,12 @@ namespace Busines
    public class BusinesCaixa
     {
         DadosCaixa obj = new DadosCaixa();
-        public static string InsertValoresCaixa(decimal valorInicial, decimal valorSangria, int idVendedor, int novo)
+        public static string AberturaCaixa(decimal valorInicial, int idVendedor)
         {
             DadosCaixa obj = new DadosCaixa();
             obj.ValorInicial = valorInicial;
-            obj.ValorSangria = valorSangria;
             obj.IdVendedor = idVendedor;
-            obj.Novo = novo;
-            
-            return obj.InsertValoresCaixa(obj);
+            return obj.AberturaCaixa(obj);
         }
         public static DataTable ValorInicial(int idVendedor)
         {
@@ -44,10 +41,12 @@ namespace Busines
             return obj.InsertLogCaixa(obj);
         }
         //fechar caixa
-        public static string FecharCaixa(decimal valorFechamento)
+        public static string FecharCaixa(int idVendedor,  decimal valorFechamento, decimal sangria)
         {
             DadosCaixa obj = new DadosCaixa();
+            obj.IdVendedor = idVendedor;
             obj.ValorFechamento = valorFechamento;
+            obj.ValorSangria = sangria;
             return obj.FecharCaixa(obj);
         }
     }

@@ -30,6 +30,8 @@ namespace Views
         }
         private void DadosValoresVendas()
         {
+            DataTable dtCaixa = new DataTable();
+            dtCaixa = BusinesCaixa.ValorIncialSangria(UserLoginCache.IdUser);
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             var vendasDoDia = dt.AsEnumerable().Sum(x => x.Field<decimal>("TotalDeVendas"));
@@ -37,7 +39,9 @@ namespace Views
             var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
             var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
             var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            lblTotalEmCaixa.Text = vendasDoDia.ToString("N2");
+            var totalEmCaixa = vendasDoDia + Convert.ToDecimal(dtCaixa.Rows[0]["valor_inicial"].ToString());
+            MessageBox.Show(totalEmCaixa.ToString());
+            lblTotalEmCaixa.Text = totalEmCaixa.ToString("N2");
             lblVendaCredito.Text = credito.ToString();
             lblVendaDebito.Text = debito.ToString();
             lblVendaDinheiro.Text = dinheiro.ToString();
@@ -56,17 +60,22 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.FecharCaixa(Convert.ToDecimal(lblTotalEmCaixa.Text));
+                    rpta = BusinesCaixa.FecharCaixa(UserLoginCache.IdUser, Convert.ToDecimal(lblTotalEmCaixa.Text), Convert.ToDecimal(txtValor.Text));
                 }
                 if (rpta == "OK")
                 {
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show(rpta);
+                }
+                
                 
             }
             catch (Exception ex)
             {
-                rpta = ex.Message;
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
         }

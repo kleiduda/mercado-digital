@@ -54,6 +54,7 @@ namespace Dados
                         {
                             CaixaCache.IdVendedor = int.Parse(dt.Rows[0]["id_vendedor"].ToString());
                             CaixaCache.ValorInicial = decimal.Parse(dt.Rows[0]["valor_inicial"].ToString());
+                            CaixaCache.Condicao = int.Parse(dt.Rows[0]["condicao"].ToString());
                         }
                     }
                     catch (Exception ex)
@@ -64,7 +65,7 @@ namespace Dados
                 }
             }
         }
-        public string InsertValoresCaixa(DadosCaixa Caixa)
+        public string AberturaCaixa(DadosCaixa Caixa)
         {
             string rpta = "";
             using (var connection = GetConnection())
@@ -75,14 +76,12 @@ namespace Dados
                     using (var command = new SqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "ValorInicialCaixa";
+                        command.CommandText = "AberturaCaixa";
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@valor_inicial", Caixa.ValorInicial);
-                        command.Parameters.AddWithValue("@valor_sangria", Caixa.ValorSangria);
                         command.Parameters.AddWithValue("@id_vendedor", Caixa.IdVendedor);
-                        command.Parameters.AddWithValue("@new", Caixa.Novo);
 
-                        rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir valores";
+                        rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao Abrir o Caixa";
                     }
                 }
                 catch (Exception ex)
@@ -168,17 +167,19 @@ namespace Dados
         //fechar caixa
         public string FecharCaixa(DadosCaixa Fechar)
         {
-            using (var connectio = GetConnection())
+            using (var connection = GetConnection())
             {
-                connectio.Open();
+                connection.Open();
                 string rpta = "";
                 try
                 {
-                    command.Connection = connectio;
+                    command.Connection = connection;
                     command.CommandText = "FecharCaixa";
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_vendedor", Fechar.IdVendedor);
                     command.Parameters.AddWithValue("@valor_fechamento", Fechar.ValorFechamento);
-                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar LOG CAIXA";
+                    command.Parameters.AddWithValue("@sangria", Fechar.ValorSangria);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar SANGRIA";
                 }
                 catch (Exception ex)
                 {
