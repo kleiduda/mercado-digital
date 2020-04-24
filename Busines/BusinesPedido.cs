@@ -13,12 +13,13 @@ namespace Busines
     public class BusinesPedido
     {
         //cadastro nova compra
-        public static string CadastroNovaCompra(int idCliente, int idVendedor, int idStatus)
+        public static string CadastroNovaCompra(int idCliente, int idVendedor, int idStatus, int idCaixa)
         {
             DadosPedido obj = new DadosPedido();
             obj.IdCliente = idCliente;
             obj.IdVendedor = idVendedor;
             obj.IdStatus = idStatus;
+            obj.IdCaixa = idCaixa;
             return obj.CadastroNovaCompra(obj);
         }
         //listando dados do pedido

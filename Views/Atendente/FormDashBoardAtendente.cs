@@ -104,10 +104,10 @@ namespace Views
         public void ValorInicialSangria()
         {
             DataTable dt = new DataTable();
-            dt = BusinesCaixa.ValorIncialSangria(UserLoginCache.IdUser);
+            dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
             if (dt.Rows.Count > 0)
             {
-                lbl_ValorInicial.Text = dt.Rows[0]["valor_inicial"].ToString();
+                lbl_ValorInicial.Text = dt.Rows[0]["troco"].ToString();
             }
         }
         //calendario

@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 using Supporte.Cache;
 using System.Data;
 using System.Data.SqlClient;
+using Supporte.Enums;
 
 namespace Dados
 {
     public class DadosCaixa : Connection
     {
-        public decimal ValorInicial { get; set; }
-        public decimal ValorSangria { get; set; }
+        public decimal Troco { get; set; }
+        public decimal Sangria { get; set; }
         public int IdVendedor { get; set; }
-        //
-        public decimal ValorAbertura { get; set; }
         public decimal ValorFechamento { get; set; }
-        public int Novo { get; set; }
+        public StatusCaixa StatusCaixa { get; set; }
+        public int IdCaixa { get; set; }
 
         public DadosCaixa() { }
 
-        public DadosCaixa(decimal valorInicial, decimal valorSangria, int idVendedor, decimal valorAbertura, decimal valorFechamento, int novo)
+        public DadosCaixa(decimal troco, decimal sangria, int idVendedor, decimal valorFechamento, StatusCaixa statusCaixa, int IdCaixa)
         {
-            ValorInicial = valorInicial;
-            ValorSangria = valorSangria;
+            Troco = troco;
+            Sangria = sangria;
             IdVendedor = idVendedor;
-            ValorAbertura = valorAbertura;
             ValorFechamento = valorFechamento;
-            Novo = novo;
+            StatusCaixa = statusCaixa;
+            IdCaixa = IdCaixa;
         }
 
         protected SqlCommand command = new SqlCommand();
@@ -45,16 +45,17 @@ namespace Dados
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT * FROM tb_caixa WHERE id_vendedor=@id_vendedor";
+                        command.CommandText = "SELECT * FROM tb_caixa WHERE id_vendedor=@id_vendedor AND id_status_caixa=1";
                         command.CommandType = CommandType.Text;
                         command.Parameters.AddWithValue("@id_vendedor",Caixa.IdVendedor);
+                        command.Parameters.AddWithValue("@id_caixa", Caixa.IdCaixa);
                         SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                         SqlDat.Fill(dt);
                         if (dt.Rows.Count > 0)
                         {
-                            CaixaCache.IdVendedor = int.Parse(dt.Rows[0]["id_vendedor"].ToString());
-                            CaixaCache.ValorInicial = decimal.Parse(dt.Rows[0]["valor_inicial"].ToString());
-                            CaixaCache.Condicao = int.Parse(dt.Rows[0]["condicao"].ToString());
+                            CaixaCache.idStatusCaixa = int.Parse(dt.Rows[0]["id_status_caixa"].ToString());
+                            CaixaCache.Troco = decimal.Parse(dt.Rows[0]["troco"].ToString());
+                            CaixaCache.IdCaixa = int.Parse(dt.Rows[0]["id"].ToString());
                         }
                     }
                     catch (Exception ex)
@@ -78,8 +79,9 @@ namespace Dados
                         command.Connection = connection;
                         command.CommandText = "AberturaCaixa";
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@valor_inicial", Caixa.ValorInicial);
+                        command.Parameters.AddWithValue("@troco", Caixa.Troco);
                         command.Parameters.AddWithValue("@id_vendedor", Caixa.IdVendedor);
+                        command.Parameters.AddWithValue("@id_status_caixa", Caixa.StatusCaixa);
 
                         rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao Abrir o Caixa";
                     }
@@ -96,50 +98,50 @@ namespace Dados
             }
         }
         //LogCaixa
-        public string InsertLogCaixa(DadosCaixa Log)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                string rpta = "";
-                try
-                {
-                    command.Connection = connection;
-                    command.CommandText = "LogCaixa";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@id_vendedor", Log.IdVendedor);
-                    command.Parameters.AddWithValue("@valor_fechamento", Log.ValorFechamento);
-                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar Log";
-                }
-                catch (Exception ex)
-                {
-                    rpta = ex.Message + ex.StackTrace;
-                }
-                return rpta;
-            }
+        //public string InsertLogCaixa(DadosCaixa Log)
+        //{
+        //    using (var connection = GetConnection())
+        //    {
+        //        connection.Open();
+        //        string rpta = "";
+        //        try
+        //        {
+        //            command.Connection = connection;
+        //            command.CommandText = "LogCaixa";
+        //            command.CommandType = CommandType.StoredProcedure;
+        //            command.Parameters.AddWithValue("@id_vendedor", Log.IdVendedor);
+        //            command.Parameters.AddWithValue("@valor_fechamento", Log.ValorFechamento);
+        //            rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar Log";
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            rpta = ex.Message + ex.StackTrace;
+        //        }
+        //        return rpta;
+        //    }
 
-        }
+        //}
         //RelatorioCaixaAtendente
-        public DataTable ValorInicialSangria(DadosCaixa Atendente)
-        {
-            DataTable dt = new DataTable();
-            using (var connection = GetConnection())
-            {
-                try
-                {
-                    command.Connection = connection;
-                    command.CommandText = "RelatorioCaixa";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@id_vendedor", Atendente.IdVendedor);
-                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
-                    SqlDat.Fill(dt);
-                }catch(Exception ex)
-                {
-                    dt = null;
-                }
-                return dt;
-            }
-        }
+        //public DataTable DadosDoCaixa(DadosCaixa Atendente)
+        //{
+        //    DataTable dt = new DataTable();
+        //    using (var connection = GetConnection())
+        //    {
+        //        try
+        //        {
+        //            command.Connection = connection;
+        //            command.CommandText = "DadosDoCaixa";
+        //            command.CommandType = CommandType.StoredProcedure;
+        //            command.Parameters.AddWithValue("@id_vendedor", Atendente.IdVendedor);
+        //            SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+        //            SqlDat.Fill(dt);
+        //        }catch(Exception ex)
+        //        {
+        //            dt = null;
+        //        }
+        //        return dt;
+        //    }
+        //}
         //valores total de vendas do atendente por dia
         public DataTable ValoresVendaTotal(DadosCaixa Total)
         {
@@ -176,9 +178,11 @@ namespace Dados
                     command.Connection = connection;
                     command.CommandText = "FecharCaixa";
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_caixa", Fechar.IdCaixa);
                     command.Parameters.AddWithValue("@id_vendedor", Fechar.IdVendedor);
                     command.Parameters.AddWithValue("@valor_fechamento", Fechar.ValorFechamento);
-                    command.Parameters.AddWithValue("@sangria", Fechar.ValorSangria);
+                    command.Parameters.AddWithValue("@sangria", Fechar.Sangria);
+                    command.Parameters.AddWithValue("@id_status_caixa", Fechar.StatusCaixa);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar SANGRIA";
                 }
                 catch (Exception ex)
@@ -186,6 +190,29 @@ namespace Dados
                     rpta = ex.Message + ex.StackTrace;
                 }
                 return rpta;
+            }
+        }
+        //verificar caixas abertos
+        public DataTable VerificarCaixasAbertos(DadosCaixa Valida)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM tb_caixa WHERE id_status_caixa=1 and id_vendedor=@id_vendedor";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_vendedor", Valida.IdVendedor);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
             }
         }
     }
