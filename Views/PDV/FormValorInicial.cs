@@ -67,10 +67,10 @@ namespace Views
                 }
                 if (rpta == "OK")
                 {
-                    msgError("Blz garoto, tudo ok");
-                    //FormPDV frm = new FormPDV();
-                    //frm.ShowDialog();
-                    //this.Close();
+                    //msgError("Blz garoto, tudo ok");
+                    FormPDV frm = new FormPDV();
+                    frm.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
