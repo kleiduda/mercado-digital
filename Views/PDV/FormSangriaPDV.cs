@@ -31,17 +31,20 @@ namespace Views
         private void DadosValoresVendas()
         {
             DataTable dtCaixa = new DataTable();
-            dtCaixa = BusinesCaixa.ValorIncialSangria(UserLoginCache.IdUser);
+            dtCaixa = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
-            var vendasDoDia = dt.AsEnumerable().Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var totalEmCaixa = vendasDoDia + Convert.ToDecimal(dtCaixa.Rows[0]["valor_inicial"].ToString());
-            MessageBox.Show(totalEmCaixa.ToString());
-            lblTotalEmCaixa.Text = totalEmCaixa.ToString("N2");
+            //
+            var vendasDoDia = dt.AsEnumerable().Where(x=>x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var troco = CaixaCache.Troco;
+            var TotalEmCaixa = troco + vendasDoDia;
+            //
+            txtValor.Text = TotalEmCaixa.ToString();
+            lblTotalEmCaixa.Text = TotalEmCaixa.ToString();
             lblVendaCredito.Text = credito.ToString();
             lblVendaDebito.Text = debito.ToString();
             lblVendaDinheiro.Text = dinheiro.ToString();
@@ -60,7 +63,7 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.FecharCaixa(UserLoginCache.IdUser, Convert.ToDecimal(lblTotalEmCaixa.Text), Convert.ToDecimal(txtValor.Text));
+                    rpta = BusinesCaixa.FecharCaixa(CaixaCache.IdCaixa ,UserLoginCache.IdUser,Convert.ToDecimal(lblTotalEmCaixa.Text),Convert.ToDecimal(txtValor.Text),Supporte.Enums.StatusCaixa.Fechado);
                 }
                 if (rpta == "OK")
                 {

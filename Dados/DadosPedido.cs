@@ -23,14 +23,16 @@ namespace Dados
         public string Resultado { get; set; }
         public decimal Preco { get; set; }
         public TiposPagamento Pagamento { get; set; }
-
+        //
+        public int IdCaixa { get; set; }
 
         //construtores
         public DadosPedido()
         {
 
         }
-        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, string resultado, decimal preco, TiposPagamento pagamento)
+        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, 
+            string resultado, decimal preco, TiposPagamento pagamento, int idCaixa)
         {
             IdPedido = idPedido;
             IdCliente = idPedido;
@@ -42,6 +44,7 @@ namespace Dados
             Resultado = resultado;
             Preco = preco;
             Pagamento = pagamento;
+            IdCaixa = IdCaixa;
         }
         //metodos
         protected SqlCommand command = new SqlCommand();
@@ -67,6 +70,7 @@ namespace Dados
                     command.Parameters.AddWithValue("@id_cliente", Pedido.IdCliente);
                     command.Parameters.AddWithValue("@id_vendedor", Pedido.IdVendedor);
                     command.Parameters.AddWithValue("@id_status", Pedido.IdStatus);
+                    command.Parameters.AddWithValue("@id_caixa", Pedido.IdCaixa);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar nova compra";
                     command.Parameters.Clear();
                 }

@@ -282,7 +282,7 @@ namespace Views
                         }
                         else
                         {
-                            rpta = BusinesPedido.CadastroNovaCompra(1, Convert.ToInt32(lblIdVendedor.Text), 1);
+                            rpta = BusinesPedido.CadastroNovaCompra(1, UserLoginCache.IdUser, 1, CaixaCache.IdCaixa);
                             txtPesquisaProduto.Enabled = true;
                             dgvCupom.DataSource = null;
                             lblTotal.Text = "0,00";

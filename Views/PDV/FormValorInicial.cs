@@ -31,33 +31,26 @@ namespace Views
         private void ValorInicial()
         {
             DataTable dt = new DataTable();
-            dt = BusinesCaixa.ValorInicial(UserLoginCache.IdUser);
-            if (dt.Rows.Count > 0)
+            dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
+            DataTable dtCaixa = new DataTable();
+            dtCaixa = BusinesCaixa.VerificarCaixasAbertos(UserLoginCache.IdUser);
+            //var valor = dtCaixa.AsEnumerable().Where(x => x.Field<int>("id_vendedor") == 13);
+            if (dtCaixa.Rows.Count > 0)
             {
-                if (CaixaCache.Condicao == 1)
+                if (MessageBox.Show("Caixa Anterior ainda esta aberto, continuar?", "CAIXA ANTERIOR NÃO FOI FECHADO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    if (MessageBox.Show("Caixa Anterior ainda esta aberto, continuar?", "CAIXA ANTERIOR NÃO FOI FECHADO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                    {
-                        FormPDV frm = new FormPDV();
-                        frm.ShowDialog();
-                        this.Close();
-                    }
+                    FormPDV frm = new FormPDV();
+                    frm.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
-                    lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
-                    txtValor.Text = CaixaCache.ValorInicial.ToString();
+                    lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.Troco) + ".\n Altere se for necessário.";
+                    txtValor.Text = CaixaCache.Troco.ToString();
 
                 }
-                
+
             }
-            //BusinesCaixa obj = new BusinesCaixa();
-            //var validaValor = obj.ValorInicial();
-            //if (validaValor == true)
-            //{
-            //    lblValorInicial.Text = "Seu caixa esta sendo iniciado com valor de R$" + Convert.ToString(CaixaCache.ValorInicial) + ".\n Altere se for necessário.";
-            //    txtValor.Text = Convert.ToString(CaixaCache.ValorInicial);
-            //}
         }
         private void btnValidar_Click(object sender, EventArgs e)
         {
@@ -70,13 +63,18 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.AberturaCaixa(Convert.ToDecimal(txtValor.Text),UserLoginCache.IdUser);
+                    rpta = BusinesCaixa.AberturaCaixa(Convert.ToDecimal(txtValor.Text), UserLoginCache.IdUser, Supporte.Enums.StatusCaixa.Aberto);
                 }
                 if (rpta == "OK")
                 {
-                    FormPDV frm = new FormPDV();
-                    frm.ShowDialog();
-                    this.Close();
+                    msgError("Blz garoto, tudo ok");
+                    //FormPDV frm = new FormPDV();
+                    //frm.ShowDialog();
+                    //this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(rpta);
                 }
             }
             catch (Exception ex)
