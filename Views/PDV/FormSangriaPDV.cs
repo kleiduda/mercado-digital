@@ -49,12 +49,10 @@ namespace Views
             lblVendaDebito.Text = debito.ToString();
             lblVendaDinheiro.Text = dinheiro.ToString();
             lblVendaFiado.Text = fiado.ToString();
-           
         }
         private void btnValidar_Click(object sender, EventArgs e)
         {
             string rpta = "";
-            
             try
             {
                 if (string.IsNullOrEmpty(txtValor.Text))
