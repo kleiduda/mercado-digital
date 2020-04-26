@@ -50,6 +50,8 @@
     <Compile Include="Enums\NivelUsuario.cs" />
     <Compile Include="Enums\PeriodoDia.cs" />
     <Compile Include="Enums\StatusCaixa.cs" />
+    <Compile Include="Enums\StatusPedido.cs" />
+    <Compile Include="Enums\TipoEntrega.cs" />
     <Compile Include="Enums\TiposPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
