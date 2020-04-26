@@ -95,6 +95,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.idCaixa = new System.Windows.Forms.Label();
             this.pProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,6 +111,7 @@
             // pProduct
             // 
             this.pProduct.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pProduct.Controls.Add(this.idCaixa);
             this.pProduct.Controls.Add(this.txtValida);
             this.pProduct.Controls.Add(this.btnCpfNaNota);
             this.pProduct.Controls.Add(this.txtIdProduto);
@@ -177,7 +179,6 @@
             this.lblIdPedido.Size = new System.Drawing.Size(62, 17);
             this.lblIdPedido.TabIndex = 159;
             this.lblIdPedido.Text = "idpedido";
-            this.lblIdPedido.Visible = false;
             // 
             // lblCompraAberta
             // 
@@ -955,6 +956,15 @@
             this.bunifuElipse2.ElipseRadius = 10;
             this.bunifuElipse2.TargetControl = this.pTotal;
             // 
+            // idCaixa
+            // 
+            this.idCaixa.AutoSize = true;
+            this.idCaixa.Location = new System.Drawing.Point(234, 27);
+            this.idCaixa.Name = "idCaixa";
+            this.idCaixa.Size = new System.Drawing.Size(59, 17);
+            this.idCaixa.TabIndex = 163;
+            this.idCaixa.Text = "id_caixa";
+            // 
             // FormPDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1047,6 +1057,7 @@
         private System.Windows.Forms.Label lblPagamentoT;
         private System.Windows.Forms.Button btnCpfNaNota;
         private System.Windows.Forms.TextBox txtValida;
+        private System.Windows.Forms.Label idCaixa;
     }
 }
 

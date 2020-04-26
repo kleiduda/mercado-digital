@@ -13,13 +13,16 @@ namespace Busines
     public class BusinesPedido
     {
         //cadastro nova compra
-        public static string CadastroNovaCompra(int idCliente, int idVendedor, int idStatus, int idCaixa)
+        public static string CadastroNovaCompra(int idCliente, int idVendedor, StatusPedido idStatusPedido, TipoEntrega idTipoEntrega, DateTime dataAbertura, int idCaixa)
         {
             DadosPedido obj = new DadosPedido();
             obj.IdCliente = idCliente;
             obj.IdVendedor = idVendedor;
-            obj.IdStatus = idStatus;
+            obj.IdStatusPedido = idStatusPedido;
+            obj.IdTipoEntrega = idTipoEntrega;
+            obj.DataAbertura = dataAbertura;
             obj.IdCaixa = idCaixa;
+
             return obj.CadastroNovaCompra(obj);
         }
         //listando dados do pedido
@@ -47,12 +50,12 @@ namespace Busines
             return obj.ListarItensPedido(obj);
         }
         //fechar compra
-        public static string FecharCompra(int idPedido, TiposPagamento pagamento, int idStatus, int idCliente )
+        public static string FecharCompra(int idPedido, TiposPagamento pagamento, StatusPedido idStatus, int idCliente )
         {
             DadosPedido obj = new DadosPedido();
             obj.IdPedido = idPedido;
             obj.Pagamento = pagamento;
-            obj.IdStatus = idStatus;
+            obj.IdStatusPedido = idStatus;
             obj.IdCliente = idCliente;
             return obj.FecharCompra(obj);
         }

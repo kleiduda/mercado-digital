@@ -16,18 +16,19 @@ namespace Views
         int Qtd = 1;
         private bool IsNew = true;
         private string CpfNaNota = null;
-        
+
         public FormPDV()
         {
             InitializeComponent();
         }
-        
+
         private void FormPDV_Load(object sender, EventArgs e)
         {
             DadosVendedor();
             ListarProdutos();
             lblData.Text = DateTime.Now.ToString();
             ImagemCupom();
+            idCaixa.Text = CaixaCache.IdCaixa.ToString();
         }
         public void ImagemCupom()
         {
@@ -42,6 +43,7 @@ namespace Views
                 lblCaixaLivreCupom.Visible = false;
             }
         }
+        
         //habilitar e desabilitar pagamentos
         public void EnableBtn()
         {
@@ -107,7 +109,7 @@ namespace Views
                 FormatandoColunas();
                 PesquisaProduto();
             }
-            
+
         }
         //metodo de calculo subtotal
         private void CalculoSubtotal()
@@ -117,7 +119,7 @@ namespace Views
                 decimal subTotal = Convert.ToDecimal(txtQuantidade.Text) * Convert.ToDecimal(txtValorUnitario.Text);
                 txtSubTotal.Text = Convert.ToString(subTotal);
             }
-            
+
         }
         //dados do vendedor
         public void DadosVendedor()
@@ -214,14 +216,14 @@ namespace Views
         //{
         //    if (lblIdPedido.Text == "idpedido")
         //    {
-               
+
         //    }
         //}
         //llistar pedidos do vendedor atual
         public void ListarVendas()
         {
             DataTable dtPedido = new DataTable();
-            dtPedido = BusinesPedido.DetalhePedido(int.Parse(lblIdVendedor.Text));
+            dtPedido = BusinesPedido.DetalhePedido(UserLoginCache.IdUser);
             lblIdPedido.Text = dtPedido.Rows[0]["id_pedido"].ToString();
         }
         //liberando grande quantidade
@@ -237,10 +239,10 @@ namespace Views
                 }
                 else if (txtQuantidade.Text != "1" && !string.IsNullOrEmpty(txtQuantidade.Text))
                 {
-                   txtQuantidade.Text = txtQuantidade.Text;
+                    txtQuantidade.Text = txtQuantidade.Text;
                 }
-                
-                
+
+
                 txtDesconto.Text = Convert.ToString(Desconto);
                 txtValorUnitario.Text = lblValor.Text;
                 //calculando o subtotal
@@ -249,7 +251,7 @@ namespace Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(rpta = ex.Message); 
+                MessageBox.Show(rpta = ex.Message);
             }
             ListarItensCupom();
             DetalhesPedido();
@@ -259,12 +261,13 @@ namespace Views
 
         private void txtQuantidade_Leave(object sender, EventArgs e)
         {
-           CalculoSubtotal();
+            CalculoSubtotal();
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
             FormSangriaPDV frm = new FormSangriaPDV();
             frm.ShowDialog();
+            
             this.Close();
         }
         //tecla de atalho para abrir uma nova compra
@@ -282,7 +285,8 @@ namespace Views
                         }
                         else
                         {
-                            rpta = BusinesPedido.CadastroNovaCompra(1, UserLoginCache.IdUser, 1, CaixaCache.IdCaixa);
+                            MessageBox.Show("ID CAIXA"+ CaixaCache.IdCaixa);
+                            rpta = BusinesPedido.CadastroNovaCompra(1, UserLoginCache.IdUser, StatusPedido.Aberto, TipoEntrega.Balcão, DateTime.Now, CaixaCache.IdCaixa);
                             txtPesquisaProduto.Enabled = true;
                             dgvCupom.DataSource = null;
                             lblTotal.Text = "0,00";
@@ -292,8 +296,9 @@ namespace Views
                             LimparBlocoPagamento();
                             EnableBtn();
                             ImagemCupom();
-                            ListarVendas();
+                            btnFechar.Enabled = false;
                         }
+                        ListarVendas();
                         txtPesquisaProduto.Focus();
                         break;
                     case Keys.F1:
@@ -301,9 +306,7 @@ namespace Views
                         txtValorUnitario.Clear();
                         txtSubTotal.Clear();
                         break;
-
                 }
-                
             }
             catch (Exception ex)
             {
@@ -334,11 +337,12 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, 2, Convert.ToInt32(idCliente));
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, StatusPedido.Fechado, Convert.ToInt32(idCliente));
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
                     DisableBtn();
+                    btnFechar.Enabled = true;
                     if (rpta.Equals("OK"))
                     {
                         lblPagamento.Text = TiposPagamento.Dinheiro.ToString();
@@ -372,11 +376,12 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, 2, Convert.ToInt32(CacheCliente.IdCliente.ToString()));
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, StatusPedido.Fechado, Convert.ToInt32(CacheCliente.IdCliente.ToString()));
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
                     DisableBtn();
+                    btnFechar.Enabled = true;
                     if (rpta.Equals("OK"))
                     {
                         lblPagamento.Text = TiposPagamento.Fiado.ToString();

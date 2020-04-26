@@ -15,7 +15,7 @@ namespace Dados
         public int IdPedido { get; set; }
         public int IdCliente { get; set; }
         public int IdVendedor { get; set; }
-        public int IdStatus { get; set; }
+        public StatusPedido IdStatusPedido { get; set; }
         //pedido item
         public int IdProduto { get; set; }
         public int Quantidade { get; set; }
@@ -25,26 +25,29 @@ namespace Dados
         public TiposPagamento Pagamento { get; set; }
         //
         public int IdCaixa { get; set; }
+        public TipoEntrega IdTipoEntrega { get; set; }
+        public DateTime DataAbertura { get; set; }
 
         //construtores
         public DadosPedido()
         {
 
         }
-        public DadosPedido(int idPedido, int idCliente, int idVendedor, int idStatus, int idProduto, int quantidade, int estoqueQuantidade, 
-            string resultado, decimal preco, TiposPagamento pagamento, int idCaixa)
+        public DadosPedido(int idPedido, int idCliente, int idVendedor, StatusPedido idStatusPedido, int idProduto, int quantidade, int estoqueQuantidade, 
+            string resultado, decimal preco, TiposPagamento pagamento, int idCaixa, TipoEntrega idTipoEntrega, DateTime dataAbertura)
         {
             IdPedido = idPedido;
             IdCliente = idPedido;
             IdVendedor = idVendedor;
-            IdStatus = idStatus;
+            IdStatusPedido = IdStatusPedido;
             IdProduto = idProduto;
             Quantidade = quantidade;
             EstoqueQuantidade = estoqueQuantidade;
             Resultado = resultado;
             Preco = preco;
             Pagamento = pagamento;
-            IdCaixa = IdCaixa;
+            IdCaixa = idCaixa;
+            dataAbertura = dataAbertura;
         }
         //metodos
         protected SqlCommand command = new SqlCommand();
@@ -69,7 +72,7 @@ namespace Dados
                     command.Parameters.Add(parID);
                     command.Parameters.AddWithValue("@id_cliente", Pedido.IdCliente);
                     command.Parameters.AddWithValue("@id_vendedor", Pedido.IdVendedor);
-                    command.Parameters.AddWithValue("@id_status", Pedido.IdStatus);
+                    command.Parameters.AddWithValue("@id_status", Pedido.IdStatusPedido);
                     command.Parameters.AddWithValue("@id_caixa", Pedido.IdCaixa);
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar nova compra";
                     command.Parameters.Clear();
@@ -77,6 +80,34 @@ namespace Dados
                 catch (Exception ex)
                 {
                     rpta = ex.Message;
+                }
+                return rpta;
+            }
+        }
+        //abrir nova compra
+        public string AbrirCompra(DadosPedido Compra)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "Insert into tb_pedido (id_cliente, id_vendedor, id_status, id_entrega, data_abertura, id_caixa) values (@id_cliente, @id_vendedor, @id_status, @id_entrega, @data_abertura, @id_caixa)";
+                    command.CommandType = CommandType.Text;
+                    //
+                    command.Parameters.AddWithValue("@id_cliente", Compra.IdCliente);
+                    command.Parameters.AddWithValue("@id_vendedor", Compra.IdVendedor);
+                    command.Parameters.AddWithValue("@id_status", Compra.IdStatusPedido);
+                    command.Parameters.AddWithValue("@id_entrega", Compra.IdTipoEntrega);
+                    command.Parameters.AddWithValue("@data_abertura", Compra.DataAbertura);
+                    command.Parameters.AddWithValue("@id_caixa", Compra.IdCaixa);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao abrir compra";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message + ex.StackTrace;
                 }
                 return rpta;
             }
@@ -204,7 +235,7 @@ namespace Dados
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_pedido", Update.IdPedido);
                     command.Parameters.AddWithValue("@id_pagamento", Update.Pagamento);
-                    command.Parameters.AddWithValue("@id_status", Update.IdStatus);
+                    command.Parameters.AddWithValue("@id_status", Update.IdStatusPedido);
                     command.Parameters.AddWithValue("@id_cliente", Update.IdCliente);
                     
                     rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar compra";
