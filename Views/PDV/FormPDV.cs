@@ -411,6 +411,7 @@ namespace Views
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
                     DisableBtn();
                     btnFechar.Enabled = true;
+                    lblTrocoT.Text = "Troco:";
                     if (rpta.Equals("OK"))
                     {
                         lblPagamento.Text = TiposPagamento.Dinheiro.ToString();
@@ -424,9 +425,18 @@ namespace Views
                 {
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
+                CompraEmAndamento = true;
+            }
+            if (txtValida.Text == "3")
+            {
+                var novoTotal = decimal.Parse(lblSubTotalCupom.Text) - decimal.Parse(lblrecebido.Text);
+                lblTrocoT.Text = "Falta:";
+               
+                lblTotal.Text = novoTotal.ToString();
+                CompraEmAndamento = false;
             }
             CpfNaNota = string.Empty;
-            CompraEmAndamento = true;
+            
         }
 
         private void btnDebito_Click(object sender, EventArgs e)

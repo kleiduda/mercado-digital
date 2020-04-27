@@ -69,6 +69,8 @@
             this.imageStore = new System.Windows.Forms.PictureBox();
             this.dgvCupom = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.pTotal = new System.Windows.Forms.Panel();
+            this.lblTotalItens = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pCompraFechada = new System.Windows.Forms.Panel();
             this.lblPagamentoT = new System.Windows.Forms.Label();
             this.lblPagamento = new System.Windows.Forms.Label();
@@ -97,8 +99,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.timerHeader = new System.Windows.Forms.Timer(this.components);
-            this.lblTotalItens = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,7 +148,6 @@
             this.idCaixa.Size = new System.Drawing.Size(59, 17);
             this.idCaixa.TabIndex = 163;
             this.idCaixa.Text = "id_caixa";
-            this.idCaixa.Visible = false;
             // 
             // txtValida
             // 
@@ -191,7 +190,6 @@
             this.lblIdPedido.Size = new System.Drawing.Size(62, 17);
             this.lblIdPedido.TabIndex = 159;
             this.lblIdPedido.Text = "idpedido";
-            this.lblIdPedido.Visible = false;
             // 
             // lblCompraAberta
             // 
@@ -659,6 +657,29 @@
             this.pTotal.Size = new System.Drawing.Size(753, 251);
             this.pTotal.TabIndex = 1;
             // 
+            // lblTotalItens
+            // 
+            this.lblTotalItens.AutoSize = true;
+            this.lblTotalItens.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTotalItens.Location = new System.Drawing.Point(107, 9);
+            this.lblTotalItens.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalItens.Name = "lblTotalItens";
+            this.lblTotalItens.Size = new System.Drawing.Size(17, 18);
+            this.lblTotalItens.TabIndex = 158;
+            this.lblTotalItens.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(28, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 17);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Total Itens:";
+            // 
             // pCompraFechada
             // 
             this.pCompraFechada.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -975,29 +996,6 @@
             // 
             this.timerHeader.Enabled = true;
             this.timerHeader.Tick += new System.EventHandler(this.timerHeader_Tick);
-            // 
-            // lblTotalItens
-            // 
-            this.lblTotalItens.AutoSize = true;
-            this.lblTotalItens.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalItens.Location = new System.Drawing.Point(107, 9);
-            this.lblTotalItens.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalItens.Name = "lblTotalItens";
-            this.lblTotalItens.Size = new System.Drawing.Size(17, 18);
-            this.lblTotalItens.TabIndex = 158;
-            this.lblTotalItens.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(28, 10);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 17);
-            this.label6.TabIndex = 159;
-            this.label6.Text = "Total Itens:";
             // 
             // FormPDV
             // 
