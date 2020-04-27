@@ -61,5 +61,11 @@ namespace Busines
             obj.IdVendedor = idVendedor;
             return obj.VerificarCaixasAbertos(obj   );
         }
+        public static DataTable PegarIdCaixaAtual(int idVendedor)
+        {
+            DadosCaixa obj = new DadosCaixa();
+            obj.IdVendedor = idVendedor;
+            return obj.PegarIdCaixaAtual(obj);
+        }
     }
 }

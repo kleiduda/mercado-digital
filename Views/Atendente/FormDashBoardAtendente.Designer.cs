@@ -29,23 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashBoardAtendente));
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             this.radiusCaixa = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblCargo = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblBomDia = new System.Windows.Forms.Label();
             this.panelCalendario = new System.Windows.Forms.Panel();
+            this.painelDinheiro = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblVendaDinheiro = new System.Windows.Forms.Label();
+            this.lblVendaFiado = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblTotalVendas = new System.Windows.Forms.Label();
             this.calendario = new Pabo.Calendar.MonthCalendar();
             this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lbl_ValorInicial = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblVendaDinheiro = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblVendaDebito = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblVendasCredito = new System.Windows.Forms.Label();
@@ -66,16 +65,14 @@
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.animaLabel = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.circularFoto = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lblVendaFiado = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.painelDinheiro = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelCalendario.SuspendLayout();
+            this.painelDinheiro.SuspendLayout();
             this.container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).BeginInit();
             this.panel1.SuspendLayout();
             this.pData.SuspendLayout();
-            this.painelDinheiro.SuspendLayout();
             this.SuspendLayout();
             // 
             // radiusCaixa
@@ -91,7 +88,7 @@
             this.animaLabel.SetDecoration(this.lblCargo, BunifuAnimatorNS.DecorationType.None);
             this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblCargo.Location = new System.Drawing.Point(411, 434);
+            this.lblCargo.Location = new System.Drawing.Point(411, 488);
             this.lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(84, 20);
@@ -106,7 +103,7 @@
             this.animaLabel.SetDecoration(this.lblLogin, BunifuAnimatorNS.DecorationType.None);
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.lblLogin.Location = new System.Drawing.Point(539, 395);
+            this.lblLogin.Location = new System.Drawing.Point(409, 437);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(432, 31);
@@ -132,16 +129,13 @@
             // panelCalendario
             // 
             this.panelCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panelCalendario.Controls.Add(this.label2);
             this.panelCalendario.Controls.Add(this.painelDinheiro);
             this.panelCalendario.Controls.Add(this.lblVendaFiado);
             this.panelCalendario.Controls.Add(this.label7);
             this.panelCalendario.Controls.Add(this.lblTotalVendas);
             this.panelCalendario.Controls.Add(this.calendario);
             this.panelCalendario.Controls.Add(this.label12);
-            this.panelCalendario.Controls.Add(this.label9);
-            this.panelCalendario.Controls.Add(this.label11);
-            this.panelCalendario.Controls.Add(this.lbl_ValorInicial);
-            this.panelCalendario.Controls.Add(this.label8);
             this.panelCalendario.Controls.Add(this.lblVendaDebito);
             this.panelCalendario.Controls.Add(this.label4);
             this.panelCalendario.Controls.Add(this.lblVendasCredito);
@@ -154,6 +148,72 @@
             this.panelCalendario.Name = "panelCalendario";
             this.panelCalendario.Size = new System.Drawing.Size(350, 715);
             this.panelCalendario.TabIndex = 145;
+            // 
+            // painelDinheiro
+            // 
+            this.painelDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.painelDinheiro.Controls.Add(this.label6);
+            this.painelDinheiro.Controls.Add(this.lblVendaDinheiro);
+            this.animaLabel.SetDecoration(this.painelDinheiro, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition1.SetDecoration(this.painelDinheiro, BunifuAnimatorNS.DecorationType.None);
+            this.painelDinheiro.Location = new System.Drawing.Point(8, 472);
+            this.painelDinheiro.Name = "painelDinheiro";
+            this.painelDinheiro.Size = new System.Drawing.Size(321, 51);
+            this.painelDinheiro.TabIndex = 150;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.animaLabel.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(9, 17);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 17);
+            this.label6.TabIndex = 155;
+            this.label6.Text = "Venda no Dinheiro:";
+            // 
+            // lblVendaDinheiro
+            // 
+            this.lblVendaDinheiro.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.lblVendaDinheiro, BunifuAnimatorNS.DecorationType.None);
+            this.animaLabel.SetDecoration(this.lblVendaDinheiro, BunifuAnimatorNS.DecorationType.None);
+            this.lblVendaDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblVendaDinheiro.Location = new System.Drawing.Point(147, 16);
+            this.lblVendaDinheiro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendaDinheiro.Name = "lblVendaDinheiro";
+            this.lblVendaDinheiro.Size = new System.Drawing.Size(40, 18);
+            this.lblVendaDinheiro.TabIndex = 154;
+            this.lblVendaDinheiro.Text = "0.00";
+            // 
+            // lblVendaFiado
+            // 
+            this.lblVendaFiado.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.lblVendaFiado, BunifuAnimatorNS.DecorationType.None);
+            this.animaLabel.SetDecoration(this.lblVendaFiado, BunifuAnimatorNS.DecorationType.None);
+            this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblVendaFiado.Location = new System.Drawing.Point(155, 627);
+            this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendaFiado.Name = "lblVendaFiado";
+            this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
+            this.lblVendaFiado.TabIndex = 162;
+            this.lblVendaFiado.Text = "0.00";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
+            this.animaLabel.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(17, 628);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.TabIndex = 163;
+            this.label7.Text = "Conta:";
             // 
             // lblTotalVendas
             // 
@@ -224,87 +284,6 @@
             this.label12.Size = new System.Drawing.Size(116, 17);
             this.label12.TabIndex = 161;
             this.label12.Text = "Total de Vendas:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(155, 403);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 18);
-            this.label9.TabIndex = 158;
-            this.label9.Text = "0.00";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label11.Location = new System.Drawing.Point(17, 404);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 17);
-            this.label11.TabIndex = 159;
-            this.label11.Text = "Sangria Caixa:";
-            // 
-            // lbl_ValorInicial
-            // 
-            this.lbl_ValorInicial.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.lbl_ValorInicial, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.lbl_ValorInicial, BunifuAnimatorNS.DecorationType.None);
-            this.lbl_ValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lbl_ValorInicial.Location = new System.Drawing.Point(154, 369);
-            this.lbl_ValorInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_ValorInicial.Name = "lbl_ValorInicial";
-            this.lbl_ValorInicial.Size = new System.Drawing.Size(40, 18);
-            this.lbl_ValorInicial.TabIndex = 156;
-            this.lbl_ValorInicial.Text = "0.00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(16, 370);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 17);
-            this.label8.TabIndex = 157;
-            this.label8.Text = "Inicio Caixa:";
-            // 
-            // lblVendaDinheiro
-            // 
-            this.lblVendaDinheiro.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.lblVendaDinheiro, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.lblVendaDinheiro, BunifuAnimatorNS.DecorationType.None);
-            this.lblVendaDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaDinheiro.Location = new System.Drawing.Point(147, 16);
-            this.lblVendaDinheiro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaDinheiro.Name = "lblVendaDinheiro";
-            this.lblVendaDinheiro.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaDinheiro.TabIndex = 154;
-            this.lblVendaDinheiro.Text = "0.00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(9, 17);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 17);
-            this.label6.TabIndex = 155;
-            this.label6.Text = "Venda no Dinheiro:";
             // 
             // lblVendaDebito
             // 
@@ -548,22 +527,22 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.bunifuTransition1.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 1F;
-            this.bunifuTransition1.DefaultAnimation = animation6;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.bunifuTransition1.DefaultAnimation = animation3;
             this.bunifuTransition1.Interval = 15;
             this.bunifuTransition1.TimeStep = 0.5F;
             // 
@@ -571,66 +550,42 @@
             // 
             this.animaLabel.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.animaLabel.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 0F;
-            this.animaLabel.DefaultAnimation = animation5;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.animaLabel.DefaultAnimation = animation4;
             // 
             // circularFoto
             // 
             this.circularFoto.ElipseRadius = 100;
             this.circularFoto.TargetControl = this.fotoUsuario;
             // 
-            // lblVendaFiado
+            // label2
             // 
-            this.lblVendaFiado.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.lblVendaFiado, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.lblVendaFiado, BunifuAnimatorNS.DecorationType.None);
-            this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaFiado.Location = new System.Drawing.Point(155, 627);
-            this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaFiado.Name = "lblVendaFiado";
-            this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaFiado.TabIndex = 162;
-            this.lblVendaFiado.Text = "0.00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
-            this.animaLabel.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(17, 628);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
-            this.label7.TabIndex = 163;
-            this.label7.Text = "Conta:";
-            // 
-            // painelDinheiro
-            // 
-            this.painelDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.painelDinheiro.Controls.Add(this.label6);
-            this.painelDinheiro.Controls.Add(this.lblVendaDinheiro);
-            this.animaLabel.SetDecoration(this.painelDinheiro, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuTransition1.SetDecoration(this.painelDinheiro, BunifuAnimatorNS.DecorationType.None);
-            this.painelDinheiro.Location = new System.Drawing.Point(8, 472);
-            this.painelDinheiro.Name = "painelDinheiro";
-            this.painelDinheiro.Size = new System.Drawing.Size(321, 51);
-            this.painelDinheiro.TabIndex = 150;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition1.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
+            this.animaLabel.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
+            this.label2.Location = new System.Drawing.Point(4, 405);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(230, 29);
+            this.label2.TabIndex = 150;
+            this.label2.Text = "Resumo de Vendas ";
             // 
             // FormDashBoardAtendente
             // 
@@ -649,6 +604,8 @@
             this.Load += new System.EventHandler(this.FormDashBoardAtendente_Load);
             this.panelCalendario.ResumeLayout(false);
             this.panelCalendario.PerformLayout();
+            this.painelDinheiro.ResumeLayout(false);
+            this.painelDinheiro.PerformLayout();
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
@@ -656,8 +613,6 @@
             this.panel1.ResumeLayout(false);
             this.pData.ResumeLayout(false);
             this.pData.PerformLayout();
-            this.painelDinheiro.ResumeLayout(false);
-            this.painelDinheiro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -691,16 +646,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblVendasCredito;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lbl_ValorInicial;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTotalVendas;
         private System.Windows.Forms.Label label12;
         private Pabo.Calendar.MonthCalendar calendario;
         private System.Windows.Forms.Panel painelDinheiro;
         private System.Windows.Forms.Label lblVendaFiado;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
     }
 }
 

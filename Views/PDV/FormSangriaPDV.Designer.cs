@@ -34,17 +34,19 @@
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.lblError = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTrocoInicial = new System.Windows.Forms.Label();
+            this.lblTotalEmCaixaT = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblVendaFiado = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblVendaCredito = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblVendaDebito = new System.Windows.Forms.Label();
             this.painelDinheiro = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.lblVendaDinheiro = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblVendaDebito = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblVendaCredito = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblVendaFiado = new System.Windows.Forms.Label();
-            this.lblTotalEmCaixaT = new System.Windows.Forms.Label();
-            this.lblTotalEmCaixa = new System.Windows.Forms.Label();
+            this.lblTotalDeVendas = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.painelDinheiro.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +123,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblTotalEmCaixa);
+            this.panel1.Controls.Add(this.lblTotalDeVendas);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblTrocoInicial);
             this.panel1.Controls.Add(this.lblTotalEmCaixaT);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.lblVendaFiado);
@@ -134,6 +138,101 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 429);
             this.panel1.TabIndex = 147;
+            // 
+            // lblTrocoInicial
+            // 
+            this.lblTrocoInicial.AutoSize = true;
+            this.lblTrocoInicial.BackColor = System.Drawing.Color.Transparent;
+            this.lblTrocoInicial.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTrocoInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTrocoInicial.Location = new System.Drawing.Point(27, 68);
+            this.lblTrocoInicial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTrocoInicial.Name = "lblTrocoInicial";
+            this.lblTrocoInicial.Size = new System.Drawing.Size(87, 28);
+            this.lblTrocoInicial.TabIndex = 163;
+            this.lblTrocoInicial.Text = "R$0,00";
+            // 
+            // lblTotalEmCaixaT
+            // 
+            this.lblTotalEmCaixaT.AutoSize = true;
+            this.lblTotalEmCaixaT.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalEmCaixaT.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTotalEmCaixaT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTotalEmCaixaT.Location = new System.Drawing.Point(26, 31);
+            this.lblTotalEmCaixaT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalEmCaixaT.Name = "lblTotalEmCaixaT";
+            this.lblTotalEmCaixaT.Size = new System.Drawing.Size(162, 28);
+            this.lblTotalEmCaixaT.TabIndex = 162;
+            this.lblTotalEmCaixaT.Text = "Troco Inicial: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(28, 360);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 17);
+            this.label7.TabIndex = 161;
+            this.label7.Text = "Total em Fiado:";
+            // 
+            // lblVendaFiado
+            // 
+            this.lblVendaFiado.AutoSize = true;
+            this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblVendaFiado.Location = new System.Drawing.Point(166, 359);
+            this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendaFiado.Name = "lblVendaFiado";
+            this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
+            this.lblVendaFiado.TabIndex = 160;
+            this.lblVendaFiado.Text = "0.00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(28, 317);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 17);
+            this.label4.TabIndex = 159;
+            this.label4.Text = "Total em Crédito:";
+            // 
+            // lblVendaCredito
+            // 
+            this.lblVendaCredito.AutoSize = true;
+            this.lblVendaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblVendaCredito.Location = new System.Drawing.Point(166, 316);
+            this.lblVendaCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendaCredito.Name = "lblVendaCredito";
+            this.lblVendaCredito.Size = new System.Drawing.Size(40, 18);
+            this.lblVendaCredito.TabIndex = 158;
+            this.lblVendaCredito.Text = "0.00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(28, 275);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.TabIndex = 157;
+            this.label2.Text = "Total em Débito:";
+            // 
+            // lblVendaDebito
+            // 
+            this.lblVendaDebito.AutoSize = true;
+            this.lblVendaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblVendaDebito.Location = new System.Drawing.Point(166, 274);
+            this.lblVendaDebito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVendaDebito.Name = "lblVendaDebito";
+            this.lblVendaDebito.Size = new System.Drawing.Size(40, 18);
+            this.lblVendaDebito.TabIndex = 156;
+            this.lblVendaDebito.Text = "0.00";
             // 
             // painelDinheiro
             // 
@@ -168,100 +267,31 @@
             this.lblVendaDinheiro.TabIndex = 154;
             this.lblVendaDinheiro.Text = "0.00";
             // 
-            // label2
+            // lblTotalDeVendas
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(28, 275);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 17);
-            this.label2.TabIndex = 157;
-            this.label2.Text = "Total em Débito:";
+            this.lblTotalDeVendas.AutoSize = true;
+            this.lblTotalDeVendas.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDeVendas.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTotalDeVendas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTotalDeVendas.Location = new System.Drawing.Point(28, 155);
+            this.lblTotalDeVendas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalDeVendas.Name = "lblTotalDeVendas";
+            this.lblTotalDeVendas.Size = new System.Drawing.Size(87, 28);
+            this.lblTotalDeVendas.TabIndex = 165;
+            this.lblTotalDeVendas.Text = "R$0,00";
             // 
-            // lblVendaDebito
+            // label5
             // 
-            this.lblVendaDebito.AutoSize = true;
-            this.lblVendaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaDebito.Location = new System.Drawing.Point(166, 274);
-            this.lblVendaDebito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaDebito.Name = "lblVendaDebito";
-            this.lblVendaDebito.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaDebito.TabIndex = 156;
-            this.lblVendaDebito.Text = "0.00";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(28, 317);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 17);
-            this.label4.TabIndex = 159;
-            this.label4.Text = "Total em Crédito:";
-            // 
-            // lblVendaCredito
-            // 
-            this.lblVendaCredito.AutoSize = true;
-            this.lblVendaCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaCredito.Location = new System.Drawing.Point(166, 316);
-            this.lblVendaCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaCredito.Name = "lblVendaCredito";
-            this.lblVendaCredito.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaCredito.TabIndex = 158;
-            this.lblVendaCredito.Text = "0.00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(28, 360);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 17);
-            this.label7.TabIndex = 161;
-            this.label7.Text = "Total em Fiado:";
-            // 
-            // lblVendaFiado
-            // 
-            this.lblVendaFiado.AutoSize = true;
-            this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaFiado.Location = new System.Drawing.Point(166, 359);
-            this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaFiado.Name = "lblVendaFiado";
-            this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaFiado.TabIndex = 160;
-            this.lblVendaFiado.Text = "0.00";
-            // 
-            // lblTotalEmCaixaT
-            // 
-            this.lblTotalEmCaixaT.AutoSize = true;
-            this.lblTotalEmCaixaT.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalEmCaixaT.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTotalEmCaixaT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblTotalEmCaixaT.Location = new System.Drawing.Point(26, 31);
-            this.lblTotalEmCaixaT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalEmCaixaT.Name = "lblTotalEmCaixaT";
-            this.lblTotalEmCaixaT.Size = new System.Drawing.Size(190, 28);
-            this.lblTotalEmCaixaT.TabIndex = 162;
-            this.lblTotalEmCaixaT.Text = "Total em Caixa: ";
-            // 
-            // lblTotalEmCaixa
-            // 
-            this.lblTotalEmCaixa.AutoSize = true;
-            this.lblTotalEmCaixa.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalEmCaixa.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTotalEmCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lblTotalEmCaixa.Location = new System.Drawing.Point(27, 90);
-            this.lblTotalEmCaixa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalEmCaixa.Name = "lblTotalEmCaixa";
-            this.lblTotalEmCaixa.Size = new System.Drawing.Size(87, 28);
-            this.lblTotalEmCaixa.TabIndex = 163;
-            this.lblTotalEmCaixa.Text = "R$0,00";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label5.Location = new System.Drawing.Point(27, 118);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(200, 28);
+            this.label5.TabIndex = 164;
+            this.label5.Text = "Total de Vendas: ";
             // 
             // FormSangriaPDV
             // 
@@ -307,6 +337,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblVendaDinheiro;
         private System.Windows.Forms.Label lblTotalEmCaixaT;
-        private System.Windows.Forms.Label lblTotalEmCaixa;
+        private System.Windows.Forms.Label lblTrocoInicial;
+        private System.Windows.Forms.Label lblTotalDeVendas;
+        private System.Windows.Forms.Label label5;
     }
 }

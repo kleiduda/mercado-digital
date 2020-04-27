@@ -247,6 +247,29 @@ namespace Dados
                 return rpta;
             }
         }
-
+        //verificar compras abertas
+        public DataTable VerificarComprasAbertas(DadosPedido Compra)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM ViewCompraAberta WHERE id_vendedor=@id_vendedor AND id_caixa=@id_caixa AND id_status=1";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_vendedor", Compra.IdVendedor);
+                    command.Parameters.AddWithValue("@id_caixa", Compra.IdCaixa);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
     }
 }

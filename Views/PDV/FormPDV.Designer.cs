@@ -38,6 +38,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pProduct = new System.Windows.Forms.Panel();
+            this.idCaixa = new System.Windows.Forms.Label();
             this.txtValida = new System.Windows.Forms.TextBox();
             this.btnCpfNaNota = new System.Windows.Forms.Button();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
@@ -95,7 +96,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.idCaixa = new System.Windows.Forms.Label();
+            this.timerHeader = new System.Windows.Forms.Timer(this.components);
+            this.lblTotalItens = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -137,6 +140,16 @@
             this.pProduct.Size = new System.Drawing.Size(987, 789);
             this.pProduct.TabIndex = 1;
             // 
+            // idCaixa
+            // 
+            this.idCaixa.AutoSize = true;
+            this.idCaixa.Location = new System.Drawing.Point(234, 27);
+            this.idCaixa.Name = "idCaixa";
+            this.idCaixa.Size = new System.Drawing.Size(59, 17);
+            this.idCaixa.TabIndex = 163;
+            this.idCaixa.Text = "id_caixa";
+            this.idCaixa.Visible = false;
+            // 
             // txtValida
             // 
             this.txtValida.Location = new System.Drawing.Point(172, 27);
@@ -147,7 +160,6 @@
             // 
             // btnCpfNaNota
             // 
-            this.btnCpfNaNota.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCpfNaNota.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCpfNaNota.Enabled = false;
             this.btnCpfNaNota.FlatAppearance.BorderSize = 0;
@@ -179,6 +191,7 @@
             this.lblIdPedido.Size = new System.Drawing.Size(62, 17);
             this.lblIdPedido.TabIndex = 159;
             this.lblIdPedido.Text = "idpedido";
+            this.lblIdPedido.Visible = false;
             // 
             // lblCompraAberta
             // 
@@ -331,9 +344,9 @@
             this.lblDescricao.Location = new System.Drawing.Point(262, 312);
             this.lblDescricao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(605, 44);
+            this.lblDescricao.Size = new System.Drawing.Size(53, 44);
             this.lblDescricao.TabIndex = 125;
-            this.lblDescricao.Text = "50.01.056 - BALEIRO PET 150ML.";
+            this.lblDescricao.Text = "...";
             // 
             // label3
             // 
@@ -624,6 +637,8 @@
             // pTotal
             // 
             this.pTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pTotal.Controls.Add(this.lblTotalItens);
+            this.pTotal.Controls.Add(this.label6);
             this.pTotal.Controls.Add(this.pCompraFechada);
             this.pTotal.Controls.Add(this.btnCredito);
             this.pTotal.Controls.Add(this.btnFiado);
@@ -812,7 +827,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(104, 81);
+            this.label15.Location = new System.Drawing.Point(104, 89);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 18);
@@ -823,7 +838,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(105, 55);
+            this.label14.Location = new System.Drawing.Point(105, 63);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 18);
@@ -834,7 +849,7 @@
             // 
             this.lblSubTotalCupom.AutoSize = true;
             this.lblSubTotalCupom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblSubTotalCupom.Location = new System.Drawing.Point(106, 28);
+            this.lblSubTotalCupom.Location = new System.Drawing.Point(106, 36);
             this.lblSubTotalCupom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubTotalCupom.Name = "lblSubTotalCupom";
             this.lblSubTotalCupom.Size = new System.Drawing.Size(40, 18);
@@ -846,7 +861,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(27, 83);
+            this.label12.Location = new System.Drawing.Point(27, 91);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 17);
@@ -858,7 +873,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label11.Location = new System.Drawing.Point(27, 56);
+            this.label11.Location = new System.Drawing.Point(27, 64);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 17);
@@ -870,7 +885,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(27, 29);
+            this.label10.Location = new System.Drawing.Point(27, 37);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 17);
@@ -956,14 +971,33 @@
             this.bunifuElipse2.ElipseRadius = 10;
             this.bunifuElipse2.TargetControl = this.pTotal;
             // 
-            // idCaixa
+            // timerHeader
             // 
-            this.idCaixa.AutoSize = true;
-            this.idCaixa.Location = new System.Drawing.Point(234, 27);
-            this.idCaixa.Name = "idCaixa";
-            this.idCaixa.Size = new System.Drawing.Size(59, 17);
-            this.idCaixa.TabIndex = 163;
-            this.idCaixa.Text = "id_caixa";
+            this.timerHeader.Enabled = true;
+            this.timerHeader.Tick += new System.EventHandler(this.timerHeader_Tick);
+            // 
+            // lblTotalItens
+            // 
+            this.lblTotalItens.AutoSize = true;
+            this.lblTotalItens.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTotalItens.Location = new System.Drawing.Point(107, 9);
+            this.lblTotalItens.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalItens.Name = "lblTotalItens";
+            this.lblTotalItens.Size = new System.Drawing.Size(17, 18);
+            this.lblTotalItens.TabIndex = 158;
+            this.lblTotalItens.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(28, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 17);
+            this.label6.TabIndex = 159;
+            this.label6.Text = "Total Itens:";
             // 
             // FormPDV
             // 
@@ -1058,6 +1092,9 @@
         private System.Windows.Forms.Button btnCpfNaNota;
         private System.Windows.Forms.TextBox txtValida;
         private System.Windows.Forms.Label idCaixa;
+        private System.Windows.Forms.Timer timerHeader;
+        private System.Windows.Forms.Label lblTotalItens;
+        private System.Windows.Forms.Label label6;
     }
 }
 

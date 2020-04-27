@@ -31,20 +31,22 @@ namespace Views
         private void DadosValoresVendas()
         {
             DataTable dtCaixa = new DataTable();
-            dtCaixa = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
+            dtCaixa = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CacheIdCaixa.IdCaixa);
             DataTable dt = new DataTable();
             dt = BusinesCaixa.ValoresVendaTotal(UserLoginCache.IdUser);
             //
-            var vendasDoDia = dt.AsEnumerable().Where(x=>x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
-            var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<int>("id") == CaixaCache.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var vendasDoDia = dt.AsEnumerable().Where(x=>x.Field<int>("id") == CacheIdCaixa.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var dinheiro = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 1).Where(x => x.Field<int>("id") == CacheIdCaixa.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var debito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 2).Where(x => x.Field<int>("id") == CacheIdCaixa.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<int>("id") == CacheIdCaixa.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
+            var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<int>("id") == CacheIdCaixa.IdCaixa).Sum(x => x.Field<decimal>("TotalDeVendas"));
             var troco = CaixaCache.Troco;
-            var TotalEmCaixa = troco + vendasDoDia;
+            var maxSangria = troco + dinheiro;
+            var totalDeVendas = dinheiro + debito + credito + fiado;
             //
-            txtValor.Text = TotalEmCaixa.ToString();
-            lblTotalEmCaixa.Text = TotalEmCaixa.ToString();
+            lblTotalDeVendas.Text = totalDeVendas.ToString();
+            txtValor.Text = maxSangria.ToString();
+            lblTrocoInicial.Text = troco.ToString();
             lblVendaCredito.Text = credito.ToString();
             lblVendaDebito.Text = debito.ToString();
             lblVendaDinheiro.Text = dinheiro.ToString();
@@ -53,6 +55,7 @@ namespace Views
         private void btnValidar_Click(object sender, EventArgs e)
         {
             string rpta = "";
+            var totalFechamento = decimal.Parse(lblTrocoInicial.Text) + decimal.Parse(lblTotalDeVendas.Text) - decimal.Parse(txtValor.Text);
             try
             {
                 if (string.IsNullOrEmpty(txtValor.Text))
@@ -61,7 +64,7 @@ namespace Views
                 }
                 else
                 {
-                    rpta = BusinesCaixa.FecharCaixa(CaixaCache.IdCaixa ,UserLoginCache.IdUser,Convert.ToDecimal(lblTotalEmCaixa.Text),Convert.ToDecimal(txtValor.Text),Supporte.Enums.StatusCaixa.Fechado);
+                    rpta = BusinesCaixa.FecharCaixa(CacheIdCaixa.IdCaixa ,UserLoginCache.IdUser,totalFechamento,Convert.ToDecimal(txtValor.Text),Supporte.Enums.StatusCaixa.Fechado);
                 }
                 if (rpta == "OK")
                 {
