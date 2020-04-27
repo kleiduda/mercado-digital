@@ -94,9 +94,21 @@ namespace Views.Pagamento
             }
             else
             {
-                this._validaFecharCompra = "2";
-                ValoresPDV();
-                this.Close();
+                decimal valorRecebido = decimal.Parse(txtRecebido.Text);
+                decimal total = decimal.Parse(lblTotal.Text);
+                if (valorRecebido >= total)
+                {
+                    this._validaFecharCompra = "2";
+                    ValoresPDV();
+                    this.Close();
+                }
+                else
+                {
+                    this._validaFecharCompra = "3";
+                    ValoresPDV();
+                    this.Close();
+                }
+                
             }
                 
         }

@@ -37,7 +37,7 @@ namespace Views
             //var valor = dtCaixa.AsEnumerable().Where(x => x.Field<int>("id_vendedor") == 13);
             if (dtCaixa.Rows.Count > 0)
             {
-                if (MessageBox.Show("Caixa Anterior ainda esta aberto, continuar?", "CAIXA ANTERIOR NÃO FOI FECHADO", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Abrindo o caixa anterior!", "CAIXA ANTERIOR NÃO FOI FECHADO", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     FormPDV frm = new FormPDV();
                     frm.ShowDialog();
