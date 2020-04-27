@@ -23,7 +23,7 @@ namespace Views
         {
             LoadData();
             DadosSobreVendas();
-            ValorInicialSangria();
+            //ValorInicialSangria();
         }
         private void LoadData()
         {
@@ -61,11 +61,11 @@ namespace Views
                 var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == DateTime.Now.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
 
-                lblTotalVendas.Text = total.ToString("N2");
-                lblVendaDinheiro.Text = dinheiro.ToString("N2");
-                lblVendaDebito.Text = debito.ToString("N2");
-                lblVendaFiado.Text = fiado.ToString("N2");
-                lblVendasCredito.Text = credito.ToString("N2");
+                lblTotalVendas.Text = total.ToString("C");
+                lblVendaDinheiro.Text = dinheiro.ToString("C");
+                lblVendaDebito.Text = debito.ToString("C");
+                lblVendaFiado.Text = fiado.ToString("C");
+                lblVendasCredito.Text = credito.ToString("C");
             }
         }
         //override para abrir o caixa
@@ -101,15 +101,15 @@ namespace Views
             lblBomDia.Text = saudacoes[hora / 6] + ", ";
             lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString();
         }
-        public void ValorInicialSangria()
-        {
-            DataTable dt = new DataTable();
-            dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
-            if (dt.Rows.Count > 0)
-            {
-                lbl_ValorInicial.Text = dt.Rows[0]["troco"].ToString();
-            }
-        }
+        //public void ValorInicialSangria()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CacheIdCaixa.IdCaixa);
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        //lbl_ValorInicial.Text = dt.Rows[0]["troco"].ToString();
+        //    }
+        //}
         //calendario
         public void StyleCalendario()
         {
@@ -150,11 +150,11 @@ namespace Views
                 var credito = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 3).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
                 var fiado = dt.AsEnumerable().Where(x => x.Field<int>("id_pagamento") == 4).Where(x => x.Field<string>("data_fechamento") == datetime.ToShortDateString()).Sum(x => x.Field<decimal>("TotalDeVendas"));
 
-                lblTotalVendas.Text = total.ToString("N2");
-                lblVendaDinheiro.Text = dinheiro.ToString("N2");
-                lblVendaDebito.Text = debito.ToString("N2");
-                lblVendaFiado.Text = fiado.ToString("N2");
-                lblVendasCredito.Text = credito.ToString("N2");
+                lblTotalVendas.Text = total.ToString("C");
+                lblVendaDinheiro.Text = dinheiro.ToString("C");
+                lblVendaDebito.Text = debito.ToString("C");
+                lblVendaFiado.Text = fiado.ToString("C");
+                lblVendasCredito.Text = credito.ToString("C");
             }
         }
 

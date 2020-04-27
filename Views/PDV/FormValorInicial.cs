@@ -31,7 +31,7 @@ namespace Views
         private void ValorInicial()
         {
             DataTable dt = new DataTable();
-            dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CaixaCache.IdCaixa);
+            dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CacheIdCaixa.IdCaixa);
             DataTable dtCaixa = new DataTable();
             dtCaixa = BusinesCaixa.VerificarCaixasAbertos(UserLoginCache.IdUser);
             //var valor = dtCaixa.AsEnumerable().Where(x => x.Field<int>("id_vendedor") == 13);
@@ -52,6 +52,12 @@ namespace Views
 
             }
         }
+        //id caixa
+        public void IdCaixa()
+        {
+            DataTable dt = new DataTable();
+            dt = BusinesCaixa.PegarIdCaixaAtual(UserLoginCache.IdUser);
+        }
         private void btnValidar_Click(object sender, EventArgs e)
         {
             string rpta = "";
@@ -68,6 +74,7 @@ namespace Views
                 if (rpta == "OK")
                 {
                     //msgError("Blz garoto, tudo ok");
+                    
                     FormPDV frm = new FormPDV();
                     frm.ShowDialog();
                     this.Close();

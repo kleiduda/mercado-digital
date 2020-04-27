@@ -7,6 +7,7 @@ using Supporte.Cache;
 using Supporte.Enums;
 using Views.PDV;
 using Views.Pagamento;
+using System.Linq;
 
 namespace Views
 {
@@ -15,6 +16,7 @@ namespace Views
         const decimal Desconto = 0;
         int Qtd = 1;
         private bool IsNew = true;
+        private bool CompraEmAndamento = true;
         private string CpfNaNota = null;
 
         public FormPDV()
@@ -24,11 +26,19 @@ namespace Views
 
         private void FormPDV_Load(object sender, EventArgs e)
         {
+            IdCaixaAtual();
+            VerificarComprasAbertas();
             DadosVendedor();
             ListarProdutos();
-            lblData.Text = DateTime.Now.ToString();
             ImagemCupom();
-            idCaixa.Text = CaixaCache.IdCaixa.ToString();
+            
+        }
+        //IdCaixaAtual
+        public void IdCaixaAtual()
+        {
+            DataTable dt = new DataTable();
+            dt = BusinesCaixa.PegarIdCaixaAtual(UserLoginCache.IdUser);
+            idCaixa.Text = dt.AsEnumerable().OrderByDescending(x=>x.Field<int>("id")).Select(r=>r.Field<int>("id")).First().ToString();
         }
         public void ImagemCupom()
         {
@@ -43,7 +53,7 @@ namespace Views
                 lblCaixaLivreCupom.Visible = false;
             }
         }
-        
+
         //habilitar e desabilitar pagamentos
         public void EnableBtn()
         {
@@ -155,7 +165,7 @@ namespace Views
                 }
                 else
                 {
-                    MessageBox.Show(rpta);
+                    MessageBox.Show("IsNew = false");
                 }
             }
             catch (Exception ex)
@@ -191,6 +201,7 @@ namespace Views
             dgvCupom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCupom.ColumnHeadersHeight = 40;
             dgvCupom.ColumnHeadersVisible = true;
+            lblTotalItens.Text = dgvCupom.Rows.Count.ToString();
 
         }
         //listar detalhes
@@ -267,8 +278,56 @@ namespace Views
         {
             FormSangriaPDV frm = new FormSangriaPDV();
             frm.ShowDialog();
-            
+
             this.Close();
+        }
+        //liberando controles da compra aberta
+        public void LiberarControlesNovaCompra()
+        {
+            txtPesquisaProduto.Enabled = true;
+            btnCpfNaNota.Enabled = true;
+            btnFechar.Enabled = false;
+            btnDinheiro.Enabled = true;
+            btnFiado.Enabled = true;
+            btnDebito.Enabled = true;
+            btnCredito.Enabled = true;
+            dgvCupom.DataSource = null;
+            lblTotal.Text = "0,00";
+            lblSubTotalCupom.Text = "0,00";
+            lblCompraAberta.Text = "Compra em andamento...";
+            LimparBlocoPagamento();
+            ImagemCupom();
+            txtPesquisaProduto.Focus();
+            
+            CompraEmAndamento = false;
+        }
+        public void LiberarControlesCompraRecuperada()
+        {
+            txtPesquisaProduto.Enabled = true;
+            btnCpfNaNota.Enabled = true;
+            btnFechar.Enabled = false;
+            btnDinheiro.Enabled = true;
+            btnFiado.Enabled = true;
+            btnDebito.Enabled = true;
+            btnCredito.Enabled = true;
+            lblCompraAberta.Text = "Compra em andamento...";
+            ImagemCupom();
+            DetalhesPedido();
+            txtPesquisaProduto.Focus();
+
+            CompraEmAndamento = false;
+        }
+        //vericar se existe uma compra aberta
+        public void VerificarComprasAbertas()
+        {
+            DataTable dt = new DataTable();
+            dt = BusinesPedido.VerificarComprasAbertas(UserLoginCache.IdUser, CacheIdCaixa.IdCaixa);
+            if (dt.Rows.Count > 0)
+            {
+                lblIdPedido.Text = dt.Rows[0]["id_pedido"].ToString();
+                ListarItensCupom();
+                LiberarControlesCompraRecuperada();
+            }
         }
         //tecla de atalho para abrir uma nova compra
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -277,34 +336,43 @@ namespace Views
             {
                 switch (keyData)
                 {
-                    case Keys.Control | Keys.L:
-                        string rpta = "";
-                        if (lblIdPedido.Text != "idpedido")
+                    //nova abertura
+                    case Keys.Control | Keys.M:
+                        try
                         {
-                            MessageBox.Show("Já existe uma compra em andamento.");
+                            string resposta = "";
+                            if (CompraEmAndamento == true)
+                            {
+                               resposta = BusinesPedido.CadastroNovaCompra
+                            (
+                                1,
+                                UserLoginCache.IdUser,
+                                StatusPedido.Aberto,
+                                TipoEntrega.Balcão,
+                                DateTime.Now,
+                                CacheIdCaixa.IdCaixa
+                            );
+                                LiberarControlesNovaCompra();
+                                CompraEmAndamento = false;
+                                txtPesquisaProduto.Enabled = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Compra em Andamento");
+                            }
+                            ListarVendas();
+                            
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("ID CAIXA"+ CaixaCache.IdCaixa);
-                            rpta = BusinesPedido.CadastroNovaCompra(1, UserLoginCache.IdUser, StatusPedido.Aberto, TipoEntrega.Balcão, DateTime.Now, CaixaCache.IdCaixa);
-                            txtPesquisaProduto.Enabled = true;
-                            dgvCupom.DataSource = null;
-                            lblTotal.Text = "0,00";
-                            lblSubTotalCupom.Text = "0,00";
-                            lblCompraAberta.Text = "Compra em andamento...";
-                            btnCpfNaNota.Enabled = true;
-                            LimparBlocoPagamento();
-                            EnableBtn();
-                            ImagemCupom();
-                            btnFechar.Enabled = false;
+
                         }
-                        ListarVendas();
-                        txtPesquisaProduto.Focus();
                         break;
                     case Keys.F1:
                         txtQuantidade.Enabled = true;
                         txtValorUnitario.Clear();
                         txtSubTotal.Clear();
+                        txtQuantidade.Focus();
                         break;
                 }
             }
@@ -358,6 +426,7 @@ namespace Views
                 }
             }
             CpfNaNota = string.Empty;
+            CompraEmAndamento = true;
         }
 
         private void btnDebito_Click(object sender, EventArgs e)
@@ -396,6 +465,7 @@ namespace Views
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
             }
+            CompraEmAndamento = true;
         }
         private void btnCpfNaNota_Click(object sender, EventArgs e)
         {
@@ -406,6 +476,10 @@ namespace Views
             CpfNaNota = frm.CPF;
         }
 
-
+        private void timerHeader_Tick(object sender, EventArgs e)
+        {
+            DateTime data = DateTime.Now;
+            lblData.Text = data.ToShortDateString() + " "+ data.ToLongTimeString();
+        }
     }
 }

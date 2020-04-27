@@ -45,7 +45,7 @@ namespace Dados
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT * FROM tb_caixa WHERE id_vendedor=@id_vendedor AND id_status_caixa=1";
+                        command.CommandText = "SELECT * FROM tb_caixa WHERE id_vendedor=@id_vendedor AND id_status_caixa=1 AND id=@id_caixa";
                         command.CommandType = CommandType.Text;
                         command.Parameters.AddWithValue("@id_vendedor",Caixa.IdVendedor);
                         command.Parameters.AddWithValue("@id_caixa", Caixa.IdCaixa);
@@ -207,6 +207,33 @@ namespace Dados
                     command.Parameters.AddWithValue("@id_vendedor", Valida.IdVendedor);
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
+        //gravar ID Caixa
+        public DataTable PegarIdCaixaAtual(DadosCaixa Id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT id FROM tb_caixa where id_vendedor=@id_vendedor AND id_status_caixa=1";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_vendedor", Id.IdVendedor);
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        CacheIdCaixa.IdCaixa = int.Parse(dt.Rows[0]["id"].ToString());
+                    }
                 }
                 catch (Exception ex)
                 {

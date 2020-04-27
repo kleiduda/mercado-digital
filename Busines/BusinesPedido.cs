@@ -59,6 +59,14 @@ namespace Busines
             obj.IdCliente = idCliente;
             return obj.FecharCompra(obj);
         }
+        //verificar compras abertas
+        public static DataTable VerificarComprasAbertas(int idVendedor, int idCaixa)
+        {
+            DadosPedido obj = new DadosPedido();
+            obj.IdVendedor = idVendedor;
+            obj.IdCaixa = idCaixa;
+            return obj.VerificarComprasAbertas(obj);
+        }
     }
 
 }
