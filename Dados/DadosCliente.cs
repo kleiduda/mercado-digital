@@ -23,12 +23,17 @@ namespace Dados
         public string Cidade { get; set; }
         public string UF { get; set; }
         public string Observacao { get; set; }
+        //
+        public int IdPedido { get; set; }
+        public decimal SaldoDevedor { get; set; }
+
         public DadosCliente()
         {
 
         }
 
-        public DadosCliente(int idCliente, string nome, string sobreNome, string cPF, string fone, string email, string cEP, string endereco, string bairro, string cidade, string uF, string observacao)
+        public DadosCliente(int idCliente, string nome, string sobreNome, string cPF, string fone, string email, string cEP, 
+            string endereco, string bairro, string cidade, string uF, string observacao, int idPedido, decimal saldoDevedor)
         {
             IdCliente = idCliente;
             Nome = nome;
@@ -42,10 +47,12 @@ namespace Dados
             Cidade = cidade;
             UF = uF;
             Observacao = observacao;
+            IdPedido = IdPedido;
+            SaldoDevedor = saldoDevedor;
         }
         protected SqlCommand command = new SqlCommand();
         protected SqlDataReader reader;
-        public string InsertCadastroCliente(DadosCliente Cliente)
+        public string CadastroNovoContaFiado(DadosCliente Cliente)
         {
             using (var connection = GetConnection())
             {
@@ -73,7 +80,11 @@ namespace Dados
                     command.Parameters.AddWithValue("@cidade", Cliente.Cidade);
                     command.Parameters.AddWithValue("@uf", Cliente.UF);
                     command.Parameters.AddWithValue("@observacao", Cliente.Observacao);
-                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar cliente";
+                    //
+                    command.Parameters.AddWithValue("@id_pedido", Cliente.IdPedido);
+                    command.Parameters.AddWithValue("@saldo_devedor", Cliente.SaldoDevedor);
+
+                    rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao cadastrar cliente";
                 }
                 catch (Exception ex)
                 {
@@ -111,7 +122,7 @@ namespace Dados
             }
 
         }
-        public DataTable ListarClientes(DadosCliente Lista)
+        public DataTable ListarClientes()
         {
             DataTable dt = new DataTable();
             using (var connection = GetConnection())
@@ -120,9 +131,8 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM tb_cliente WHERE cpf=@cpf";
+                    command.CommandText = "SELECT * FROM viewDadosFiado";
                     command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("@cpf", Lista.CPF);
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dt);
                     
@@ -135,42 +145,28 @@ namespace Dados
             }
         }
         //pegando os dados dos usuarios
-        public bool DadosContaCliente(string cpf)
+        public DataTable DadosFiadoCliente(DadosCliente Fiado)
         {
             using (var connection = GetConnection())
             {
                 connection.Open();
+                DataTable dt = new DataTable();
                 using (var command = new SqlCommand())
                 {
-                    command.Connection = connection;
-                    command.CommandText = "select * from viewDadosFiado where cpf=@cpf";
-                    command.CommandType = CommandType.Text;
-                    command.Parameters.AddWithValue("@cpf", cpf);
-                    SqlDataReader dr = command.ExecuteReader();
-                    if (dr.HasRows)
+                    try
                     {
-                        while (dr.Read())
-                        {
-                            CacheCliente.IdCliente = dr.GetInt32(10);
-                            CacheCliente.Nome = dr.GetString(0);
-                            CacheCliente.SobreNome = dr.GetString(1);
-                            CacheCliente.CPF = dr.GetString(2);
-                            CacheCliente.Email = dr.GetString(3);
-                            CacheCliente.CEP = dr.GetString(4);
-                            CacheCliente.Endereco = dr.GetString(5);
-                            CacheCliente.Bairro = dr.GetString(6);
-                            CacheCliente.UF = dr.GetString(7);
-                            CacheCliente.Fone = dr.GetString(8);
-                            CacheCliente.Cidade = dr.GetString(9);
-                            CacheCliente.SaldoDevedor += dr.GetDecimal(12);
-                        }
-                        return true;
+                        command.Connection = connection;
+                        command.CommandText = "select * from viewDadosFiado where cpf=@cpf";
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("@cpf", Fiado.CPF);
+                        SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                        SqlDat.Fill(dt);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return false;
+                        dt = null;
                     }
-
+                    return dt;
                 }
             }
         }

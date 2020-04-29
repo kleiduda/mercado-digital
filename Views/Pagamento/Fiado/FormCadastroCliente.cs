@@ -13,9 +13,21 @@ namespace Views.Pagamento.Fiado
 {
     public partial class FormCadastroCliente : Form
     {
+        private string _idPedido = null;
+        private string _saldoDevedor = null;
+        private string _resposta = null;
+        public string Resposta { get { return _resposta; } }
+        public string IdPedido { get { return _idPedido; } }
+        public string SaldoDevedor { get { return _saldoDevedor; } }
         public FormCadastroCliente()
         {
             InitializeComponent();
+        }
+        public FormCadastroCliente(string idPedido, string saldoDevedor)
+        {
+            InitializeComponent();
+            this._idPedido = idPedido;
+            this._saldoDevedor = saldoDevedor;
         }
         private void FormCadastroCliente_Load(object sender, EventArgs e)
         {
@@ -51,7 +63,7 @@ namespace Views.Pagamento.Fiado
                 {
                     if (MessageBox.Show("Canfirmar Cadastro", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        rpta = BusinesCliente.InsertCadastroCliente
+                        rpta = BusinesCliente.CadastroNovoContaFiado
                         (
                             txtNome.Text.Trim().ToUpper(),
                             txtSobreNome.Text.Trim().ToUpper(),
@@ -63,24 +75,28 @@ namespace Views.Pagamento.Fiado
                             txtBairro.Text.Trim().ToUpper(),
                             txtCidade.Text.Trim().ToUpper(),
                             txtUF.Text.Trim().ToUpper(),
-                            obs
+                            obs,
+                            int.Parse(this._idPedido),
+                            decimal.Parse(this._saldoDevedor)
                         );
-                        this.Close();
                     }
-                    else
+                    if (rpta.Equals("OK"))
                     {
-
+                        this._resposta = rpta;
+                        this.Close();
                     }
                     
                 }
-                
             }
             catch (Exception ex)
             {
-
+                rpta = ex.Message;
             }
         }
 
-        
+        private void FormCadastroCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this._resposta = _resposta;
+        }
     }
 }

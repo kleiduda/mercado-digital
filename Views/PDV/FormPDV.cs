@@ -405,7 +405,7 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, StatusPedido.Fechado, Convert.ToInt32(idCliente));
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, StatusPedido.Fechado);
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
@@ -455,10 +455,14 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, StatusPedido.Fechado, Convert.ToInt32(CacheCliente.IdCliente.ToString()));
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, StatusPedido.Fechado);
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
+                    lblRecebidoT.Text = "Cliente:";
+                    lblrecebido.Text = _frm.NomeCliente;
+                    lblTrocoT.Text = "CPF:";
+                    lblTroco.Text = _frm.CpfCliente;
                     DisableBtn();
                     btnFechar.Enabled = true;
                     if (rpta.Equals("OK"))

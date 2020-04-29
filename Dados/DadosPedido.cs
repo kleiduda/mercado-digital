@@ -33,6 +33,7 @@ namespace Dados
         {
 
         }
+        interface idPedido { int idPedido(int id); }
         public DadosPedido(int idPedido, int idCliente, int idVendedor, StatusPedido idStatusPedido, int idProduto, int quantidade, int estoqueQuantidade, 
             string resultado, decimal preco, TiposPagamento pagamento, int idCaixa, TipoEntrega idTipoEntrega, DateTime dataAbertura)
         {
@@ -236,7 +237,7 @@ namespace Dados
                     command.Parameters.AddWithValue("@id_pedido", Update.IdPedido);
                     command.Parameters.AddWithValue("@id_pagamento", Update.Pagamento);
                     command.Parameters.AddWithValue("@id_status", Update.IdStatusPedido);
-                    command.Parameters.AddWithValue("@id_cliente", Update.IdCliente);
+                    //command.Parameters.AddWithValue("@id_cliente", Update.IdCliente);
                     
                     rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar compra";
                 }

@@ -393,12 +393,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormCadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastroCliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCadastroCliente_FormClosing);
             this.Load += new System.EventHandler(this.FormCadastroCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

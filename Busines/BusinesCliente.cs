@@ -10,7 +10,8 @@ namespace Busines
 {
     public class BusinesCliente
     {
-        public static string InsertCadastroCliente(string nome, string sobreNome, string cpf, string fone, string email, string cep, string endereco, string bairro, string cidade, string uf, string observacao)
+        public static string CadastroNovoContaFiado(string nome, string sobreNome, string cpf, string fone, string email, string cep, 
+            string endereco, string bairro, string cidade, string uf, string observacao, int idPedido, decimal saldoDevedor)
         {
             DadosCliente obj = new DadosCliente();
             obj.Nome = nome;
@@ -24,7 +25,9 @@ namespace Busines
             obj.Cidade = cidade;
             obj.UF = uf;
             obj.Observacao = observacao;
-            return obj.InsertCadastroCliente(obj);
+            obj.IdPedido = idPedido;
+            obj.SaldoDevedor = saldoDevedor;
+            return obj.CadastroNovoContaFiado(obj);
         }
         //dados do cliente
         DadosCliente obj = new DadosCliente();
@@ -35,15 +38,15 @@ namespace Busines
             return obj.ConsultaCadastroCliente(obj);
         }
         //listando os dados cadastrais do cliente que qianda nao tem conta fiado
-        public static DataTable ListarCadastro(string cpf)
+        public static DataTable ListarClientes()
+        {
+            return new DadosCliente().ListarClientes();
+        }
+        public static DataTable MostrarDadosFiado(string cpf)
         {
             DadosCliente obj = new DadosCliente();
             obj.CPF = cpf;
-            return obj.ListarClientes(obj);
-        }
-        public bool MostrarDadosClientes(string cpf)
-        {
-            return obj.DadosContaCliente(cpf);
+            return obj.DadosFiadoCliente(obj);
         }
         public static bool ValidaCadastro(string cpf)
         {
