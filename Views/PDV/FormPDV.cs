@@ -429,7 +429,7 @@ namespace Views
             }
             if (txtValida.Text == "3")
             {
-                var novoTotal = decimal.Parse(lblSubTotalCupom.Text) - decimal.Parse(lblrecebido.Text);
+                var novoTotal = decimal.Parse(lblTotal.Text) - decimal.Parse(lblrecebido.Text);
                 lblTrocoT.Text = "Falta:";
                
                 lblTotal.Text = novoTotal.ToString();
