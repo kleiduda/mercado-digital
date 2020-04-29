@@ -30,9 +30,9 @@
         {
             this.btnConfirma = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalT = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.lblSaldoAtual = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,9 +65,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -103,17 +103,17 @@
             this.label3.TabIndex = 154;
             this.label3.Text = "CPF";
             // 
-            // label2
+            // lblTotalT
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label2.Location = new System.Drawing.Point(26, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 39);
-            this.label2.TabIndex = 152;
-            this.label2.Text = "Total";
+            this.lblTotalT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTotalT.AutoSize = true;
+            this.lblTotalT.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblTotalT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTotalT.Location = new System.Drawing.Point(26, 128);
+            this.lblTotalT.Name = "lblTotalT";
+            this.lblTotalT.Size = new System.Drawing.Size(93, 39);
+            this.lblTotalT.TabIndex = 152;
+            this.lblTotalT.Text = "Total";
             // 
             // lblTotal
             // 
@@ -129,17 +129,17 @@
             this.lblTotal.TabIndex = 153;
             this.lblTotal.Text = "0,00";
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label1.Location = new System.Drawing.Point(13, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(424, 29);
-            this.label1.TabIndex = 151;
-            this.label1.Text = "ADICIONAR A CONTA DO CLIENTE";
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTitle.Location = new System.Drawing.Point(13, 24);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(424, 29);
+            this.lblTitle.TabIndex = 151;
+            this.lblTitle.Text = "ADICIONAR A CONTA DO CLIENTE";
             // 
             // txtCpf
             // 
@@ -495,7 +495,7 @@
             this.btnConsultar.TabIndex = 160;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.btnConsultar.Click += new System.EventHandler(this.ConsultaCpf_Click);
             // 
             // txtIdPedido
             // 
@@ -558,10 +558,10 @@
             this.panel3.Controls.Add(this.txtCpf);
             this.panel3.Controls.Add(this.lblError);
             this.panel3.Controls.Add(this.txtIdPedido);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Controls.Add(this.lblSuc);
             this.panel3.Controls.Add(this.lblTotal);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblTotalT);
             this.panel3.Controls.Add(this.btnConsultar);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnCadastro);
@@ -580,6 +580,18 @@
             this.panel4.Size = new System.Drawing.Size(1012, 35);
             this.panel4.TabIndex = 166;
             // 
+            // btnClose
+            // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.Image = global::Views.Properties.Resources.delete;
+            this.btnClose.Location = new System.Drawing.Point(985, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(27, 35);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 143;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
@@ -595,18 +607,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(978, 39);
             this.panel6.TabIndex = 168;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.Image = global::Views.Properties.Resources.delete;
-            this.btnClose.Location = new System.Drawing.Point(985, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(27, 35);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnClose.TabIndex = 143;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FormFiado
             // 
@@ -642,9 +642,9 @@
 
         private System.Windows.Forms.Button btnConfirma;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalT;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         public System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.Label lblSaldoAtual;
         private System.Windows.Forms.Panel panel1;

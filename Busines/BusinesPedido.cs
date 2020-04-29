@@ -50,13 +50,13 @@ namespace Busines
             return obj.ListarItensPedido(obj);
         }
         //fechar compra
-        public static string FecharCompra(int idPedido, TiposPagamento pagamento, StatusPedido idStatus, int idCliente )
+        public static string FecharCompra(int idPedido, TiposPagamento pagamento, StatusPedido idStatus)
         {
             DadosPedido obj = new DadosPedido();
             obj.IdPedido = idPedido;
             obj.Pagamento = pagamento;
             obj.IdStatusPedido = idStatus;
-            obj.IdCliente = idCliente;
+            //obj.IdCliente = idCliente;
             return obj.FecharCompra(obj);
         }
         //verificar compras abertas

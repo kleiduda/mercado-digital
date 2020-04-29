@@ -10,13 +10,13 @@ namespace Busines.Pagamento
 {
     public class BusinesFiado
     {
-        public static string CadastrarContaFiado(int idCliente, int idPedido, decimal saldoDevedor)
+        public static string AtualizarContaFiado(int idPedido, int idCliente, decimal saldoDevedor)
         {
-            Dados.Pagamento.DadosFiado obj = new Dados.Pagamento.DadosFiado();
-            obj.IdCliente = idCliente;
+            DadosFiado obj = new DadosFiado();
             obj.IdPedido = idPedido;
+            obj.IdCliente = idCliente;
             obj.SaldoDevedor = saldoDevedor;
-            return obj.InsertFiado(obj);
+            return obj.AtualizarContaFiado(obj);
         }
         //verificar se o cliente ja tem algum valor pendente
         public static bool VerificarValorFiado(int idCliente)

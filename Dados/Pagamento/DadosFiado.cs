@@ -28,7 +28,7 @@ namespace Dados.Pagamento
         }
         protected SqlCommand command = new SqlCommand();
         protected SqlDataReader reader;
-        public string InsertFiado(DadosFiado Dados)
+        public string AtualizarContaFiado(DadosFiado Dados)
         {
             using (var connection = GetConnection())
             {
@@ -37,19 +37,13 @@ namespace Dados.Pagamento
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "Criar_Atualizar_Conta_Fiado";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@id_cliente", Dados.IdCliente);
+                    command.CommandText = "Insert tb_fiado (id_cliente, id_pedido, saldo_devedor) values (@id_cliente, @id_pedido, @saldo_devedor)";
+                    command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@id_pedido", Dados.IdPedido);
+                    command.Parameters.AddWithValue("@id_cliente", Dados.IdCliente);
                     command.Parameters.AddWithValue("@saldo_devedor", Dados.SaldoDevedor);
-                    SqlParameter parResult = new SqlParameter();
-                    parResult.ParameterName = "@resultado";
-                    parResult.Value = Dados.Resultado;
-                    parResult.SqlDbType = SqlDbType.VarChar;
-                    parResult.Size = 255;
-                    parResult.Direction = ParameterDirection.Output;
-                    command.Parameters.Add(parResult);
-                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao cadastrar conta fiado";
+                    
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir conta fiado";
                 }
                 catch (Exception ex)
                 {
