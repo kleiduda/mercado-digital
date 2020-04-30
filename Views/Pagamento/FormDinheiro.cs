@@ -64,8 +64,16 @@ namespace Views.Pagamento
             if (txtRecebido.Text != "")
             {
                 ValorRecebido = Convert.ToDecimal(txtRecebido.Text);
-                decimal troco = ValorRecebido - ValorTotal;
+                decimal troco = ValorTotal - ValorRecebido;
                 lblTroco.Text = troco.ToString();
+                if (decimal.Parse(txtRecebido.Text) < decimal.Parse(lblTotal.Text))
+                {
+                    lblTrocoT.Text = "FALTA";
+                }
+                else
+                {
+                    lblTrocoT.Text = "TROCO";
+                }
             }
             else
             {
@@ -77,6 +85,10 @@ namespace Views.Pagamento
         public void ValoresPDV()
         {
             this._recebido = txtRecebido.Text;
+            if (decimal.Parse(txtRecebido.Text) > decimal.Parse(lblTotal.Text))
+            {
+                this._recebido = lblTotal.Text;
+            }
             this._troco = lblTroco.Text;
         }
         private void txtRecebido_TextChanged(object sender, EventArgs e)

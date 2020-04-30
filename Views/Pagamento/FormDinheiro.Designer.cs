@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTrocoT = new System.Windows.Forms.Label();
             this.lblTroco = new System.Windows.Forms.Label();
             this.btnConfirma = new System.Windows.Forms.Button();
             this.painelHeader = new System.Windows.Forms.Panel();
@@ -109,17 +109,17 @@
             this.label3.TabIndex = 140;
             this.label3.Text = "RECEBIDO";
             // 
-            // label4
+            // lblTrocoT
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(12, 396);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 39);
-            this.label4.TabIndex = 141;
-            this.label4.Text = "TROCO";
+            this.lblTrocoT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblTrocoT.AutoSize = true;
+            this.lblTrocoT.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblTrocoT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lblTrocoT.Location = new System.Drawing.Point(12, 396);
+            this.lblTrocoT.Name = "lblTrocoT";
+            this.lblTrocoT.Size = new System.Drawing.Size(140, 39);
+            this.lblTrocoT.TabIndex = 141;
+            this.lblTrocoT.Text = "TROCO";
             // 
             // lblTroco
             // 
@@ -183,7 +183,7 @@
             this.painelContainer.Controls.Add(this.txtRecebido);
             this.painelContainer.Controls.Add(this.btnConfirma);
             this.painelContainer.Controls.Add(this.lblTotal);
-            this.painelContainer.Controls.Add(this.label4);
+            this.painelContainer.Controls.Add(this.lblTrocoT);
             this.painelContainer.Controls.Add(this.label3);
             this.painelContainer.Controls.Add(this.lblTroco);
             this.painelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -221,7 +221,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTrocoT;
         private System.Windows.Forms.Label lblTroco;
         private System.Windows.Forms.Button btnConfirma;
         private System.Windows.Forms.Panel painelHeader;
