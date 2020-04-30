@@ -49,6 +49,7 @@
     <Compile Include="BusinesUsuario.cs" />
     <Compile Include="NotaFiscal\BusinesNotaFiscal.cs" />
     <Compile Include="Pagamento\BusinesFiado.cs" />
+    <Compile Include="Pagamento\BusinesPagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validacoes\Validacoes.cs" />
   </ItemGroup>

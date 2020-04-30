@@ -8,6 +8,7 @@ using Supporte.Enums;
 using Views.PDV;
 using Views.Pagamento;
 using System.Linq;
+using Busines.Pagamento;
 
 namespace Views
 {
@@ -31,14 +32,14 @@ namespace Views
             DadosVendedor();
             ListarProdutos();
             ImagemCupom();
-            
+            VerificarPagamentoPedido();
         }
         //IdCaixaAtual
         public void IdCaixaAtual()
         {
             DataTable dt = new DataTable();
             dt = BusinesCaixa.PegarIdCaixaAtual(UserLoginCache.IdUser);
-            idCaixa.Text = dt.AsEnumerable().OrderByDescending(x=>x.Field<int>("id")).Select(r=>r.Field<int>("id")).First().ToString();
+            idCaixa.Text = dt.AsEnumerable().OrderByDescending(x => x.Field<int>("id")).Select(r => r.Field<int>("id")).First().ToString();
         }
         public void ImagemCupom()
         {
@@ -269,7 +270,6 @@ namespace Views
             txtPesquisaProduto.Clear();
             txtPesquisaProduto.Focus();
         }
-
         private void txtQuantidade_Leave(object sender, EventArgs e)
         {
             CalculoSubtotal();
@@ -293,12 +293,14 @@ namespace Views
             btnCredito.Enabled = true;
             dgvCupom.DataSource = null;
             lblTotal.Text = "0,00";
+            lblTotal.ForeColor = Color.FromArgb(102, 102, 102);
+            lblTotalItens.Text = string.Empty;
             lblSubTotalCupom.Text = "0,00";
             lblCompraAberta.Text = "Compra em andamento...";
             LimparBlocoPagamento();
             ImagemCupom();
             txtPesquisaProduto.Focus();
-            
+
             CompraEmAndamento = false;
         }
         public void LiberarControlesCompraRecuperada()
@@ -329,6 +331,25 @@ namespace Views
                 LiberarControlesCompraRecuperada();
             }
         }
+        //verificar os pagamentos aplicados ao pedido
+        public void VerificarPagamentoPedido()
+        {
+            if (lblIdPedido.Text != "idpedido")
+            {
+                DataTable dt = new DataTable();
+                dt = BusinesPagamento.ListarPedidoPagamento(int.Parse(lblIdPedido.Text));
+                var recebido = dt.AsEnumerable().Where(x => x.Field<int>("id_pedido") == int.Parse(lblIdPedido.Text)).Sum(x => x.Field<decimal>("valor_recebido"));
+                lblrecebido.Text = recebido.ToString();
+                var novoTotal = decimal.Parse(lblSubTotalCupom.Text) - recebido;
+                lblTotal.Text = novoTotal.ToString();
+            }
+            if (lblTrocoT.Text == "Troco:" & lblTroco.Text != "0.00")
+            {
+                lblTotalT.Text = "DEVOLVER TROCO:";
+                lblTotal.Text = lblTroco.Text;
+                lblTotal.ForeColor = Color.Red;
+            }
+        }
         //tecla de atalho para abrir uma nova compra
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -343,15 +364,15 @@ namespace Views
                             string resposta = "";
                             if (CompraEmAndamento == true)
                             {
-                               resposta = BusinesPedido.CadastroNovaCompra
-                            (
-                                1,
-                                UserLoginCache.IdUser,
-                                StatusPedido.Aberto,
-                                TipoEntrega.Balcão,
-                                DateTime.Now,
-                                CacheIdCaixa.IdCaixa
-                            );
+                                resposta = BusinesPedido.CadastroNovaCompra
+                             (
+                                 1,
+                                 UserLoginCache.IdUser,
+                                 StatusPedido.Aberto,
+                                 TipoEntrega.Balcão,
+                                 DateTime.Now,
+                                 CacheIdCaixa.IdCaixa
+                             );
                                 LiberarControlesNovaCompra();
                                 CompraEmAndamento = false;
                                 txtPesquisaProduto.Enabled = true;
@@ -361,7 +382,6 @@ namespace Views
                                 MessageBox.Show("Compra em Andamento");
                             }
                             ListarVendas();
-                            
                         }
                         catch (Exception ex)
                         {
@@ -382,15 +402,15 @@ namespace Views
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
         private void btnDinheiro_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
             FormDinheiro _frm = new FormDinheiro(lblTotal.Text);
             _frm.ShowDialog();
             this.Enabled = true;
-            lblrecebido.Text = _frm.Recebido;
+            Busines.Pagamento.BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Dinheiro, int.Parse(lblIdPedido.Text), decimal.Parse(_frm.Recebido), decimal.Parse(_frm.Troco));
             lblTroco.Text = _frm.Troco;
+            VerificarPagamentoPedido();
             this.txtValida.Text = _frm.ValidaFecharCompra;
             string idCliente = null;
             if (!string.IsNullOrEmpty(CpfNaNota))
@@ -405,7 +425,7 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Dinheiro, StatusPedido.Fechado);
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), StatusPedido.Fechado);
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
@@ -429,16 +449,16 @@ namespace Views
             }
             if (txtValida.Text == "3")
             {
-                var novoTotal = decimal.Parse(lblTotal.Text) - decimal.Parse(lblrecebido.Text);
+                // var novoTotal = decimal.Parse(lblTotal.Text) - decimal.Parse(lblrecebido.Text);
                 lblTrocoT.Text = "Falta:";
-               
-                lblTotal.Text = novoTotal.ToString();
+                lblTotalT.Text = "Falta:";
+                lblTotal.ForeColor = Color.FromArgb(102,102,102);
+
+                // lblTotal.Text = novoTotal.ToString();
                 CompraEmAndamento = false;
             }
             CpfNaNota = string.Empty;
-            
         }
-
         private void btnDebito_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
@@ -455,7 +475,7 @@ namespace Views
             {
                 try
                 {
-                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), TiposPagamento.Fiado, StatusPedido.Fechado);
+                    string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), StatusPedido.Fechado);
                     lblIdPedido.Text = "idpedido";
                     txtPesquisaProduto.Enabled = false;
                     lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
@@ -480,6 +500,16 @@ namespace Views
                 }
             }
             CompraEmAndamento = true;
+            //implementa a divisao do pagamento fiado tambem
+            //if (txtValida.Text == "3")
+            //{
+            //    var novoTotal = decimal.Parse(lblTotal.Text) - decimal.Parse(lblrecebido.Text);
+            //    lblTrocoT.Text = "Falta:";
+
+            //    lblTotal.Text = novoTotal.ToString();
+            //    CompraEmAndamento = false;
+            //    Busines.Pagamento.BusinesPagamento.PedidoPagamento(TiposPagamento.Dinheiro, int.Parse(lblIdPedido.Text), decimal.Parse(lblrecebido.Text));
+            //}
         }
         private void btnCpfNaNota_Click(object sender, EventArgs e)
         {
@@ -493,7 +523,7 @@ namespace Views
         private void timerHeader_Tick(object sender, EventArgs e)
         {
             DateTime data = DateTime.Now;
-            lblData.Text = data.ToShortDateString() + " "+ data.ToLongTimeString();
+            lblData.Text = data.ToShortDateString() + " " + data.ToLongTimeString();
         }
     }
 }

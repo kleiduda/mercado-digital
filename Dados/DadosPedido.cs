@@ -235,11 +235,10 @@ namespace Dados
                     command.CommandText = "FecharCompra";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_pedido", Update.IdPedido);
-                    command.Parameters.AddWithValue("@id_pagamento", Update.Pagamento);
                     command.Parameters.AddWithValue("@id_status", Update.IdStatusPedido);
                     //command.Parameters.AddWithValue("@id_cliente", Update.IdCliente);
                     
-                    rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar compra";
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar compra";
                 }
                 catch (Exception ex)
                 {
