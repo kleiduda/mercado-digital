@@ -113,7 +113,7 @@
             this.painelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.painelContainer.Location = new System.Drawing.Point(0, 0);
             this.painelContainer.Name = "painelContainer";
-            this.painelContainer.Size = new System.Drawing.Size(1487, 897);
+            this.painelContainer.Size = new System.Drawing.Size(1687, 897);
             this.painelContainer.TabIndex = 0;
             this.painelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.painelContainer_Paint);
             // 
@@ -129,7 +129,7 @@
             this.pDash.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pDash.Location = new System.Drawing.Point(301, 86);
             this.pDash.Name = "pDash";
-            this.pDash.Size = new System.Drawing.Size(1147, 785);
+            this.pDash.Size = new System.Drawing.Size(1347, 785);
             this.pDash.TabIndex = 153;
             // 
             // btnCadastroProduto
@@ -463,7 +463,7 @@
             this.pBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pBottom.Location = new System.Drawing.Point(301, 871);
             this.pBottom.Name = "pBottom";
-            this.pBottom.Size = new System.Drawing.Size(1147, 26);
+            this.pBottom.Size = new System.Drawing.Size(1347, 26);
             this.pBottom.TabIndex = 153;
             // 
             // pTop
@@ -472,7 +472,7 @@
             this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pTop.Location = new System.Drawing.Point(301, 54);
             this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(1147, 32);
+            this.pTop.Size = new System.Drawing.Size(1347, 32);
             this.pTop.TabIndex = 155;
             // 
             // pLeft
@@ -488,7 +488,7 @@
             // 
             this.pRight.BackColor = System.Drawing.Color.White;
             this.pRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pRight.Location = new System.Drawing.Point(1448, 54);
+            this.pRight.Location = new System.Drawing.Point(1648, 54);
             this.pRight.Name = "pRight";
             this.pRight.Size = new System.Drawing.Size(39, 843);
             this.pRight.TabIndex = 154;
@@ -1006,14 +1006,14 @@
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1487, 54);
+            this.pHeader.Size = new System.Drawing.Size(1687, 54);
             this.pHeader.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::Views.Properties.Resources.Asset_1vendedor1;
-            this.pictureBox1.Location = new System.Drawing.Point(1406, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(1606, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(39, 38);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1027,7 +1027,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(1246, 18);
+            this.label11.Location = new System.Drawing.Point(1446, 18);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(148, 17);
@@ -1038,7 +1038,7 @@
             // 
             this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
-            this.btnNotification.Location = new System.Drawing.Point(1187, 15);
+            this.btnNotification.Location = new System.Drawing.Point(1387, 15);
             this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotification.Name = "btnNotification";
             this.btnNotification.Size = new System.Drawing.Size(27, 25);
@@ -1062,9 +1062,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1487, 897);
+            this.ClientSize = new System.Drawing.Size(1687, 897);
             this.Controls.Add(this.painelContainer);
-            this.MinimumSize = new System.Drawing.Size(1366, 700);
+            this.MinimumSize = new System.Drawing.Size(1705, 800);
             this.Name = "FormAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdministrador";
