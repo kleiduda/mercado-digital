@@ -78,7 +78,7 @@ namespace Views
                 {
                     if (UserLoginCache.Cargo == 1)
                     {
-                        Formdashboard mainMenu = new Formdashboard();
+                        Administrador.FormAdministrador mainMenu = new Administrador.FormAdministrador();
                         mainMenu.Show();
                         mainMenu.FormClosed += Logout;
                         this.Hide();

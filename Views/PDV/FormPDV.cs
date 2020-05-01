@@ -103,10 +103,13 @@ namespace Views
         //preenchendo com os dados do produto
         private void PreencherProduto()
         {
-            txtIdProduto.Text = dgvItens.CurrentRow.Cells["id_produto"].Value.ToString();
-            lblDescricao.Text = dgvItens.CurrentRow.Cells["descricao"].Value.ToString();
-            lblValor.Text = dgvItens.CurrentRow.Cells["preco"].Value.ToString();
-
+            if (dgvItens.Rows.Count > 0)
+            {
+                dgvItens.Enabled = true;
+                txtIdProduto.Text = dgvItens.CurrentRow.Cells["id_produto"].Value.ToString();
+                lblDescricao.Text = dgvItens.CurrentRow.Cells["descricao"].Value.ToString();
+                lblValor.Text = dgvItens.CurrentRow.Cells["preco"].Value.ToString();
+            }
         }
         private void txtPesquisaProduto_TextChanged(object sender, EventArgs e)
         {
@@ -116,9 +119,13 @@ namespace Views
             }
             else
             {
-                dgvItens.Visible = true;
-                FormatandoColunas();
-                PesquisaProduto();
+                if (dgvItens.Rows.Count > 0)
+                {
+                    dgvItens.Visible = true;
+                    FormatandoColunas();
+                    PesquisaProduto();
+                }
+               
             }
 
         }
