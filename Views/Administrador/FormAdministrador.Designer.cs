@@ -30,14 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             this.painelContainer = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pHeader = new System.Windows.Forms.Panel();
-            this.btnNotification = new System.Windows.Forms.PictureBox();
-            this.btnConfig = new System.Windows.Forms.PictureBox();
-            this.imageLogo = new System.Windows.Forms.PictureBox();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.lblLogin = new System.Windows.Forms.Label();
-            this.lblBomDia = new System.Windows.Forms.Label();
+            this.pDash = new System.Windows.Forms.Panel();
+            this.btnCadastroProduto = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panelCalendario = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.painelDinheiro = new System.Windows.Forms.Panel();
@@ -54,28 +48,39 @@
             this.label10 = new System.Windows.Forms.Label();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCadastroProduto = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.lblBomDia = new System.Windows.Forms.Label();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.pHeader = new System.Windows.Forms.Panel();
+            this.btnNotification = new System.Windows.Forms.PictureBox();
+            this.btnConfig = new System.Windows.Forms.PictureBox();
+            this.imageLogo = new System.Windows.Forms.PictureBox();
+            this.pRight = new System.Windows.Forms.Panel();
+            this.pLeft = new System.Windows.Forms.Panel();
+            this.pTop = new System.Windows.Forms.Panel();
+            this.pBottom = new System.Windows.Forms.Panel();
             this.painelContainer.SuspendLayout();
+            this.pDash.SuspendLayout();
+            this.panelCalendario.SuspendLayout();
+            this.painelDinheiro.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
-            this.panelCalendario.SuspendLayout();
-            this.painelDinheiro.SuspendLayout();
             this.SuspendLayout();
             // 
             // painelContainer
             // 
             this.painelContainer.BackColor = System.Drawing.Color.White;
-            this.painelContainer.Controls.Add(this.bunifuThinButton22);
-            this.painelContainer.Controls.Add(this.bunifuThinButton21);
-            this.painelContainer.Controls.Add(this.btnCadastroProduto);
-            this.painelContainer.Controls.Add(this.panelCalendario);
-            this.painelContainer.Controls.Add(this.lblBomDia);
-            this.painelContainer.Controls.Add(this.lblLogin);
+            this.painelContainer.Controls.Add(this.pDash);
+            this.painelContainer.Controls.Add(this.pBottom);
+            this.painelContainer.Controls.Add(this.pTop);
+            this.painelContainer.Controls.Add(this.pLeft);
+            this.painelContainer.Controls.Add(this.pRight);
             this.painelContainer.Controls.Add(this.panel1);
             this.painelContainer.Controls.Add(this.pHeader);
             this.painelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -85,103 +90,44 @@
             this.painelContainer.TabIndex = 0;
             this.painelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.painelContainer_Paint);
             // 
-            // panel1
+            // pDash
             // 
-            this.panel1.Controls.Add(this.bunifuSeparator1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 843);
-            this.panel1.TabIndex = 0;
+            this.pDash.Controls.Add(this.btnCadastroProduto);
+            this.pDash.Controls.Add(this.panelCalendario);
+            this.pDash.Controls.Add(this.bunifuThinButton22);
+            this.pDash.Controls.Add(this.lblBomDia);
+            this.pDash.Controls.Add(this.bunifuThinButton21);
+            this.pDash.Controls.Add(this.lblLogin);
+            this.pDash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pDash.Location = new System.Drawing.Point(301, 86);
+            this.pDash.Name = "pDash";
+            this.pDash.Size = new System.Drawing.Size(1141, 785);
+            this.pDash.TabIndex = 153;
             // 
-            // pHeader
+            // btnCadastroProduto
             // 
-            this.pHeader.BackColor = System.Drawing.Color.White;
-            this.pHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pHeader.Controls.Add(this.btnNotification);
-            this.pHeader.Controls.Add(this.btnConfig);
-            this.pHeader.Controls.Add(this.imageLogo);
-            this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pHeader.Location = new System.Drawing.Point(0, 0);
-            this.pHeader.Margin = new System.Windows.Forms.Padding(4);
-            this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1487, 54);
-            this.pHeader.TabIndex = 1;
-            // 
-            // btnNotification
-            // 
-            this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
-            this.btnNotification.Location = new System.Drawing.Point(1332, 17);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(27, 25);
-            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnNotification.TabIndex = 7;
-            this.btnNotification.TabStop = false;
-            // 
-            // btnConfig
-            // 
-            this.btnConfig.Image = global::Views.Properties.Resources.Asset_11;
-            this.btnConfig.Location = new System.Drawing.Point(1297, 17);
-            this.btnConfig.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(27, 25);
-            this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnConfig.TabIndex = 5;
-            this.btnConfig.TabStop = false;
-            // 
-            // imageLogo
-            // 
-            this.imageLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.imageLogo.Image = global::Views.Properties.Resources.Asset_1;
-            this.imageLogo.Location = new System.Drawing.Point(0, 0);
-            this.imageLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.imageLogo.Name = "imageLogo";
-            this.imageLogo.Size = new System.Drawing.Size(259, 52);
-            this.imageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imageLogo.TabIndex = 0;
-            this.imageLogo.TabStop = false;
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuSeparator1.LineThickness = 2;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(250, 0);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 843);
-            this.bunifuSeparator1.TabIndex = 2;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = true;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.lblLogin.Location = new System.Drawing.Point(384, 102);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(322, 25);
-            this.lblLogin.TabIndex = 141;
-            this.lblLogin.Text = "Kleiton Eduardo da Silva Freitas";
-            // 
-            // lblBomDia
-            // 
-            this.lblBomDia.AutoSize = true;
-            this.lblBomDia.BackColor = System.Drawing.Color.Transparent;
-            this.lblBomDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblBomDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.lblBomDia.Location = new System.Drawing.Point(302, 102);
-            this.lblBomDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBomDia.Name = "lblBomDia";
-            this.lblBomDia.Size = new System.Drawing.Size(89, 24);
-            this.lblBomDia.TabIndex = 145;
-            this.lblBomDia.Text = "Bom dia, ";
-            this.lblBomDia.Visible = false;
+            this.btnCadastroProduto.ActiveBorderThickness = 1;
+            this.btnCadastroProduto.ActiveCornerRadius = 20;
+            this.btnCadastroProduto.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnCadastroProduto.ActiveForecolor = System.Drawing.Color.White;
+            this.btnCadastroProduto.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.btnCadastroProduto.BackColor = System.Drawing.Color.White;
+            this.btnCadastroProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastroProduto.BackgroundImage")));
+            this.btnCadastroProduto.ButtonText = "+ Cadastro Produto";
+            this.btnCadastroProduto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCadastroProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.btnCadastroProduto.IdleBorderThickness = 1;
+            this.btnCadastroProduto.IdleCornerRadius = 5;
+            this.btnCadastroProduto.IdleFillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCadastroProduto.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.btnCadastroProduto.IdleLineColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCadastroProduto.Location = new System.Drawing.Point(11, 92);
+            this.btnCadastroProduto.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCadastroProduto.Name = "btnCadastroProduto";
+            this.btnCadastroProduto.Size = new System.Drawing.Size(239, 112);
+            this.btnCadastroProduto.TabIndex = 150;
+            this.btnCadastroProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelCalendario
             // 
@@ -199,9 +145,9 @@
             this.panelCalendario.Controls.Add(this.label10);
             this.panelCalendario.Controls.Add(this.bunifuSeparator2);
             this.panelCalendario.Controls.Add(this.label3);
-            this.panelCalendario.Location = new System.Drawing.Point(1112, 164);
+            this.panelCalendario.Location = new System.Drawing.Point(781, 98);
             this.panelCalendario.Name = "panelCalendario";
-            this.panelCalendario.Size = new System.Drawing.Size(350, 715);
+            this.panelCalendario.Size = new System.Drawing.Size(350, 667);
             this.panelCalendario.TabIndex = 146;
             // 
             // label2
@@ -210,7 +156,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(4, 405);
+            this.label2.Location = new System.Drawing.Point(4, 337);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(230, 29);
@@ -222,7 +168,7 @@
             this.painelDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.painelDinheiro.Controls.Add(this.label6);
             this.painelDinheiro.Controls.Add(this.lblVendaDinheiro);
-            this.painelDinheiro.Location = new System.Drawing.Point(8, 472);
+            this.painelDinheiro.Location = new System.Drawing.Point(8, 404);
             this.painelDinheiro.Name = "painelDinheiro";
             this.painelDinheiro.Size = new System.Drawing.Size(321, 51);
             this.painelDinheiro.TabIndex = 150;
@@ -254,7 +200,7 @@
             // 
             this.lblVendaFiado.AutoSize = true;
             this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaFiado.Location = new System.Drawing.Point(155, 627);
+            this.lblVendaFiado.Location = new System.Drawing.Point(155, 541);
             this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVendaFiado.Name = "lblVendaFiado";
             this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
@@ -266,7 +212,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(17, 628);
+            this.label7.Location = new System.Drawing.Point(17, 542);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 17);
@@ -339,7 +285,7 @@
             // 
             this.lblVendaDebito.AutoSize = true;
             this.lblVendaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaDebito.Location = new System.Drawing.Point(155, 572);
+            this.lblVendaDebito.Location = new System.Drawing.Point(155, 486);
             this.lblVendaDebito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVendaDebito.Name = "lblVendaDebito";
             this.lblVendaDebito.Size = new System.Drawing.Size(40, 18);
@@ -351,7 +297,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(17, 573);
+            this.label4.Location = new System.Drawing.Point(17, 487);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 17);
@@ -362,7 +308,7 @@
             // 
             this.lblVendasCredito.AutoSize = true;
             this.lblVendasCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendasCredito.Location = new System.Drawing.Point(154, 602);
+            this.lblVendasCredito.Location = new System.Drawing.Point(154, 516);
             this.lblVendasCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVendasCredito.Name = "lblVendasCredito";
             this.lblVendasCredito.Size = new System.Drawing.Size(40, 18);
@@ -374,7 +320,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(16, 603);
+            this.label10.Location = new System.Drawing.Point(16, 517);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 17);
@@ -407,30 +353,43 @@
             this.label3.TabIndex = 145;
             this.label3.Text = "Vendas do Dia";
             // 
-            // btnCadastroProduto
+            // bunifuThinButton22
             // 
-            this.btnCadastroProduto.ActiveBorderThickness = 1;
-            this.btnCadastroProduto.ActiveCornerRadius = 20;
-            this.btnCadastroProduto.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnCadastroProduto.ActiveForecolor = System.Drawing.Color.White;
-            this.btnCadastroProduto.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnCadastroProduto.BackColor = System.Drawing.Color.White;
-            this.btnCadastroProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastroProduto.BackgroundImage")));
-            this.btnCadastroProduto.ButtonText = "+ Cadastro Produto";
-            this.btnCadastroProduto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCadastroProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnCadastroProduto.IdleBorderThickness = 1;
-            this.btnCadastroProduto.IdleCornerRadius = 5;
-            this.btnCadastroProduto.IdleFillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnCadastroProduto.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.Location = new System.Drawing.Point(306, 164);
-            this.btnCadastroProduto.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCadastroProduto.Name = "btnCadastroProduto";
-            this.btnCadastroProduto.Size = new System.Drawing.Size(239, 112);
-            this.btnCadastroProduto.TabIndex = 150;
-            this.btnCadastroProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton22.ActiveBorderThickness = 1;
+            this.bunifuThinButton22.ActiveCornerRadius = 20;
+            this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
+            this.bunifuThinButton22.ButtonText = "+ Cadastro Clientes";
+            this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.bunifuThinButton22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.bunifuThinButton22.IdleBorderThickness = 1;
+            this.bunifuThinButton22.IdleCornerRadius = 5;
+            this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuThinButton22.Location = new System.Drawing.Point(522, 92);
+            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(5);
+            this.bunifuThinButton22.Name = "bunifuThinButton22";
+            this.bunifuThinButton22.Size = new System.Drawing.Size(239, 112);
+            this.bunifuThinButton22.TabIndex = 152;
+            this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBomDia
+            // 
+            this.lblBomDia.AutoSize = true;
+            this.lblBomDia.BackColor = System.Drawing.Color.Transparent;
+            this.lblBomDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.lblBomDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
+            this.lblBomDia.Location = new System.Drawing.Point(19, 37);
+            this.lblBomDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBomDia.Name = "lblBomDia";
+            this.lblBomDia.Size = new System.Drawing.Size(89, 24);
+            this.lblBomDia.TabIndex = 145;
+            this.lblBomDia.Text = "Bom dia, ";
             // 
             // bunifuThinButton21
             // 
@@ -450,37 +409,132 @@
             this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
             this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(580, 164);
+            this.bunifuThinButton21.Location = new System.Drawing.Point(269, 92);
             this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuThinButton21.Name = "bunifuThinButton21";
             this.bunifuThinButton21.Size = new System.Drawing.Size(239, 112);
             this.bunifuThinButton21.TabIndex = 151;
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuThinButton22
+            // lblLogin
             // 
-            this.bunifuThinButton22.ActiveBorderThickness = 1;
-            this.bunifuThinButton22.ActiveCornerRadius = 20;
-            this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
-            this.bunifuThinButton22.ButtonText = "+ Cadastro Clientes";
-            this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.bunifuThinButton22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton22.IdleBorderThickness = 1;
-            this.bunifuThinButton22.IdleCornerRadius = 5;
-            this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.Location = new System.Drawing.Point(845, 164);
-            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton22.Name = "bunifuThinButton22";
-            this.bunifuThinButton22.Size = new System.Drawing.Size(239, 112);
-            this.bunifuThinButton22.TabIndex = 152;
-            this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
+            this.lblLogin.Location = new System.Drawing.Point(101, 37);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(322, 25);
+            this.lblLogin.TabIndex = 141;
+            this.lblLogin.Text = "Kleiton Eduardo da Silva Freitas";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.bunifuSeparator1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(260, 843);
+            this.panel1.TabIndex = 0;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuSeparator1.LineThickness = 2;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(250, 0);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 843);
+            this.bunifuSeparator1.TabIndex = 2;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = true;
+            // 
+            // pHeader
+            // 
+            this.pHeader.BackColor = System.Drawing.Color.White;
+            this.pHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pHeader.Controls.Add(this.btnNotification);
+            this.pHeader.Controls.Add(this.btnConfig);
+            this.pHeader.Controls.Add(this.imageLogo);
+            this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pHeader.Location = new System.Drawing.Point(0, 0);
+            this.pHeader.Margin = new System.Windows.Forms.Padding(4);
+            this.pHeader.Name = "pHeader";
+            this.pHeader.Size = new System.Drawing.Size(1487, 54);
+            this.pHeader.TabIndex = 1;
+            // 
+            // btnNotification
+            // 
+            this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
+            this.btnNotification.Location = new System.Drawing.Point(1332, 17);
+            this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(27, 25);
+            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnNotification.TabIndex = 7;
+            this.btnNotification.TabStop = false;
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Image = global::Views.Properties.Resources.Asset_11;
+            this.btnConfig.Location = new System.Drawing.Point(1297, 17);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(27, 25);
+            this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnConfig.TabIndex = 5;
+            this.btnConfig.TabStop = false;
+            // 
+            // imageLogo
+            // 
+            this.imageLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.imageLogo.Image = global::Views.Properties.Resources.Asset_1;
+            this.imageLogo.Location = new System.Drawing.Point(0, 0);
+            this.imageLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.imageLogo.Name = "imageLogo";
+            this.imageLogo.Size = new System.Drawing.Size(259, 52);
+            this.imageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageLogo.TabIndex = 0;
+            this.imageLogo.TabStop = false;
+            // 
+            // pRight
+            // 
+            this.pRight.BackColor = System.Drawing.Color.Red;
+            this.pRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pRight.Location = new System.Drawing.Point(1442, 54);
+            this.pRight.Name = "pRight";
+            this.pRight.Size = new System.Drawing.Size(45, 843);
+            this.pRight.TabIndex = 154;
+            // 
+            // pLeft
+            // 
+            this.pLeft.BackColor = System.Drawing.Color.Red;
+            this.pLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pLeft.Location = new System.Drawing.Point(260, 54);
+            this.pLeft.Name = "pLeft";
+            this.pLeft.Size = new System.Drawing.Size(41, 843);
+            this.pLeft.TabIndex = 153;
+            // 
+            // pTop
+            // 
+            this.pTop.BackColor = System.Drawing.Color.Red;
+            this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pTop.Location = new System.Drawing.Point(301, 54);
+            this.pTop.Name = "pTop";
+            this.pTop.Size = new System.Drawing.Size(1141, 32);
+            this.pTop.TabIndex = 155;
+            // 
+            // pBottom
+            // 
+            this.pBottom.BackColor = System.Drawing.Color.Red;
+            this.pBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pBottom.Location = new System.Drawing.Point(301, 871);
+            this.pBottom.Name = "pBottom";
+            this.pBottom.Size = new System.Drawing.Size(1141, 26);
+            this.pBottom.TabIndex = 153;
             // 
             // FormAdministrador
             // 
@@ -492,16 +546,17 @@
             this.Text = "FormAdministrador";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.painelContainer.ResumeLayout(false);
-            this.painelContainer.PerformLayout();
+            this.pDash.ResumeLayout(false);
+            this.pDash.PerformLayout();
+            this.panelCalendario.ResumeLayout(false);
+            this.panelCalendario.PerformLayout();
+            this.painelDinheiro.ResumeLayout(false);
+            this.painelDinheiro.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.pHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
-            this.panelCalendario.ResumeLayout(false);
-            this.panelCalendario.PerformLayout();
-            this.painelDinheiro.ResumeLayout(false);
-            this.painelDinheiro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -536,5 +591,10 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton22;
+        private System.Windows.Forms.Panel pDash;
+        private System.Windows.Forms.Panel pRight;
+        private System.Windows.Forms.Panel pBottom;
+        private System.Windows.Forms.Panel pTop;
+        private System.Windows.Forms.Panel pLeft;
     }
 }
