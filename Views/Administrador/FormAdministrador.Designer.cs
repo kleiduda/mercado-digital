@@ -30,32 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             this.painelContainer = new System.Windows.Forms.Panel();
-            this.pDash = new System.Windows.Forms.Panel();
-            this.btnCadastroProduto = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.panelCalendario = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.painelDinheiro = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblVendaDinheiro = new System.Windows.Forms.Label();
-            this.lblVendaFiado = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblTotalVendas = new System.Windows.Forms.Label();
-            this.calendario = new Pabo.Calendar.MonthCalendar();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblVendaDebito = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblVendasCredito = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label3 = new System.Windows.Forms.Label();
-            this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.lblBomDia = new System.Windows.Forms.Label();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.imageLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.pBottom = new System.Windows.Forms.Panel();
-            this.pTop = new System.Windows.Forms.Panel();
-            this.pLeft = new System.Windows.Forms.Panel();
-            this.pRight = new System.Windows.Forms.Panel();
+            this.btnNotification = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -80,427 +62,138 @@
             this.bunifuFlatButton9 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.pHeader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnNotification = new System.Windows.Forms.PictureBox();
-            this.imageLogo = new System.Windows.Forms.PictureBox();
             this.painelContainer.SuspendLayout();
-            this.pDash.SuspendLayout();
-            this.panelCalendario.SuspendLayout();
-            this.painelDinheiro.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.pHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // painelContainer
             // 
             this.painelContainer.BackColor = System.Drawing.Color.White;
-            this.painelContainer.Controls.Add(this.pDash);
+            this.painelContainer.Controls.Add(this.label3);
+            this.painelContainer.Controls.Add(this.label2);
+            this.painelContainer.Controls.Add(this.panel7);
+            this.painelContainer.Controls.Add(this.pictureBox1);
+            this.painelContainer.Controls.Add(this.label11);
             this.painelContainer.Controls.Add(this.pBottom);
-            this.painelContainer.Controls.Add(this.pTop);
-            this.painelContainer.Controls.Add(this.pLeft);
-            this.painelContainer.Controls.Add(this.pRight);
+            this.painelContainer.Controls.Add(this.btnNotification);
             this.painelContainer.Controls.Add(this.panel1);
             this.painelContainer.Controls.Add(this.pHeader);
             this.painelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.painelContainer.Location = new System.Drawing.Point(0, 0);
             this.painelContainer.Name = "painelContainer";
-            this.painelContainer.Size = new System.Drawing.Size(1687, 897);
+            this.painelContainer.Size = new System.Drawing.Size(1839, 897);
             this.painelContainer.TabIndex = 0;
             this.painelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.painelContainer_Paint);
-            // 
-            // pDash
-            // 
-            this.pDash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pDash.Controls.Add(this.btnCadastroProduto);
-            this.pDash.Controls.Add(this.panelCalendario);
-            this.pDash.Controls.Add(this.bunifuThinButton22);
-            this.pDash.Controls.Add(this.lblBomDia);
-            this.pDash.Controls.Add(this.bunifuThinButton21);
-            this.pDash.Controls.Add(this.lblLogin);
-            this.pDash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pDash.Location = new System.Drawing.Point(301, 86);
-            this.pDash.Name = "pDash";
-            this.pDash.Size = new System.Drawing.Size(1347, 785);
-            this.pDash.TabIndex = 153;
-            // 
-            // btnCadastroProduto
-            // 
-            this.btnCadastroProduto.ActiveBorderThickness = 1;
-            this.btnCadastroProduto.ActiveCornerRadius = 20;
-            this.btnCadastroProduto.ActiveFillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.ActiveForecolor = System.Drawing.Color.Black;
-            this.btnCadastroProduto.ActiveLineColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.BackColor = System.Drawing.Color.White;
-            this.btnCadastroProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastroProduto.BackgroundImage")));
-            this.btnCadastroProduto.ButtonText = "+ Cadastro Produto";
-            this.btnCadastroProduto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastroProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCadastroProduto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnCadastroProduto.IdleBorderThickness = 1;
-            this.btnCadastroProduto.IdleCornerRadius = 5;
-            this.btnCadastroProduto.IdleFillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.btnCadastroProduto.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCadastroProduto.Location = new System.Drawing.Point(11, 92);
-            this.btnCadastroProduto.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCadastroProduto.Name = "btnCadastroProduto";
-            this.btnCadastroProduto.Size = new System.Drawing.Size(239, 112);
-            this.btnCadastroProduto.TabIndex = 150;
-            this.btnCadastroProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelCalendario
-            // 
-            this.panelCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panelCalendario.Controls.Add(this.label2);
-            this.panelCalendario.Controls.Add(this.painelDinheiro);
-            this.panelCalendario.Controls.Add(this.lblVendaFiado);
-            this.panelCalendario.Controls.Add(this.label7);
-            this.panelCalendario.Controls.Add(this.lblTotalVendas);
-            this.panelCalendario.Controls.Add(this.calendario);
-            this.panelCalendario.Controls.Add(this.label12);
-            this.panelCalendario.Controls.Add(this.lblVendaDebito);
-            this.panelCalendario.Controls.Add(this.label4);
-            this.panelCalendario.Controls.Add(this.lblVendasCredito);
-            this.panelCalendario.Controls.Add(this.label10);
-            this.panelCalendario.Controls.Add(this.bunifuSeparator2);
-            this.panelCalendario.Controls.Add(this.label3);
-            this.panelCalendario.Location = new System.Drawing.Point(787, 98);
-            this.panelCalendario.Name = "panelCalendario";
-            this.panelCalendario.Size = new System.Drawing.Size(350, 667);
-            this.panelCalendario.TabIndex = 146;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(4, 337);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 29);
-            this.label2.TabIndex = 150;
-            this.label2.Text = "Resumo de Vendas ";
-            // 
-            // painelDinheiro
-            // 
-            this.painelDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.painelDinheiro.Controls.Add(this.label6);
-            this.painelDinheiro.Controls.Add(this.lblVendaDinheiro);
-            this.painelDinheiro.Location = new System.Drawing.Point(8, 404);
-            this.painelDinheiro.Name = "painelDinheiro";
-            this.painelDinheiro.Size = new System.Drawing.Size(321, 51);
-            this.painelDinheiro.TabIndex = 150;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(9, 17);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 17);
-            this.label6.TabIndex = 155;
-            this.label6.Text = "Venda no Dinheiro:";
-            // 
-            // lblVendaDinheiro
-            // 
-            this.lblVendaDinheiro.AutoSize = true;
-            this.lblVendaDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaDinheiro.Location = new System.Drawing.Point(147, 16);
-            this.lblVendaDinheiro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaDinheiro.Name = "lblVendaDinheiro";
-            this.lblVendaDinheiro.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaDinheiro.TabIndex = 154;
-            this.lblVendaDinheiro.Text = "0.00";
-            // 
-            // lblVendaFiado
-            // 
-            this.lblVendaFiado.AutoSize = true;
-            this.lblVendaFiado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaFiado.Location = new System.Drawing.Point(155, 541);
-            this.lblVendaFiado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaFiado.Name = "lblVendaFiado";
-            this.lblVendaFiado.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaFiado.TabIndex = 162;
-            this.lblVendaFiado.Text = "0.00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(17, 542);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
-            this.label7.TabIndex = 163;
-            this.label7.Text = "Conta:";
-            // 
-            // lblTotalVendas
-            // 
-            this.lblTotalVendas.AutoSize = true;
-            this.lblTotalVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalVendas.Location = new System.Drawing.Point(155, 672);
-            this.lblTotalVendas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalVendas.Name = "lblTotalVendas";
-            this.lblTotalVendas.Size = new System.Drawing.Size(40, 18);
-            this.lblTotalVendas.TabIndex = 160;
-            this.lblTotalVendas.Text = "0.00";
-            // 
-            // calendario
-            // 
-            this.calendario.ActiveMonth.Month = 4;
-            this.calendario.ActiveMonth.Year = 2020;
-            this.calendario.BorderStyle = System.Windows.Forms.ButtonBorderStyle.None;
-            this.calendario.Culture = new System.Globalization.CultureInfo("pt-BR");
-            this.calendario.Footer.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.calendario.Footer.Format = Pabo.Calendar.mcTodayFormat.Long;
-            this.calendario.Footer.ShowToday = false;
-            this.calendario.Footer.Text = "Vendas do dia 21";
-            this.calendario.Header.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Header.BackColor2 = System.Drawing.Color.Black;
-            this.calendario.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calendario.ImageList = null;
-            this.calendario.Location = new System.Drawing.Point(8, 61);
-            this.calendario.MaxDate = new System.DateTime(2030, 4, 20, 21, 3, 2, 326);
-            this.calendario.MinDate = new System.DateTime(2010, 4, 20, 21, 3, 2, 326);
-            this.calendario.Month.BackgroundImage = null;
-            this.calendario.Month.BorderStyles.Focus = System.Windows.Forms.ButtonBorderStyle.None;
-            this.calendario.Month.BorderStyles.Selected = System.Windows.Forms.ButtonBorderStyle.None;
-            this.calendario.Month.Colors.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Month.Colors.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Month.Colors.Days.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Month.Colors.Days.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Month.Colors.Days.Border = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendario.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendario.Name = "calendario";
-            this.calendario.SelectTrailingDates = false;
-            this.calendario.ShowTrailingDates = false;
-            this.calendario.Size = new System.Drawing.Size(333, 255);
-            this.calendario.TabIndex = 150;
-            this.calendario.TodayColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.calendario.Weekdays.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.calendario.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.calendario.Weekdays.TextColor = System.Drawing.Color.Black;
-            this.calendario.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(17, 673);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 17);
-            this.label12.TabIndex = 161;
-            this.label12.Text = "Total de Vendas:";
-            // 
-            // lblVendaDebito
-            // 
-            this.lblVendaDebito.AutoSize = true;
-            this.lblVendaDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendaDebito.Location = new System.Drawing.Point(155, 486);
-            this.lblVendaDebito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendaDebito.Name = "lblVendaDebito";
-            this.lblVendaDebito.Size = new System.Drawing.Size(40, 18);
-            this.lblVendaDebito.TabIndex = 152;
-            this.lblVendaDebito.Text = "0.00";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(17, 487);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 17);
-            this.label4.TabIndex = 153;
-            this.label4.Text = "Venda no Débito:";
-            // 
-            // lblVendasCredito
-            // 
-            this.lblVendasCredito.AutoSize = true;
-            this.lblVendasCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVendasCredito.Location = new System.Drawing.Point(154, 516);
-            this.lblVendasCredito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVendasCredito.Name = "lblVendasCredito";
-            this.lblVendasCredito.Size = new System.Drawing.Size(40, 18);
-            this.lblVendasCredito.TabIndex = 150;
-            this.lblVendasCredito.Text = "0.00";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label10.Location = new System.Drawing.Point(16, 517);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 17);
-            this.label10.TabIndex = 151;
-            this.label10.Text = "Venda no Crédito:";
-            // 
-            // bunifuSeparator2
-            // 
-            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(8, 40);
-            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuSeparator2.Name = "bunifuSeparator2";
-            this.bunifuSeparator2.Size = new System.Drawing.Size(333, 14);
-            this.bunifuSeparator2.TabIndex = 148;
-            this.bunifuSeparator2.Transparency = 255;
-            this.bunifuSeparator2.Vertical = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(553, 85);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 26);
-            this.label3.TabIndex = 145;
-            this.label3.Text = "Vendas do Dia";
+            this.label3.Size = new System.Drawing.Size(204, 20);
+            this.label3.TabIndex = 156;
+            this.label3.Text = "Whatsapp: 11 99999-9999";
             // 
-            // bunifuThinButton22
+            // label2
             // 
-            this.bunifuThinButton22.ActiveBorderThickness = 1;
-            this.bunifuThinButton22.ActiveCornerRadius = 20;
-            this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.Black;
-            this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
-            this.bunifuThinButton22.ButtonText = "+ Cadastro Clientes";
-            this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.bunifuThinButton22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton22.IdleBorderThickness = 1;
-            this.bunifuThinButton22.IdleCornerRadius = 5;
-            this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton22.Location = new System.Drawing.Point(522, 92);
-            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton22.Name = "bunifuThinButton22";
-            this.bunifuThinButton22.Size = new System.Drawing.Size(239, 112);
-            this.bunifuThinButton22.TabIndex = 152;
-            this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(553, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 18);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "#SUPORTE";
             // 
-            // lblBomDia
+            // panel7
             // 
-            this.lblBomDia.AutoSize = true;
-            this.lblBomDia.BackColor = System.Drawing.Color.Transparent;
-            this.lblBomDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblBomDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.lblBomDia.Location = new System.Drawing.Point(19, 37);
-            this.lblBomDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBomDia.Name = "lblBomDia";
-            this.lblBomDia.Size = new System.Drawing.Size(89, 24);
-            this.lblBomDia.TabIndex = 145;
-            this.lblBomDia.Text = "Bom dia, ";
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
+            this.panel7.Controls.Add(this.imageLogo);
+            this.panel7.Location = new System.Drawing.Point(293, 17);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(225, 170);
+            this.panel7.TabIndex = 154;
             // 
-            // bunifuThinButton21
+            // imageLogo
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.Black;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "+ Cadastro Vendedor";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 5;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(269, 92);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(239, 112);
-            this.bunifuThinButton21.TabIndex = 151;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.imageLogo.Image = global::Views.Properties.Resources.Asset_3logo;
+            this.imageLogo.Location = new System.Drawing.Point(41, 32);
+            this.imageLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.imageLogo.Name = "imageLogo";
+            this.imageLogo.Size = new System.Drawing.Size(144, 105);
+            this.imageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imageLogo.TabIndex = 0;
+            this.imageLogo.TabStop = false;
             // 
-            // lblLogin
+            // pictureBox1
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.lblLogin.Location = new System.Drawing.Point(101, 37);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(322, 25);
-            this.lblLogin.TabIndex = 141;
-            this.lblLogin.Text = "Kleiton Eduardo da Silva Freitas";
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Views.Properties.Resources.Asset_1vendedor1;
+            this.pictureBox1.Location = new System.Drawing.Point(1734, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 153;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(1574, 40);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(148, 17);
+            this.label11.TabIndex = 153;
+            this.label11.Text = "Olá, Kleiton Freitas";
             // 
             // pBottom
             // 
             this.pBottom.BackColor = System.Drawing.Color.White;
             this.pBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pBottom.Location = new System.Drawing.Point(301, 871);
+            this.pBottom.Location = new System.Drawing.Point(260, 871);
             this.pBottom.Name = "pBottom";
-            this.pBottom.Size = new System.Drawing.Size(1347, 26);
+            this.pBottom.Size = new System.Drawing.Size(1579, 26);
             this.pBottom.TabIndex = 153;
             // 
-            // pTop
+            // btnNotification
             // 
-            this.pTop.BackColor = System.Drawing.Color.White;
-            this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pTop.Location = new System.Drawing.Point(301, 54);
-            this.pTop.Name = "pTop";
-            this.pTop.Size = new System.Drawing.Size(1347, 32);
-            this.pTop.TabIndex = 155;
-            // 
-            // pLeft
-            // 
-            this.pLeft.BackColor = System.Drawing.Color.White;
-            this.pLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pLeft.Location = new System.Drawing.Point(260, 54);
-            this.pLeft.Name = "pLeft";
-            this.pLeft.Size = new System.Drawing.Size(41, 843);
-            this.pLeft.TabIndex = 153;
-            // 
-            // pRight
-            // 
-            this.pRight.BackColor = System.Drawing.Color.White;
-            this.pRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pRight.Location = new System.Drawing.Point(1648, 54);
-            this.pRight.Name = "pRight";
-            this.pRight.Size = new System.Drawing.Size(39, 843);
-            this.pRight.TabIndex = 154;
+            this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
+            this.btnNotification.Location = new System.Drawing.Point(1799, 32);
+            this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(27, 25);
+            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnNotification.TabIndex = 7;
+            this.btnNotification.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.bunifuSeparator1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 54);
+            this.panel1.Location = new System.Drawing.Point(0, 17);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 843);
+            this.panel1.Size = new System.Drawing.Size(260, 880);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -989,93 +682,40 @@
             this.bunifuSeparator1.Location = new System.Drawing.Point(250, 0);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 843);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(10, 880);
             this.bunifuSeparator1.TabIndex = 2;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = true;
             // 
             // pHeader
             // 
-            this.pHeader.BackColor = System.Drawing.Color.White;
-            this.pHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pHeader.Controls.Add(this.pictureBox1);
-            this.pHeader.Controls.Add(this.label11);
-            this.pHeader.Controls.Add(this.btnNotification);
-            this.pHeader.Controls.Add(this.imageLogo);
+            this.pHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
             this.pHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pHeader.Location = new System.Drawing.Point(0, 0);
             this.pHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pHeader.Name = "pHeader";
-            this.pHeader.Size = new System.Drawing.Size(1687, 54);
+            this.pHeader.Size = new System.Drawing.Size(1839, 17);
             this.pHeader.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Views.Properties.Resources.Asset_1vendedor1;
-            this.pictureBox1.Location = new System.Drawing.Point(1606, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 153;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(1446, 18);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 17);
-            this.label11.TabIndex = 153;
-            this.label11.Text = "Olá, Kleiton Freitas";
-            // 
-            // btnNotification
-            // 
-            this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNotification.Image = global::Views.Properties.Resources.Asset_1sino;
-            this.btnNotification.Location = new System.Drawing.Point(1387, 15);
-            this.btnNotification.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(27, 25);
-            this.btnNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnNotification.TabIndex = 7;
-            this.btnNotification.TabStop = false;
-            // 
-            // imageLogo
-            // 
-            this.imageLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.imageLogo.Image = global::Views.Properties.Resources.logo_mercado;
-            this.imageLogo.Location = new System.Drawing.Point(0, 0);
-            this.imageLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.imageLogo.Name = "imageLogo";
-            this.imageLogo.Size = new System.Drawing.Size(296, 52);
-            this.imageLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imageLogo.TabIndex = 0;
-            this.imageLogo.TabStop = false;
             // 
             // FormAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1687, 897);
+            this.ClientSize = new System.Drawing.Size(1839, 897);
             this.Controls.Add(this.painelContainer);
+            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1705, 800);
             this.Name = "FormAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdministrador";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.painelContainer.ResumeLayout(false);
-            this.pDash.ResumeLayout(false);
-            this.pDash.PerformLayout();
-            this.panelCalendario.ResumeLayout(false);
-            this.panelCalendario.PerformLayout();
-            this.painelDinheiro.ResumeLayout(false);
-            this.painelDinheiro.PerformLayout();
+            this.painelContainer.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1086,11 +726,6 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.pHeader.ResumeLayout(false);
-            this.pHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNotification)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1103,32 +738,7 @@
         private System.Windows.Forms.Panel pHeader;
         private System.Windows.Forms.PictureBox btnNotification;
         private System.Windows.Forms.PictureBox imageLogo;
-        private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.Label lblBomDia;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnCadastroProduto;
-        private System.Windows.Forms.Panel panelCalendario;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel painelDinheiro;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblVendaDinheiro;
-        private System.Windows.Forms.Label lblVendaFiado;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblTotalVendas;
-        private Pabo.Calendar.MonthCalendar calendario;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblVendaDebito;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblVendasCredito;
-        private System.Windows.Forms.Label label10;
-        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
-        private System.Windows.Forms.Label label3;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton22;
-        private System.Windows.Forms.Panel pDash;
-        private System.Windows.Forms.Panel pRight;
         private System.Windows.Forms.Panel pBottom;
-        private System.Windows.Forms.Panel pTop;
-        private System.Windows.Forms.Panel pLeft;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
@@ -1152,5 +762,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton9;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -173,6 +173,16 @@ namespace Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Asset_3logo {
+            get {
+                object obj = ResourceManager.GetObject("Asset 3logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Asset_3storePDV {
             get {
                 object obj = ResourceManager.GetObject("Asset 3storePDV", resourceCulture);

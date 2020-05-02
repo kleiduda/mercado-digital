@@ -190,6 +190,9 @@
   <data name="Asset 1vendedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Asset 1vendedor1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="o-negocio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\o-negocio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Asset 1logo_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Asset 1logo_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,7 +202,7 @@
   <data name="Asset 1user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Asset 1user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="o-negocio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\o-negocio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Asset 3logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Asset 3logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
