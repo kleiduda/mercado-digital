@@ -22,26 +22,11 @@ namespace Views.Administrador
         }
         private void imageLogo_Click(object sender, EventArgs e)
         {
-            var frm = new FORMTESTE();
-            frm.TopMost = true;
-            frm.BringToFront();
-            frm.TopMost = false;
-            frm.MdiParent = this;
-            frm.Show();
+            
         }
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.GetType() == typeof(FORMTESTE))
-                {
-                    form.Activate();
-                    return;
-                }
-                FormAdministrador f = new FormAdministrador();
-                f.MdiParent = this;
-                f.Show();
-            }
+            
         }
     }
 }

@@ -79,13 +79,6 @@
     <Compile Include="Atendente\FormDashBoardAtendente.Designer.cs">
       <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FORMTESTE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FORMTESTE.Designer.cs">
-      <DependentUpon>FORMTESTE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MDIsingleton.cs" />
     <Compile Include="Pagamento\Fiado\FormCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,9 +188,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Atendente\FormDashBoardAtendente.resx">
       <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FORMTESTE.resx">
-      <DependentUpon>FORMTESTE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\Fiado\FormCadastroCliente.resx">
       <DependentUpon>FormCadastroCliente.cs</DependentUpon>
@@ -369,6 +359,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Asset 4bit_openCaixa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 5bit_datavencimento.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
