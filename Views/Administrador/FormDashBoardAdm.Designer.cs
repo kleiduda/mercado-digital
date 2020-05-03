@@ -405,6 +405,7 @@
             this.Controls.Add(this.pDash);
             this.Name = "FormDashBoardAdm";
             this.Text = "FormDashBoardAdm";
+            this.TopMost = true;
             this.pDash.ResumeLayout(false);
             this.pDash.PerformLayout();
             this.panelCalendario.ResumeLayout(false);
