@@ -16,15 +16,32 @@ namespace Views.Administrador
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void painelContainer_Paint(object sender, PaintEventArgs e)
+        private void imageLogo_Click(object sender, EventArgs e)
         {
-
+            var frm = new FORMTESTE();
+            frm.TopMost = true;
+            frm.BringToFront();
+            frm.TopMost = false;
+            frm.MdiParent = this;
+            frm.Show();
+        }
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(FORMTESTE))
+                {
+                    form.Activate();
+                    return;
+                }
+                FormAdministrador f = new FormAdministrador();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
