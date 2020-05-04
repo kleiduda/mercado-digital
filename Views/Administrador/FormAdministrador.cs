@@ -111,6 +111,8 @@ namespace Views.Administrador
             dgvProdutosMaisVendidos.Columns["quantidade"].HeaderText = "Qtd";
             dgvProdutosMaisVendidos.Columns["preco"].HeaderText = "Prç.";
             dgvProdutosMaisVendidos.Columns["Total"].HeaderText = "Total";
+            dgvProdutosMaisVendidos.Columns["Total"].DefaultCellStyle.Format = "c";
+
             //
             lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString()
                 + "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
