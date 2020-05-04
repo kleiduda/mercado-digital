@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Busines.Administrador;
+using Busines;
 
 namespace Views.Administrador
 {
@@ -22,8 +23,9 @@ namespace Views.Administrador
         private void FormAdministrador_Load(object sender, EventArgs e)
         {
             LoadUsuario();
-            FiltroVendas();
+            //FiltroVendas();
             ProdutosMaisVendidos();
+            ProdutosDataVencimento();
         }
         #region estilo do form
         //adicionando uma picturebox redonda
@@ -47,7 +49,7 @@ namespace Views.Administrador
         private void LoadUsuario()
         {
             lblUsuario.Text = "Olá, " + UserLoginCache.Nome.ToLower() + " " + UserLoginCache.SobreNome.ToLower();
-            fotoUsuario.LoadAsync(@"C:\Users\Alliance\Pictures\fotoanderson\" + UserLoginCache.Foto.ToString());
+            fotoUsuario.LoadAsync(@"C:\Users\DELL\Pictures\sistema\" + UserLoginCache.Foto.ToString());
         }
         #region Controles do DashBoard
         public void FiltroVendas()
@@ -93,18 +95,32 @@ namespace Views.Administrador
                 lblVendasCredito.Text = credito.ToString("C");
             }
         }
+        
         public void ProdutosMaisVendidos()
         {
-            dgvProdutosMaisVendidos.DataSource = Busines.BusinesProduto.ProdutosMaisVendidos();
+           // dgvProdutosMaisVendidos.DataSource = BusinesProduto.CarregaDadosComDataReader();
+            dgvProdutosMaisVendidos.DataSource = BusinesProduto.CarregaDadosComDataTable();
             //
-            dgvProdutosMaisVendidos.Columns["codigo"].HeaderText = "COD";
+            dgvProdutosMaisVendidos.Columns["IdStatusVenda"].Visible = false;
+            dgvProdutosMaisVendidos.Columns["IdPagamento"].Visible = false;
+            dgvProdutosMaisVendidos.Columns["descricao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvProdutosMaisVendidos.Columns["quantidade"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+            //
+            dgvProdutosMaisVendidos.Columns["codigo"].HeaderText = "Cod.";
             dgvProdutosMaisVendidos.Columns["descricao"].HeaderText = "Descrição";
-            dgvProdutosMaisVendidos.Columns["quantidade"].HeaderText = "Qtd";
-            dgvProdutosMaisVendidos.Columns["preco"].HeaderText = "Preço";
+            dgvProdutosMaisVendidos.Columns["quantidade"].HeaderText = "Qtd.Vendida";
+            dgvProdutosMaisVendidos.Columns["preco"].HeaderText = "Prç.Unidade";
             dgvProdutosMaisVendidos.Columns["Total"].HeaderText = "Total";
             //
+            lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString();
         }
-
+        public void ProdutosDataVencimento()
+        {
+            dgvProdutosVencimento.DataSource = BusinesAdministrador.Vencimento();
+        }
+        
         #endregion
+
     }
 }

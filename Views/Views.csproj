@@ -67,12 +67,6 @@
     <Compile Include="Administrador\FormDashBoardAdm.Designer.cs">
       <DependentUpon>FormDashBoardAdm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Atendente\FormDashBoardAtendente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormDashBoardAdm.resx">
       <DependentUpon>FormDashBoardAdm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Atendente\FormDashBoardAtendente.resx">
       <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>

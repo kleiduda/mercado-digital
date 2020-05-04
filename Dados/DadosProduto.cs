@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.SqlServer.Server;
+using System.Collections.ObjectModel;
+using Supporte;
 
 namespace Dados
 {
@@ -313,7 +315,10 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total from tb_pedido_item i INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco";
+                    command.CommandText = "select TOP 5 pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total " +
+                        "from tb_pedido_item i " +
+                        "INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto " +
+                        "GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco";
                     command.CommandType = CommandType.Text;
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dt);
@@ -325,7 +330,94 @@ namespace Dados
                 return dt;
             }
         }
-
+        //com uma lista
+        public List<DadosProduto> GetProdutos()
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM tb_pedido_item", new SqlConnection(@"Server=DESKTOP-JNLM84J\SQLEXPRESS; DataBase=dbMercado; Integrated Security=true")))
+            {
+                cmd.Connection.Open();
+                return (from IDataRecord p in cmd.ExecuteReader()
+                        select new DadosProduto()
+                        {
+                            Codigo = p["codigo"].ToString(),
+                            Descricao = p["descricao"].ToString(),
+                        }).ToList();
+            }
+        }
+        public List<Vendas> CarregaDadosDataReader()
+        {
+            var lista = new List<Vendas>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total " +
+                       "from tb_pedido_item i " +
+                       "INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto " +
+                       "GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco";
+                    command.CommandType = CommandType.Text;
+                    dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Vendas dp = new Vendas
+                        {
+                            Codigo = dr.GetString(dr.GetOrdinal("codigo")),
+                            Descricao = dr.GetString(dr.GetOrdinal("descricao")),
+                            Preco = dr.GetDecimal(dr.GetOrdinal("preco")),
+                            Quantidade = dr.GetInt32(dr.GetOrdinal("quantidade")),
+                            Total = dr.GetDecimal(dr.GetOrdinal("Total"))
+                        };
+                        lista.Add(dp);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = null;
+                }
+                return lista;
+            }
+        }
+        //collection
+        public Collection<Vendas> CarregaDadosDataTable()
+        {
+            var colecao = new Collection<Vendas>();
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total " +
+                       "from tb_pedido_item i " +
+                       "INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto " +
+                       "GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco ORDER BY quantidade desc";
+                    command.CommandType = CommandType.Text;
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                    connection.Close();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Vendas pr = new Vendas
+                        {
+                            Codigo = row["codigo"].ToString(),
+                            Descricao = row["descricao"].ToString(),
+                            Preco = decimal.Parse(row["preco"].ToString()),
+                            Quantidade = int.Parse(row["quantidade"].ToString()),
+                            Total = decimal.Parse(row["Total"].ToString())
+                        };
+                        colecao.Add(pr);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    colecao = null;
+                }
+                return colecao;
+            }
+        }
         #endregion
     }
 

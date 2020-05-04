@@ -50,6 +50,7 @@
     <Compile Include="Cache\CaixaCache.cs" />
     <Compile Include="Cache\FuncaoCache.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
+    <Compile Include="DataVencimento.cs" />
     <Compile Include="Enums\NivelUsuario.cs" />
     <Compile Include="Enums\PeriodoDia.cs" />
     <Compile Include="Enums\StatusCaixa.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Enums\TiposPagamento.cs" />
     <Compile Include="PictureBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vendas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

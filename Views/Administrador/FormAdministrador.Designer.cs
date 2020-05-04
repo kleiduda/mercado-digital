@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,7 +42,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.bunifuSeparator9 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
+            this.dgvProdutosMaisVendidos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.lblMaisVendido = new System.Windows.Forms.Label();
             this.lblListaProdutos = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -99,10 +104,11 @@
             this.bunifuFlatButton9 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.pHeader = new System.Windows.Forms.Panel();
-            this.dgvProdutosMaisVendidos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.dgvProdutosVencimento = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.painelContainer.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).BeginInit();
             this.panel9.SuspendLayout();
             this.painelDinheiro.SuspendLayout();
             this.panelCalendario.SuspendLayout();
@@ -118,7 +124,7 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosVencimento)).BeginInit();
             this.SuspendLayout();
             // 
             // painelContainer
@@ -146,6 +152,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel11.Controls.Add(this.dgvProdutosVencimento);
             this.panel11.Controls.Add(this.label24);
             this.panel11.Controls.Add(this.bunifuSeparator9);
             this.panel11.Location = new System.Drawing.Point(293, 544);
@@ -184,7 +191,7 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel10.Controls.Add(this.dgvProdutosMaisVendidos);
-            this.panel10.Controls.Add(this.label20);
+            this.panel10.Controls.Add(this.lblMaisVendido);
             this.panel10.Controls.Add(this.lblListaProdutos);
             this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.bunifuSeparator8);
@@ -193,18 +200,78 @@
             this.panel10.Size = new System.Drawing.Size(762, 331);
             this.panel10.TabIndex = 165;
             // 
-            // label20
+            // dgvProdutosMaisVendidos
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Gray;
-            this.label20.Location = new System.Drawing.Point(37, 295);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(286, 29);
-            this.label20.TabIndex = 163;
-            this.label20.Text = "Leite Longa Vida 300ml";
+            this.dgvProdutosMaisVendidos.AllowUserToAddRows = false;
+            this.dgvProdutosMaisVendidos.AllowUserToDeleteRows = false;
+            this.dgvProdutosMaisVendidos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProdutosMaisVendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvProdutosMaisVendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProdutosMaisVendidos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProdutosMaisVendidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvProdutosMaisVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutosMaisVendidos.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvProdutosMaisVendidos.DoubleBuffered = true;
+            this.dgvProdutosMaisVendidos.EnableHeadersVisualStyles = false;
+            this.dgvProdutosMaisVendidos.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.HeaderBgColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.Location = new System.Drawing.Point(33, 44);
+            this.dgvProdutosMaisVendidos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProdutosMaisVendidos.MultiSelect = false;
+            this.dgvProdutosMaisVendidos.Name = "dgvProdutosMaisVendidos";
+            this.dgvProdutosMaisVendidos.ReadOnly = true;
+            this.dgvProdutosMaisVendidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvProdutosMaisVendidos.RowHeadersVisible = false;
+            this.dgvProdutosMaisVendidos.RowHeadersWidth = 62;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.RowTemplate.Height = 40;
+            this.dgvProdutosMaisVendidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdutosMaisVendidos.Size = new System.Drawing.Size(714, 228);
+            this.dgvProdutosMaisVendidos.TabIndex = 165;
+            // 
+            // lblMaisVendido
+            // 
+            this.lblMaisVendido.AutoSize = true;
+            this.lblMaisVendido.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaisVendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaisVendido.ForeColor = System.Drawing.Color.Gray;
+            this.lblMaisVendido.Location = new System.Drawing.Point(37, 295);
+            this.lblMaisVendido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaisVendido.Name = "lblMaisVendido";
+            this.lblMaisVendido.Size = new System.Drawing.Size(286, 29);
+            this.lblMaisVendido.TabIndex = 163;
+            this.lblMaisVendido.Text = "Leite Longa Vida 300ml";
             // 
             // lblListaProdutos
             // 
@@ -274,9 +341,9 @@
             this.lblTotalVendas.Location = new System.Drawing.Point(37, 295);
             this.lblTotalVendas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalVendas.Name = "lblTotalVendas";
-            this.lblTotalVendas.Size = new System.Drawing.Size(150, 29);
+            this.lblTotalVendas.Size = new System.Drawing.Size(101, 29);
             this.lblTotalVendas.TabIndex = 163;
-            this.lblTotalVendas.Text = "R$ 4.340,70";
+            this.lblTotalVendas.Text = "R$ 0,00";
             // 
             // lblResumoVendasT
             // 
@@ -1192,27 +1259,26 @@
             this.pHeader.Size = new System.Drawing.Size(1849, 17);
             this.pHeader.TabIndex = 1;
             // 
-            // dgvProdutosMaisVendidos
+            // dgvProdutosVencimento
             // 
-            this.dgvProdutosMaisVendidos.AllowUserToAddRows = false;
-            this.dgvProdutosMaisVendidos.AllowUserToDeleteRows = false;
-            this.dgvProdutosMaisVendidos.AllowUserToOrderColumns = true;
-            this.dgvProdutosMaisVendidos.AllowUserToResizeRows = false;
+            this.dgvProdutosVencimento.AllowUserToAddRows = false;
+            this.dgvProdutosVencimento.AllowUserToDeleteRows = false;
+            this.dgvProdutosVencimento.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProdutosMaisVendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProdutosMaisVendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProdutosMaisVendidos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProdutosMaisVendidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProdutosMaisVendidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvProdutosVencimento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProdutosVencimento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProdutosVencimento.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosVencimento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProdutosVencimento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosMaisVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProdutosMaisVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutosVencimento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProdutosVencimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1220,18 +1286,18 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutosMaisVendidos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProdutosMaisVendidos.DoubleBuffered = true;
-            this.dgvProdutosMaisVendidos.EnableHeadersVisualStyles = false;
-            this.dgvProdutosMaisVendidos.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProdutosMaisVendidos.HeaderBgColor = System.Drawing.Color.White;
-            this.dgvProdutosMaisVendidos.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvProdutosMaisVendidos.Location = new System.Drawing.Point(33, 44);
-            this.dgvProdutosMaisVendidos.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvProdutosMaisVendidos.MultiSelect = false;
-            this.dgvProdutosMaisVendidos.Name = "dgvProdutosMaisVendidos";
-            this.dgvProdutosMaisVendidos.ReadOnly = true;
-            this.dgvProdutosMaisVendidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvProdutosVencimento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProdutosVencimento.DoubleBuffered = true;
+            this.dgvProdutosVencimento.EnableHeadersVisualStyles = false;
+            this.dgvProdutosVencimento.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosVencimento.HeaderBgColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosVencimento.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosVencimento.Location = new System.Drawing.Point(30, 50);
+            this.dgvProdutosVencimento.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProdutosVencimento.MultiSelect = false;
+            this.dgvProdutosVencimento.Name = "dgvProdutosVencimento";
+            this.dgvProdutosVencimento.ReadOnly = true;
+            this.dgvProdutosVencimento.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1239,19 +1305,19 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosMaisVendidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvProdutosMaisVendidos.RowHeadersVisible = false;
-            this.dgvProdutosMaisVendidos.RowHeadersWidth = 62;
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvProdutosMaisVendidos.RowTemplate.Height = 40;
-            this.dgvProdutosMaisVendidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutosMaisVendidos.Size = new System.Drawing.Size(714, 228);
-            this.dgvProdutosMaisVendidos.TabIndex = 165;
+            this.dgvProdutosVencimento.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvProdutosVencimento.RowHeadersVisible = false;
+            this.dgvProdutosVencimento.RowHeadersWidth = 62;
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosVencimento.RowTemplate.Height = 40;
+            this.dgvProdutosVencimento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdutosVencimento.Size = new System.Drawing.Size(714, 360);
+            this.dgvProdutosVencimento.TabIndex = 166;
             // 
             // FormAdministrador
             // 
@@ -1272,6 +1338,7 @@
             this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.painelDinheiro.ResumeLayout(false);
@@ -1296,7 +1363,7 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosVencimento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1361,7 +1428,7 @@
         private System.Windows.Forms.Label lblTotalVendasT;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator7;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblMaisVendido;
         private System.Windows.Forms.Label lblListaProdutos;
         private System.Windows.Forms.Label label22;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator8;
@@ -1370,5 +1437,6 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator9;
         private System.Windows.Forms.Label label23;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvProdutosMaisVendidos;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvProdutosVencimento;
     }
 }
