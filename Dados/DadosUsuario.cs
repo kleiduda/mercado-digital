@@ -21,10 +21,11 @@ namespace Dados
         public string Telefone { get; set; }
         public int Cargo { get; set; }
         public string Senha { get; set; }
+        public string Foto { get; set; }
 
         public DadosUsuario() { }
 
-        public DadosUsuario(int idVendedor, string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha)
+        public DadosUsuario(int idVendedor, string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha, string foto)
         {
             IdVendedor = idVendedor;
             this.Login = login;
@@ -34,6 +35,7 @@ namespace Dados
             Telefone = telefone;
             Cargo = cargo;
             Senha = senha;
+            Foto = foto;
         }
 
         protected SqlCommand command = new SqlCommand();
@@ -262,6 +264,7 @@ namespace Dados
                             UserLoginCache.SobreNome = dr.GetString(3);
                             UserLoginCache.Email = dr.GetString(4);
                             UserLoginCache.Cargo = dr.GetInt32(6);
+                            UserLoginCache.Foto = dr.GetString(8);
                         }
                         return true;
                     }
