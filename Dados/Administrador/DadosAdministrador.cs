@@ -101,5 +101,28 @@ namespace Dados.Administrador
                 return colecao;
             }
         }
+        //listando os caixas abertos
+        public DataTable CaixasAbertos()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "CaixaAberto";
+                    command.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
     }
 }
