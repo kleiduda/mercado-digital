@@ -25,6 +25,11 @@ namespace Busines.Administrador
         {
             return new DadosAdministrador().Vencimento();
         }
+        //widget caixas aberto
+        public static DataTable CaixaAberto()
+        {
+            return new DadosAdministrador().CaixasAbertos();
+        }
     }
     
 }

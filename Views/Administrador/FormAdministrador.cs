@@ -26,6 +26,7 @@ namespace Views.Administrador
             //FiltroVendas();
             ProdutosMaisVendidos();
             ProdutosDataVencimento();
+            CaixaAberto();
         }
         #region estilo do form
         //adicionando uma picturebox redonda
@@ -112,7 +113,7 @@ namespace Views.Administrador
             dgvProdutosMaisVendidos.Columns["preco"].HeaderText = "Prç.";
             dgvProdutosMaisVendidos.Columns["Total"].HeaderText = "Total";
             dgvProdutosMaisVendidos.Columns["Total"].DefaultCellStyle.Format = "c";
-
+            //precisa mudar a cor da fonte na coluna quantidade para vermelho
             //
             lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString()
                 + "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
@@ -121,8 +122,60 @@ namespace Views.Administrador
         {
             dgvProdutosVencimento.DataSource = BusinesAdministrador.Vencimento();
         }
-        
+        public void CaixaAberto()
+        {
+            DataTable dt = new DataTable();
+            dt = BusinesAdministrador.CaixaAberto();
+            decimal valor = 0;
+            pCaixas.AutoScroll = true;
+            if (dt.Rows.Count != 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    var caixaNome ="CAIXA: " + dt.Rows[i]["id"].ToString() + "  | Operador(a): " + dt.Rows[i]["nome"].ToString() + " " + dt.Rows[i]["sobre_nome"].ToString();
+                    Panel pCx = new Panel();
+                    pCaixaAberto.Controls.Add(pCx);
+                    pCx.Left = 10;
+                    pCx.Top = i * 70;
+                    pCx.BackColor = Color.WhiteSmoke;
+                    pCx.Width = 702;
+                    pCx.Height = 68;
+                    Label nome = new Label();
+                    pCx.Controls.Add(nome);
+                    nome.AutoSize = true;
+                    nome.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+                    nome.ForeColor = Color.Gray;
+                    nome.Text = caixaNome.ToString();
+                    nome.Top = 25;
+                    nome.Left = 20;
+                    Label total = new Label();
+                    pCx.Controls.Add(total);
+                    total.AutoSize = true;
+                    total.Left = 500;
+                    total.Top = 8;
+                    total.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Regular);
+                    total.ForeColor = Color.Gray;
+                    total.Text = "Total de Vendas";
+                    Label TotalVendas = new Label();
+                    pCx.Controls.Add(TotalVendas);
+                    TotalVendas.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
+                    TotalVendas.ForeColor = Color.Gray;
+                    TotalVendas.Left = 500;
+                    TotalVendas.Top = 30;
+                    TotalVendas.Text = dt.Rows[i]["TotalVendas"].ToString();
+                }
+            }
+
+
+        }
+
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CaixaAberto();
+        }
+
+        
     }
 }
