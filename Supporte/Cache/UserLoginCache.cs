@@ -15,6 +15,7 @@ namespace Supporte.Cache
         public static string SobreNome { get; set; }
         public static string Email { get; set; }
         public static int Cargo { get; set; }
-       
+        public static string Foto { get; set; }
+
     }
 }
