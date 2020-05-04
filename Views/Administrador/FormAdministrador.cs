@@ -104,8 +104,12 @@ namespace Views.Administrador
             //
             dgvProdutosMaisVendidos.Columns["IdPagamento"].Visible = false;
             dgvProdutosMaisVendidos.Columns["IdStatusVenda"].Visible = false;
-            dgvProdutosMaisVendidos.Columns["descricao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dgvProdutosMaisVendidos.Columns["quantidade"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //dgvProdutosMaisVendidos.Columns["descricao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvProdutosMaisVendidos.Columns["codigo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvProdutosMaisVendidos.Columns["descricao"].Width = 170;
+            dgvProdutosMaisVendidos.Columns["preco"].Width = 70;
+            dgvProdutosMaisVendidos.Columns["quantidade"].Width = 60;
+            dgvProdutosMaisVendidos.Columns["quantidade"].DefaultCellStyle.ForeColor = Color.Red;
             //
             dgvProdutosMaisVendidos.Columns["codigo"].HeaderText = "Cod.";
             dgvProdutosMaisVendidos.Columns["descricao"].HeaderText = "Descrição";
@@ -115,8 +119,8 @@ namespace Views.Administrador
             dgvProdutosMaisVendidos.Columns["Total"].DefaultCellStyle.Format = "c";
             //precisa mudar a cor da fonte na coluna quantidade para vermelho
             //
-            lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString()
-                + "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
+            //lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString()
+                //+ "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
         }
         public void ProdutosDataVencimento()
         {
@@ -138,7 +142,7 @@ namespace Views.Administrador
                     pCx.Left = 10;
                     pCx.Top = i * 70;
                     pCx.BackColor = Color.WhiteSmoke;
-                    pCx.Width = 702;
+                    pCx.Width = 600;
                     pCx.Height = 68;
                     Label nome = new Label();
                     pCx.Controls.Add(nome);
@@ -151,7 +155,7 @@ namespace Views.Administrador
                     Label total = new Label();
                     pCx.Controls.Add(total);
                     total.AutoSize = true;
-                    total.Left = 500;
+                    total.Left = 400;
                     total.Top = 8;
                     total.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Regular);
                     total.ForeColor = Color.Gray;
@@ -160,7 +164,7 @@ namespace Views.Administrador
                     pCx.Controls.Add(TotalVendas);
                     TotalVendas.Font = new Font("Microsoft Sans Serif", 13, FontStyle.Bold);
                     TotalVendas.ForeColor = Color.Gray;
-                    TotalVendas.Left = 500;
+                    TotalVendas.Left = 400;
                     TotalVendas.Top = 30;
                     TotalVendas.Text = dt.Rows[i]["TotalVendas"].ToString();
                 }
@@ -171,11 +175,6 @@ namespace Views.Administrador
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CaixaAberto();
-        }
-
-        
+         
     }
 }
