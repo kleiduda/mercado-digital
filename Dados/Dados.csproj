@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\DadosAdministrador.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="DadosCaixa.cs" />
     <Compile Include="DadosCliente.cs" />

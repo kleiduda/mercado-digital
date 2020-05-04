@@ -101,16 +101,6 @@ namespace Views
             lblBomDia.Text = saudacoes[hora / 6] + ", ";
             lbl_Mes.Text = dtPeriodo.ToString("MMMM", new CultureInfo("pt-BR")).ToUpper() + " - " + dtPeriodo.Year.ToString();
         }
-        //public void ValorInicialSangria()
-        //{
-        //    DataTable dt = new DataTable();
-        //    dt = BusinesCaixa.ValoresCaixa(UserLoginCache.IdUser, CacheIdCaixa.IdCaixa);
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        //lbl_ValorInicial.Text = dt.Rows[0]["troco"].ToString();
-        //    }
-        //}
-        //calendario
         public void StyleCalendario()
         {
             //HEADER
