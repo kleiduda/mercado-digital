@@ -303,5 +303,30 @@ namespace Dados
                 return false;
             }
         }
+        #region Dados Administrador
+        public DataTable ProdutosMaisVendidos()
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total from tb_pedido_item i INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco";
+                    command.CommandType = CommandType.Text;
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    dt = null;
+                }
+                return dt;
+            }
+        }
+
+        #endregion
     }
+
 }

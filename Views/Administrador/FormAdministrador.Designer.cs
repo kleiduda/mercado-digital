@@ -29,19 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.painelContainer = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.bunifuSeparator9 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblListaProdutos = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblTotalVendas = new System.Windows.Forms.Label();
+            this.lblResumoVendasT = new System.Windows.Forms.Label();
+            this.lblTotalVendasT = new System.Windows.Forms.Label();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
             this.painelDinheiro = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -53,7 +57,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panelCalendario = new System.Windows.Forms.Panel();
-            this.lblTotalVendas = new System.Windows.Forms.Label();
             this.calendario = new Pabo.Calendar.MonthCalendar();
             this.label14 = new System.Windows.Forms.Label();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -96,6 +99,7 @@
             this.bunifuFlatButton9 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.pHeader = new System.Windows.Forms.Panel();
+            this.dgvProdutosMaisVendidos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.painelContainer.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -114,6 +118,7 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).BeginInit();
             this.SuspendLayout();
             // 
             // painelContainer
@@ -178,8 +183,9 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel10.Controls.Add(this.dgvProdutosMaisVendidos);
             this.panel10.Controls.Add(this.label20);
-            this.panel10.Controls.Add(this.label21);
+            this.panel10.Controls.Add(this.lblListaProdutos);
             this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.bunifuSeparator8);
             this.panel10.Location = new System.Drawing.Point(1075, 206);
@@ -200,18 +206,18 @@
             this.label20.TabIndex = 163;
             this.label20.Text = "Leite Longa Vida 300ml";
             // 
-            // label21
+            // lblListaProdutos
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label21.Location = new System.Drawing.Point(28, 14);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(421, 26);
-            this.label21.TabIndex = 162;
-            this.label21.Text = "LISTA DE PRODUTOS MAIS VENDIDOS";
+            this.lblListaProdutos.AutoSize = true;
+            this.lblListaProdutos.BackColor = System.Drawing.Color.Transparent;
+            this.lblListaProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaProdutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblListaProdutos.Location = new System.Drawing.Point(28, 14);
+            this.lblListaProdutos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblListaProdutos.Name = "lblListaProdutos";
+            this.lblListaProdutos.Size = new System.Drawing.Size(421, 26);
+            this.lblListaProdutos.TabIndex = 162;
+            this.lblListaProdutos.Text = "LISTA DE PRODUTOS MAIS VENDIDOS";
             // 
             // label22
             // 
@@ -243,9 +249,9 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel9.Controls.Add(this.label18);
-            this.panel9.Controls.Add(this.label4);
-            this.panel9.Controls.Add(this.label19);
+            this.panel9.Controls.Add(this.lblTotalVendas);
+            this.panel9.Controls.Add(this.lblResumoVendasT);
+            this.panel9.Controls.Add(this.lblTotalVendasT);
             this.panel9.Controls.Add(this.bunifuSeparator7);
             this.panel9.Controls.Add(this.painelDinheiro);
             this.panel9.Controls.Add(this.lblVendaDebito);
@@ -259,44 +265,44 @@
             this.panel9.Size = new System.Drawing.Size(390, 331);
             this.panel9.TabIndex = 158;
             // 
-            // label18
+            // lblTotalVendas
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Gray;
-            this.label18.Location = new System.Drawing.Point(37, 295);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(150, 29);
-            this.label18.TabIndex = 163;
-            this.label18.Text = "R$ 4.340,70";
+            this.lblTotalVendas.AutoSize = true;
+            this.lblTotalVendas.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalVendas.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalVendas.Location = new System.Drawing.Point(37, 295);
+            this.lblTotalVendas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalVendas.Name = "lblTotalVendas";
+            this.lblTotalVendas.Size = new System.Drawing.Size(150, 29);
+            this.lblTotalVendas.TabIndex = 163;
+            this.lblTotalVendas.Text = "R$ 4.340,70";
             // 
-            // label4
+            // lblResumoVendasT
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
-            this.label4.Location = new System.Drawing.Point(28, 14);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(244, 26);
-            this.label4.TabIndex = 162;
-            this.label4.Text = "RESUMO DE VENDAS";
+            this.lblResumoVendasT.AutoSize = true;
+            this.lblResumoVendasT.BackColor = System.Drawing.Color.Transparent;
+            this.lblResumoVendasT.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumoVendasT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(137)))));
+            this.lblResumoVendasT.Location = new System.Drawing.Point(28, 14);
+            this.lblResumoVendasT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResumoVendasT.Name = "lblResumoVendasT";
+            this.lblResumoVendasT.Size = new System.Drawing.Size(244, 26);
+            this.lblResumoVendasT.TabIndex = 162;
+            this.lblResumoVendasT.Text = "RESUMO DE VENDAS";
             // 
-            // label19
+            // lblTotalVendasT
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.label19.ForeColor = System.Drawing.Color.Gray;
-            this.label19.Location = new System.Drawing.Point(38, 276);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(95, 15);
-            this.label19.TabIndex = 162;
-            this.label19.Text = "Total de Vendas";
+            this.lblTotalVendasT.AutoSize = true;
+            this.lblTotalVendasT.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalVendasT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTotalVendasT.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalVendasT.Location = new System.Drawing.Point(38, 276);
+            this.lblTotalVendasT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalVendasT.Name = "lblTotalVendasT";
+            this.lblTotalVendasT.Size = new System.Drawing.Size(95, 15);
+            this.lblTotalVendasT.TabIndex = 162;
+            this.lblTotalVendasT.Text = "Total de Vendas";
             // 
             // bunifuSeparator7
             // 
@@ -417,7 +423,6 @@
             // panelCalendario
             // 
             this.panelCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panelCalendario.Controls.Add(this.lblTotalVendas);
             this.panelCalendario.Controls.Add(this.calendario);
             this.panelCalendario.Controls.Add(this.label14);
             this.panelCalendario.Controls.Add(this.bunifuSeparator6);
@@ -426,17 +431,6 @@
             this.panelCalendario.Name = "panelCalendario";
             this.panelCalendario.Size = new System.Drawing.Size(379, 331);
             this.panelCalendario.TabIndex = 157;
-            // 
-            // lblTotalVendas
-            // 
-            this.lblTotalVendas.AutoSize = true;
-            this.lblTotalVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalVendas.Location = new System.Drawing.Point(155, 672);
-            this.lblTotalVendas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalVendas.Name = "lblTotalVendas";
-            this.lblTotalVendas.Size = new System.Drawing.Size(40, 18);
-            this.lblTotalVendas.TabIndex = 160;
-            this.lblTotalVendas.Text = "0.00";
             // 
             // calendario
             // 
@@ -475,6 +469,7 @@
             this.calendario.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.calendario.Weekdays.TextColor = System.Drawing.Color.Black;
             this.calendario.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.calendario.DayClick += new Pabo.Calendar.DayClickEventHandler(this.calendario_DayClick);
             // 
             // label14
             // 
@@ -1197,6 +1192,67 @@
             this.pHeader.Size = new System.Drawing.Size(1849, 17);
             this.pHeader.TabIndex = 1;
             // 
+            // dgvProdutosMaisVendidos
+            // 
+            this.dgvProdutosMaisVendidos.AllowUserToAddRows = false;
+            this.dgvProdutosMaisVendidos.AllowUserToDeleteRows = false;
+            this.dgvProdutosMaisVendidos.AllowUserToOrderColumns = true;
+            this.dgvProdutosMaisVendidos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProdutosMaisVendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProdutosMaisVendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProdutosMaisVendidos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProdutosMaisVendidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProdutosMaisVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutosMaisVendidos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvProdutosMaisVendidos.DoubleBuffered = true;
+            this.dgvProdutosMaisVendidos.EnableHeadersVisualStyles = false;
+            this.dgvProdutosMaisVendidos.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.HeaderBgColor = System.Drawing.Color.White;
+            this.dgvProdutosMaisVendidos.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.Location = new System.Drawing.Point(33, 44);
+            this.dgvProdutosMaisVendidos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProdutosMaisVendidos.MultiSelect = false;
+            this.dgvProdutosMaisVendidos.Name = "dgvProdutosMaisVendidos";
+            this.dgvProdutosMaisVendidos.ReadOnly = true;
+            this.dgvProdutosMaisVendidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvProdutosMaisVendidos.RowHeadersVisible = false;
+            this.dgvProdutosMaisVendidos.RowHeadersWidth = 62;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvProdutosMaisVendidos.RowTemplate.Height = 40;
+            this.dgvProdutosMaisVendidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProdutosMaisVendidos.Size = new System.Drawing.Size(714, 228);
+            this.dgvProdutosMaisVendidos.TabIndex = 165;
+            // 
             // FormAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1240,6 +1296,7 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1290,7 +1347,6 @@
         private System.Windows.Forms.Label lblVendaDinheiro;
         private System.Windows.Forms.Label lblVendaFiado;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblTotalVendas;
         private Pabo.Calendar.MonthCalendar calendario;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblVendaDebito;
@@ -1300,18 +1356,19 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblTotalVendas;
+        private System.Windows.Forms.Label lblResumoVendasT;
+        private System.Windows.Forms.Label lblTotalVendasT;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator7;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblListaProdutos;
         private System.Windows.Forms.Label label22;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator8;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label24;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator9;
         private System.Windows.Forms.Label label23;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvProdutosMaisVendidos;
     }
 }

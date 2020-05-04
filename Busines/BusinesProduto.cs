@@ -84,5 +84,11 @@ namespace Busines
             obj.NomeCategoria = nomeCategoria;
             return obj.ValidarCategoria(obj);
         }
+        #region Busines Administrador
+        public static DataTable ProdutosMaisVendidos()
+        {
+            return new DadosProduto().ProdutosMaisVendidos();
+        }
+        #endregion
     }
 }
