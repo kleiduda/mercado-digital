@@ -353,10 +353,7 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total " +
-                       "from tb_pedido_item i " +
-                       "INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto " +
-                       "GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco";
+                    command.CommandText = "SELECT p.id_status, SUM(i.quantidade)as quantidade, i.preco, pr.codigo, pr.descricao FROM tb_pedido p INNER JOIN tb_pedido_item i ON p.id_pedido = i.id_pedido INNER JOIN tb_produto pr ON i.id_produto = pr.id_produto WHERE p.id_status = '2' GROUP BY p.id_status, i.preco, pr.codigo, pr.descricao ORDER BY quantidade desc";
                     command.CommandType = CommandType.Text;
                     dr = command.ExecuteReader();
                     while (dr.Read())
@@ -390,10 +387,7 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "select pr.codigo, pr.descricao, i.quantidade, i.preco, SUM(i.quantidade*i.preco) as Total " +
-                       "from tb_pedido_item i " +
-                       "INNER JOIN tb_produto pr ON i.id_produto=pr.id_produto " +
-                       "GROUP BY pr.codigo, pr.descricao, i.quantidade, i.preco ORDER BY quantidade desc";
+                    command.CommandText = "SELECT SUM(i.quantidade)as quantidade, SUM(i.preco * quantidade)as TotalVendas, i.preco, pr.codigo, pr.descricao FROM tb_pedido p INNER JOIN tb_pedido_item i ON p.id_pedido = i.id_pedido INNER JOIN tb_produto pr ON i.id_produto = pr.id_produto WHERE p.id_status = '2' GROUP BY  i.preco, pr.codigo, pr.descricao ORDER BY quantidade desc";
                     command.CommandType = CommandType.Text;
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dt);
@@ -402,11 +396,12 @@ namespace Dados
                     {
                         Vendas pr = new Vendas
                         {
+                            Quantidade = int.Parse(row["quantidade"].ToString()),
+                            Preco = decimal.Parse(row["preco"].ToString()),
                             Codigo = row["codigo"].ToString(),
                             Descricao = row["descricao"].ToString(),
-                            Preco = decimal.Parse(row["preco"].ToString()),
-                            Quantidade = int.Parse(row["quantidade"].ToString()),
-                            Total = decimal.Parse(row["Total"].ToString())
+                            Total = decimal.Parse(row["TotalVendas"].ToString())
+
                         };
                         colecao.Add(pr);
                     }
