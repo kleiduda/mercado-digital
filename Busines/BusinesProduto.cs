@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dados;
+using Supporte;
 
 namespace Busines
 {
@@ -89,6 +91,23 @@ namespace Busines
         {
             return new DadosProduto().ProdutosMaisVendidos();
         }
+        //com lista
+        public static List<DadosProduto> ProdutosVendidos()
+        {
+            return new DadosProduto().GetProdutos();
+        }
+        //list
+        public static List<Vendas> CarregaDadosComDataReader()
+        {
+            return new DadosProduto().CarregaDadosDataReader();
+        }
+        //collection
+        public static Collection<Vendas> CarregaDadosComDataTable()
+        {
+            return new DadosProduto().CarregaDadosDataTable();
+        }
+
+        
         #endregion
     }
 }
