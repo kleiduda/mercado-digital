@@ -35,7 +35,7 @@ namespace Busines
             return obj.Validate(obj);
         }
         //cadastro de usuario
-        public static string InsertUsuario(string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha)
+        public static string InsertUsuario(string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha, string foto)
         {
             DadosUsuario obj = new DadosUsuario();
             obj.Login = login;
@@ -45,10 +45,11 @@ namespace Busines
             obj.Telefone = telefone;
             obj.Cargo = cargo;
             obj.Senha = senha;
+            obj.Foto = foto;
             return obj.InsertUsuario(obj);
         }
         //atualizando cadastro ususario
-        public static string Update(int idUsuario, string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha)
+        public static string Update(int idUsuario, string login, string nome, string sobreNome, string email, string telefone, int cargo, string senha, string foto)
         {
             DadosUsuario obj = new DadosUsuario();
             obj.IdVendedor = idUsuario;
@@ -59,6 +60,7 @@ namespace Busines
             obj.Telefone = telefone;
             obj.Cargo = cargo;
             obj.Senha = senha;
+            obj.Foto = foto;
             return obj.Edit(obj);
         }
         //listandoo usuarios

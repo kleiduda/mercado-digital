@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Busines.Administrador;
 using Busines;
+using Views.Produtos;
+using Supporte.Enums;
 
 namespace Views.Administrador
 {
@@ -96,10 +98,10 @@ namespace Views.Administrador
                 lblVendasCredito.Text = credito.ToString("C");
             }
         }
-        
+
         public void ProdutosMaisVendidos()
         {
-           // dgvProdutosMaisVendidos.DataSource = BusinesProduto.CarregaDadosComDataReader();
+            // dgvProdutosMaisVendidos.DataSource = BusinesProduto.CarregaDadosComDataReader();
             dgvProdutosMaisVendidos.DataSource = BusinesProduto.CarregaDadosComDataTable();
             //
             dgvProdutosMaisVendidos.Columns["IdPagamento"].Visible = false;
@@ -120,7 +122,7 @@ namespace Views.Administrador
             //precisa mudar a cor da fonte na coluna quantidade para vermelho
             //
             //lblMaisVendido.Text = dgvProdutosMaisVendidos.SelectedRows[0].Cells["descricao"].Value.ToString()
-                //+ "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
+            //+ "  |  " + dgvProdutosMaisVendidos.SelectedRows[0].Cells["quantidade"].Value.ToString() + " Unidades Vendidas";
         }
         public void ProdutosDataVencimento()
         {
@@ -131,15 +133,20 @@ namespace Views.Administrador
             DataTable dt = new DataTable();
             dt = BusinesAdministrador.CaixaAberto();
             decimal valor = 0;
-            pCaixas.AutoScroll = true;
+            pCaixaAberto.AutoScroll = true;
+            pCaixaAberto.HorizontalScroll.Enabled = false;
+            pCaixaAberto.HorizontalScroll.Visible = false;
+            pCaixaAberto.HorizontalScroll.Maximum = 0;
+            pCaixaAberto.AutoScroll = true;
+
             if (dt.Rows.Count != 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    var caixaNome ="CAIXA: " + dt.Rows[i]["id"].ToString() + "  | Operador(a): " + dt.Rows[i]["nome"].ToString() + " " + dt.Rows[i]["sobre_nome"].ToString();
+                    var caixaNome = "CAIXA: " + dt.Rows[i]["id"].ToString() + "  | Operador(a): " + dt.Rows[i]["nome"].ToString() + " " + dt.Rows[i]["sobre_nome"].ToString();
                     Panel pCx = new Panel();
                     pCaixaAberto.Controls.Add(pCx);
-                    pCx.Left = 10;
+                    pCx.Left = 2;
                     pCx.Top = i * 70;
                     pCx.BackColor = Color.WhiteSmoke;
                     pCx.Width = 600;
@@ -173,8 +180,87 @@ namespace Views.Administrador
 
         }
 
+
         #endregion
 
-         
+        #region MENU LATERAl
+        public void AbrirFormulario<MyForm>() where MyForm : Form, new()
+        {
+            Form frm;
+            frm = pConteudo.Controls.OfType<MyForm>().FirstOrDefault();
+            if (frm == null)
+            {
+                frm = new MyForm();
+                frm.TopLevel = false;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                pConteudo.Controls.Add(frm);
+                pConteudo.Tag = frm;
+                frm.Show();
+                frm.BringToFront();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
+        }
+        public void MenuProduto()
+        {
+            if (menuProduto.Height == 40)
+            {
+                menuProduto.Height = 113;
+                
+            }
+            else if (menuProduto.Height == 113)
+            {
+                menuProduto.Height = 40;
+                
+            }
+        }
+        private void btnProdutos_Click(object sender, EventArgs e)
+        {
+            MenuProduto();
+        }
+
+        #endregion
+        private void fotoUsuario_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnNovoProduto_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormNovoProduto>();
+        }
+
+        private void btnVerProdutos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormListProduto>();
+        }
+
+        private void btnFornecedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormNovoFornecedor>();
+        }
+
+        private void btnVendedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormListaVendedor>();
+        }
+
+        private void btnCartaoCredito_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormCartoes>();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormNovoCliente>();
+        }
+
+        private void bunifuFlatButton9_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormConfig>();
+        }
     }
 }

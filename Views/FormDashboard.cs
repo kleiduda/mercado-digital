@@ -52,8 +52,7 @@ namespace Views
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            FormCadastroProduto frm = new FormCadastroProduto();
-            frm.ShowDialog();
+            
         }
 
         private void frenteDeCaixaPDVToolStripMenuItem_Click(object sender, EventArgs e)

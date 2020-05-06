@@ -203,13 +203,14 @@ namespace Views
             txtEmail.Clear();
             txtLogin.Clear();
             txtSenha.Clear();
+            fotoVendedor.Image = null;
         }
         //listando funcao de usuario
         private void ListarFuncao()
         {
             cbFuncao.DataSource = BusinesUsuario.ListarFuncoes();
-            cbFuncao.ValueMember = "id_funcao";
-            cbFuncao.DisplayMember = "nome_funcao";
+            cbFuncao.ValueMember = "id_cargo";
+            cbFuncao.DisplayMember = "cargo";
         }
         private void msgError(string msg)
         {
@@ -251,7 +252,8 @@ namespace Views
                             this.txtEmail.Text.Trim().ToLower(),
                             this.txtTelefone.Text,
                             Convert.ToInt32(cbFuncao.SelectedValue),
-                            this.txtSenha.Text
+                            this.txtSenha.Text,
+                            image
                             );
                     }
                     else
@@ -264,7 +266,8 @@ namespace Views
                             this.txtEmail.Text.Trim().ToLower(),
                             this.txtTelefone.Text,
                             Convert.ToInt32(cbFuncao.SelectedValue),
-                            this.txtSenha.Text
+                            this.txtSenha.Text,
+                            image
                             );
                     }
                     if (rpta.Equals("OK"))
