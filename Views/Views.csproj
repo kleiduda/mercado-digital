@@ -73,6 +73,12 @@
     <Compile Include="Atendente\FormDashBoardAtendente.Designer.cs">
       <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\FormNovoFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\FormNovoFornecedor.Designer.cs">
+      <DependentUpon>FormNovoFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamento\Fiado\FormCadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,30 @@
     </Compile>
     <Compile Include="PDV\FormSangriaPDV.Designer.cs">
       <DependentUpon>FormSangriaPDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\FormListProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\FormListProduto.Designer.cs">
+      <DependentUpon>FormListProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\FormNovoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\FormNovoProduto.Designer.cs">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormCartoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormCartoes.Designer.cs">
+      <DependentUpon>FormCartoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\FormConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\FormConfig.Designer.cs">
+      <DependentUpon>FormConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Setting\SettingGeral.cs">
       <SubType>Form</SubType>
@@ -145,9 +175,7 @@
     <Compile Include="Produtos\FormImportProduto.Designer.cs">
       <DependentUpon>FormImportProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produtos\FormCadastroProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Produtos\FormCadastroProduto.cs" />
     <Compile Include="Produtos\FormCadastroProduto.Designer.cs">
       <DependentUpon>FormCadastroProduto.cs</DependentUpon>
     </Compile>
@@ -171,6 +199,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Clientes\FormNovoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FormNovoCliente.Designer.cs">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores\FormListaVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\FormListaVendedor.Designer.cs">
+      <DependentUpon>FormListaVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedores\FormNovoVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores\FormNovoVendedor.Designer.cs">
+      <DependentUpon>FormNovoVendedor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administrador\FormAdministrador.resx">
       <DependentUpon>FormAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Atendente\FormDashBoardAtendente.resx">
       <DependentUpon>FormDashBoardAtendente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fornecedor\FormNovoFornecedor.resx">
+      <DependentUpon>FormNovoFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\Fiado\FormCadastroCliente.resx">
       <DependentUpon>FormCadastroCliente.cs</DependentUpon>
@@ -197,6 +246,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PDV\FormSangriaPDV.resx">
       <DependentUpon>FormSangriaPDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\FormListProduto.resx">
+      <DependentUpon>FormListProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\FormNovoProduto.resx">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormCartoes.resx">
+      <DependentUpon>FormCartoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\FormConfig.resx">
+      <DependentUpon>FormConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\SettingGeral.resx">
       <DependentUpon>SettingGeral.cs</DependentUpon>
@@ -238,6 +299,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Clientes\FormNovoCliente.resx">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores\FormListaVendedor.resx">
+      <DependentUpon>FormListaVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores\FormNovoVendedor.resx">
+      <DependentUpon>FormNovoVendedor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -353,6 +423,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Asset 5bit_datavencimento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundraiser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 7cielo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 9pagseguro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 11getnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 12stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 14maquininha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 1add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add -lista.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -109,7 +109,7 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "select * from tb_funcao";
+                    command.CommandText = "select * from tb_cargo";
                     command.CommandType = CommandType.Text;
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dtResult);
@@ -196,6 +196,7 @@ namespace Dados
                     command.Parameters.AddWithValue("@telefone", Usuario.Telefone);
                     command.Parameters.AddWithValue("@id_cargo", Usuario.Cargo);
                     command.Parameters.AddWithValue("@senha", Usuario.Senha);
+                    command.Parameters.AddWithValue("@foto", Usuario.Foto);
 
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao inserir cadastro de usuario";
                 }
@@ -216,8 +217,7 @@ namespace Dados
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "UPDATE tb_vendedor SET login=@login, nome=@nome, sobre_nome=@sobre_nome, email=@email, telefone=@telefone, cargo=@cargo, senha=@senha" +
-                        "WHERE id_vendedor=@id_vendedor";
+                    command.CommandText = "UPDATE tb_vendedor SET login=@login, nome=@nome, sobre_nome=@sobre_nome, email=@email, telefone=@telefone, id_cargo=@cargo, senha=@senha, foto=@foto WHERE id_vendedor=@id_vendedor";
                     command.CommandType = CommandType.Text;
                     command.Parameters.AddWithValue("@id_vendedor", Usuario.IdVendedor);
                     command.Parameters.AddWithValue("@login", Usuario.Login);
@@ -227,6 +227,7 @@ namespace Dados
                     command.Parameters.AddWithValue("@telefone", Usuario.Telefone);
                     command.Parameters.AddWithValue("@cargo", Usuario.Cargo);
                     command.Parameters.AddWithValue("@senha", Usuario.Senha);
+                    command.Parameters.AddWithValue("@foto", Usuario.Foto);
 
                     rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Erro ao atualizar usuario";
                 }
