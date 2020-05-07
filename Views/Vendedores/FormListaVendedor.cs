@@ -16,7 +16,7 @@ namespace Views.Produtos
 {
     public partial class FormListaVendedor : Form
     {
-        private bool IsNew;
+        private bool IsNew = true;
         string image = "";
         public FormListaVendedor()
         {
