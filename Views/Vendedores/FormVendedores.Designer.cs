@@ -1,6 +1,6 @@
 ﻿namespace Views.Produtos
 {
-    partial class FormListaVendedor
+    partial class FormVendedores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaVendedor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVendedores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -178,6 +178,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Textcolor = System.Drawing.Color.Gray;
             this.btnCancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNovoCadastro
             // 
@@ -214,6 +215,7 @@
             this.btnNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovoCadastro.Textcolor = System.Drawing.Color.Gray;
             this.btnNovoCadastro.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoCadastro.Click += new System.EventHandler(this.btnNovoCadastro_Click);
             // 
             // btnEditar
             // 
@@ -777,7 +779,7 @@
             this.btnClose.TabIndex = 143;
             this.btnClose.TabStop = false;
             // 
-            // FormListaVendedor
+            // FormVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -788,7 +790,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormListaVendedor";
+            this.Name = "FormVendedores";
             this.Text = "FormNovoProduto";
             this.Load += new System.EventHandler(this.FormListaVendedor_Load);
             this.tabCadastro.ResumeLayout(false);

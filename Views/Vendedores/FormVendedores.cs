@@ -11,17 +11,20 @@ using Views.Administrador;
 using Supporte.Enums;
 using Busines;
 using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Views.Produtos
 {
-    public partial class FormListaVendedor : Form
+    public partial class FormVendedores : Form
     {
         private bool IsNew = true;
         string image = "";
-        public FormListaVendedor()
+        public FormVendedores()
         {
             InitializeComponent();
         }
+        
         private void FormListaVendedor_Load(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
@@ -39,6 +42,7 @@ namespace Views.Produtos
             lblState.Text = "cadastro";
             btnEditar.Enabled = false;
             btnNovoCadastro.Enabled = false;
+            this.IsNew = true;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,6 +71,8 @@ namespace Views.Produtos
             txtTelefone.Enabled = false;
             txtSenha.Enabled = false;
             cbCargo.Enabled = false;
+            fotoVendedor.Enabled = false;
+            
         }
         public void EnabledEdit()
         {
@@ -77,6 +83,7 @@ namespace Views.Produtos
             txtTelefone.Enabled = true;
             txtSenha.Enabled = true;
             cbCargo.Enabled = true;
+            fotoVendedor.Enabled = true;
             txtNome.Focus();
         }
         private void IndexTab()
@@ -99,6 +106,7 @@ namespace Views.Produtos
             txtLogin.Clear();
             txtSenha.Clear();
             txtIdVendedor.Clear();
+            fotoVendedor.Image = Properties.Resources.Asset_1default;
         }
         private void ListarCargos()
         {
@@ -116,44 +124,80 @@ namespace Views.Produtos
             lblSuc.Text = "      " + msg;
             lblSuc.Visible = true;
         }
-
-        public void NovoCadastro()
+       
+        //redimesionar
+        public static void ResizeImage(string originalFile, string newFile, int newWidth, int maxHeight, bool onlyResizeIfWider)
         {
+            Image fullsizeImage = Image.FromFile(originalFile);
 
+            // Prevent using images internal thumbnail
+            fullsizeImage.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            fullsizeImage.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+            if (onlyResizeIfWider)
+            {
+                if (fullsizeImage.Width <= newWidth)
+                {
+                    newWidth = fullsizeImage.Width;
+                }
+            }
+            //int newHeight = newWidth;
+            int newHeight = fullsizeImage.Height * newWidth / fullsizeImage.Width;
+            if (newHeight > maxHeight)
+            {
+                // Resize with height instead
+                newWidth = fullsizeImage.Width * maxHeight / fullsizeImage.Height;
+                newHeight = maxHeight;
+            }
+
+            Image newImage = fullsizeImage.GetThumbnailImage(newWidth, newHeight, null, IntPtr.Zero);
+
+            // Clear handle to original file so that we can overwrite it if necessary
+            fullsizeImage.Dispose();
+
+            // Save resized picture
+            newImage.Save(newFile);
         }
         private void fotoVendedor_Click(object sender, EventArgs e)
         {
             DataTable dtPath = new DataTable();
             dtPath = BusinesConfig.PathImage();
-            MessageBox.Show(dtPath.Rows[0]["image_path"].ToString());
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.CheckFileExists = false;
             openFileDialog.AddExtension = true;
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "JPG files (*.jpg)|*.jpg";
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.fotoVendedor.SizeMode = PictureBoxSizeMode.StretchImage;
+                //this.fotoVendedor.SizeMode = PictureBoxSizeMode.Zoom;
                 this.fotoVendedor.Image = Image.FromFile(openFileDialog.FileName);
+                string original = Path.GetFullPath(openFileDialog.FileName);
+                string novo = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
+                //string original = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
+                
                 foreach (string fileName in openFileDialog.FileNames)
                 {
-                    if (System.IO.File.Exists(dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName)))
+                    if (File.Exists(dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName)))
                     {
                         MessageBox.Show("Já existe uma imagem com esse nome na pasta, Atualizar?");
                         //File.Replace(fileName, @"C:\Users\ArteGift\Documents\img\" + Path.GetFileName(fileName), "copy");
                     }
                     else
                     {
-                        File.Copy(fileName, dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName));
+                        ResizeImage(original, novo, 300, 200, true);
+                        //File.Copy(fileName, dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName));
                     }
                 }
                 string fileNames = openFileDialog.FileName;
                 image = Path.GetFileName(fileNames);
+                MessageBox.Show(image);
             }
         }
         public void VendedorSelecionado()
         {
+            DataTable dt = new DataTable();
+            dt = BusinesConfig.PathImage();
             txtNome.Text = dgvVendedores.CurrentRow.Cells["nome"].Value.ToString();
             txtSobreNome.Text = dgvVendedores.CurrentRow.Cells["sobre_nome"].Value.ToString();
             txtEmail.Text = dgvVendedores.CurrentRow.Cells["email"].Value.ToString();
@@ -161,6 +205,20 @@ namespace Views.Produtos
             txtSenha.Text = dgvVendedores.CurrentRow.Cells["senha"].Value.ToString();
             txtTelefone.Text = dgvVendedores.CurrentRow.Cells["telefone"].Value.ToString();
             txtIdVendedor.Text = dgvVendedores.CurrentRow.Cells["id_vendedor"].Value.ToString();
+            DataTable dtPath = new DataTable();
+            dtPath = BusinesConfig.PathImage();
+            image = dgvVendedores.CurrentRow.Cells["foto"].Value.ToString();
+            if (string.IsNullOrEmpty(image))
+            {
+                image = "default.png";
+            }
+            if (!File.Exists(dtPath.Rows[0]["image_path"].ToString() + image))
+            {
+                image = "default.png";
+            }
+            string url = dtPath.Rows[0]["image_path"].ToString() + image;
+            fotoVendedor.Load(url);
+            fotoVendedor.Load();
         }
         private void dgvVendedores_DoubleClick(object sender, EventArgs e)
         {
@@ -168,10 +226,20 @@ namespace Views.Produtos
             IsNew = false;
             tabControl1.SelectedIndex = 2;
             DesabilitarEdição();
+            lblError.Visible = false;
+            lblSuc.Visible = false;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnNovoCadastro.Enabled = true;
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             EnabledEdit();
+            btnSalvar.Enabled = true;
+            btnNovoCadastro.Enabled = false;
+            btnCancelar.Enabled = true;
+            this.IsNew = false;
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -237,7 +305,11 @@ namespace Views.Produtos
                         msgError(rpta);
                     }
                     IsNew = true;
-                    LimparCampos();
+                    btnSalvar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnNovoCadastro.Enabled = true;
+                    DesabilitarEdição();
                     txtNome.Focus();
                     CarregarDataGrid();
                 }
@@ -247,11 +319,27 @@ namespace Views.Produtos
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-
-
-
+       
+        private void btnNovoCadastro_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 2;
+            txtNome.Focus();
+            LimparCampos();
+            EnabledEdit();
+            btnCancelar.Enabled = true;
+            btnEditar.Enabled = false;
+            btnSalvar.Enabled = true;
+            this.IsNew = true;
+        }
         #endregion
-
-        
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnSalvar.Enabled = false;
+            DesabilitarEdição();
+            this.IsNew = true;
+        }
     }
 }

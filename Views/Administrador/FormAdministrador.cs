@@ -245,7 +245,7 @@ namespace Views.Administrador
 
         private void btnVendedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormListaVendedor>();
+            AbrirFormulario<FormVendedores>();
         }
 
         private void btnCartaoCredito_Click(object sender, EventArgs e)

@@ -53,11 +53,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.PictureBox();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnNovoCadastro = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnEditar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSalvar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.pProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -80,6 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pProduct);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(113, 61);
@@ -93,7 +107,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(74, 303);
+            this.label8.Location = new System.Drawing.Point(74, 373);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 24);
@@ -104,6 +118,7 @@
             // 
             this.pProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pProduct.Controls.Add(this.txtIdProduto);
             this.pProduct.Controls.Add(this.txtEAN);
             this.pProduct.Controls.Add(this.label6);
             this.pProduct.Controls.Add(this.label5);
@@ -123,7 +138,7 @@
             this.pProduct.Controls.Add(this.txtEmbalagem);
             this.pProduct.Controls.Add(this.label2);
             this.pProduct.Controls.Add(this.label1);
-            this.pProduct.Location = new System.Drawing.Point(222, 107);
+            this.pProduct.Location = new System.Drawing.Point(285, 107);
             this.pProduct.Margin = new System.Windows.Forms.Padding(4);
             this.pProduct.Name = "pProduct";
             this.pProduct.Size = new System.Drawing.Size(867, 484);
@@ -391,6 +406,222 @@
             this.btnClose.TabIndex = 143;
             this.btnClose.TabStop = false;
             // 
+            // txtIdProduto
+            // 
+            this.txtIdProduto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIdProduto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtIdProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdProduto.Font = new System.Drawing.Font("Arial", 16F);
+            this.txtIdProduto.ForeColor = System.Drawing.Color.Black;
+            this.txtIdProduto.Location = new System.Drawing.Point(692, 401);
+            this.txtIdProduto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdProduto.MaxLength = 150;
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(98, 38);
+            this.txtIdProduto.TabIndex = 152;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.panel2.Controls.Add(this.btnCancelar);
+            this.panel2.Controls.Add(this.btnNovoCadastro);
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.bunifuSeparator2);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.btnSalvar);
+            this.panel2.Location = new System.Drawing.Point(13, 390);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(192, 317);
+            this.panel2.TabIndex = 157;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.BorderRadius = 0;
+            this.btnCancelar.ButtonText = "Cancelar";
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DisabledColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancelar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Iconimage = global::Views.Properties.Resources.cancel;
+            this.btnCancelar.Iconimage_right = null;
+            this.btnCancelar.Iconimage_right_Selected = null;
+            this.btnCancelar.Iconimage_Selected = null;
+            this.btnCancelar.IconMarginLeft = 0;
+            this.btnCancelar.IconMarginRight = 0;
+            this.btnCancelar.IconRightVisible = false;
+            this.btnCancelar.IconRightZoom = 0D;
+            this.btnCancelar.IconVisible = true;
+            this.btnCancelar.IconZoom = 30D;
+            this.btnCancelar.IsTab = false;
+            this.btnCancelar.Location = new System.Drawing.Point(0, 149);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnCancelar.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnCancelar.selected = false;
+            this.btnCancelar.Size = new System.Drawing.Size(192, 44);
+            this.btnCancelar.TabIndex = 178;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Textcolor = System.Drawing.Color.Gray;
+            this.btnCancelar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // btnNovoCadastro
+            // 
+            this.btnNovoCadastro.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovoCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovoCadastro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNovoCadastro.BorderRadius = 0;
+            this.btnNovoCadastro.ButtonText = "Novo Cadastro";
+            this.btnNovoCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovoCadastro.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnNovoCadastro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNovoCadastro.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnNovoCadastro.Iconimage = global::Views.Properties.Resources.Asset_1add;
+            this.btnNovoCadastro.Iconimage_right = null;
+            this.btnNovoCadastro.Iconimage_right_Selected = null;
+            this.btnNovoCadastro.Iconimage_Selected = null;
+            this.btnNovoCadastro.IconMarginLeft = 0;
+            this.btnNovoCadastro.IconMarginRight = 0;
+            this.btnNovoCadastro.IconRightVisible = false;
+            this.btnNovoCadastro.IconRightZoom = 0D;
+            this.btnNovoCadastro.IconVisible = true;
+            this.btnNovoCadastro.IconZoom = 30D;
+            this.btnNovoCadastro.IsTab = false;
+            this.btnNovoCadastro.Location = new System.Drawing.Point(0, 47);
+            this.btnNovoCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNovoCadastro.Name = "btnNovoCadastro";
+            this.btnNovoCadastro.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovoCadastro.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovoCadastro.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnNovoCadastro.selected = false;
+            this.btnNovoCadastro.Size = new System.Drawing.Size(192, 44);
+            this.btnNovoCadastro.TabIndex = 180;
+            this.btnNovoCadastro.Text = "Novo Cadastro";
+            this.btnNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoCadastro.Textcolor = System.Drawing.Color.Gray;
+            this.btnNovoCadastro.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEditar.BorderRadius = 0;
+            this.btnEditar.ButtonText = "Editar";
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnEditar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnEditar.Iconimage = global::Views.Properties.Resources.edit;
+            this.btnEditar.Iconimage_right = null;
+            this.btnEditar.Iconimage_right_Selected = null;
+            this.btnEditar.Iconimage_Selected = null;
+            this.btnEditar.IconMarginLeft = 0;
+            this.btnEditar.IconMarginRight = 0;
+            this.btnEditar.IconRightVisible = false;
+            this.btnEditar.IconRightZoom = 0D;
+            this.btnEditar.IconVisible = true;
+            this.btnEditar.IconZoom = 30D;
+            this.btnEditar.IsTab = false;
+            this.btnEditar.Location = new System.Drawing.Point(0, 193);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnEditar.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnEditar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnEditar.selected = false;
+            this.btnEditar.Size = new System.Drawing.Size(192, 44);
+            this.btnEditar.TabIndex = 179;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Textcolor = System.Drawing.Color.Gray;
+            this.btnEditar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // bunifuSeparator2
+            // 
+            this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator2.LineThickness = 1;
+            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 237);
+            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator2.Name = "bunifuSeparator2";
+            this.bunifuSeparator2.Size = new System.Drawing.Size(192, 36);
+            this.bunifuSeparator2.TabIndex = 156;
+            this.bunifuSeparator2.Transparency = 255;
+            this.bunifuSeparator2.Vertical = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 37);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(192, 10);
+            this.panel5.TabIndex = 175;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel6.Controls.Add(this.pictureBox2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(192, 37);
+            this.panel6.TabIndex = 174;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Views.Properties.Resources.arrow_top;
+            this.pictureBox2.Location = new System.Drawing.Point(87, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalvar.BorderRadius = 0;
+            this.btnSalvar.ButtonText = "SALVAR";
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSalvar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSalvar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSalvar.Iconimage = global::Views.Properties.Resources.save;
+            this.btnSalvar.Iconimage_right = null;
+            this.btnSalvar.Iconimage_right_Selected = null;
+            this.btnSalvar.Iconimage_Selected = null;
+            this.btnSalvar.IconMarginLeft = 0;
+            this.btnSalvar.IconMarginRight = 0;
+            this.btnSalvar.IconRightVisible = false;
+            this.btnSalvar.IconRightZoom = 0D;
+            this.btnSalvar.IconVisible = true;
+            this.btnSalvar.IconZoom = 30D;
+            this.btnSalvar.IsTab = false;
+            this.btnSalvar.Location = new System.Drawing.Point(0, 273);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnSalvar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnSalvar.selected = false;
+            this.btnSalvar.Size = new System.Drawing.Size(192, 44);
+            this.btnSalvar.TabIndex = 176;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.Textcolor = System.Drawing.Color.Gray;
+            this.btnSalvar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // FormNovoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,6 +633,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNovoProduto";
             this.Text = "FormNovoProduto";
+            this.Load += new System.EventHandler(this.FormNovoProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pProduct.ResumeLayout(false);
@@ -409,6 +641,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,5 +675,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.TextBox txtIdProduto;
+        private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCancelar;
+        private Bunifu.Framework.UI.BunifuFlatButton btnNovoCadastro;
+        private Bunifu.Framework.UI.BunifuFlatButton btnEditar;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSalvar;
     }
 }

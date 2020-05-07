@@ -205,11 +205,11 @@
     <Compile Include="Clientes\FormNovoCliente.Designer.cs">
       <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vendedores\FormListaVendedor.cs">
+    <Compile Include="Vendedores\FormVendedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vendedores\FormListaVendedor.Designer.cs">
-      <DependentUpon>FormListaVendedor.cs</DependentUpon>
+    <Compile Include="Vendedores\FormVendedores.Designer.cs">
+      <DependentUpon>FormVendedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Vendedores\FormNovoVendedor.cs">
       <SubType>Form</SubType>
@@ -302,8 +302,8 @@
     <EmbeddedResource Include="Clientes\FormNovoCliente.resx">
       <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vendedores\FormListaVendedor.resx">
-      <DependentUpon>FormListaVendedor.cs</DependentUpon>
+    <EmbeddedResource Include="Vendedores\FormVendedores.resx">
+      <DependentUpon>FormVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedores\FormNovoVendedor.resx">
       <DependentUpon>FormNovoVendedor.cs</DependentUpon>

@@ -36,12 +36,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pProduct = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.PictureBox();
             this.dgvProdutos = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNovo = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pProduct.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -63,6 +71,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pProduct);
             this.panel1.Controls.Add(this.btnClose);
@@ -77,7 +86,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(113, 303);
+            this.label8.Location = new System.Drawing.Point(113, 375);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 24);
@@ -94,17 +103,6 @@
             this.pProduct.Name = "pProduct";
             this.pProduct.Size = new System.Drawing.Size(1028, 639);
             this.pProduct.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Image = global::Views.Properties.Resources.delete;
-            this.btnClose.Location = new System.Drawing.Point(1270, 14);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(20, 20);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnClose.TabIndex = 143;
-            this.btnClose.TabStop = false;
             // 
             // dgvProdutos
             // 
@@ -167,6 +165,93 @@
             this.dgvProdutos.Size = new System.Drawing.Size(1028, 639);
             this.dgvProdutos.TabIndex = 166;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.panel2.Controls.Add(this.btnNovo);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(7, 395);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(192, 104);
+            this.panel2.TabIndex = 156;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNovo.BorderRadius = 0;
+            this.btnNovo.ButtonText = "Novo Cadastro";
+            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovo.DisabledColor = System.Drawing.Color.Gray;
+            this.btnNovo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNovo.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnNovo.Iconimage = global::Views.Properties.Resources.add__lista;
+            this.btnNovo.Iconimage_right = null;
+            this.btnNovo.Iconimage_right_Selected = null;
+            this.btnNovo.Iconimage_Selected = null;
+            this.btnNovo.IconMarginLeft = 0;
+            this.btnNovo.IconMarginRight = 0;
+            this.btnNovo.IconRightVisible = false;
+            this.btnNovo.IconRightZoom = 0D;
+            this.btnNovo.IconVisible = false;
+            this.btnNovo.IconZoom = 30D;
+            this.btnNovo.IsTab = false;
+            this.btnNovo.Location = new System.Drawing.Point(0, 47);
+            this.btnNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnNovo.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnNovo.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnNovo.selected = false;
+            this.btnNovo.Size = new System.Drawing.Size(192, 44);
+            this.btnNovo.TabIndex = 180;
+            this.btnNovo.Text = "Novo Cadastro";
+            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Textcolor = System.Drawing.Color.Gray;
+            this.btnNovo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(192, 10);
+            this.panel4.TabIndex = 175;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(192, 37);
+            this.panel3.TabIndex = 174;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Views.Properties.Resources.arrow_top;
+            this.pictureBox1.Location = new System.Drawing.Point(109, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Image = global::Views.Properties.Resources.delete;
+            this.btnClose.Location = new System.Drawing.Point(1270, 14);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(20, 20);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 143;
+            this.btnClose.TabStop = false;
+            // 
             // FormListProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,11 +263,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormListProduto";
             this.Text = "FormNovoProduto";
+            this.Load += new System.EventHandler(this.FormListProduto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pProduct.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,8 +282,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pProduct;
-        private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvProdutos;
+        private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuFlatButton btnNovo;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnClose;
     }
 }
