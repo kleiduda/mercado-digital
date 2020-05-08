@@ -329,6 +329,8 @@ namespace Views.Produtos
             btnCancelar.Enabled = true;
             btnEditar.Enabled = false;
             btnSalvar.Enabled = true;
+            lblSuc.Visible = false;
+            lblError.Visible = false;
             this.IsNew = true;
         }
         #endregion

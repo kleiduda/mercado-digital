@@ -219,7 +219,8 @@ namespace Views.Administrador
         }
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            MenuProduto();
+            //MenuProduto();
+            AbrirFormulario<FormProdutos>();
         }
 
         #endregion
@@ -230,7 +231,7 @@ namespace Views.Administrador
 
         private void btnNovoProduto_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormNovoProduto>();
+            AbrirFormulario<FormProdutos>();
         }
 
         private void btnVerProdutos_Click(object sender, EventArgs e)

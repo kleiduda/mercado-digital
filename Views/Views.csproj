@@ -121,11 +121,17 @@
     <Compile Include="Produtos\FormListProduto.Designer.cs">
       <DependentUpon>FormListProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produtos\FormNovoProduto.cs">
+    <Compile Include="Produtos\FormProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Produtos\FormNovoProduto.Designer.cs">
-      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    <Compile Include="Produtos\FormProdutos.Designer.cs">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\FormReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\FormReserva.Designer.cs">
+      <DependentUpon>FormReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="Setting\FormCartoes.cs">
       <SubType>Form</SubType>
@@ -250,8 +256,11 @@
     <EmbeddedResource Include="Produtos\FormListProduto.resx">
       <DependentUpon>FormListProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produtos\FormNovoProduto.resx">
-      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    <EmbeddedResource Include="Produtos\FormProdutos.resx">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\FormReserva.resx">
+      <DependentUpon>FormReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setting\FormCartoes.resx">
       <DependentUpon>FormCartoes.cs</DependentUpon>
