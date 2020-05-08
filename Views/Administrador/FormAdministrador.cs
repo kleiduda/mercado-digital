@@ -259,9 +259,10 @@ namespace Views.Administrador
             AbrirFormulario<FormNovoCliente>();
         }
 
-        private void bunifuFlatButton9_Click(object sender, EventArgs e)
+        private void btnConfig_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormConfig>();
+            var frm = new FormValorInicial();
+            frm.Show();
         }
     }
 }

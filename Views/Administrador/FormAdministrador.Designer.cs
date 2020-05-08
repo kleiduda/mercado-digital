@@ -45,6 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pConteudo = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.fotoUsuario = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvProdutosVencimento = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.label24 = new System.Windows.Forms.Label();
@@ -68,15 +70,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.calendario = new Pabo.Calendar.MonthCalendar();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.fotoUsuario = new System.Windows.Forms.PictureBox();
             this.pCaixas = new System.Windows.Forms.Panel();
             this.pCaixaAberto = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pTituloVendasMenu = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -109,13 +109,13 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.pConteudo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosVencimento)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosMaisVendidos)).BeginInit();
             this.panel9.SuspendLayout();
             this.painelDinheiro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).BeginInit();
             this.pCaixas.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -207,6 +207,34 @@
             this.pConteudo.Name = "pConteudo";
             this.pConteudo.Size = new System.Drawing.Size(1322, 936);
             this.pConteudo.TabIndex = 167;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.anima1.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lblUsuario.Location = new System.Drawing.Point(1103, 21);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(128, 17);
+            this.lblUsuario.TabIndex = 153;
+            this.lblUsuario.Text = "Olá, Kleiton Freitas";
+            // 
+            // fotoUsuario
+            // 
+            this.fotoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.anima1.SetDecoration(this.fotoUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.fotoUsuario.Image = global::Views.Properties.Resources.Asset_1vendedor1;
+            this.fotoUsuario.Location = new System.Drawing.Point(1251, 5);
+            this.fotoUsuario.Name = "fotoUsuario";
+            this.fotoUsuario.Size = new System.Drawing.Size(45, 45);
+            this.fotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fotoUsuario.TabIndex = 153;
+            this.fotoUsuario.TabStop = false;
+            this.fotoUsuario.Click += new System.EventHandler(this.fotoUsuario_Click);
             // 
             // panel11
             // 
@@ -644,34 +672,6 @@
             this.calendario.Weekdays.TextColor = System.Drawing.Color.Black;
             this.calendario.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.anima1.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblUsuario.Location = new System.Drawing.Point(1103, 21);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(128, 17);
-            this.lblUsuario.TabIndex = 153;
-            this.lblUsuario.Text = "Olá, Kleiton Freitas";
-            // 
-            // fotoUsuario
-            // 
-            this.fotoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.anima1.SetDecoration(this.fotoUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.fotoUsuario.Image = global::Views.Properties.Resources.Asset_1vendedor1;
-            this.fotoUsuario.Location = new System.Drawing.Point(1251, 5);
-            this.fotoUsuario.Name = "fotoUsuario";
-            this.fotoUsuario.Size = new System.Drawing.Size(45, 45);
-            this.fotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fotoUsuario.TabIndex = 153;
-            this.fotoUsuario.TabStop = false;
-            this.fotoUsuario.Click += new System.EventHandler(this.fotoUsuario_Click);
-            // 
             // pCaixas
             // 
             this.pCaixas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -724,7 +724,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.bunifuSeparator2);
-            this.panel2.Controls.Add(this.bunifuFlatButton1);
+            this.panel2.Controls.Add(this.btnConfig);
             this.panel2.Controls.Add(this.pTituloVendasMenu);
             this.panel2.Controls.Add(this.bunifuSeparator5);
             this.panel2.Controls.Add(this.panel6);
@@ -763,42 +763,43 @@
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
             // 
-            // bunifuFlatButton1
+            // btnConfig
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 5;
-            this.bunifuFlatButton1.ButtonText = "+ PDV (frente de caixa)";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.anima1.SetDecoration(this.bunifuFlatButton1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = false;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 640);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.Black;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(229, 36);
-            this.bunifuFlatButton1.TabIndex = 165;
-            this.bunifuFlatButton1.Text = "+ PDV (frente de caixa)";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnConfig.BackColor = System.Drawing.Color.White;
+            this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfig.BorderRadius = 5;
+            this.btnConfig.ButtonText = "+ PDV (frente de caixa)";
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.anima1.SetDecoration(this.btnConfig, BunifuAnimatorNS.DecorationType.None);
+            this.btnConfig.DisabledColor = System.Drawing.Color.Gray;
+            this.btnConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfig.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnConfig.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnConfig.Iconimage")));
+            this.btnConfig.Iconimage_right = null;
+            this.btnConfig.Iconimage_right_Selected = null;
+            this.btnConfig.Iconimage_Selected = null;
+            this.btnConfig.IconMarginLeft = 0;
+            this.btnConfig.IconMarginRight = 0;
+            this.btnConfig.IconRightVisible = true;
+            this.btnConfig.IconRightZoom = 0D;
+            this.btnConfig.IconVisible = false;
+            this.btnConfig.IconZoom = 90D;
+            this.btnConfig.IsTab = false;
+            this.btnConfig.Location = new System.Drawing.Point(0, 640);
+            this.btnConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Normalcolor = System.Drawing.Color.White;
+            this.btnConfig.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnConfig.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnConfig.selected = false;
+            this.btnConfig.Size = new System.Drawing.Size(229, 36);
+            this.btnConfig.TabIndex = 165;
+            this.btnConfig.Text = "+ PDV (frente de caixa)";
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Textcolor = System.Drawing.Color.Gray;
+            this.btnConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // pTituloVendasMenu
             // 
@@ -1202,7 +1203,6 @@
             this.bunifuFlatButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton9.Textcolor = System.Drawing.Color.Gray;
             this.bunifuFlatButton9.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButton9.Click += new System.EventHandler(this.bunifuFlatButton9_Click);
             // 
             // btnFornecedores
             // 
@@ -1459,6 +1459,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
             this.pConteudo.ResumeLayout(false);
             this.pConteudo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutosVencimento)).EndInit();
@@ -1469,7 +1470,6 @@
             this.panel9.PerformLayout();
             this.painelDinheiro.ResumeLayout(false);
             this.painelDinheiro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).EndInit();
             this.pCaixas.ResumeLayout(false);
             this.pCaixas.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1554,7 +1554,7 @@
         private BunifuAnimatorNS.BunifuTransition anima1;
         private Bunifu.Framework.UI.BunifuFlatButton btnFornecedores;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnConfig;
         private System.Windows.Forms.Panel pTituloVendasMenu;
         private System.Windows.Forms.Label label4;
     }

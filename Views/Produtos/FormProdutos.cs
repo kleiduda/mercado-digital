@@ -169,6 +169,15 @@ namespace Views.Produtos
         }
         public void ProdutoSelecionado()
         {
+            txtCodigo.Text = dgvProdutos.CurrentRow.Cells["codigo"].Value.ToString();
+            txtEAN.Text = dgvProdutos.CurrentRow.Cells["ean"].Value.ToString();
+            txtDescricao.Text = dgvProdutos.CurrentRow.Cells["descricao"].Value.ToString();
+            txtEmbalagem.Text = dgvProdutos.CurrentRow.Cells["embalagem"].Value.ToString();
+            txtEstoque.Text = dgvProdutos.CurrentRow.Cells["estoque"].Value.ToString();
+            txtIdProduto.Text = dgvProdutos.CurrentRow.Cells["id_produto"].Value.ToString();
+            txtPreco.Text = dgvProdutos.CurrentRow.Cells["preco"].Value.ToString();
+            txtPrecoPromocional.Text = dgvProdutos.CurrentRow.Cells["preco_promocional"].Value.ToString();
+            cbCategoria.Text = dgvProdutos.CurrentRow.Cells["nome_categoria"].Value.ToString();
             DataTable dtPath = new DataTable();
             dtPath = BusinesConfig.PathImage();
             image = dgvProdutos.CurrentRow.Cells["image"].Value.ToString();
@@ -183,16 +192,6 @@ namespace Views.Produtos
             string url = dtPath.Rows[0]["image_path"].ToString() + image;
             fotoProduto.Load(url);
             fotoProduto.Load();
-
-            txtCodigo.Text = dgvProdutos.CurrentRow.Cells["codigo"].Value.ToString();
-            txtEAN.Text = dgvProdutos.CurrentRow.Cells["ean"].Value.ToString();
-            txtDescricao.Text = dgvProdutos.CurrentRow.Cells["descricao"].Value.ToString();
-            txtEmbalagem.Text = dgvProdutos.CurrentRow.Cells["embalagem"].Value.ToString();
-            txtEstoque.Text = dgvProdutos.CurrentRow.Cells["estoque"].Value.ToString();
-            txtIdProduto.Text = dgvProdutos.CurrentRow.Cells["id_produto"].Value.ToString();
-            txtPreco.Text = dgvProdutos.CurrentRow.Cells["preco"].Value.ToString();
-            txtPrecoPromocional.Text = dgvProdutos.CurrentRow.Cells["preco_promocional"].Value.ToString();
-            cbCategoria.Text = dgvProdutos.CurrentRow.Cells["nome_categoria"].Value.ToString();
         }
         public static void ResizeImage(string originalFile, string newFile, int newWidth, int maxHeight, bool onlyResizeIfWider)
         {
