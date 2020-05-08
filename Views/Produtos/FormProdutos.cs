@@ -83,7 +83,8 @@ namespace Views.Produtos
             txtEAN.Enabled = false;
             txtEmbalagem.Enabled = false;
             txtEstoque.Enabled = false;
-            txtPreco.Enabled = false;
+            txtPrecoCusto.Enabled = false;
+            txtPrecoVenda.Enabled = false;
             txtPrecoPromocional.Enabled = false;
             cbCategoria.Enabled = false;
             fotoProduto.Enabled = false;
@@ -95,7 +96,8 @@ namespace Views.Produtos
             txtEAN.Enabled = true;
             txtEmbalagem.Enabled = true;
             txtEstoque.Enabled = true;
-            txtPreco.Enabled = true;
+            txtPrecoCusto.Enabled = true;
+            txtPrecoVenda.Enabled = true;
             txtPrecoPromocional.Enabled = true;
             cbCategoria.Enabled = true;
             fotoProduto.Enabled = true;
@@ -142,11 +144,12 @@ namespace Views.Produtos
             txtCodigo.TabIndex = 1;
             txtEAN.TabIndex = 2;
             txtDescricao.TabIndex = 3;
-            txtPreco.TabIndex = 4;
-            txtPrecoPromocional.TabIndex = 5;
-            txtEstoque.TabIndex = 6;
-            txtEmbalagem.TabIndex = 7;
-            btnSalvar.TabIndex = 8;
+            txtPrecoCusto.TabIndex = 4;
+            txtPrecoVenda.TabIndex = 5;
+            txtPrecoPromocional.TabIndex = 6;
+            txtEstoque.TabIndex = 7;
+            txtEmbalagem.TabIndex = 8;
+            btnSalvar.TabIndex = 9;
         }
         //limpar campos
         private void LimparCampos()
@@ -155,8 +158,8 @@ namespace Views.Produtos
             txtDescricao.Clear();
             txtEAN.Clear();
             txtEmbalagem.Clear();
-            txtPreco.Clear();
-            txtPrecoPromocional.Clear();
+            txtPrecoCusto.Clear();
+            txtPrecoVenda.Clear();
             txtEstoque.Clear();
             fotoProduto.Image = Properties.Resources.Asset_1default;
         }
@@ -175,8 +178,8 @@ namespace Views.Produtos
             txtEmbalagem.Text = dgvProdutos.CurrentRow.Cells["embalagem"].Value.ToString();
             txtEstoque.Text = dgvProdutos.CurrentRow.Cells["estoque"].Value.ToString();
             txtIdProduto.Text = dgvProdutos.CurrentRow.Cells["id_produto"].Value.ToString();
-            txtPreco.Text = dgvProdutos.CurrentRow.Cells["preco"].Value.ToString();
-            txtPrecoPromocional.Text = dgvProdutos.CurrentRow.Cells["preco_promocional"].Value.ToString();
+            txtPrecoCusto.Text = dgvProdutos.CurrentRow.Cells["preco"].Value.ToString();
+            txtPrecoVenda.Text = dgvProdutos.CurrentRow.Cells["preco_promocional"].Value.ToString();
             cbCategoria.Text = dgvProdutos.CurrentRow.Cells["nome_categoria"].Value.ToString();
             DataTable dtPath = new DataTable();
             dtPath = BusinesConfig.PathImage();
@@ -227,6 +230,7 @@ namespace Views.Produtos
         }
         private void btnNovoCadastro_Click(object sender, EventArgs e)
         {
+            this.IsNew = true;
             tabControl1.SelectedIndex = 2;
             txtCodigo.Focus();
             LimparCampos();
@@ -236,14 +240,13 @@ namespace Views.Produtos
             btnSalvar.Enabled = true;
             lblSuc.Visible = false;
             lblError.Visible = false;
-            this.IsNew = true;
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
                 string rpta = "";
-                if (this.txtCodigo.Text == string.Empty || this.txtDescricao.Text == string.Empty || this.txtPreco.Text == string.Empty ||
+                if (this.txtCodigo.Text == string.Empty || this.txtDescricao.Text == string.Empty || this.txtPrecoCusto.Text == string.Empty ||
                     string.IsNullOrEmpty(txtEstoque.Text))
                 {
                     msgError("Alguns campos obrigatórios estão vazios!");
@@ -261,8 +264,9 @@ namespace Views.Produtos
                             this.txtCodigo.Text,
                             this.txtEAN.Text,
                             this.txtDescricao.Text.Trim().ToUpper(),
-                            Convert.ToDecimal(this.txtPreco.Text),
-                            Convert.ToDecimal(this.txtPrecoPromocional.Text),
+                            decimal.Parse(txtPrecoCusto.Text),
+                            Convert.ToDecimal(this.txtPrecoCusto.Text),
+                            Convert.ToDecimal(this.txtPrecoVenda.Text),
                             1,
                             image,
                             this.txtEmbalagem.Text,
@@ -276,8 +280,9 @@ namespace Views.Produtos
                             this.txtCodigo.Text,
                             this.txtEAN.Text,
                             this.txtDescricao.Text.Trim().ToUpper(),
-                            Convert.ToDecimal(this.txtPreco.Text),
-                            Convert.ToDecimal(this.txtPrecoPromocional.Text),
+                            decimal.Parse(txtPrecoCusto.Text),
+                            Convert.ToDecimal(this.txtPrecoCusto.Text),
+                            Convert.ToDecimal(this.txtPrecoVenda.Text),
                             1,
                             image,
                             this.txtEmbalagem.Text,
@@ -289,15 +294,17 @@ namespace Views.Produtos
                         if (this.IsNew)
                         {
                             msgSuccess("Produto CADASTRADO com Sucesso!");
+                            lblError.Visible = false;
                         }
                         else
                         {
                             msgSuccess("Produto ATUALIZADO com Sucesso!");
+                            lblError.Visible = false;
                         }
                     }
                     else
                     {
-                        this.msgError(rpta);
+                        MessageBox.Show(rpta);
                     }
                     IsNew = true;
                     btnSalvar.Enabled = false;
@@ -317,6 +324,7 @@ namespace Views.Produtos
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            this.IsNew = true;
             tabControl1.SelectedIndex = 2;
             txtCodigo.Focus();
             LimparCampos();
@@ -327,15 +335,18 @@ namespace Views.Produtos
             btnSalvar.Enabled = true;
             lblSuc.Visible = false;
             lblError.Visible = false;
-            this.IsNew = true;
+            
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            this.IsNew = false;
             HabilitarEdição();
+            btnEditar.Enabled = false;
             btnSalvar.Enabled = true;
             btnNovoCadastro.Enabled = false;
             btnCancelar.Enabled = true;
-            this.IsNew = false;
+            lblError.Visible = false;
+            lblSuc.Visible = false;
         }
 
         private void dgvProdutos_DoubleClick(object sender, EventArgs e)

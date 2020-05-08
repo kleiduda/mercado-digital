@@ -12,12 +12,13 @@ namespace Busines
 {
    public class BusinesProduto
     {
-        public static string InsertRegister(string codigo, string ean, string descricao, decimal preco, decimal precoPromocional, int idCategoria, string image, string embalagem, int estoque)
+        public static string InsertRegister(string codigo, string ean, string descricao,decimal precoCusto, decimal preco, decimal precoPromocional, int idCategoria, string image, string embalagem, int estoque)
         {
             DadosProduto obj = new DadosProduto();
             obj.Codigo = codigo;
             obj.EAN = ean;
             obj.Descricao = descricao;
+            obj.PrecoCusto = precoCusto;
             obj.Preco = preco;
             obj.PrecoPromocional = precoPromocional;
             obj.IdCategoria = idCategoria;
@@ -28,13 +29,14 @@ namespace Busines
             return obj.InsertRegister(obj);
         }
         //editando o produto
-        public static string Editar(int idProduto, string codigo, string ean, string descricao, decimal preco, decimal precoPromocional, int idcategoria, string imagem, string embalagem, int estoque)
+        public static string Editar(int idProduto, string codigo, string ean, string descricao,decimal precoCusto, decimal preco, decimal precoPromocional, int idcategoria, string imagem, string embalagem, int estoque)
         {
             DadosProduto obj = new DadosProduto();
             obj.IdProduto = idProduto;
             obj.Codigo = codigo;
             obj.EAN = ean;
             obj.Descricao = descricao;
+            obj.PrecoCusto = precoCusto;
             obj.Preco = preco;
             obj.PrecoPromocional = precoPromocional;
             obj.IdCategoria = idcategoria;

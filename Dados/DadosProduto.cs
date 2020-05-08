@@ -17,6 +17,7 @@ namespace Dados
         public string Codigo { get; set; }
         public string EAN { get; set; }
         public string Descricao { get; set; }
+        public decimal PrecoCusto { get; set; }
         public decimal Preco { get; set; }
         public decimal PrecoPromocional { get; set; }
         public int IdCategoria { get; set; }
@@ -43,13 +44,14 @@ namespace Dados
         {
             NomeCategoria = nomeCategoria;
         }
-        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal preco, decimal precoPromocional,
+        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal precoCusto, decimal preco, decimal precoPromocional,
             int idCategoria, string imagem, string embalagem, DateTime dataEntrada, string txtPesquisa, int estoque)
         {
             IdProduto = idProduto;
             Codigo = codigo;
             EAN = eAN;
             Descricao = descricao;
+            PrecoCusto = precoCusto;
             Preco = preco;
             PrecoPromocional = precoPromocional;
             IdCategoria = idCategoria;
@@ -88,6 +90,7 @@ namespace Dados
                     command.Parameters.AddWithValue("@codigo", Produto.Codigo);
                     command.Parameters.AddWithValue("@ean", Produto.EAN);
                     command.Parameters.AddWithValue("@descricao", Produto.Descricao);
+                    command.Parameters.AddWithValue("@preco_custo", Produto.PrecoCusto);
                     command.Parameters.AddWithValue("@preco", Produto.Preco);
                     command.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
                     command.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
@@ -124,6 +127,7 @@ namespace Dados
                 command.Parameters.AddWithValue("@codigo", Produto.Codigo);
                 command.Parameters.AddWithValue("@ean", Produto.EAN);
                 command.Parameters.AddWithValue("@descricao", Produto.Descricao);
+                command.Parameters.AddWithValue("@preco_custo", Produto.PrecoCusto);
                 command.Parameters.AddWithValue("@preco", Produto.Preco);
                 command.Parameters.AddWithValue("@preco_promocional", Produto.PrecoPromocional);
                 command.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);

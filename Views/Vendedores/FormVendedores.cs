@@ -319,7 +319,6 @@ namespace Views.Produtos
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-       
         private void btnNovoCadastro_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 2;
@@ -340,6 +339,8 @@ namespace Views.Produtos
             btnCancelar.Enabled = false;
             btnEditar.Enabled = true;
             btnSalvar.Enabled = false;
+            btnNovo.Enabled = true;
+            btnNovoCadastro.Enabled = true;
             DesabilitarEdição();
             this.IsNew = true;
         }

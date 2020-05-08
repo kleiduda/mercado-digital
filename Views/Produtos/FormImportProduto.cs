@@ -224,6 +224,7 @@ namespace Views
                                 Convert.ToString(dgvDados.Rows[i].Cells["codigo"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["ean"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["descricao"].Value.ToString().TrimEnd()),
+                                Convert.ToDecimal(dgvDados.Rows[i].Cells["preco_custo"].Value.ToString()),
                                 Convert.ToDecimal(dgvDados.Rows[i].Cells["preco"].Value.ToString().TrimEnd()),
                                 Convert.ToDecimal(dgvDados.Rows[i].Cells["preco_promocional"].Value.ToString().TrimEnd()),
                                 Convert.ToInt32(dgvDados.Rows[i].Cells["id_categoria"].Value.ToString().TrimEnd()),
