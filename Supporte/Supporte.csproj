@@ -51,6 +51,7 @@
     <Compile Include="Cache\FuncaoCache.cs" />
     <Compile Include="Cache\UserLoginCache.cs" />
     <Compile Include="DataVencimento.cs" />
+    <Compile Include="Enums\BandeirasCartao.cs" />
     <Compile Include="Enums\NivelUsuario.cs" />
     <Compile Include="Enums\PeriodoDia.cs" />
     <Compile Include="Enums\StatusCaixa.cs" />

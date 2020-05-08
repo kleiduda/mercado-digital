@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Busines.Pagamento;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,10 +22,15 @@ namespace Views.Pagamento
             InitializeComponent();
             lblTotal.Text = value;
         }
-
         private void FormDebito_Load(object sender, EventArgs e)
         {
 
         }
+        #region metodos de acao
+        public void ListarCartao()
+        {
+            dgvDebito.DataSource = BusinesCartao.ListarDebito();
+        }
+        #endregion
     }
 }
