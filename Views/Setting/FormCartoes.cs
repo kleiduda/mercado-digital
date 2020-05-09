@@ -22,7 +22,7 @@ namespace Views.Produtos
         }
         private void FormCartoes_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void msgError(string msg)
         {
@@ -41,16 +41,41 @@ namespace Views.Produtos
             {
                 return BandeirasCartao.Cielo;
             }
-            else
+            else if (chkGetNet.Checked == true)
             {
                 return BandeirasCartao.GetNet;
             }
+            else if (chkStone.Checked == true)
+            {
+                return BandeirasCartao.Stone;
+            }
+            else
+            {
+                return BandeirasCartao.PagSeguro;
+            }
+        }
+        private void LiberarCampos()
+        {
+            txtDebito.Enabled = true;
+            txtCredito.Enabled = true;
+            btnSalvar.Enabled = true;
+            txtDebito.Clear();
+            txtCredito.Clear();
+            lblSuc.Visible = false;
+            lblError.Visible = false;
+        }
+        private void BloquearCampos()
+        {
+            txtDebito.Enabled = false;
+            txtCredito.Enabled = false;
+            btnSalvar.Enabled = false;
         }
         private void chkCielo_OnChange(object sender, EventArgs e)
         {
             chkStone.Checked = false;
             chkPagseguro.Checked = false;
             chkGetNet.Checked = false;
+            LiberarCampos();
             txtDebito.Focus();
         }
         private void chkGetNet_OnChange(object sender, EventArgs e)
@@ -58,6 +83,7 @@ namespace Views.Produtos
             chkStone.Checked = false;
             chkPagseguro.Checked = false;
             chkCielo.Checked = false;
+            LiberarCampos();
             txtDebito.Focus();
         }
         private void chkPagSeguro_OnChange(object sender, EventArgs e)
@@ -65,6 +91,7 @@ namespace Views.Produtos
             chkStone.Checked = false;
             chkCielo.Checked = false;
             chkGetNet.Checked = false;
+            LiberarCampos();
             txtDebito.Focus();
         }
         private void chkStone_OnChange(object sender, EventArgs e)
@@ -72,35 +99,54 @@ namespace Views.Produtos
             chkCielo.Checked = false;
             chkPagseguro.Checked = false;
             chkGetNet.Checked = false;
+            LiberarCampos();
             txtDebito.Focus();
         }
         #endregion
         private void btnValidar_Click(object sender, EventArgs e)
         {
-            string rpta = "";
             try
             {
-                if (string.IsNullOrEmpty(txtDebito.Text) || string.IsNullOrEmpty(txtCredito.Text))
+                string rpta = "";
+                if (this.txtDebito.Text == string.Empty || this.txtCredito.Text == string.Empty)
                 {
-                    msgError("Informe a taxa para DÉBITO ou CRÉDITO");
+                    lblSuc.Visible = false;
+                    msgError("Alguns campos obrigatórios não foram preenchidos!");
                 }
-                else if(!BusinesCartao.ValidaCartao(Bandeira()))
+                else if (BusinesCartao.ValidaCartao(Bandeira()))
                 {
-                    rpta = BusinesCartao.CadastroCartao(BandeirasCartao.Cielo, decimal.Parse(txtDebito.Text), decimal.Parse(txtCredito.Text));
-                }
-                if (rpta.Equals("OK"))
-                {
-                    msgSuccess("Taxa Cadastrada com sucesso!");
+                    rpta = BusinesCartao.UpdateCartao(Bandeira(), decimal.Parse(txtDebito.Text), decimal.Parse(txtCredito.Text));
+                    if (rpta.Equals("OK"))
+                    {
+                        lblError.Visible = false;
+                        lblSuc.Visible = true;
+                        msgSuccess("Cadastro ATUALIZADO com sucesso!");
+                    }
                 }
                 else
                 {
-                    msgError(rpta + "Erro segundo");
+                    rpta = BusinesCartao.CadastroCartao(Bandeira(), decimal.Parse(txtDebito.Text), decimal.Parse(txtCredito.Text));
+                    
+                    if (rpta.Equals("OK"))
+                    {
+                        lblError.Visible = false;
+                        lblSuc.Visible = true;
+                        msgSuccess("Cadastro REALIZADO com sucesso!");
+                    }
+                    else
+                    {
+                        lblError.Visible = true;
+                        lblSuc.Visible = false;
+                        msgError(rpta);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+            
+            BloquearCampos();
         }
     }
 }

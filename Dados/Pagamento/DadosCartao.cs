@@ -53,6 +53,30 @@ namespace Dados.Pagamento
                 return rpta;
             }
         }
+        public string UpdateCartao(DadosCartao Cartao)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                string rpta = "";
+                try
+                {
+                    command.Connection = connection;
+                    command.CommandText = "Update tb_cartoes SET taxa_debito=@taxa_debito, taxa_credito=@taxa_credito WHERE id_bandeira=@id_bandeira";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_bandeira", Cartao.Bandeira);
+                    command.Parameters.AddWithValue("@taxa_debito", Cartao.TaxaDebito);
+                    command.Parameters.AddWithValue("@taxa_credito", Cartao.TaxaCredito);
+                    //command.Parameters.AddWithValue("@id_pagamento", Cartao.IdPagamento);
+                    rpta = command.ExecuteNonQuery() == 1 ? "OK" : "Falha ao atualizar cartao";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message + ex.StackTrace;
+                }
+                return rpta;
+            }
+        }
         public DataTable ListarDebito()
         {
             using (var connection = GetConnection())

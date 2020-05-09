@@ -19,6 +19,14 @@ namespace Busines.Pagamento
             obj.TaxaCredito = taxaCredito;
             return obj.CadastroCartao(obj);
         }
+        public static string UpdateCartao(BandeirasCartao bandeira, decimal taxaDebito, decimal taxaCredito)
+        {
+            DadosCartao obj = new DadosCartao();
+            obj.Bandeira = bandeira;
+            obj.TaxaDebito = taxaDebito;
+            obj.TaxaCredito = taxaCredito;
+            return obj.UpdateCartao(obj);
+        }
         public static DataTable ListarDebito()
         {
             return new DadosCartao().ListarDebito();
