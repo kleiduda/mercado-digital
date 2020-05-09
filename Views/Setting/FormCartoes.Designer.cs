@@ -440,7 +440,7 @@
             this.btnSalvar.Size = new System.Drawing.Size(127, 44);
             this.btnSalvar.TabIndex = 177;
             this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalvar.Textcolor = System.Drawing.Color.Gray;
             this.btnSalvar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.Click += new System.EventHandler(this.btnValidar_Click);
