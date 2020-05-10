@@ -86,7 +86,7 @@ namespace Dados.Pagamento
                 try
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM tb_cartoes WHERE id_pagamento = 2";
+                    command.CommandText = "select c.id_bandeira, b.nome_bandeira, c.taxa_debito, taxa_credito from tb_cartoes c INNER JOIN tb_bandeira_cartao b ON c.id_bandeira=b.id_bandeira";
                     command.CommandType = CommandType.Text;
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(dt);

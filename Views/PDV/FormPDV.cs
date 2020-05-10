@@ -24,7 +24,6 @@ namespace Views
         {
             InitializeComponent();
         }
-
         private void FormPDV_Load(object sender, EventArgs e)
         {
             IdCaixaAtual();
@@ -415,7 +414,7 @@ namespace Views
             FormDinheiro _frm = new FormDinheiro(lblTotal.Text);
             _frm.ShowDialog();
             this.Enabled = true;
-            Busines.Pagamento.BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Dinheiro, int.Parse(lblIdPedido.Text), decimal.Parse(_frm.Recebido), decimal.Parse(_frm.Troco));
+            BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Dinheiro, int.Parse(lblIdPedido.Text), decimal.Parse(_frm.Recebido), decimal.Parse(_frm.Troco));
             lblTroco.Text = _frm.Troco;
             VerificarPagamentoPedido();
             this.txtValida.Text = _frm.ValidaFecharCompra;
@@ -469,9 +468,34 @@ namespace Views
         private void btnDebito_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            Pagamento.FormDebito frm = new Pagamento.FormDebito(lblTotal.Text);
+            FormDebito frm = new FormDebito(lblTotal.Text);
             frm.ShowDialog();
             this.Enabled = true;
+            BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Débito, int.Parse(lblIdPedido.Text), decimal.Parse(txtSubTotal.Text), 0);
+            try
+            {
+                string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), StatusPedido.Fechado);
+                lblIdPedido.Text = "idpedido";
+                txtPesquisaProduto.Enabled = false;
+                lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
+                DisableBtn();
+                btnFechar.Enabled = true;
+                lblTrocoT.Text = "Troco:";
+                if (rpta.Equals("OK"))
+                {
+                    lblPagamento.Text = TiposPagamento.Débito.ToString();
+                }
+                else
+                {
+                    MessageBox.Show(rpta);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            CompraEmAndamento = true;
+           
         }
         private void btnFiado_Click(object sender, EventArgs e)
         {

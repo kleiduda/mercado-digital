@@ -97,7 +97,6 @@ namespace Views.Pagamento
             CalculoTroco();
             btnConfirma.Enabled = true;
         }
-
         private void btnConfirma_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtRecebido.Text))
@@ -120,9 +119,7 @@ namespace Views.Pagamento
                     ValoresPDV();
                     this.Close();
                 }
-                
             }
-                
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
