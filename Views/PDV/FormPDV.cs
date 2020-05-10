@@ -76,8 +76,8 @@ namespace Views
         //bloco pagamento. recebido, troco
         public void LimparBlocoPagamento()
         {
-            lblrecebido.Text = string.Empty;
-            lblTroco.Text = string.Empty;
+            lblrecebido.Text = "0,00";
+            lblTroco.Text = "0,00";
             lblPagamento.Text = string.Empty;
         }
         private void ListarProdutos()
@@ -471,7 +471,7 @@ namespace Views
             FormDebito frm = new FormDebito(lblTotal.Text);
             frm.ShowDialog();
             this.Enabled = true;
-            BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Débito, int.Parse(lblIdPedido.Text), decimal.Parse(txtSubTotal.Text), 0);
+            BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Débito, int.Parse(lblIdPedido.Text), decimal.Parse(lblTotal.Text), decimal.Parse(lblTroco.Text));
             try
             {
                 string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), StatusPedido.Fechado);

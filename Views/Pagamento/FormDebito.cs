@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -59,13 +60,32 @@ namespace Views.Pagamento
 
         #endregion
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            try
+            {
+                switch (keyData)
+                {
+                    case Keys.Down:
+                        break;
+                    case Keys.Enter:
+                        this.Close();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void dgvDebito_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
             }
-            this.Close();
+           // this.Close();
         }
         private void btnConfirma_Click(object sender, EventArgs e)
         {
