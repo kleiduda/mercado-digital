@@ -28,16 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pProduct = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSalvar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtCredito = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtDebito = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblSuc = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
-            this.txtCredito = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDebito = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.chkGetNet = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -49,23 +59,22 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnSalvar = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvCadastros = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel1.SuspendLayout();
             this.pProduct.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoGetNet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastros)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -112,6 +121,7 @@
             // 
             this.pProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pProduct.Controls.Add(this.panel5);
             this.pProduct.Controls.Add(this.panel2);
             this.pProduct.Controls.Add(this.lblSuc);
             this.pProduct.Controls.Add(this.lblError);
@@ -130,6 +140,147 @@
             this.pProduct.Name = "pProduct";
             this.pProduct.Size = new System.Drawing.Size(1028, 639);
             this.pProduct.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.panel2.Controls.Add(this.btnSalvar);
+            this.panel2.Controls.Add(this.txtCredito);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.txtDebito);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Location = new System.Drawing.Point(209, 318);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(488, 235);
+            this.panel2.TabIndex = 172;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalvar.BorderRadius = 0;
+            this.btnSalvar.ButtonText = "SALVAR";
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSalvar.Enabled = false;
+            this.btnSalvar.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSalvar.Iconimage = global::Views.Properties.Resources.save;
+            this.btnSalvar.Iconimage_right = null;
+            this.btnSalvar.Iconimage_right_Selected = null;
+            this.btnSalvar.Iconimage_Selected = null;
+            this.btnSalvar.IconMarginLeft = 0;
+            this.btnSalvar.IconMarginRight = 0;
+            this.btnSalvar.IconRightVisible = false;
+            this.btnSalvar.IconRightZoom = 0D;
+            this.btnSalvar.IconVisible = true;
+            this.btnSalvar.IconZoom = 30D;
+            this.btnSalvar.IsTab = false;
+            this.btnSalvar.Location = new System.Drawing.Point(14, 183);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnSalvar.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnSalvar.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnSalvar.selected = false;
+            this.btnSalvar.Size = new System.Drawing.Size(127, 44);
+            this.btnSalvar.TabIndex = 177;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalvar.Textcolor = System.Drawing.Color.Gray;
+            this.btnSalvar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Click += new System.EventHandler(this.btnValidar_Click);
+            // 
+            // txtCredito
+            // 
+            this.txtCredito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCredito.Enabled = false;
+            this.txtCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txtCredito.Location = new System.Drawing.Point(134, 127);
+            this.txtCredito.Name = "txtCredito";
+            this.txtCredito.Size = new System.Drawing.Size(102, 36);
+            this.txtCredito.TabIndex = 170;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(10, 56);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 20);
+            this.label3.TabIndex = 157;
+            this.label3.Text = "#TAXAS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(136, 103);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 169;
+            this.label2.Text = "Crédito %";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(488, 10);
+            this.panel4.TabIndex = 175;
+            // 
+            // txtDebito
+            // 
+            this.txtDebito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtDebito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDebito.Enabled = false;
+            this.txtDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txtDebito.Location = new System.Drawing.Point(12, 127);
+            this.txtDebito.Name = "txtDebito";
+            this.txtDebito.Size = new System.Drawing.Size(102, 36);
+            this.txtDebito.TabIndex = 168;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel3.Controls.Add(this.pictureBox5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(488, 37);
+            this.panel3.TabIndex = 174;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Views.Properties.Resources.arrow_top;
+            this.pictureBox5.Location = new System.Drawing.Point(7, 17);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(28, 27);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(10, 103);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 17);
+            this.label12.TabIndex = 167;
+            this.label12.Text = "Débito %";
             // 
             // lblSuc
             // 
@@ -165,52 +316,6 @@
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;
             // 
-            // txtCredito
-            // 
-            this.txtCredito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtCredito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCredito.Enabled = false;
-            this.txtCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtCredito.Location = new System.Drawing.Point(134, 127);
-            this.txtCredito.Name = "txtCredito";
-            this.txtCredito.Size = new System.Drawing.Size(102, 36);
-            this.txtCredito.TabIndex = 170;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(136, 103);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 169;
-            this.label2.Text = "Crédito %";
-            // 
-            // txtDebito
-            // 
-            this.txtDebito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtDebito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDebito.Enabled = false;
-            this.txtDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txtDebito.Location = new System.Drawing.Point(12, 127);
-            this.txtDebito.Name = "txtDebito";
-            this.txtDebito.Size = new System.Drawing.Size(102, 36);
-            this.txtDebito.TabIndex = 168;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(10, 103);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 17);
-            this.label12.TabIndex = 167;
-            this.label12.Text = "Débito %";
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -238,7 +343,7 @@
             // chkGetNet
             // 
             this.chkGetNet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkGetNet.BackColor = System.Drawing.Color.Gray;
+            this.chkGetNet.BackColor = System.Drawing.Color.White;
             this.chkGetNet.ChechedOffColor = System.Drawing.Color.White;
             this.chkGetNet.Checked = false;
             this.chkGetNet.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
@@ -253,7 +358,7 @@
             // chkStone
             // 
             this.chkStone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkStone.BackColor = System.Drawing.Color.Gray;
+            this.chkStone.BackColor = System.Drawing.Color.White;
             this.chkStone.ChechedOffColor = System.Drawing.Color.White;
             this.chkStone.Checked = false;
             this.chkStone.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
@@ -268,7 +373,7 @@
             // chkPagseguro
             // 
             this.chkPagseguro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkPagseguro.BackColor = System.Drawing.Color.Gray;
+            this.chkPagseguro.BackColor = System.Drawing.Color.White;
             this.chkPagseguro.ChechedOffColor = System.Drawing.Color.White;
             this.chkPagseguro.Checked = false;
             this.chkPagseguro.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
@@ -283,7 +388,7 @@
             // chkCielo
             // 
             this.chkCielo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkCielo.BackColor = System.Drawing.Color.Gray;
+            this.chkCielo.BackColor = System.Drawing.Color.White;
             this.chkCielo.ChechedOffColor = System.Drawing.Color.White;
             this.chkCielo.Checked = false;
             this.chkCielo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
@@ -350,100 +455,90 @@
             this.btnClose.TabIndex = 143;
             this.btnClose.TabStop = false;
             // 
-            // panel2
+            // panel5
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.panel2.Controls.Add(this.btnSalvar);
-            this.panel2.Controls.Add(this.txtCredito);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.txtDebito);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Location = new System.Drawing.Point(209, 318);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(488, 235);
-            this.panel2.TabIndex = 172;
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel5.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel5.Controls.Add(this.dgvCadastros);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(514, 421);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(452, 185);
+            this.panel5.TabIndex = 178;
             // 
-            // panel4
+            // label4
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 37);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(488, 10);
-            this.panel4.TabIndex = 175;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.Location = new System.Drawing.Point(7, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(146, 20);
+            this.label4.TabIndex = 157;
+            this.label4.Text = "#CADASTRADOS";
             // 
-            // panel3
+            // dgvCadastros
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel3.Controls.Add(this.pictureBox5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(488, 37);
-            this.panel3.TabIndex = 174;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Views.Properties.Resources.arrow_top;
-            this.pictureBox5.Location = new System.Drawing.Point(7, 17);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(28, 27);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(10, 56);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 20);
-            this.label3.TabIndex = 157;
-            this.label3.Text = "#TAXAS";
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSalvar.BorderRadius = 0;
-            this.btnSalvar.ButtonText = "SALVAR";
-            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalvar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnSalvar.Iconimage = global::Views.Properties.Resources.save;
-            this.btnSalvar.Iconimage_right = null;
-            this.btnSalvar.Iconimage_right_Selected = null;
-            this.btnSalvar.Iconimage_Selected = null;
-            this.btnSalvar.IconMarginLeft = 0;
-            this.btnSalvar.IconMarginRight = 0;
-            this.btnSalvar.IconRightVisible = false;
-            this.btnSalvar.IconRightZoom = 0D;
-            this.btnSalvar.IconVisible = true;
-            this.btnSalvar.IconZoom = 30D;
-            this.btnSalvar.IsTab = false;
-            this.btnSalvar.Location = new System.Drawing.Point(14, 183);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnSalvar.OnHovercolor = System.Drawing.Color.WhiteSmoke;
-            this.btnSalvar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btnSalvar.selected = false;
-            this.btnSalvar.Size = new System.Drawing.Size(127, 44);
-            this.btnSalvar.TabIndex = 177;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalvar.Textcolor = System.Drawing.Color.Gray;
-            this.btnSalvar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Click += new System.EventHandler(this.btnValidar_Click);
+            this.dgvCadastros.AllowUserToAddRows = false;
+            this.dgvCadastros.AllowUserToDeleteRows = false;
+            this.dgvCadastros.AllowUserToOrderColumns = true;
+            this.dgvCadastros.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCadastros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCadastros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCadastros.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgvCadastros.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCadastros.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCadastros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCadastros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCadastros.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCadastros.DoubleBuffered = true;
+            this.dgvCadastros.EnableHeadersVisualStyles = false;
+            this.dgvCadastros.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvCadastros.HeaderBgColor = System.Drawing.Color.Gainsboro;
+            this.dgvCadastros.HeaderForeColor = System.Drawing.Color.Black;
+            this.dgvCadastros.Location = new System.Drawing.Point(12, 34);
+            this.dgvCadastros.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCadastros.MultiSelect = false;
+            this.dgvCadastros.Name = "dgvCadastros";
+            this.dgvCadastros.ReadOnly = true;
+            this.dgvCadastros.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCadastros.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvCadastros.RowHeadersVisible = false;
+            this.dgvCadastros.RowHeadersWidth = 62;
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 5);
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvCadastros.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCadastros.RowTemplate.Height = 40;
+            this.dgvCadastros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCadastros.Size = new System.Drawing.Size(428, 139);
+            this.dgvCadastros.TabIndex = 159;
             // 
             // FormCartoes
             // 
@@ -461,16 +556,19 @@
             this.panel1.PerformLayout();
             this.pProduct.ResumeLayout(false);
             this.pProduct.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoGetNet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCadastros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,5 +603,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Bunifu.Framework.UI.BunifuFlatButton btnSalvar;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvCadastros;
     }
 }

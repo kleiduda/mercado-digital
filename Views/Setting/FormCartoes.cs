@@ -22,7 +22,8 @@ namespace Views.Produtos
         }
         private void FormCartoes_Load(object sender, EventArgs e)
         {
-
+            dgvCadastros.DataSource = BusinesCartao.ListarDebito();
+            dgvCadastros.Columns["id_bandeira"].Visible = false;
         }
         private void msgError(string msg)
         {

@@ -497,7 +497,6 @@ namespace Views
             CompraEmAndamento = true;
            
         }
-
         private void btnFiado_Click(object sender, EventArgs e)
         {
             FormFiado _frm = new FormFiado(lblTotal.Text, lblIdPedido.Text);
@@ -551,7 +550,6 @@ namespace Views
             this.Enabled = true;
             CpfNaNota = frm.CPF;
         }
-
         private void timerHeader_Tick(object sender, EventArgs e)
         {
             DateTime data = DateTime.Now;
