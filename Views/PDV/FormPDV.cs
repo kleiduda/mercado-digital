@@ -497,6 +497,7 @@ namespace Views
             CompraEmAndamento = true;
            
         }
+
         private void btnFiado_Click(object sender, EventArgs e)
         {
             FormFiado _frm = new FormFiado(lblTotal.Text, lblIdPedido.Text);
@@ -555,6 +556,37 @@ namespace Views
         {
             DateTime data = DateTime.Now;
             lblData.Text = data.ToShortDateString() + " " + data.ToLongTimeString();
+        }
+        private void btnCredito_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            FormCredito frm = new FormCredito(lblTotal.Text);
+            frm.ShowDialog();
+            this.Enabled = true;
+            BusinesPagamento.CadastroPedidoPagamento(TiposPagamento.Crédito, int.Parse(lblIdPedido.Text), decimal.Parse(lblTotal.Text), decimal.Parse(lblTroco.Text));
+            try
+            {
+                string rpta = BusinesPedido.FecharCompra(Convert.ToInt32(lblIdPedido.Text), StatusPedido.Fechado);
+                lblIdPedido.Text = "idpedido";
+                txtPesquisaProduto.Enabled = false;
+                lblCompraAberta.Text = "Compra Finalizada... *F5 PARA ABRIR UMA NOVA COMPRA";
+                DisableBtn();
+                btnFechar.Enabled = true;
+                lblTrocoT.Text = "Troco:";
+                if (rpta.Equals("OK"))
+                {
+                    lblPagamento.Text = TiposPagamento.Crédito.ToString();
+                }
+                else
+                {
+                    MessageBox.Show(rpta);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            CompraEmAndamento = true;
         }
     }
 }

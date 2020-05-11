@@ -85,6 +85,12 @@
     <Compile Include="Pagamento\Fiado\FormCadastroCliente.Designer.cs">
       <DependentUpon>FormCadastroCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pagamento\FormCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagamento\FormCredito.Designer.cs">
+      <DependentUpon>FormCredito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagamento\FormDebito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\Fiado\FormCadastroCliente.resx">
       <DependentUpon>FormCadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagamento\FormCredito.resx">
+      <DependentUpon>FormCredito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagamento\FormDebito.resx">
       <DependentUpon>FormDebito.cs</DependentUpon>

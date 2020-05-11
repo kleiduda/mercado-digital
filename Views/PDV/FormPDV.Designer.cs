@@ -819,6 +819,7 @@
             this.btnCredito.TabIndex = 156;
             this.btnCredito.Text = "Crédito";
             this.btnCredito.UseVisualStyleBackColor = false;
+            this.btnCredito.Click += new System.EventHandler(this.btnCredito_Click);
             // 
             // btnFiado
             // 
