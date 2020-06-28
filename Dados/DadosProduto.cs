@@ -151,9 +151,14 @@ namespace Dados
                 command.Parameters.AddWithValue("@image", Produto.Imagem);
                 command.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
                 command.Parameters.AddWithValue("@estoque", Produto.Estoque);
+                //info extra
+                command.Parameters.AddWithValue("@tipo_embalagem", Produto.TipoEmbalagem);
+                command.Parameters.AddWithValue("@qtd_embalagem", Produto.QtdEmbalagem);
+                command.Parameters.AddWithValue("@preco_unidade", Produto.PrecoUnidade);
+                command.Parameters.AddWithValue("@metro_cubico", Produto.MetroCubico);
                 command.Parameters.AddWithValue("@medida", Produto.Medida);
 
-                rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar o produto";
+                rpta = command.ExecuteNonQuery() == 3 ? "OK" : "Erro ao atualizar o produto";
 
                 command.Parameters.Clear();
             }

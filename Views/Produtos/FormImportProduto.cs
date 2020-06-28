@@ -234,7 +234,8 @@ namespace Views
                                 dgvDados.Rows[i].Cells["tipo_embalagem"].Value.ToString().TrimEnd(),
                                 Convert.ToInt32(dgvDados.Rows[i].Cells["qtd_embalagem"].Value.ToString().TrimEnd()),
                                 Convert.ToDecimal(dgvDados.Rows[i].Cells["preco_unidade"].Value.ToString().TrimEnd()),
-                                Convert.ToDecimal(dgvDados.Rows[i].Cells["metro_cubico"].Value.ToString().TrimEnd())
+                                Convert.ToDecimal(dgvDados.Rows[i].Cells["metro_cubico"].Value.ToString().TrimEnd()),
+                                dgvDados.Rows[i].Cells["medida"].Value.ToString().TrimEnd()
                                 );
 
 

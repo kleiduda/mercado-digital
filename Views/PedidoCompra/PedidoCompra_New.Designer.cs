@@ -47,6 +47,9 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.pProdutos = new System.Windows.Forms.Panel();
             this.dgvRegistros = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pPedido = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
@@ -57,9 +60,6 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.obs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pButtons.SuspendLayout();
             this.pProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
@@ -117,7 +117,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
-            this.txtSearch.Location = new System.Drawing.Point(130, 25);
+            this.txtSearch.Location = new System.Drawing.Point(229, 22);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(362, 31);
             this.txtSearch.TabIndex = 168;
@@ -275,6 +275,27 @@
             this.dgvRegistros.Size = new System.Drawing.Size(1069, 607);
             this.dgvRegistros.TabIndex = 171;
             this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            // 
+            // obs
+            // 
+            this.obs.DataPropertyName = " ";
+            this.obs.HeaderText = "Obs";
+            this.obs.MinimumWidth = 6;
+            this.obs.Name = "obs";
+            // 
+            // qtd
+            // 
+            this.qtd.HeaderText = "Qtd";
+            this.qtd.MinimumWidth = 6;
+            this.qtd.Name = "qtd";
+            // 
+            // add
+            // 
+            this.add.FalseValue = "0";
+            this.add.HeaderText = "Incluir";
+            this.add.MinimumWidth = 6;
+            this.add.Name = "add";
+            this.add.TrueValue = "1";
             // 
             // pPedido
             // 
@@ -453,27 +474,6 @@
             this.label1.Size = new System.Drawing.Size(41, 44);
             this.label1.TabIndex = 162;
             this.label1.Text = "#";
-            // 
-            // obs
-            // 
-            this.obs.DataPropertyName = " ";
-            this.obs.HeaderText = "Obs";
-            this.obs.MinimumWidth = 6;
-            this.obs.Name = "obs";
-            // 
-            // qtd
-            // 
-            this.qtd.HeaderText = "Qtd";
-            this.qtd.MinimumWidth = 6;
-            this.qtd.Name = "qtd";
-            // 
-            // add
-            // 
-            this.add.FalseValue = "0";
-            this.add.HeaderText = "Incluir";
-            this.add.MinimumWidth = 6;
-            this.add.Name = "add";
-            this.add.TrueValue = "1";
             // 
             // PedidoCompra_New
             // 

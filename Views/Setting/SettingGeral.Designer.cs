@@ -54,10 +54,10 @@
             // lblValorInicial
             // 
             this.lblValorInicial.AutoSize = true;
-            this.lblValorInicial.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorInicial.Location = new System.Drawing.Point(85, 222);
             this.lblValorInicial.Name = "lblValorInicial";
-            this.lblValorInicial.Size = new System.Drawing.Size(275, 27);
+            this.lblValorInicial.Size = new System.Drawing.Size(264, 25);
             this.lblValorInicial.TabIndex = 144;
             this.lblValorInicial.Text = "Onde guardo suas imagens?";
             this.lblValorInicial.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,11 +66,11 @@
             // 
             this.txtPathImage.AllowDrop = true;
             this.txtPathImage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPathImage.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPathImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPathImage.Location = new System.Drawing.Point(77, 318);
             this.txtPathImage.Margin = new System.Windows.Forms.Padding(4);
             this.txtPathImage.Name = "txtPathImage";
-            this.txtPathImage.Size = new System.Drawing.Size(881, 35);
+            this.txtPathImage.Size = new System.Drawing.Size(881, 30);
             this.txtPathImage.TabIndex = 151;
             this.txtPathImage.Click += new System.EventHandler(this.txtPathImage_Click);
             // 
@@ -133,8 +133,9 @@
             this.Controls.Add(this.txtPathImage);
             this.Controls.Add(this.lblValorInicial);
             this.Controls.Add(this.lblUser);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingGeral";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingGeral";
             this.Load += new System.EventHandler(this.SettingGeral_Load);
             this.ResumeLayout(false);
