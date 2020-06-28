@@ -20,10 +20,23 @@ namespace Views.Produtos
         {
             InitializeComponent();
         }
+        private void dgvCadastro_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                MessageBox.Show("OK");
+                MessageBox.Show((e.RowIndex + 1) + "  Row  " + (e.ColumnIndex + 1) + "  Column button clicked ");
+            }
+        }
         private void FormCartoes_Load(object sender, EventArgs e)
         {
             dgvCadastros.DataSource = BusinesCartao.ListarDebito();
             dgvCadastros.Columns["id_bandeira"].Visible = false;
+            DataGridViewButtonColumn btnExcluir = new DataGridViewButtonColumn();
+            btnExcluir.HeaderText = "Excluir";
+            btnExcluir.Text = "X";
+            btnExcluir.UseColumnTextForButtonValue = true;
+            dgvCadastros.Columns.Add(btnExcluir);
         }
         private void msgError(string msg)
         {

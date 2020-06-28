@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             this.painelContainer = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pLogo = new System.Windows.Forms.Panel();
             this.imageLogo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pConteudo = new System.Windows.Forms.Panel();
+            this.pConteudoHeader = new System.Windows.Forms.Panel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.fotoUsuario = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -76,6 +77,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.btnPedidoCompra = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pTituloVendasMenu = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -94,7 +96,7 @@
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.btnClientes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnVendedores = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton9 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSetting = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnFornecedores = new Bunifu.Framework.UI.BunifuFlatButton();
             this.menuProduto = new System.Windows.Forms.Panel();
             this.btnNovoProduto = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -106,7 +108,7 @@
             this.pHeader = new System.Windows.Forms.Panel();
             this.anima1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.painelContainer.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.pConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoUsuario)).BeginInit();
@@ -130,7 +132,7 @@
             // painelContainer
             // 
             this.painelContainer.BackColor = System.Drawing.Color.White;
-            this.painelContainer.Controls.Add(this.panel7);
+            this.painelContainer.Controls.Add(this.pLogo);
             this.painelContainer.Controls.Add(this.label3);
             this.painelContainer.Controls.Add(this.label2);
             this.painelContainer.Controls.Add(this.pConteudo);
@@ -143,15 +145,15 @@
             this.painelContainer.Size = new System.Drawing.Size(1582, 953);
             this.painelContainer.TabIndex = 0;
             // 
-            // panel7
+            // pLogo
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
-            this.panel7.Controls.Add(this.imageLogo);
-            this.anima1.SetDecoration(this.panel7, BunifuAnimatorNS.DecorationType.None);
-            this.panel7.Location = new System.Drawing.Point(293, 17);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(225, 170);
-            this.panel7.TabIndex = 154;
+            this.pLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(107)))), ((int)(((byte)(192)))));
+            this.pLogo.Controls.Add(this.imageLogo);
+            this.anima1.SetDecoration(this.pLogo, BunifuAnimatorNS.DecorationType.None);
+            this.pLogo.Location = new System.Drawing.Point(293, 17);
+            this.pLogo.Name = "pLogo";
+            this.pLogo.Size = new System.Drawing.Size(225, 170);
+            this.pLogo.TabIndex = 154;
             // 
             // imageLogo
             // 
@@ -195,6 +197,7 @@
             // 
             // pConteudo
             // 
+            this.pConteudo.Controls.Add(this.pConteudoHeader);
             this.pConteudo.Controls.Add(this.lblUsuario);
             this.pConteudo.Controls.Add(this.fotoUsuario);
             this.pConteudo.Controls.Add(this.panel11);
@@ -207,6 +210,15 @@
             this.pConteudo.Name = "pConteudo";
             this.pConteudo.Size = new System.Drawing.Size(1322, 936);
             this.pConteudo.TabIndex = 167;
+            // 
+            // pConteudoHeader
+            // 
+            this.anima1.SetDecoration(this.pConteudoHeader, BunifuAnimatorNS.DecorationType.None);
+            this.pConteudoHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pConteudoHeader.Location = new System.Drawing.Point(0, 0);
+            this.pConteudoHeader.Name = "pConteudoHeader";
+            this.pConteudoHeader.Size = new System.Drawing.Size(1322, 186);
+            this.pConteudoHeader.TabIndex = 171;
             // 
             // lblUsuario
             // 
@@ -253,30 +265,30 @@
             this.dgvProdutosVencimento.AllowUserToAddRows = false;
             this.dgvProdutosVencimento.AllowUserToDeleteRows = false;
             this.dgvProdutosVencimento.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProdutosVencimento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProdutosVencimento.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvProdutosVencimento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdutosVencimento.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvProdutosVencimento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProdutosVencimento.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosVencimento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosVencimento.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvProdutosVencimento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.anima1.SetDecoration(this.dgvProdutosVencimento, BunifuAnimatorNS.DecorationType.None);
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutosVencimento.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutosVencimento.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvProdutosVencimento.DoubleBuffered = true;
             this.dgvProdutosVencimento.EnableHeadersVisualStyles = false;
             this.dgvProdutosVencimento.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -288,14 +300,14 @@
             this.dgvProdutosVencimento.Name = "dgvProdutosVencimento";
             this.dgvProdutosVencimento.ReadOnly = true;
             this.dgvProdutosVencimento.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosVencimento.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosVencimento.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvProdutosVencimento.RowHeadersVisible = false;
             this.dgvProdutosVencimento.RowHeadersWidth = 62;
             this.dgvProdutosVencimento.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -357,32 +369,32 @@
             this.dgvProdutosMaisVendidos.AllowUserToAddRows = false;
             this.dgvProdutosMaisVendidos.AllowUserToDeleteRows = false;
             this.dgvProdutosMaisVendidos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvProdutosMaisVendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvProdutosMaisVendidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvProdutosMaisVendidos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdutosMaisVendidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdutosMaisVendidos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvProdutosMaisVendidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProdutosMaisVendidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosMaisVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvProdutosMaisVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.anima1.SetDecoration(this.dgvProdutosMaisVendidos, BunifuAnimatorNS.DecorationType.None);
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProdutosMaisVendidos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProdutosMaisVendidos.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvProdutosMaisVendidos.DoubleBuffered = true;
             this.dgvProdutosMaisVendidos.EnableHeadersVisualStyles = false;
             this.dgvProdutosMaisVendidos.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -394,14 +406,14 @@
             this.dgvProdutosMaisVendidos.Name = "dgvProdutosMaisVendidos";
             this.dgvProdutosMaisVendidos.ReadOnly = true;
             this.dgvProdutosMaisVendidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutosMaisVendidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutosMaisVendidos.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvProdutosMaisVendidos.RowHeadersVisible = false;
             this.dgvProdutosMaisVendidos.RowHeadersWidth = 62;
             this.dgvProdutosMaisVendidos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -724,6 +736,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.bunifuSeparator2);
+            this.panel2.Controls.Add(this.btnPedidoCompra);
             this.panel2.Controls.Add(this.btnConfig);
             this.panel2.Controls.Add(this.pTituloVendasMenu);
             this.panel2.Controls.Add(this.bunifuSeparator5);
@@ -738,7 +751,7 @@
             this.panel2.Controls.Add(this.bunifuSeparator3);
             this.panel2.Controls.Add(this.btnClientes);
             this.panel2.Controls.Add(this.btnVendedores);
-            this.panel2.Controls.Add(this.bunifuFlatButton9);
+            this.panel2.Controls.Add(this.btnSetting);
             this.panel2.Controls.Add(this.btnFornecedores);
             this.panel2.Controls.Add(this.menuProduto);
             this.panel2.Controls.Add(this.panel3);
@@ -755,13 +768,51 @@
             this.bunifuSeparator2.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 676);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(0, 712);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(229, 21);
             this.bunifuSeparator2.TabIndex = 173;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
+            // 
+            // btnPedidoCompra
+            // 
+            this.btnPedidoCompra.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnPedidoCompra.BackColor = System.Drawing.Color.White;
+            this.btnPedidoCompra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPedidoCompra.BorderRadius = 5;
+            this.btnPedidoCompra.ButtonText = "+ Pedido de Compra";
+            this.btnPedidoCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.anima1.SetDecoration(this.btnPedidoCompra, BunifuAnimatorNS.DecorationType.None);
+            this.btnPedidoCompra.DisabledColor = System.Drawing.Color.Gray;
+            this.btnPedidoCompra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPedidoCompra.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnPedidoCompra.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPedidoCompra.Iconimage")));
+            this.btnPedidoCompra.Iconimage_right = null;
+            this.btnPedidoCompra.Iconimage_right_Selected = null;
+            this.btnPedidoCompra.Iconimage_Selected = null;
+            this.btnPedidoCompra.IconMarginLeft = 0;
+            this.btnPedidoCompra.IconMarginRight = 0;
+            this.btnPedidoCompra.IconRightVisible = true;
+            this.btnPedidoCompra.IconRightZoom = 0D;
+            this.btnPedidoCompra.IconVisible = false;
+            this.btnPedidoCompra.IconZoom = 90D;
+            this.btnPedidoCompra.IsTab = false;
+            this.btnPedidoCompra.Location = new System.Drawing.Point(0, 676);
+            this.btnPedidoCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPedidoCompra.Name = "btnPedidoCompra";
+            this.btnPedidoCompra.Normalcolor = System.Drawing.Color.White;
+            this.btnPedidoCompra.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnPedidoCompra.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnPedidoCompra.selected = false;
+            this.btnPedidoCompra.Size = new System.Drawing.Size(229, 36);
+            this.btnPedidoCompra.TabIndex = 174;
+            this.btnPedidoCompra.Text = "+ Pedido de Compra";
+            this.btnPedidoCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPedidoCompra.Textcolor = System.Drawing.Color.Gray;
+            this.btnPedidoCompra.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidoCompra.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // btnConfig
             // 
@@ -1167,42 +1218,43 @@
             this.btnVendedores.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVendedores.Click += new System.EventHandler(this.btnVendedores_Click);
             // 
-            // bunifuFlatButton9
+            // btnSetting
             // 
-            this.bunifuFlatButton9.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.bunifuFlatButton9.BackColor = System.Drawing.Color.White;
-            this.bunifuFlatButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton9.BorderRadius = 5;
-            this.bunifuFlatButton9.ButtonText = "+ Ajustes";
-            this.bunifuFlatButton9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.anima1.SetDecoration(this.bunifuFlatButton9, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton9.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bunifuFlatButton9.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton9.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton9.Iconimage")));
-            this.bunifuFlatButton9.Iconimage_right = null;
-            this.bunifuFlatButton9.Iconimage_right_Selected = null;
-            this.bunifuFlatButton9.Iconimage_Selected = null;
-            this.bunifuFlatButton9.IconMarginLeft = 0;
-            this.bunifuFlatButton9.IconMarginRight = 0;
-            this.bunifuFlatButton9.IconRightVisible = true;
-            this.bunifuFlatButton9.IconRightZoom = 0D;
-            this.bunifuFlatButton9.IconVisible = false;
-            this.bunifuFlatButton9.IconZoom = 90D;
-            this.bunifuFlatButton9.IsTab = false;
-            this.bunifuFlatButton9.Location = new System.Drawing.Point(0, 783);
-            this.bunifuFlatButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuFlatButton9.Name = "bunifuFlatButton9";
-            this.bunifuFlatButton9.Normalcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton9.OnHovercolor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuFlatButton9.OnHoverTextColor = System.Drawing.Color.Black;
-            this.bunifuFlatButton9.selected = false;
-            this.bunifuFlatButton9.Size = new System.Drawing.Size(229, 36);
-            this.bunifuFlatButton9.TabIndex = 164;
-            this.bunifuFlatButton9.Text = "+ Ajustes";
-            this.bunifuFlatButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton9.Textcolor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton9.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnSetting.BackColor = System.Drawing.Color.White;
+            this.btnSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSetting.BorderRadius = 5;
+            this.btnSetting.ButtonText = "+ Ajustes";
+            this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.anima1.SetDecoration(this.btnSetting, BunifuAnimatorNS.DecorationType.None);
+            this.btnSetting.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSetting.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSetting.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSetting.Iconimage")));
+            this.btnSetting.Iconimage_right = null;
+            this.btnSetting.Iconimage_right_Selected = null;
+            this.btnSetting.Iconimage_Selected = null;
+            this.btnSetting.IconMarginLeft = 0;
+            this.btnSetting.IconMarginRight = 0;
+            this.btnSetting.IconRightVisible = true;
+            this.btnSetting.IconRightZoom = 0D;
+            this.btnSetting.IconVisible = false;
+            this.btnSetting.IconZoom = 90D;
+            this.btnSetting.IsTab = false;
+            this.btnSetting.Location = new System.Drawing.Point(0, 783);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Normalcolor = System.Drawing.Color.White;
+            this.btnSetting.OnHovercolor = System.Drawing.Color.WhiteSmoke;
+            this.btnSetting.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btnSetting.selected = false;
+            this.btnSetting.Size = new System.Drawing.Size(229, 36);
+            this.btnSetting.TabIndex = 164;
+            this.btnSetting.Text = "+ Ajustes";
+            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Textcolor = System.Drawing.Color.Gray;
+            this.btnSetting.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnFornecedores
             // 
@@ -1422,22 +1474,22 @@
             // 
             this.anima1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.anima1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.anima1.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.anima1.DefaultAnimation = animation2;
             // 
             // FormAdministrador
             // 
@@ -1455,7 +1507,7 @@
             this.Load += new System.EventHandler(this.FormAdministrador_Load);
             this.painelContainer.ResumeLayout(false);
             this.painelContainer.PerformLayout();
-            this.panel7.ResumeLayout(false);
+            this.pLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
             this.pConteudo.ResumeLayout(false);
             this.pConteudo.PerformLayout();
@@ -1514,10 +1566,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton9;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSetting;
         private System.Windows.Forms.PictureBox fotoUsuario;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pLogo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pConteudo;
@@ -1557,5 +1609,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnConfig;
         private System.Windows.Forms.Panel pTituloVendasMenu;
         private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuFlatButton btnPedidoCompra;
+        private System.Windows.Forms.Panel pConteudoHeader;
     }
 }

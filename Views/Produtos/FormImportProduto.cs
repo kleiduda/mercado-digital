@@ -220,7 +220,7 @@ namespace Views
                         dgvDados.Visible = false;
                         for (int i = 0; i < dgvDados.Rows.Count; i++)
                         {
-                            rpta = BusinesProduto.InsertRegister(
+                            rpta = BusinesProduto.Produto_Cadastro(
                                 Convert.ToString(dgvDados.Rows[i].Cells["codigo"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["ean"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["descricao"].Value.ToString().TrimEnd()),
@@ -230,7 +230,13 @@ namespace Views
                                 Convert.ToInt32(dgvDados.Rows[i].Cells["id_categoria"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["imagem"].Value.ToString().TrimEnd()),
                                 Convert.ToString(dgvDados.Rows[i].Cells["embalagem"].Value.ToString().TrimEnd()),
-                                Convert.ToInt32(dgvDados.Rows[i].Cells["estoque"].Value.ToString().TrimEnd()));
+                                Convert.ToInt32(dgvDados.Rows[i].Cells["estoque"].Value.ToString().TrimEnd()),
+                                dgvDados.Rows[i].Cells["tipo_embalagem"].Value.ToString().TrimEnd(),
+                                Convert.ToInt32(dgvDados.Rows[i].Cells["qtd_embalagem"].Value.ToString().TrimEnd()),
+                                Convert.ToDecimal(dgvDados.Rows[i].Cells["preco_unidade"].Value.ToString().TrimEnd()),
+                                Convert.ToDecimal(dgvDados.Rows[i].Cells["metro_cubico"].Value.ToString().TrimEnd())
+                                );
+
 
 
                             ProgressBar.Value = i * ProgressBar.MaximumValue / dgvDados.Rows.Count + 1;

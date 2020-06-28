@@ -26,9 +26,15 @@ namespace Dados
         public string Embalagem { get; set; }
         public DateTime DataEntrada { get; set; }
         public string TxtPesquisa { get; set; }
+        //info extra
+        public string TipoEmbalagem { get; set; }
+        public int QtdEmbalagem { get; set; }
+        public decimal PrecoUnidade { get; set; }
+        public decimal MetroCubico { get; set; }
+        public string Medida { get; set; }
         //estoque
         public int Estoque { get; set; }
-        //categoria
+        
 
         public DadosProduto()
         {
@@ -44,24 +50,29 @@ namespace Dados
         {
             NomeCategoria = nomeCategoria;
         }
-        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal precoCusto, decimal preco, decimal precoPromocional,
-            int idCategoria, string imagem, string embalagem, DateTime dataEntrada, string txtPesquisa, int estoque)
+
+        public DadosProduto(int idProduto, string codigo, string eAN, string descricao, decimal precoCusto, decimal preco, 
+            decimal precoPromocional, int idCategoria, string nomeCategoria, string imagem, string embalagem, 
+            DateTime dataEntrada, string txtPesquisa, string tipoEmbalagem, int qtdEmbalagem, decimal precoUnidade, 
+            decimal metroCubico, int estoque, string medida) : this(idProduto, codigo)
         {
-            IdProduto = idProduto;
-            Codigo = codigo;
             EAN = eAN;
             Descricao = descricao;
             PrecoCusto = precoCusto;
             Preco = preco;
             PrecoPromocional = precoPromocional;
             IdCategoria = idCategoria;
+            NomeCategoria = nomeCategoria;
             Imagem = imagem;
             Embalagem = embalagem;
             DataEntrada = dataEntrada;
             TxtPesquisa = txtPesquisa;
-            //estoque
+            TipoEmbalagem = tipoEmbalagem;
+            QtdEmbalagem = qtdEmbalagem;
+            PrecoUnidade = precoUnidade;
+            MetroCubico = metroCubico;
             Estoque = estoque;
-
+            Medida = medida;
         }
 
         protected SqlCommand command = new SqlCommand();
@@ -96,9 +107,15 @@ namespace Dados
                     command.Parameters.AddWithValue("@id_categoria", Produto.IdCategoria);
                     command.Parameters.AddWithValue("@imagem", Produto.Imagem);
                     command.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
+                    //info extra
+                    command.Parameters.AddWithValue("@tipo_embalagem", Produto.TipoEmbalagem);
+                    command.Parameters.AddWithValue("@qtd_embalagem", Produto.QtdEmbalagem);
+                    command.Parameters.AddWithValue("@preco_unidade", Produto.PrecoUnidade);
+                    command.Parameters.AddWithValue("@metro_cubico", Produto.MetroCubico);
                     command.Parameters.AddWithValue("@estoque", Produto.Estoque);
+                    command.Parameters.AddWithValue("@medida", Produto.Medida);
 
-                    rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
+                    rpta = command.ExecuteNonQuery() == 3 ? "OK" : "Erro ao inserir o registro (cadastro de produto)";
 
                 }
                 catch (Exception ex)
@@ -134,6 +151,7 @@ namespace Dados
                 command.Parameters.AddWithValue("@image", Produto.Imagem);
                 command.Parameters.AddWithValue("@embalagem", Produto.Embalagem);
                 command.Parameters.AddWithValue("@estoque", Produto.Estoque);
+                command.Parameters.AddWithValue("@medida", Produto.Medida);
 
                 rpta = command.ExecuteNonQuery() == 2 ? "OK" : "Erro ao atualizar o produto";
 
@@ -162,6 +180,34 @@ namespace Dados
                     command.Connection = connection;
                     command.CommandText = "ListarProdutos";
                     command.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(command);
+                    SqlDat.Fill(DtResult);
+
+                }
+                catch (Exception ex)
+                {
+                    DtResult = null;
+                }
+                return DtResult;
+            }
+        }
+        public DataTable Produto_ListaPorID(DadosProduto PRODUTO)
+        {
+            DataTable DtResult = new DataTable("produto");
+
+            using (var connection = GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = "SELECT p.id_produto, p.codigo, p.ean, c.nome_categoria, p.descricao, p.preco_custo, p.preco, p.preco_promocional, " +
+                        "e.estoque, e.estoque_inicial, p.embalagem, i.tipo_embalagem, i.qtd_embalagem, i.preco_unidade, i.metro_cubico, i.medida " +
+                        "FROM tb_produto p LEFT JOIN tb_produto_info i ON p.id_produto = i.id_produto INNER JOIN tb_categoria c " +
+                        "ON p.id_categoria = c.id_categoria INNER JOIN tb_estoque e ON p.id_produto = e.id_produto WHERE p.id_produto = @id_produto";
+                    command.CommandType = CommandType.Text;
+                    command.Parameters.AddWithValue("@id_produto", PRODUTO.IdProduto);
 
                     SqlDataAdapter SqlDat = new SqlDataAdapter(command);
                     SqlDat.Fill(DtResult);

@@ -539,6 +539,7 @@
             this.dgvCadastros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCadastros.Size = new System.Drawing.Size(428, 139);
             this.dgvCadastros.TabIndex = 159;
+            this.dgvCadastros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCadastro_CellClick);
             // 
             // FormCartoes
             // 

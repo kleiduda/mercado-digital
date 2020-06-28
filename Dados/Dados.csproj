@@ -32,6 +32,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework" />
+    <Reference Include="Syncfusion.Compression.Base, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.18.1.0.57\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.1.0.57\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.WinForms.18.1.0.57\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +56,9 @@
     <Compile Include="DadosCaixa.cs" />
     <Compile Include="DadosCliente.cs" />
     <Compile Include="DadosConfig.cs" />
+    <Compile Include="DadosFornecedor.cs" />
     <Compile Include="DadosPedido.cs" />
+    <Compile Include="DadosPedidoCompra.cs" />
     <Compile Include="DadosProduto.cs" />
     <Compile Include="DadosUsuario.cs" />
     <Compile Include="NotaFiscal\DadosNotaFiscal.cs" />
@@ -62,6 +73,8 @@
       <Name>Supporte</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

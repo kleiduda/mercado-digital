@@ -12,7 +12,9 @@ namespace Busines
 {
    public class BusinesProduto
     {
-        public static string InsertRegister(string codigo, string ean, string descricao,decimal precoCusto, decimal preco, decimal precoPromocional, int idCategoria, string image, string embalagem, int estoque)
+        public static string Produto_Cadastro(string codigo, string ean, string descricao,decimal precoCusto, decimal preco, decimal precoPromocional, 
+            int idCategoria, string image, string embalagem, int estoque, string tipoEmbalagem = null, int qtdEmbalagem = 0, decimal precoUnidade = 0, 
+            decimal metroCubico = 0, string medida = "0")
         {
             DadosProduto obj = new DadosProduto();
             obj.Codigo = codigo;
@@ -24,12 +26,19 @@ namespace Busines
             obj.IdCategoria = idCategoria;
             obj.Imagem = image;
             obj.Embalagem = embalagem;
+            obj.TipoEmbalagem = tipoEmbalagem;
+            obj.QtdEmbalagem = qtdEmbalagem;
+            obj.PrecoUnidade = precoUnidade;
+            obj.MetroCubico = metroCubico;
             obj.Estoque = estoque;
+            obj.Medida = medida;
 
             return obj.InsertRegister(obj);
         }
         //editando o produto
-        public static string Editar(int idProduto, string codigo, string ean, string descricao,decimal precoCusto, decimal preco, decimal precoPromocional, int idcategoria, string imagem, string embalagem, int estoque)
+        public static string Produto_Update(int idProduto, string codigo, string ean, string descricao, decimal precoCusto, decimal preco, decimal precoPromocional,
+            int idCategoria, string image, string embalagem, int estoque, string tipoEmbalagem = null, int qtdEmbalagem = 0, decimal precoUnidade = 0,
+            decimal metroCubico = 0, string medida = "0")
         {
             DadosProduto obj = new DadosProduto();
             obj.IdProduto = idProduto;
@@ -39,10 +48,15 @@ namespace Busines
             obj.PrecoCusto = precoCusto;
             obj.Preco = preco;
             obj.PrecoPromocional = precoPromocional;
-            obj.IdCategoria = idcategoria;
-            obj.Imagem = imagem;
+            obj.IdCategoria = idCategoria;
+            obj.Imagem = image;
             obj.Embalagem = embalagem;
+            obj.TipoEmbalagem = tipoEmbalagem;
+            obj.QtdEmbalagem = qtdEmbalagem;
+            obj.PrecoUnidade = precoUnidade;
+            obj.MetroCubico = metroCubico;
             obj.Estoque = estoque;
+            obj.Medida = medida;
 
             return obj.Editar(obj);
 
@@ -51,6 +65,12 @@ namespace Busines
         public static DataTable ListarProdutos()
         {
             return new DadosProduto().ListarProdutos(); 
+        }
+        public static DataTable Produto_ListaPorId(int id)
+        {
+            DadosProduto obj = new DadosProduto();
+            obj.IdProduto = id;
+            return obj.Produto_ListaPorID(obj);
         }
         //pesquisa
         public static DataTable PesquisaProduto(string searchText)

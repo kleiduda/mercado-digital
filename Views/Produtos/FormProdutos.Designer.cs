@@ -46,6 +46,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabCadastro = new System.Windows.Forms.TabPage();
             this.pProduct = new System.Windows.Forms.Panel();
+            this.txtPrecoPromocional = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.txtEAN = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -75,9 +77,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSalvar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txtPrecoPromocional = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.panel2.SuspendLayout();
@@ -99,7 +100,7 @@
             this.lblState.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblState.ForeColor = System.Drawing.Color.Gray;
-            this.lblState.Location = new System.Drawing.Point(234, 434);
+            this.lblState.Location = new System.Drawing.Point(117, 684);
             this.lblState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblState.Name = "lblState";
             this.lblState.Size = new System.Drawing.Size(41, 24);
@@ -112,7 +113,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 388);
+            this.label9.Location = new System.Drawing.Point(16, 754);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(255, 44);
@@ -129,21 +130,23 @@
             this.tabControl1.Controls.Add(this.tabLista);
             this.tabControl1.Controls.Add(this.tabCadastro);
             this.tabControl1.ItemSize = new System.Drawing.Size(24, 30);
-            this.tabControl1.Location = new System.Drawing.Point(109, 60);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1311, 715);
+            this.tabControl1.Size = new System.Drawing.Size(1412, 811);
             this.tabControl1.TabIndex = 161;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tabPage2.Controls.Add(this.lblState);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1303, 677);
+            this.tabPage2.Size = new System.Drawing.Size(1404, 773);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Lista de Vendedores";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabLista
             // 
@@ -153,7 +156,7 @@
             this.tabLista.Location = new System.Drawing.Point(4, 34);
             this.tabLista.Name = "tabLista";
             this.tabLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLista.Size = new System.Drawing.Size(1303, 677);
+            this.tabLista.Size = new System.Drawing.Size(1404, 773);
             this.tabLista.TabIndex = 0;
             this.tabLista.Text = "Lista de Produtos";
             // 
@@ -304,7 +307,7 @@
             this.tabCadastro.Location = new System.Drawing.Point(4, 34);
             this.tabCadastro.Name = "tabCadastro";
             this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCadastro.Size = new System.Drawing.Size(1303, 677);
+            this.tabCadastro.Size = new System.Drawing.Size(1404, 773);
             this.tabCadastro.TabIndex = 2;
             this.tabCadastro.Text = "Cadastro de Produtos";
             // 
@@ -339,6 +342,32 @@
             this.pProduct.Name = "pProduct";
             this.pProduct.Size = new System.Drawing.Size(867, 484);
             this.pProduct.TabIndex = 157;
+            // 
+            // txtPrecoPromocional
+            // 
+            this.txtPrecoPromocional.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPrecoPromocional.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecoPromocional.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrecoPromocional.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtPrecoPromocional.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecoPromocional.Location = new System.Drawing.Point(352, 355);
+            this.txtPrecoPromocional.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecoPromocional.MaxLength = 150;
+            this.txtPrecoPromocional.Name = "txtPrecoPromocional";
+            this.txtPrecoPromocional.Size = new System.Drawing.Size(132, 30);
+            this.txtPrecoPromocional.TabIndex = 153;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(351, 338);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 14);
+            this.label8.TabIndex = 154;
+            this.label8.Text = "Preço Promocional";
             // 
             // txtIdProduto
             // 
@@ -813,39 +842,12 @@
             this.btnSalvar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // txtPrecoPromocional
-            // 
-            this.txtPrecoPromocional.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrecoPromocional.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPrecoPromocional.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrecoPromocional.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtPrecoPromocional.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecoPromocional.Location = new System.Drawing.Point(352, 355);
-            this.txtPrecoPromocional.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrecoPromocional.MaxLength = 150;
-            this.txtPrecoPromocional.Name = "txtPrecoPromocional";
-            this.txtPrecoPromocional.Size = new System.Drawing.Size(132, 30);
-            this.txtPrecoPromocional.TabIndex = 153;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 6.25F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(351, 338);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(111, 14);
-            this.label8.TabIndex = 154;
-            this.label8.Text = "Preço Promocional";
-            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1436, 835);
-            this.Controls.Add(this.lblState);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -853,6 +855,8 @@
             this.Text = "FormNovoProduto";
             this.Load += new System.EventHandler(this.FormNovoProduto_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.panel2.ResumeLayout(false);

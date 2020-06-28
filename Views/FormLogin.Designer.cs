@@ -38,17 +38,16 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(175)))), ((int)(((byte)(115)))));
-            this.panelLeft.Controls.Add(this.pictureBox1);
+            this.panelLeft.Controls.Add(this.label1);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
@@ -72,13 +71,13 @@
             // 
             this.txtUser.BackColor = System.Drawing.SystemColors.Control;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Font = new System.Drawing.Font("Open Sans Light", 19.8F);
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F);
             this.txtUser.ForeColor = System.Drawing.Color.Gray;
             this.txtUser.Location = new System.Drawing.Point(532, 260);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.MaxLength = 150;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(527, 45);
+            this.txtUser.Size = new System.Drawing.Size(527, 38);
             this.txtUser.TabIndex = 124;
             this.txtUser.Text = "Usuário";
             this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter);
@@ -88,13 +87,13 @@
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Control;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Open Sans Light", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Gray;
             this.txtPassword.Location = new System.Drawing.Point(532, 365);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.MaxLength = 150;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(527, 45);
+            this.txtPassword.Size = new System.Drawing.Size(527, 38);
             this.txtPassword.TabIndex = 126;
             this.txtPassword.Text = "Senha";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
@@ -168,27 +167,30 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.BackColor = System.Drawing.Color.Transparent;
-            this.lblError.Font = new System.Drawing.Font("Open Sans SemiBold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Image = global::Views.Properties.Resources.report_min;
             this.lblError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblError.Location = new System.Drawing.Point(529, 435);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(204, 23);
+            this.lblError.Size = new System.Drawing.Size(234, 20);
             this.lblError.TabIndex = 141;
             this.lblError.Text = "         erro ao fazer o login";
             this.lblError.Visible = false;
             // 
-            // pictureBox1
+            // label1
             // 
-            this.pictureBox1.Image = global::Views.Properties.Resources.Asset_1logo_white;
-            this.pictureBox1.Location = new System.Drawing.Point(70, 249);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(253, 133);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial Black", 30.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(22, 276);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(370, 72);
+            this.label1.TabIndex = 144;
+            this.label1.Text = "ERP (future)";
             // 
             // FormLogin
             // 
@@ -212,9 +214,9 @@
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
             this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +225,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         public System.Windows.Forms.TextBox txtUser;
         public System.Windows.Forms.TextBox txtPassword;
@@ -233,5 +234,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label1;
     }
 }

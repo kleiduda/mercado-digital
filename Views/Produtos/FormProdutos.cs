@@ -103,42 +103,42 @@ namespace Views.Produtos
             fotoProduto.Enabled = true;
         }
         //definindo imagem do produto
-        private void imageProduto_Click(object sender, EventArgs e)
-        {
-            DataTable dtPath = new DataTable();
-            dtPath = BusinesConfig.PathImage();
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.CheckFileExists = false;
-            openFileDialog.AddExtension = true;
-            openFileDialog.Multiselect = false;
-            openFileDialog.Filter = "JPG files (*.jpg)|*.jpg";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            private void imageProduto_Click(object sender, EventArgs e)
             {
-                //this.fotoVendedor.SizeMode = PictureBoxSizeMode.Zoom;
-                this.fotoProduto.Image = Image.FromFile(openFileDialog.FileName);
-                string original = Path.GetFullPath(openFileDialog.FileName);
-                string novo = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
-                //string original = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
+                DataTable dtPath = new DataTable();
+                dtPath = BusinesConfig.PathImage();
 
-                foreach (string fileName in openFileDialog.FileNames)
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.CheckFileExists = false;
+                openFileDialog.AddExtension = true;
+                openFileDialog.Multiselect = false;
+                openFileDialog.Filter = "JPG files (*.jpg)|*.jpg";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (File.Exists(dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName)))
+                    //this.fotoVendedor.SizeMode = PictureBoxSizeMode.Zoom;
+                    this.fotoProduto.Image = Image.FromFile(openFileDialog.FileName);
+                    string original = Path.GetFullPath(openFileDialog.FileName);
+                    string novo = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
+                    //string original = dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(openFileDialog.FileName);
+
+                    foreach (string fileName in openFileDialog.FileNames)
                     {
-                        MessageBox.Show("Já existe uma imagem com esse nome na pasta, Atualizar?");
-                        //File.Replace(fileName, @"C:\Users\ArteGift\Documents\img\" + Path.GetFileName(fileName), "copy");
+                        if (File.Exists(dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName)))
+                        {
+                            MessageBox.Show("Já existe uma imagem com esse nome na pasta, Atualizar?");
+                            //File.Replace(fileName, @"C:\Users\ArteGift\Documents\img\" + Path.GetFileName(fileName), "copy");
+                        }
+                        else
+                        {
+                            ResizeImage(original, novo, 300, 200, true);
+                            //File.Copy(fileName, dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName));
+                        }
                     }
-                    else
-                    {
-                        ResizeImage(original, novo, 300, 200, true);
-                        //File.Copy(fileName, dtPath.Rows[0]["image_path"].ToString() + Path.GetFileName(fileName));
-                    }
+                    string fileNames = openFileDialog.FileName;
+                    image = Path.GetFileName(fileNames);
+                    MessageBox.Show(image);
                 }
-                string fileNames = openFileDialog.FileName;
-                image = Path.GetFileName(fileNames);
-                MessageBox.Show(image);
             }
-        }
         private void IndexTab()
         {
             txtCodigo.TabIndex = 1;
@@ -243,83 +243,83 @@ namespace Views.Produtos
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string rpta = "";
-                if (this.txtCodigo.Text == string.Empty || this.txtDescricao.Text == string.Empty || this.txtPrecoCusto.Text == string.Empty ||
-                    string.IsNullOrEmpty(txtEstoque.Text))
+                try
                 {
-                    msgError("Alguns campos obrigatórios estão vazios!");
-                }
-                else if (BusinesProduto.ValidaProduto(txtCodigo.Text) && IsNew == true)
-                {
-                    msgError("Já existe um PRODUTO com Código " + txtCodigo.Text + " no banco de dados");
-                    txtCodigo.Focus();
-                }
-                else
-                {
-                    if (this.IsNew)
+                    string rpta = "";
+                    if (this.txtCodigo.Text == string.Empty || this.txtDescricao.Text == string.Empty || this.txtPrecoCusto.Text == string.Empty ||
+                        string.IsNullOrEmpty(txtEstoque.Text))
                     {
-                        rpta = BusinesProduto.InsertRegister(
-                            this.txtCodigo.Text,
-                            this.txtEAN.Text,
-                            this.txtDescricao.Text.Trim().ToUpper(),
-                            decimal.Parse(txtPrecoCusto.Text),
-                            Convert.ToDecimal(this.txtPrecoCusto.Text),
-                            Convert.ToDecimal(this.txtPrecoVenda.Text),
-                            1,
-                            image,
-                            this.txtEmbalagem.Text,
-                            Convert.ToInt32(txtEstoque.Text)
-                            );
+                        msgError("Alguns campos obrigatórios estão vazios!");
+                    }
+                    else if (BusinesProduto.ValidaProduto(txtCodigo.Text) && IsNew == true)
+                    {
+                        msgError("Já existe um PRODUTO com Código " + txtCodigo.Text + " no banco de dados");
+                        txtCodigo.Focus();
                     }
                     else
-                    {
-                        rpta = BusinesProduto.Editar(
-                            Convert.ToInt32(txtIdProduto.Text),
-                            this.txtCodigo.Text,
-                            this.txtEAN.Text,
-                            this.txtDescricao.Text.Trim().ToUpper(),
-                            decimal.Parse(txtPrecoCusto.Text),
-                            Convert.ToDecimal(this.txtPrecoCusto.Text),
-                            Convert.ToDecimal(this.txtPrecoVenda.Text),
-                            1,
-                            image,
-                            this.txtEmbalagem.Text,
-                            Convert.ToInt32(txtEstoque.Text)
-                            );
-                    }
-                    if (rpta.Equals("OK"))
                     {
                         if (this.IsNew)
                         {
-                            msgSuccess("Produto CADASTRADO com Sucesso!");
-                            lblError.Visible = false;
+                            rpta = BusinesProduto.Produto_Cadastro(
+                                this.txtCodigo.Text,
+                                this.txtEAN.Text,
+                                this.txtDescricao.Text.Trim().ToUpper(),
+                                decimal.Parse(txtPrecoCusto.Text),
+                                Convert.ToDecimal(this.txtPrecoCusto.Text),
+                                Convert.ToDecimal(this.txtPrecoVenda.Text),
+                                1,
+                                image,
+                                this.txtEmbalagem.Text,
+                                Convert.ToInt32(txtEstoque.Text)
+                                );
                         }
                         else
                         {
-                            msgSuccess("Produto ATUALIZADO com Sucesso!");
-                            lblError.Visible = false;
+                            rpta = BusinesProduto.Produto_Update(
+                                Convert.ToInt32(txtIdProduto.Text),
+                                this.txtCodigo.Text,
+                                this.txtEAN.Text,
+                                this.txtDescricao.Text.Trim().ToUpper(),
+                                decimal.Parse(txtPrecoCusto.Text),
+                                Convert.ToDecimal(this.txtPrecoCusto.Text),
+                                Convert.ToDecimal(this.txtPrecoVenda.Text),
+                                1,
+                                image,
+                                this.txtEmbalagem.Text,
+                                Convert.ToInt32(txtEstoque.Text)
+                                );
                         }
+                        if (rpta.Equals("OK"))
+                        {
+                            if (this.IsNew)
+                            {
+                                msgSuccess("Produto CADASTRADO com Sucesso!");
+                                lblError.Visible = false;
+                            }
+                            else
+                            {
+                                msgSuccess("Produto ATUALIZADO com Sucesso!");
+                                lblError.Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(rpta);
+                        }
+                        IsNew = true;
+                        btnSalvar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                        btnEditar.Enabled = true;
+                        btnNovoCadastro.Enabled = true;
+                        DesabilitarEdição();
+                        txtCodigo.Focus();
+                        CarregarGrid();
                     }
-                    else
-                    {
-                        MessageBox.Show(rpta);
-                    }
-                    IsNew = true;
-                    btnSalvar.Enabled = false;
-                    btnCancelar.Enabled = false;
-                    btnEditar.Enabled = true;
-                    btnNovoCadastro.Enabled = true;
-                    DesabilitarEdição();
-                    txtCodigo.Focus();
-                    CarregarGrid();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -373,6 +373,11 @@ namespace Views.Produtos
             btnNovoCadastro.Enabled = true;
             DesabilitarEdição();
             this.IsNew = true;
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

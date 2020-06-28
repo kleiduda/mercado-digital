@@ -45,10 +45,10 @@
             // txtArquivoExcel
             // 
             this.txtArquivoExcel.AllowDrop = true;
-            this.txtArquivoExcel.Location = new System.Drawing.Point(217, 303);
-            this.txtArquivoExcel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtArquivoExcel.Location = new System.Drawing.Point(193, 242);
+            this.txtArquivoExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtArquivoExcel.Name = "txtArquivoExcel";
-            this.txtArquivoExcel.Size = new System.Drawing.Size(383, 26);
+            this.txtArquivoExcel.Size = new System.Drawing.Size(341, 22);
             this.txtArquivoExcel.TabIndex = 150;
             this.txtArquivoExcel.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtArquivoExcel_DragDrop);
             this.txtArquivoExcel.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtArquivoExcel_DragEnter);
@@ -86,8 +86,8 @@
             this.dgvDados.GridColor = System.Drawing.Color.White;
             this.dgvDados.HeaderBgColor = System.Drawing.Color.White;
             this.dgvDados.HeaderForeColor = System.Drawing.Color.Black;
-            this.dgvDados.Location = new System.Drawing.Point(918, 189);
-            this.dgvDados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvDados.Location = new System.Drawing.Point(816, 151);
+            this.dgvDados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDados.MultiSelect = false;
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.ReadOnly = true;
@@ -111,7 +111,7 @@
             this.dgvDados.RowTemplate.DividerHeight = 1;
             this.dgvDados.RowTemplate.Height = 30;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(144, 27);
+            this.dgvDados.Size = new System.Drawing.Size(128, 22);
             this.dgvDados.TabIndex = 160;
             this.dgvDados.Visible = false;
             // 
@@ -123,12 +123,12 @@
             // 
             this.ProgressBar.BackColor = System.Drawing.Color.Silver;
             this.ProgressBar.BorderRadius = 1;
-            this.ProgressBar.Location = new System.Drawing.Point(13, 368);
-            this.ProgressBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ProgressBar.Location = new System.Drawing.Point(12, 294);
+            this.ProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ProgressBar.MaximumValue = 100;
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(186)))), ((int)(((byte)(167)))));
-            this.ProgressBar.Size = new System.Drawing.Size(832, 10);
+            this.ProgressBar.Size = new System.Drawing.Size(740, 8);
             this.ProgressBar.TabIndex = 165;
             this.ProgressBar.Value = 0;
             // 
@@ -138,9 +138,10 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Views.Properties.Resources.upload_arquivo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(217, 65);
+            this.panel1.Location = new System.Drawing.Point(193, 52);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(383, 230);
+            this.panel1.Size = new System.Drawing.Size(340, 184);
             this.panel1.TabIndex = 168;
             this.panel1.Click += new System.EventHandler(this.btnLocalizarArquivoExcel_Click);
             this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtArquivoExcel_DragDrop);
@@ -153,10 +154,10 @@
             this.btnSqlServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSqlServer.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSqlServer.ForeColor = System.Drawing.Color.White;
-            this.btnSqlServer.Location = new System.Drawing.Point(217, 433);
-            this.btnSqlServer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSqlServer.Location = new System.Drawing.Point(193, 346);
+            this.btnSqlServer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSqlServer.Name = "btnSqlServer";
-            this.btnSqlServer.Size = new System.Drawing.Size(383, 49);
+            this.btnSqlServer.Size = new System.Drawing.Size(340, 39);
             this.btnSqlServer.TabIndex = 138;
             this.btnSqlServer.Text = "IMPORTAR";
             this.btnSqlServer.UseVisualStyleBackColor = false;
@@ -164,15 +165,16 @@
             // 
             // FormImportProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 523);
+            this.ClientSize = new System.Drawing.Size(1130, 653);
             this.Controls.Add(this.btnSqlServer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.dgvDados);
             this.Controls.Add(this.txtArquivoExcel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormImportProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Importar Produtos";

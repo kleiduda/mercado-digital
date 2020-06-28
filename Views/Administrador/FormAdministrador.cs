@@ -13,6 +13,7 @@ using Busines.Administrador;
 using Busines;
 using Views.Produtos;
 using Supporte.Enums;
+using Views.Setting;
 
 namespace Views.Administrador
 {
@@ -220,7 +221,7 @@ namespace Views.Administrador
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             //MenuProduto();
-            AbrirFormulario<FormProdutos>();
+            AbrirFormulario<FormListProduto>();
         }
 
         #endregion
@@ -241,7 +242,8 @@ namespace Views.Administrador
 
         private void btnFornecedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormNovoFornecedor>();
+            AbrirFormulario<ListaFornecedor>();
+            pConteudoHeader.BackColor = Color.FromArgb(242,242,242);
         }
 
         private void btnVendedores_Click(object sender, EventArgs e)
@@ -263,6 +265,16 @@ namespace Views.Administrador
         {
             var frm = new FormValorInicial();
             frm.Show();
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<PedidosCompra_Lista>();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormConfig>();
         }
     }
 }

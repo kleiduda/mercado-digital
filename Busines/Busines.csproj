@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Compression.Base, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.18.1.0.57\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.1.0.57\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=18.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.XlsIO.WinForms.18.1.0.57\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador\BusinesAdministrador.cs" />
+    <Compile Include="BPedidosCompra.cs" />
     <Compile Include="BusinesCaixa.cs" />
     <Compile Include="BusinesCliente.cs" />
     <Compile Include="BusinesConfig.cs" />
+    <Compile Include="BusinesFornecedor.cs" />
     <Compile Include="BusinesPedido.cs" />
     <Compile Include="BusinesProduto.cs" />
     <Compile Include="BusinesUsuario.cs" />
@@ -64,6 +75,9 @@
       <Project>{d45b9dbb-391b-4333-ab69-3e0d8b086d60}</Project>
       <Name>Supporte</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
