@@ -14,7 +14,7 @@ namespace Dados
 
         public Connection()
         {
-            connectionString = @"Server=DESKTOP-JNLM84J\SQLEXPRESS; DataBase=dbMercado; Integrated Security=true";
+            connectionString = @"Server=DESKTOP-AHJ1VA6\SQLEXPRESS; DataBase=dbMercado; Integrated Security=true";
         }
         protected SqlConnection GetConnection()
         {

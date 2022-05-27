@@ -563,5 +563,10 @@
   <ItemGroup>
     <None Include="Resources\excel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bunifu_UI_v1.5.3.dll" />
+    <Content Include="MonthCalendar.dll" />
+    <None Include="Resources\capa.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
